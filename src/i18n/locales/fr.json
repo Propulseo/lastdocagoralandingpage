@@ -20,6 +20,22 @@
     "contact": {
       "title": "Contactez-nous — DocAgora · Questions et assistance",
       "description": "Contactez DocAgora. Trouvez des réponses aux questions fréquentes sur notre plateforme et la prise de rendez-vous avec des professionnels de santé au Portugal."
+    },
+    "pro": {
+      "title": "DocAgora Pro \u2014 La solution tout-en-un pour les professionnels de sant\u00e9 au Portugal",
+      "description": "G\u00e9rez vos patients, votre agenda et d\u00e9veloppez votre cabinet avec DocAgora. Logiciel pour les professionnels de sant\u00e9 au Portugal."
+    },
+    "proPricing": {
+      "title": "Tarifs \u2014 DocAgora Pro",
+      "description": "D\u00e9couvrez les tarifs de DocAgora Pro pour les professionnels de sant\u00e9 au Portugal."
+    },
+    "proResources": {
+      "title": "Ressources \u2014 DocAgora Pro",
+      "description": "Ressources et documentation pour les professionnels de sant\u00e9 utilisant DocAgora."
+    },
+    "proAbout": {
+      "title": "\u00c0 propos \u2014 DocAgora Pro",
+      "description": "D\u00e9couvrez la mission de DocAgora pour les professionnels de sant\u00e9 au Portugal."
     }
   },
   "topbar": {
@@ -38,10 +54,19 @@
     "howItWorks": "Comment ça marche",
     "blog": "Blog",
     "contact": "Contact",
-    "findProfessional": "Trouver un professionnel"
+    "findProfessional": "Trouver un professionnel",
+    "imAProfessional": "Je suis un professionnel \u2192"
+  },
+  "navbarPro": {
+    "solution": "Solution",
+    "pricing": "Tarifs",
+    "resources": "Ressources",
+    "about": "\u00c0 propos",
+    "getStarted": "Commencer",
+    "imAPatient": "Je suis un patient \u2192"
   },
   "hero": {
-    "slide1Title": "Trouvez un médecin qui vous comprend, au Portugal",
+    "slide1Title": "Trouvez un m\u00e9decin qui vous comprend, au Portugal",
     "slide2Title": "Votre santé, dans votre langue, près de chez vous",
     "description": "DocAgora vous met en relation avec des professionnels de santé vérifiés au Portugal. Recherche intelligente, réservation en ligne, disponible en portugais, français et anglais.",
     "feature1": "Recherche intelligente",
@@ -489,5 +514,126 @@
     "suggestion2": "Médecin de famille à Porto",
     "suggestion3": "Dermatologue parlant français",
     "suggestion4": "Psychologue abordable"
+  },
+  "pro": {
+    "hero": {
+      "title": "La solution tout-en-un qui r\u00e9invente votre quotidien professionnel.",
+      "subtitle": "Logiciel pour les professionnels de sant\u00e9 au Portugal.",
+      "badge1": "Conforme RGPD",
+      "badge2": "Donn\u00e9es h\u00e9berg\u00e9es en Europe",
+      "badge3": "Con\u00e7u pour le Portugal",
+      "ctaGetStarted": "Commencer",
+      "ctaBookDemo": "R\u00e9server une d\u00e9mo",
+      "formTitle": "Parler \u00e0 un conseiller",
+      "formSubjectLabel": "Sujet",
+      "formSubjectOption1": "Je veux en savoir plus",
+      "formSubjectOption2": "Je veux commencer",
+      "formSubjectOption3": "J'ai des questions",
+      "formFirstName": "Pr\u00e9nom",
+      "formLastName": "Nom",
+      "formEmail": "Email",
+      "formPhone": "T\u00e9l\u00e9phone mobile",
+      "formPostalCode": "Code postal",
+      "formSpecialty": "Sp\u00e9cialit\u00e9",
+      "formSubmit": "Envoyer votre demande",
+      "formNote": "Nos conseillers sont l\u00e0 pour vous aider \u00e0 choisir l'offre la mieux adapt\u00e9e \u00e0 votre activit\u00e9.",
+      "formPrivacyLink": "En savoir plus sur nos pratiques de collecte de donn\u00e9es"
+    },
+    "video": {
+      "placeholder": "DocAgora \u2014 Bient\u00f4t disponible",
+      "card1Title": "Une plateforme unique",
+      "card1Desc": "Couvrez toutes vos activit\u00e9s quotidiennes en un seul endroit.",
+      "card2Title": "Les patients acteurs",
+      "card2Desc": "Les patients peuvent vous trouver et prendre rendez-vous en ligne facilement.",
+      "card3Title": "L'IA au c\u0153ur de votre pratique",
+      "card3Desc": "Recherche intelligente et mise en relation avec les patients.",
+      "card4Title": "Un service \u00e0 la hauteur de vos exigences",
+      "card4Desc": "Centre d'aide, support d\u00e9di\u00e9 et ressources."
+    },
+    "stats": {
+      "stat1Value": "16",
+      "stat1Label": "sp\u00e9cialit\u00e9s m\u00e9dicales support\u00e9es",
+      "stat2Value": "3 langues",
+      "stat2Label": "PT \u00b7 FR \u00b7 EN",
+      "stat3Value": "RGPD",
+      "stat3Label": "conforme \u00b7 h\u00e9berg\u00e9 en UE",
+      "testimonialQuote": "DocAgora a chang\u00e9 la fa\u00e7on dont je g\u00e8re mon cabinet. Je gagne du temps sur l'administratif et me concentre sur l'essentiel : mes patients.",
+      "testimonialName": "Dr. [Nom]",
+      "testimonialSpecialty": "[Sp\u00e9cialit\u00e9] \u2014 Lisbonne"
+    },
+    "improve": {
+      "block1Title": "Am\u00e9liorez votre quotidien",
+      "block1Subtitle": "Moins d'administratif, plus de s\u00e9r\u00e9nit\u00e9.",
+      "block1Bullet1": "R\u00e9duisez le temps administratif",
+      "block1Bullet2": "Gestion centralis\u00e9e des patients",
+      "block1Cta": "R\u00e9server une d\u00e9mo \u2192",
+      "block2Title": "Offrez de meilleurs soins",
+      "block2Subtitle": "De nouveaux standards de soins.",
+      "block2Bullet1": "Communication patient simplifi\u00e9e",
+      "block2Bullet2": "Plus de temps de qualit\u00e9 avec les patients",
+      "block2Cta": "R\u00e9server une d\u00e9mo \u2192",
+      "block3Title": "D\u00e9veloppez votre cabinet",
+      "block3Subtitle": "D\u00e9veloppez et optimisez sans effort.",
+      "block3Bullet1": "Touchez plus de patients",
+      "block3Bullet2": "Visible sur la plateforme DocAgora",
+      "block3Cta": "R\u00e9server une d\u00e9mo \u2192"
+    },
+    "testimonials": {
+      "title": "La parole aux professionnels",
+      "items": {
+        "item1": {
+          "quote": "DocAgora am\u00e9liore ma pratique : moins d'interruptions, plus d'attention aux patients.",
+          "name": "Dr. Florian D.",
+          "specialty": "Ost\u00e9opathe"
+        },
+        "item2": {
+          "quote": "Je gagne au moins cinq minutes par consultation.",
+          "name": "Dr. Patrick M.",
+          "specialty": "Gastro-ent\u00e9rologue"
+        },
+        "item3": {
+          "quote": "DocAgora m'\u00e9pargne les interruptions t\u00e9l\u00e9phoniques constantes et simplifie la prise de rendez-vous pour les patients \u00e0 toute heure.",
+          "name": "Dr. Elodie V.",
+          "specialty": "M\u00e9decin g\u00e9n\u00e9raliste"
+        },
+        "item4": {
+          "quote": "Quand j'ai commenc\u00e9, mon cabinet \u00e9tait stressant et d\u00e9sorganis\u00e9. Avec DocAgora, mon planning est structur\u00e9.",
+          "name": "Dr. R\u00e9my S.",
+          "specialty": "Dentiste"
+        }
+      }
+    },
+    "solutions": {
+      "title": "D\u00e9couvrez nos solutions pour vous",
+      "tabPractitioners": "Praticiens",
+      "tabFacilities": "\u00c9tablissements de sant\u00e9",
+      "facilitiesComingSoon": "Bient\u00f4t disponible \u2014 Nous travaillons sur des solutions adapt\u00e9es aux \u00e9tablissements de sant\u00e9."
+    },
+    "cta": {
+      "title": "Pr\u00eat \u00e0 transformer votre pratique ?",
+      "subtitle": "Rejoignez DocAgora aujourd'hui et d\u00e9couvrez une mani\u00e8re plus intelligente de g\u00e9rer votre cabinet.",
+      "ctaGetStarted": "Commencer",
+      "ctaBookDemo": "R\u00e9server une d\u00e9mo"
+    },
+    "footerPro": {
+      "pricingLink": "Tarifs",
+      "resourcesLink": "Ressources",
+      "aboutLink": "\u00c0 propos",
+      "patientSite": "Site patient"
+    },
+    "placeholder": {
+      "pricingTitle": "Tarifs",
+      "pricingSubtitle": "Nos plans tarifaires sont en cours de finalisation.",
+      "pricingDesc": "Nous pr\u00e9parons actuellement des tarifs comp\u00e9titifs adapt\u00e9s aux professionnels de sant\u00e9 au Portugal. Commencez gratuitement et explorez notre plateforme.",
+      "resourcesTitle": "Ressources",
+      "resourcesSubtitle": "Ressources pour les professionnels de sant\u00e9.",
+      "resourcesDesc": "Guides, tutoriels et documentation pour tirer le meilleur parti de DocAgora. Bient\u00f4t disponible.",
+      "aboutTitle": "\u00c0 propos de DocAgora Pro",
+      "aboutSubtitle": "Notre mission pour les professionnels de sant\u00e9.",
+      "aboutDesc": "DocAgora est con\u00e7u pour simplifier le quotidien des professionnels de sant\u00e9 au Portugal. D\u00e9couvrez notre vision et notre \u00e9quipe.",
+      "comingSoon": "Bient\u00f4t disponible",
+      "getStarted": "Commencer maintenant",
+      "backToHome": "\u2190 Retour \u00e0 l'accueil pro"
+    }
   }
 }

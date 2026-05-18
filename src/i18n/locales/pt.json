@@ -18,8 +18,24 @@
       "keywords": "blog saúde, saúde Portugal, saúde expatriados, encontrar médico Portugal, médicos multilingues"
     },
     "contact": {
-      "title": "Contacte-nos — DocAgora · Perguntas e apoio",
-      "description": "Entre em contacto com a DocAgora. Encontre respostas às perguntas mais frequentes sobre a nossa plataforma e como marcar consultas com profissionais de saúde em Portugal."
+      "title": "Contacte-nos \u2014 DocAgora \u00b7 Perguntas e apoio",
+      "description": "Entre em contacto com a DocAgora. Encontre respostas \u00e0s perguntas mais frequentes sobre a nossa plataforma e como marcar consultas com profissionais de sa\u00fade em Portugal."
+    },
+    "pro": {
+      "title": "DocAgora Pro \u2014 A solu\u00e7\u00e3o tudo-em-um para profissionais de sa\u00fade em Portugal",
+      "description": "Fa\u00e7a a gest\u00e3o dos seus pacientes, agenda e desenvolva a sua pr\u00e1tica com a DocAgora. Software para profissionais de sa\u00fade em Portugal."
+    },
+    "proPricing": {
+      "title": "Pre\u00e7os \u2014 DocAgora Pro",
+      "description": "Descubra os planos de pre\u00e7os da DocAgora Pro para profissionais de sa\u00fade em Portugal."
+    },
+    "proResources": {
+      "title": "Recursos \u2014 DocAgora Pro",
+      "description": "Recursos e documenta\u00e7\u00e3o para profissionais de sa\u00fade que utilizam a DocAgora."
+    },
+    "proAbout": {
+      "title": "Sobre \u2014 DocAgora Pro",
+      "description": "Conhe\u00e7a a miss\u00e3o da DocAgora para os profissionais de sa\u00fade em Portugal."
     }
   },
   "topbar": {
@@ -38,10 +54,19 @@
     "howItWorks": "Como funciona",
     "blog": "Blog",
     "contact": "Contacto",
-    "findProfessional": "Encontrar um profissional"
+    "findProfessional": "Encontrar um profissional",
+    "imAProfessional": "Sou um profissional \u2192"
+  },
+  "navbarPro": {
+    "solution": "Solu\u00e7\u00e3o",
+    "pricing": "Pre\u00e7os",
+    "resources": "Recursos",
+    "about": "Sobre",
+    "getStarted": "Come\u00e7ar",
+    "imAPatient": "Sou um paciente \u2192"
   },
   "hero": {
-    "slide1Title": "Encontre um médico que o compreenda, em Portugal",
+    "slide1Title": "Encontre um m\u00e9dico que o compreenda, em Portugal",
     "slide2Title": "A sua saúde, na sua língua, perto de si",
     "description": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquisa inteligente, marcação online, disponível em português, francês e inglês.",
     "feature1": "Pesquisa inteligente",
@@ -488,6 +513,127 @@
     "suggestion1": "Dentista em Lisboa",
     "suggestion2": "Médico de família no Porto",
     "suggestion3": "Dermatologista que fale inglês",
-    "suggestion4": "Psicólogo acessível"
+    "suggestion4": "Psic\u00f3logo acess\u00edvel"
+  },
+  "pro": {
+    "hero": {
+      "title": "A solu\u00e7\u00e3o tudo-em-um que reinventa o seu dia a dia profissional.",
+      "subtitle": "Software para profissionais de sa\u00fade em Portugal.",
+      "badge1": "Conforme com o RGPD",
+      "badge2": "Dados alojados na Europa",
+      "badge3": "Feito para Portugal",
+      "ctaGetStarted": "Come\u00e7ar",
+      "ctaBookDemo": "Marcar uma demonstra\u00e7\u00e3o",
+      "formTitle": "Falar com um consultor",
+      "formSubjectLabel": "Assunto",
+      "formSubjectOption1": "Quero saber mais",
+      "formSubjectOption2": "Quero come\u00e7ar",
+      "formSubjectOption3": "Tenho quest\u00f5es",
+      "formFirstName": "Nome",
+      "formLastName": "Apelido",
+      "formEmail": "Email",
+      "formPhone": "Telem\u00f3vel",
+      "formPostalCode": "C\u00f3digo postal",
+      "formSpecialty": "Especialidade",
+      "formSubmit": "Enviar o seu pedido",
+      "formNote": "Os nossos consultores est\u00e3o aqui para ajud\u00e1-lo a escolher a oferta mais adequada \u00e0 sua atividade.",
+      "formPrivacyLink": "Saiba mais sobre as nossas pr\u00e1ticas de recolha de dados"
+    },
+    "video": {
+      "placeholder": "DocAgora \u2014 Em breve",
+      "card1Title": "Uma plataforma \u00fanica",
+      "card1Desc": "Cubra todas as suas atividades di\u00e1rias num s\u00f3 lugar.",
+      "card2Title": "Pacientes como atores",
+      "card2Desc": "Os pacientes podem encontr\u00e1-lo e marcar consultas online facilmente.",
+      "card3Title": "IA no centro da sua pr\u00e1tica",
+      "card3Desc": "Pesquisa inteligente e correspond\u00eancia com pacientes.",
+      "card4Title": "Servi\u00e7o \u00e0 altura das suas exig\u00eancias",
+      "card4Desc": "Centro de ajuda, suporte dedicado e recursos."
+    },
+    "stats": {
+      "stat1Value": "16",
+      "stat1Label": "especialidades m\u00e9dicas suportadas",
+      "stat2Value": "3 idiomas",
+      "stat2Label": "PT \u00b7 FR \u00b7 EN",
+      "stat3Value": "RGPD",
+      "stat3Label": "conforme \u00b7 alojado na UE",
+      "testimonialQuote": "A DocAgora mudou a forma como fa\u00e7o a gest\u00e3o do meu consult\u00f3rio. Poupo tempo em tarefas administrativas e foco-me no que importa: os meus pacientes.",
+      "testimonialName": "Dr. [Nome]",
+      "testimonialSpecialty": "[Especialidade] \u2014 Lisboa"
+    },
+    "improve": {
+      "block1Title": "Melhore o seu dia a dia",
+      "block1Subtitle": "Menos administra\u00e7\u00e3o, mais tranquilidade.",
+      "block1Bullet1": "Reduza o tempo administrativo",
+      "block1Bullet2": "Gest\u00e3o centralizada de pacientes",
+      "block1Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192",
+      "block2Title": "Preste melhores cuidados",
+      "block2Subtitle": "Novos padr\u00f5es de cuidados.",
+      "block2Bullet1": "Comunica\u00e7\u00e3o simplificada com pacientes",
+      "block2Bullet2": "Mais tempo de qualidade com os pacientes",
+      "block2Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192",
+      "block3Title": "Fa\u00e7a crescer a sua pr\u00e1tica",
+      "block3Subtitle": "Desenvolva e otimize sem esfor\u00e7o.",
+      "block3Bullet1": "Alcance mais pacientes",
+      "block3Bullet2": "Vis\u00edvel na plataforma DocAgora",
+      "block3Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192"
+    },
+    "testimonials": {
+      "title": "A palavra aos profissionais",
+      "items": {
+        "item1": {
+          "quote": "A DocAgora melhora a minha pr\u00e1tica: menos interrup\u00e7\u00f5es, mais aten\u00e7\u00e3o aos pacientes.",
+          "name": "Dr. Florian D.",
+          "specialty": "Osteopata"
+        },
+        "item2": {
+          "quote": "Poupo pelo menos cinco minutos por consulta.",
+          "name": "Dr. Patrick M.",
+          "specialty": "Gastroenterologista"
+        },
+        "item3": {
+          "quote": "A DocAgora poupa-me das interrup\u00e7\u00f5es telef\u00f3nicas constantes e simplifica a marca\u00e7\u00e3o para os pacientes a qualquer hora.",
+          "name": "Dr. Elodie V.",
+          "specialty": "M\u00e9dica de Cl\u00ednica Geral"
+        },
+        "item4": {
+          "quote": "Quando comecei, o meu consult\u00f3rio era stressante e desorganizado. Com a DocAgora, a minha agenda est\u00e1 estruturada.",
+          "name": "Dr. R\u00e9my S.",
+          "specialty": "Dentista"
+        }
+      }
+    },
+    "solutions": {
+      "title": "Descubra as nossas solu\u00e7\u00f5es para si",
+      "tabPractitioners": "Profissionais",
+      "tabFacilities": "Estabelecimentos de sa\u00fade",
+      "facilitiesComingSoon": "Em breve \u2014 Estamos a trabalhar em solu\u00e7\u00f5es adaptadas a estabelecimentos de sa\u00fade."
+    },
+    "cta": {
+      "title": "Pronto para transformar a sua pr\u00e1tica?",
+      "subtitle": "Junte-se \u00e0 DocAgora hoje e descubra uma forma mais inteligente de gerir o seu consult\u00f3rio.",
+      "ctaGetStarted": "Come\u00e7ar",
+      "ctaBookDemo": "Marcar uma demonstra\u00e7\u00e3o"
+    },
+    "footerPro": {
+      "pricingLink": "Pre\u00e7os",
+      "resourcesLink": "Recursos",
+      "aboutLink": "Sobre",
+      "patientSite": "Site para pacientes"
+    },
+    "placeholder": {
+      "pricingTitle": "Pre\u00e7os",
+      "pricingSubtitle": "Os nossos planos de pre\u00e7os est\u00e3o a ser finalizados.",
+      "pricingDesc": "Estamos a preparar pre\u00e7os competitivos adaptados aos profissionais de sa\u00fade em Portugal. Comece gratuitamente e explore a nossa plataforma.",
+      "resourcesTitle": "Recursos",
+      "resourcesSubtitle": "Recursos para profissionais de sa\u00fade.",
+      "resourcesDesc": "Guias, tutoriais e documenta\u00e7\u00e3o para tirar o m\u00e1ximo partido da DocAgora. Em breve.",
+      "aboutTitle": "Sobre a DocAgora Pro",
+      "aboutSubtitle": "A nossa miss\u00e3o para os profissionais de sa\u00fade.",
+      "aboutDesc": "A DocAgora foi constru\u00edda para simplificar o dia a dia dos profissionais de sa\u00fade em Portugal. Saiba mais sobre a nossa vis\u00e3o e equipa.",
+      "comingSoon": "Em breve",
+      "getStarted": "Come\u00e7ar agora",
+      "backToHome": "\u2190 Voltar \u00e0 p\u00e1gina pro"
+    }
   }
 }

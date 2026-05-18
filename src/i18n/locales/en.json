@@ -20,6 +20,22 @@
     "contact": {
       "title": "Contact us — DocAgora · Questions and support",
       "description": "Get in touch with DocAgora. Find answers to frequently asked questions about our platform and how to book healthcare professionals in Portugal."
+    },
+    "pro": {
+      "title": "DocAgora Pro — The all-in-one solution for healthcare professionals in Portugal",
+      "description": "Manage your patients, schedule, and grow your practice with DocAgora. Software designed for healthcare professionals in Portugal."
+    },
+    "proPricing": {
+      "title": "Pricing — DocAgora Pro",
+      "description": "Discover DocAgora Pro pricing plans for healthcare professionals in Portugal."
+    },
+    "proResources": {
+      "title": "Resources — DocAgora Pro",
+      "description": "Resources and documentation for healthcare professionals using DocAgora."
+    },
+    "proAbout": {
+      "title": "About — DocAgora Pro",
+      "description": "Learn about DocAgora's mission to support healthcare professionals in Portugal."
     }
   },
   "topbar": {
@@ -38,7 +54,16 @@
     "howItWorks": "How it works",
     "blog": "Blog",
     "contact": "Contact",
-    "findProfessional": "Find a professional"
+    "findProfessional": "Find a professional",
+    "imAProfessional": "I'm a professional \u2192"
+  },
+  "navbarPro": {
+    "solution": "Solution",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "about": "About",
+    "getStarted": "Get started",
+    "imAPatient": "I'm a patient \u2192"
   },
   "hero": {
     "slide1Title": "Find a doctor who understands you, in Portugal",
@@ -489,5 +514,126 @@
     "suggestion2": "Family doctor in Porto",
     "suggestion3": "Dermatologist who speaks English",
     "suggestion4": "Affordable psychologist"
+  },
+  "pro": {
+    "hero": {
+      "title": "The all-in-one suite that reinvents your daily practice.",
+      "subtitle": "Software for healthcare professionals in Portugal.",
+      "badge1": "GDPR-compliant",
+      "badge2": "Data hosted in Europe",
+      "badge3": "Made for Portugal",
+      "ctaGetStarted": "Get started",
+      "ctaBookDemo": "Book a demo",
+      "formTitle": "Talk to an advisor",
+      "formSubjectLabel": "Subject",
+      "formSubjectOption1": "I want to know more",
+      "formSubjectOption2": "I want to start",
+      "formSubjectOption3": "I have questions",
+      "formFirstName": "First name",
+      "formLastName": "Last name",
+      "formEmail": "Email",
+      "formPhone": "Mobile phone",
+      "formPostalCode": "Postal code",
+      "formSpecialty": "Specialty",
+      "formSubmit": "Submit your request",
+      "formNote": "Our advisors are here to help you choose the offer best suited to your activity.",
+      "formPrivacyLink": "Learn more about our data collection practices"
+    },
+    "video": {
+      "placeholder": "DocAgora — Coming soon",
+      "card1Title": "One unique platform",
+      "card1Desc": "Cover all your daily activities in one place.",
+      "card2Title": "Patients as actors",
+      "card2Desc": "Patients can find and book you online easily.",
+      "card3Title": "AI at the heart of your practice",
+      "card3Desc": "Smart search and intelligent matching with patients.",
+      "card4Title": "Service that meets your standards",
+      "card4Desc": "Help center, dedicated support, and resources."
+    },
+    "stats": {
+      "stat1Value": "16",
+      "stat1Label": "medical specialties supported",
+      "stat2Value": "3 languages",
+      "stat2Label": "PT \u00b7 FR \u00b7 EN",
+      "stat3Value": "GDPR",
+      "stat3Label": "compliant \u00b7 EU-hosted",
+      "testimonialQuote": "DocAgora changed how I manage my practice. I save time on admin and focus on what matters: my patients.",
+      "testimonialName": "Dr. [Name]",
+      "testimonialSpecialty": "[Specialty] \u2014 Lisboa"
+    },
+    "improve": {
+      "block1Title": "Improve your daily life",
+      "block1Subtitle": "Less admin, more peace of mind.",
+      "block1Bullet1": "Cut admin time",
+      "block1Bullet2": "Centralized patient management",
+      "block1Cta": "Book a demo \u2192",
+      "block2Title": "Provide better care",
+      "block2Subtitle": "New standards of care.",
+      "block2Bullet1": "Streamlined patient communication",
+      "block2Bullet2": "More quality time with patients",
+      "block2Cta": "Book a demo \u2192",
+      "block3Title": "Grow your practice",
+      "block3Subtitle": "Develop and optimize effortlessly.",
+      "block3Bullet1": "Reach more patients",
+      "block3Bullet2": "Visible on DocAgora platform",
+      "block3Cta": "Book a demo \u2192"
+    },
+    "testimonials": {
+      "title": "Words from professionals",
+      "items": {
+        "item1": {
+          "quote": "DocAgora improves my practice: fewer interruptions, more attention to patients.",
+          "name": "Dr. Florian D.",
+          "specialty": "Osteopath"
+        },
+        "item2": {
+          "quote": "I save at least five minutes per consultation.",
+          "name": "Dr. Patrick M.",
+          "specialty": "Gastroenterologist"
+        },
+        "item3": {
+          "quote": "DocAgora spares me from constant call interruptions and simplifies booking for patients at all hours.",
+          "name": "Dr. Elodie V.",
+          "specialty": "General Practitioner"
+        },
+        "item4": {
+          "quote": "When I started, my practice was stressful and disorganized. With DocAgora, my schedule is structured.",
+          "name": "Dr. R\u00e9my S.",
+          "specialty": "Dentist"
+        }
+      }
+    },
+    "solutions": {
+      "title": "Discover our solutions for you",
+      "tabPractitioners": "Practitioners",
+      "tabFacilities": "Healthcare facilities",
+      "facilitiesComingSoon": "Coming soon \u2014 We are working on solutions tailored for healthcare facilities."
+    },
+    "cta": {
+      "title": "Ready to transform your practice?",
+      "subtitle": "Join DocAgora today and discover a smarter way to manage your healthcare practice.",
+      "ctaGetStarted": "Get started",
+      "ctaBookDemo": "Book a demo"
+    },
+    "footerPro": {
+      "pricingLink": "Pricing",
+      "resourcesLink": "Resources",
+      "aboutLink": "About",
+      "patientSite": "Patient site"
+    },
+    "placeholder": {
+      "pricingTitle": "Pricing",
+      "pricingSubtitle": "Our pricing plans are being finalized.",
+      "pricingDesc": "We are currently preparing competitive pricing plans tailored to healthcare professionals in Portugal. Get started for free and explore our platform.",
+      "resourcesTitle": "Resources",
+      "resourcesSubtitle": "Resources for healthcare professionals.",
+      "resourcesDesc": "Guides, tutorials, and documentation to help you get the most out of DocAgora. Coming soon.",
+      "aboutTitle": "About DocAgora Pro",
+      "aboutSubtitle": "Our mission for healthcare professionals.",
+      "aboutDesc": "DocAgora is built to simplify the daily life of healthcare professionals in Portugal. Learn more about our vision and team.",
+      "comingSoon": "Coming soon",
+      "getStarted": "Get started now",
+      "backToHome": "\u2190 Back to pro home"
+    }
   }
 }
