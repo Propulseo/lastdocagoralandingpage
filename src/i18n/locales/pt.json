@@ -454,6 +454,19 @@
       }
     }
   },
+  "home": {
+    "mobileApp": {
+      "title": "DocAgora app — coming soon",
+      "subtitle": "The DocAgora mobile app is on its way. Find a healthcare professional, book appointments, receive reminders — all from your phone, in your language. Be the first to know when it launches.",
+      "starsLabel": "Available soon on iOS and Android",
+      "downloadOn": "Download on the",
+      "appStoreLabel": "App Store",
+      "getItOn": "Get it on",
+      "googlePlayLabel": "Google Play",
+      "comingSoonTooltip": "App launching soon — sign up for early access",
+      "cta": "Sign up on the platform to be notified at launch →"
+    }
+  },
   "chatbot": {
     "title": "Assistente DocAgora",
     "subtitle": "Pesquisa inteligente de profissionais",

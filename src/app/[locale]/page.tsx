@@ -10,6 +10,7 @@ import Testimonials from "@/components/home/Testimonials";
 import CitiesGallery from "@/components/home/CitiesGallery";
 import ContactForm from "@/components/home/ContactForm";
 import FAQHighlights from "@/components/home/FAQHighlights";
+import MobileAppSection from "@/components/home/MobileAppSection";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export default async function HomePage({
@@ -38,6 +39,9 @@ export default async function HomePage({
       </AnimatedSection>
       <AnimatedSection>
         <WorkProcess />
+      </AnimatedSection>
+      <AnimatedSection>
+        <MobileAppSection />
       </AnimatedSection>
       <AnimatedSection>
         <Testimonials />
