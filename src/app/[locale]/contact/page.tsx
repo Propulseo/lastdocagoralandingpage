@@ -4,6 +4,7 @@ import ContactLayout from "@/components/contact/ContactLayout";
 import FAQAccordion from "@/components/shared/FAQAccordion";
 import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/shared/Gallery";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
   params,
@@ -47,10 +48,18 @@ export default async function ContactPage({
           title="Map"
         ></iframe>
       </section>
-      <ContactLayout />
-      <FAQAccordion />
-      <Testimonials compact />
-      <Gallery />
+      <AnimatedSection>
+        <ContactLayout />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FAQAccordion />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Testimonials compact />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Gallery />
+      </AnimatedSection>
     </>
   );
 }

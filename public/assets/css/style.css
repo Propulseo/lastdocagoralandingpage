@@ -7549,4 +7549,105 @@ textarea.form-control {
   top: -18px;
   right: 0;
   color: #848e9f;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* ===== MICRO-INTERACTIONS (Framer Motion session) ===== */
+
+/* 1. CTA Buttons — scale on hover/active (excluded from .footer) */
+.btn__primary,
+.btn__secondary {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn__primary:hover,
+.btn__secondary:hover {
+  transform: scale(1.03);
+}
+.btn__primary:active,
+.btn__secondary:active {
+  transform: scale(0.97);
+}
+
+/* 2. Cards hover — lift + shadow */
+.service-item,
+.feature-item,
+.post-item,
+.contact-box,
+.process-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-item:hover,
+.feature-item:hover,
+.post-item:hover,
+.contact-box:hover,
+.process-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Nav links — animated underline left-to-right */
+.navbar-nav .nav__item-link {
+  position: relative;
+}
+.navbar-nav .nav__item-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #21cdc0;
+  transition: width 0.3s ease;
+}
+.navbar-nav .nav__item-link:hover::after,
+.navbar-nav .nav__item-link.active::after {
+  width: 100%;
+}
+
+/* 4. Logo hover — subtle scale */
+.navbar-brand {
+  transition: transform 0.3s ease;
+}
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* 5. Social icons footer — rotate + scale on hover */
+.footer .social-icons a,
+.footer a[href*="facebook"],
+.footer a[href*="instagram"],
+.footer a[href*="twitter"],
+.footer a[href*="linkedin"] {
+  transition: transform 0.3s ease;
+}
+.footer .social-icons a:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* 6. Reduced motion — disable all micro-interactions */
+@media (prefers-reduced-motion: reduce) {
+  .btn__primary,
+  .btn__secondary,
+  .service-item,
+  .feature-item,
+  .post-item,
+  .contact-box,
+  .process-item,
+  .navbar-brand,
+  .footer .social-icons a {
+    transition: none !important;
+  }
+  .btn__primary:hover,
+  .btn__secondary:hover,
+  .service-item:hover,
+  .feature-item:hover,
+  .post-item:hover,
+  .contact-box:hover,
+  .process-item:hover,
+  .navbar-brand:hover {
+    transform: none !important;
+  }
+  .navbar-nav .nav__item-link::after {
+    transition: none !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

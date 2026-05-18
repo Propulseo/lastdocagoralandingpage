@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import ServicesGrid from "@/components/specialties-page/ServicesGrid";
 import FeaturesOverlay from "@/components/specialties-page/FeaturesOverlay";
 import TeamCarousel from "@/components/home/TeamCarousel";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
   params,
@@ -46,9 +47,15 @@ export default async function SpecialtiesPage({
           </div>
         </div>
       </section>
-      <ServicesGrid />
-      <FeaturesOverlay />
-      <TeamCarousel />
+      <AnimatedSection>
+        <ServicesGrid />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FeaturesOverlay />
+      </AnimatedSection>
+      <AnimatedSection>
+        <TeamCarousel />
+      </AnimatedSection>
     </>
   );
 }

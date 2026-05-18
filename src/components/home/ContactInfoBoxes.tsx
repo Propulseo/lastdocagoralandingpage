@@ -1,13 +1,14 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 export default function ContactInfoBoxes() {
   const t = useTranslations("contactInfo");
   return (
     <section className="contact-info py-0" style={{ marginTop: "-2cm" , position: "relative", zIndex: 10 }}>
       <div className="container">
-        <div className="row row-no-gutter boxes-wrapper">
-          <div className="col-sm-12 col-md-4">
+        <AnimatedCardsContainer className="row row-no-gutter boxes-wrapper" stagger={0.15}>
+          <AnimatedCard className="col-sm-12 col-md-4">
             <div className="contact-box d-flex align-items-center">
               <div className="contact__icon">
                 <i className="icon-call3"></i>
@@ -20,8 +21,8 @@ export default function ContactInfoBoxes() {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="col-sm-12 col-md-4">
+          </AnimatedCard>
+          <AnimatedCard className="col-sm-12 col-md-4">
             <div className="contact-box d-flex align-items-center">
               <div className="contact__icon">
                 <i className="icon-health-report"></i>
@@ -34,8 +35,8 @@ export default function ContactInfoBoxes() {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="col-sm-12 col-md-4">
+          </AnimatedCard>
+          <AnimatedCard className="col-sm-12 col-md-4">
             <div className="contact-box d-flex align-items-center">
               <div className="contact__icon">
                 <i className="icon-heart2"></i>
@@ -49,8 +50,8 @@ export default function ContactInfoBoxes() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
+          </AnimatedCard>
+        </AnimatedCardsContainer>
       </div>
     </section>
   );

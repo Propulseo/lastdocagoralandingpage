@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import BlogGrid from "@/components/blog/BlogGrid";
 import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/shared/Gallery";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
   params,
@@ -61,9 +62,15 @@ export default async function BlogPage({
           </div>
         </div>
       </section>
-      <BlogGrid />
-      <Testimonials />
-      <Gallery />
+      <AnimatedSection>
+        <BlogGrid />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Testimonials />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Gallery />
+      </AnimatedSection>
     </>
   );
 }

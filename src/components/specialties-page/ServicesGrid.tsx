@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const SPECIALTIES = [
   { key: "generalPractice", icon: "icon-doctor" },
@@ -36,9 +37,9 @@ export default function ServicesGrid() {
             </div>
           </div>
         </div>
-        <div className="row">
+        <AnimatedCardsContainer className="row" stagger={0.08}>
           {SPECIALTIES.map(({ key, icon }) => (
-            <div key={key} className="col-sm-12 col-md-6 col-lg-4">
+            <AnimatedCard key={key} className="col-sm-12 col-md-6 col-lg-4">
               <div className="service-item">
                 <div className="service__icon">
                   <i className={icon}></i>
@@ -58,9 +59,9 @@ export default function ServicesGrid() {
                   </a>
                 </div>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
-        </div>
+        </AnimatedCardsContainer>
       </div>
     </section>
   );

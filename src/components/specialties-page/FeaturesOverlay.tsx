@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const FEATURE_ICONS = [
   "icon-heart", "icon-doctor", "icon-ambulance", "icon-drugs",
@@ -34,9 +35,9 @@ export default function FeaturesOverlay() {
             </a>
           </div>
         </div>
-        <div className="row">
+        <AnimatedCardsContainer className="row" stagger={0.08}>
           {FEATURE_KEYS.map((key, i) => (
-            <div key={key} className="col-sm-6 col-md-6 col-lg-3">
+            <AnimatedCard key={key} className="col-sm-6 col-md-6 col-lg-3">
               <div className="feature-item">
                 <div className="feature__img">
                   <img src={`/assets/images/services/${i + 1}.jpg`} alt="service" loading="lazy" />
@@ -51,9 +52,9 @@ export default function FeaturesOverlay() {
                   <i className="icon-arrow-right icon-outlined"></i>
                 </a>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
-        </div>
+        </AnimatedCardsContainer>
         <div className="row">
           <div className="col-md-12 col-lg-6 offset-lg-3 text-center">
             <p className="font-weight-bold color-gray mb-0">

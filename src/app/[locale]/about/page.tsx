@@ -4,6 +4,7 @@ import AboutLayout1 from "@/components/about/AboutLayout1";
 import FeaturesLayout1 from "@/components/about/FeaturesLayout1";
 import WorkProcess from "@/components/home/WorkProcess";
 import TeamCarousel from "@/components/home/TeamCarousel";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
   params,
@@ -47,10 +48,18 @@ export default async function AboutPage({
           </div>
         </div>
       </section>
-      <AboutLayout1 />
-      <FeaturesLayout1 />
-      <WorkProcess />
-      <TeamCarousel />
+      <AnimatedSection>
+        <AboutLayout1 />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FeaturesLayout1 />
+      </AnimatedSection>
+      <AnimatedSection>
+        <WorkProcess />
+      </AnimatedSection>
+      <AnimatedSection>
+        <TeamCarousel />
+      </AnimatedSection>
     </>
   );
 }

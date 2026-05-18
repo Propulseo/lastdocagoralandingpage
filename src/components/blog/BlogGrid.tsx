@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const ARTICLE_KEYS = ["a1", "a2", "a3", "a4", "a5", "a6"] as const;
 
@@ -9,10 +10,9 @@ export default function BlogGrid() {
   return (
     <section className="blog-grid">
       <div className="container">
-        {/* Placeholder blog articles — to be replaced with real SEO content */}
-        <div className="row">
+        <AnimatedCardsContainer className="row">
           {ARTICLE_KEYS.map((key, i) => (
-            <div key={key} className="col-sm-12 col-md-6 col-lg-4">
+            <AnimatedCard key={key} className="col-sm-12 col-md-6 col-lg-4">
               <div className="post-item">
                 <div className="post__img">
                   <a href="#">
@@ -41,9 +41,9 @@ export default function BlogGrid() {
                   </a>
                 </div>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
-        </div>
+        </AnimatedCardsContainer>
         <div className="row">
           <div className="col-12 text-center">
             <nav className="pagination-area">

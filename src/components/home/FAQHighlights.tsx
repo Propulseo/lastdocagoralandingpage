@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
+import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const ITEM_KEYS = ["item1", "item2", "item3"] as const;
 
@@ -19,9 +20,9 @@ export default function FAQHighlights() {
             </div>
           </div>
         </div>
-        <div className="row">
+        <AnimatedCardsContainer className="row">
           {ITEM_KEYS.map((key, i) => (
-            <div key={key} className="col-sm-12 col-md-6 col-lg-4">
+            <AnimatedCard key={key} className="col-sm-12 col-md-6 col-lg-4">
               <div className="post-item">
                 <div className="post__img">
                   <a href={faqHref}>
@@ -42,9 +43,9 @@ export default function FAQHighlights() {
                   </a>
                 </div>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
-        </div>
+        </AnimatedCardsContainer>
       </div>
     </section>
   );
