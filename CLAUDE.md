@@ -8,22 +8,26 @@
 
 | Route | Page | Source HTML d'origine |
 |-------|------|----------------------|
-| `/en` | Home | index.html |
-| `/en/about` | About | about-us.html |
-| `/en/specialties` | Specialties | services.html |
-| `/en/blog` | Blog (SEO) | blog.html (anciennement faqs.html) |
-| `/en/contact` | Contact (avec FAQ intégrée en bas) | contact-us.html |
-| `/fr/*` et `/pt/*` | Mêmes pages, contenu encore en anglais | — |
+| `/` | Home (PT par défaut) | index.html |
+| `/about` | About (PT) | about-us.html |
+| `/specialties` | Specialties (PT) | services.html |
+| `/blog` | Blog (PT) | blog.html |
+| `/contact` | Contact (PT) | contact-us.html |
+| `/en/*` | Mêmes pages en anglais | — |
+| `/fr/*` | Mêmes pages en français | — |
 
-Locale par défaut : `en`. Routing préfixé.
+Locale par défaut : `pt`. Routing `localePrefix: "as-needed"` (PT sans préfixe, EN et FR préfixés).
 
 ## 7. i18n
 
 - Toutes les strings via `useTranslations()` de next-intl.
 - Clés organisées par page/section dans `en.json` : `home.hero.title`, `home.features.smartSearch.label`, etc.
-- `fr.json` et `pt.json` existent avec toutes les clés (457 lignes chacun), mais le contenu est encore en anglais — traduction à faire en session dédiée.
-- Locale par défaut : `en` (configuré dans `src/i18n/config.ts`).
-- Routing : `src/i18n/routing.ts` via `defineRouting` de next-intl.
+- 3 locales complètes : `en.json` (anglais), `pt.json` (portugais PT-PT), `fr.json` (français FR-FR) — 418 clés chacune.
+- Locale par défaut : `pt` (configuré dans `src/i18n/config.ts`).
+- Routing : `src/i18n/routing.ts` via `defineRouting` de next-intl avec `localePrefix: "as-needed"`.
+- Proxy i18n : `src/proxy.ts` (Next.js 16 proxy, remplace middleware.ts).
+- Sélecteur de langue : `src/components/layout/LanguageSwitcher.tsx` (PT | EN | FR) intégré dans la navbar.
+- Metadata SEO localisée par page (title, description, OpenGraph, Twitter) via `generateMetadata`.
 
 ## 8. Bootstrap et structure des sections
 
@@ -140,7 +144,6 @@ Vérifier :
 ## 14. Hors scope (à ne pas faire sans validation)
 
 - Migration Tailwind (Bootstrap reste pour cette phase)
-- Remplissage des locales `fr.json` et `pt.json` (à faire en session dédiée plus tard)
 - Création de vraies pages articles blog (`/blog/<slug>`)
 - Connexion du formulaire de contact à un backend
 - Déploiement Vercel

@@ -1,470 +1,470 @@
 {
   "metadata": {
     "home": {
-      "title": "DocAgora — Find your doctor in Portugal",
-      "description": "Book in-person appointments with verified healthcare professionals in Portugal. Available in Portuguese, French and English."
+      "title": "DocAgora — Encontre o seu médico em Portugal",
+      "description": "Marque consultas presenciais com profissionais de saúde verificados em Portugal. Disponível em português, francês e inglês."
     },
     "about": {
-      "title": "About DocAgora — Healthcare booking in Portugal",
-      "description": "Learn how DocAgora helps you find and book verified healthcare professionals in Portugal."
+      "title": "Sobre a DocAgora — Marcação de consultas em Portugal",
+      "description": "Descubra como a DocAgora o ajuda a encontrar e marcar consultas com profissionais de saúde verificados em Portugal."
     },
     "specialties": {
-      "title": "Medical specialties — DocAgora",
-      "description": "Browse 16 medical specialties available on DocAgora."
+      "title": "Especialidades médicas — DocAgora",
+      "description": "Explore 16 especialidades médicas disponíveis na DocAgora."
     },
     "blog": {
-      "title": "Blog — DocAgora · Health and wellness insights for Portugal",
-      "description": "Articles, tips and insights about healthcare in Portugal. Find a doctor who speaks your language, understand the healthcare system, and stay informed.",
-      "keywords": "healthcare blog, Portugal health, expat health, find doctor Portugal, multilingual doctors"
+      "title": "Blog — DocAgora · Saúde e bem-estar em Portugal",
+      "description": "Artigos, dicas e informações sobre saúde em Portugal. Encontre um médico que fale a sua língua, compreenda o sistema de saúde e mantenha-se informado.",
+      "keywords": "blog saúde, saúde Portugal, saúde expatriados, encontrar médico Portugal, médicos multilingues"
     },
     "contact": {
-      "title": "Contact us — DocAgora · Questions and support",
-      "description": "Get in touch with DocAgora. Find answers to frequently asked questions about our platform and how to book healthcare professionals in Portugal."
+      "title": "Contacte-nos — DocAgora · Perguntas e apoio",
+      "description": "Entre em contacto com a DocAgora. Encontre respostas às perguntas mais frequentes sobre a nossa plataforma e como marcar consultas com profissionais de saúde em Portugal."
     }
   },
   "topbar": {
-    "contact": "Contact",
+    "contact": "Contacto",
     "emergencyIcon": "icon-call3",
     "email": "hello@docagora.com",
-    "emergencyNotice": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
-    "findProfessional": "Find a professional",
+    "emergencyNotice": "Em caso de emergência médica, ligue 112. A DocAgora não é um serviço de emergência.",
+    "findProfessional": "Encontrar um profissional",
     "location": "Portugal",
-    "available247": "Platform available 24/7"
+    "available247": "Plataforma disponível 24/7"
   },
   "navbar": {
-    "home": "Home",
-    "about": "About",
-    "specialties": "Specialties",
-    "howItWorks": "How it works",
+    "home": "Início",
+    "about": "Sobre",
+    "specialties": "Especialidades",
+    "howItWorks": "Como funciona",
     "blog": "Blog",
-    "contact": "Contact",
-    "findProfessional": "Find a professional"
+    "contact": "Contacto",
+    "findProfessional": "Encontrar um profissional"
   },
   "hero": {
-    "slide1Title": "Find a doctor who understands you, in Portugal",
-    "slide2Title": "Your health, in your language, close to home",
-    "description": "DocAgora connects you with verified healthcare professionals in Portugal. Smart search, online booking, available in Portuguese, French and English.",
-    "feature1": "Smart search",
-    "feature2": "Online booking",
-    "feature3": "Multilingual",
-    "feature4": "Verified doctors"
+    "slide1Title": "Encontre um médico que o compreenda, em Portugal",
+    "slide2Title": "A sua saúde, na sua língua, perto de si",
+    "description": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquisa inteligente, marcação online, disponível em português, francês e inglês.",
+    "feature1": "Pesquisa inteligente",
+    "feature2": "Marcação online",
+    "feature3": "Multilingue",
+    "feature4": "Médicos verificados"
   },
   "contactInfo": {
-    "emergencyTitle": "Emergency",
-    "emergencyDesc": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
+    "emergencyTitle": "Emergência",
+    "emergencyDesc": "Em caso de emergência médica, ligue 112. A DocAgora não é um serviço de emergência.",
     "emergencyNumber": "112",
-    "bookingTitle": "Book anytime",
-    "bookingDesc": "Book anytime from your patient account. No phone call needed, no waiting.",
-    "bookingCta": "Start my search",
-    "availableTitle": "Always available",
-    "platformAvailable": "Platform available",
+    "bookingTitle": "Marque a qualquer momento",
+    "bookingDesc": "Marque a qualquer momento a partir da sua conta de paciente. Sem telefonemas, sem esperas.",
+    "bookingCta": "Começar a minha pesquisa",
+    "availableTitle": "Sempre disponível",
+    "platformAvailable": "Plataforma disponível",
     "platformValue": "24/7",
-    "searchBook": "Search & book",
-    "searchBookValue": "Anytime",
-    "reminders": "Reminders",
-    "remindersValue": "Automatic"
+    "searchBook": "Pesquisar e marcar",
+    "searchBookValue": "A qualquer momento",
+    "reminders": "Lembretes",
+    "remindersValue": "Automáticos"
   },
   "about": {
-    "title": "Find your doctor",
-    "titleBreak": "in Portugal.",
-    "subtitle": "Book in-person appointments with verified healthcare professionals. Fast, simple, secure.",
-    "findProfessional": "Find a professional",
-    "watchVideo": "Watch Our Video!",
-    "paragraph1": "DocAgora was born from a simple observation: finding the right healthcare professional in Portugal shouldn't be a battle. For Portuguese residents, expatriates and travelers alike, the platform brings together verified doctors, displays their real-time availability, and lets you book in just a few clicks — in the language that suits you best.",
-    "paragraph2": "Whether you need a general practitioner, a specialist or a dentist, DocAgora helps you compare professionals by specialty, reviews, spoken languages, distance and accepted insurance.",
-    "list1": "Search by specialty, city, spoken language or accepted insurance.",
-    "list2": "Every practitioner is reviewed and approved by our team before going live.",
-    "list3": "Available in Portuguese, French and English — find care in the language you prefer."
+    "title": "Encontre o seu médico",
+    "titleBreak": "em Portugal.",
+    "subtitle": "Marque consultas presenciais com profissionais de saúde verificados. Rápido, simples e seguro.",
+    "findProfessional": "Encontrar um profissional",
+    "watchVideo": "Veja o nosso vídeo!",
+    "paragraph1": "A DocAgora nasceu de uma observação simples: encontrar o profissional de saúde certo em Portugal não deveria ser uma batalha. Para residentes portugueses, expatriados e viajantes, a plataforma reúne médicos verificados, apresenta a sua disponibilidade em tempo real e permite-lhe marcar em poucos cliques — na língua que melhor lhe convém.",
+    "paragraph2": "Quer precise de um clínico geral, de um especialista ou de um dentista, a DocAgora ajuda-o a comparar profissionais por especialidade, avaliações, línguas faladas, distância e seguros aceites.",
+    "list1": "Pesquise por especialidade, cidade, língua falada ou seguro aceite.",
+    "list2": "Cada profissional é analisado e aprovado pela nossa equipa antes de ficar disponível.",
+    "list3": "Disponível em português, francês e inglês — encontre cuidados na língua que prefere."
   },
   "specialties": {
-    "subtitle": "Browse 16 medical specialties available on DocAgora",
-    "title": "Find your specialist",
+    "subtitle": "Explore 16 especialidades médicas disponíveis na DocAgora",
+    "title": "Encontre o seu especialista",
     "items": {
       "generalPractice": {
-        "title": "General Practice",
-        "desc": "Your first point of contact for everyday health concerns. General practitioners provide comprehensive primary care for patients of all ages.",
-        "cta": "Find a GP"
+        "title": "Clínica Geral",
+        "desc": "O seu primeiro ponto de contacto para questões de saúde do dia a dia. Os clínicos gerais prestam cuidados primários abrangentes a pacientes de todas as idades.",
+        "cta": "Encontrar um clínico geral"
       },
       "cardiology": {
-        "title": "Cardiology",
-        "desc": "Specialists in heart and cardiovascular health. From routine check-ups to complex cardiac conditions.",
-        "cta": "Find a cardiologist"
+        "title": "Cardiologia",
+        "desc": "Especialistas em saúde cardíaca e cardiovascular. De exames de rotina a condições cardíacas complexas.",
+        "cta": "Encontrar um cardiologista"
       },
       "dermatology": {
-        "title": "Dermatology",
-        "desc": "Expert care for skin, hair and nail conditions. From medical dermatology to cosmetic concerns.",
-        "cta": "Find a dermatologist"
+        "title": "Dermatologia",
+        "desc": "Cuidados especializados para problemas de pele, cabelo e unhas. Da dermatologia médica a questões estéticas.",
+        "cta": "Encontrar um dermatologista"
       },
       "pediatrics": {
-        "title": "Pediatrics",
-        "desc": "Dedicated healthcare for infants, children and adolescents. Preventive care and treatment in a child-friendly environment.",
-        "cta": "Find a pediatrician"
+        "title": "Pediatria",
+        "desc": "Cuidados de saúde dedicados a bebés, crianças e adolescentes. Cuidados preventivos e tratamento num ambiente adaptado.",
+        "cta": "Encontrar um pediatra"
       },
       "gynecology": {
-        "title": "Gynecology",
-        "desc": "Comprehensive women's health services. From routine exams to specialized reproductive care.",
-        "cta": "Find a gynecologist"
+        "title": "Ginecologia",
+        "desc": "Serviços completos de saúde da mulher. De exames de rotina a cuidados reprodutivos especializados.",
+        "cta": "Encontrar um ginecologista"
       },
       "ophthalmology": {
-        "title": "Ophthalmology",
-        "desc": "Complete eye care from vision tests to treatment of eye diseases and conditions.",
-        "cta": "Find an ophthalmologist"
+        "title": "Oftalmologia",
+        "desc": "Cuidados oftalmológicos completos, desde testes de visão ao tratamento de doenças e condições oculares.",
+        "cta": "Encontrar um oftalmologista"
       },
       "orthopedics": {
-        "title": "Orthopedics",
-        "desc": "Specialists in bones, joints, muscles and ligaments. From sports injuries to chronic musculoskeletal conditions.",
-        "cta": "Find an orthopedist"
+        "title": "Ortopedia",
+        "desc": "Especialistas em ossos, articulações, músculos e ligamentos. De lesões desportivas a condições musculoesqueléticas crónicas.",
+        "cta": "Encontrar um ortopedista"
       },
       "psychology": {
-        "title": "Psychology",
-        "desc": "Professional mental health support. Individual therapy, assessments and counseling for all ages.",
-        "cta": "Find a psychologist"
+        "title": "Psicologia",
+        "desc": "Apoio profissional de saúde mental. Terapia individual, avaliações e aconselhamento para todas as idades.",
+        "cta": "Encontrar um psicólogo"
       },
       "dentistry": {
-        "title": "Dentistry",
-        "desc": "Complete dental care from routine cleanings to restorative and cosmetic dentistry.",
-        "cta": "Find a dentist"
+        "title": "Medicina Dentária",
+        "desc": "Cuidados dentários completos, desde limpezas de rotina a medicina dentária restauradora e estética.",
+        "cta": "Encontrar um dentista"
       },
       "physiotherapy": {
-        "title": "Physiotherapy",
-        "desc": "Rehabilitation and physical therapy to restore movement, reduce pain and prevent injury.",
-        "cta": "Find a physiotherapist"
+        "title": "Fisioterapia",
+        "desc": "Reabilitação e terapia física para restaurar o movimento, reduzir a dor e prevenir lesões.",
+        "cta": "Encontrar um fisioterapeuta"
       },
       "ent": {
-        "title": "ENT (Otolaryngology)",
-        "desc": "Specialists in ear, nose and throat conditions. From hearing issues to sinus and voice disorders.",
-        "cta": "Find an ENT specialist"
+        "title": "Otorrinolaringologia",
+        "desc": "Especialistas em condições do ouvido, nariz e garganta. De problemas auditivos a perturbações sinusais e da voz.",
+        "cta": "Encontrar um otorrinolaringologista"
       },
       "endocrinology": {
-        "title": "Endocrinology",
-        "desc": "Expert care for hormonal and metabolic disorders including diabetes, thyroid conditions and more.",
-        "cta": "Find an endocrinologist"
+        "title": "Endocrinologia",
+        "desc": "Cuidados especializados em perturbações hormonais e metabólicas, incluindo diabetes, doenças da tiroide e outras.",
+        "cta": "Encontrar um endocrinologista"
       },
       "gastroenterology": {
-        "title": "Gastroenterology",
-        "desc": "Digestive system specialists. Diagnosis and treatment of conditions affecting the stomach, intestines and liver.",
-        "cta": "Find a gastroenterologist"
+        "title": "Gastroenterologia",
+        "desc": "Especialistas do sistema digestivo. Diagnóstico e tratamento de condições que afetam o estômago, intestinos e fígado.",
+        "cta": "Encontrar um gastroenterologista"
       },
       "neurology": {
-        "title": "Neurology",
-        "desc": "Specialists in brain and nervous system disorders. From migraines to complex neurological conditions.",
-        "cta": "Find a neurologist"
+        "title": "Neurologia",
+        "desc": "Especialistas em perturbações do cérebro e sistema nervoso. De enxaquecas a condições neurológicas complexas.",
+        "cta": "Encontrar um neurologista"
       },
       "urology": {
-        "title": "Urology",
-        "desc": "Urinary tract and male reproductive health specialists. Comprehensive diagnosis and treatment.",
-        "cta": "Find a urologist"
+        "title": "Urologia",
+        "desc": "Especialistas em saúde do trato urinário e reprodutiva masculina. Diagnóstico e tratamento abrangentes.",
+        "cta": "Encontrar um urologista"
       },
       "rheumatology": {
-        "title": "Rheumatology",
-        "desc": "Specialists in autoimmune and inflammatory conditions affecting joints, muscles and bones.",
-        "cta": "Find a rheumatologist"
+        "title": "Reumatologia",
+        "desc": "Especialistas em doenças autoimunes e inflamatórias que afetam articulações, músculos e ossos.",
+        "cta": "Encontrar um reumatologista"
       }
     }
   },
   "notes": {
-    "text": "Your health journey starts here.",
-    "browseSpecialties": "Browse specialties",
-    "stats": "16 medical specialties · 3 languages · Verified professionals across Portugal",
-    "createAccount": "Create my account"
+    "text": "O seu percurso de saúde começa aqui.",
+    "browseSpecialties": "Ver especialidades",
+    "stats": "16 especialidades médicas · 3 línguas · Profissionais verificados em todo o Portugal",
+    "createAccount": "Criar a minha conta"
   },
   "features": {
-    "title": "Everything you need to find the right doctor, book and get reminded.",
-    "desc": "DocAgora brings together smart search, verified professionals and seamless booking into one platform — available in Portuguese, French and English. Here's what makes it simple.",
-    "learnMore": "Learn more about DocAgora",
-    "item1": "AI-powered smart search",
-    "item2": "Filtered search",
-    "item3": "Interactive map",
-    "item4": "3-step booking",
-    "item5": "Truly multilingual",
-    "item6": "Verified professionals",
-    "item7": "Multi-criteria reviews",
-    "item8": "Automatic reminders",
-    "bottomText": "Find the right professional faster. Book in your language. Get reminded automatically.",
-    "bottomCta": "Create my account"
+    "title": "Tudo o que precisa para encontrar o médico certo, marcar e ser lembrado.",
+    "desc": "A DocAgora reúne pesquisa inteligente, profissionais verificados e marcação simples numa única plataforma — disponível em português, francês e inglês. Veja o que a torna simples.",
+    "learnMore": "Saber mais sobre a DocAgora",
+    "item1": "Pesquisa inteligente com IA",
+    "item2": "Pesquisa filtrada",
+    "item3": "Mapa interativo",
+    "item4": "Marcação em 3 passos",
+    "item5": "Verdadeiramente multilingue",
+    "item6": "Profissionais verificados",
+    "item7": "Avaliações multicritério",
+    "item8": "Lembretes automáticos",
+    "bottomText": "Encontre o profissional certo mais rapidamente. Marque na sua língua. Receba lembretes automáticos.",
+    "bottomCta": "Criar a minha conta"
   },
   "team": {
-    "title": "Meet Our Professionals",
-    "desc": "DocAgora connects you with verified healthcare professionals across Portugal. Browse specialists by expertise, language and location.",
-    "readMore": "Read More",
+    "title": "Conheça os nossos profissionais",
+    "desc": "A DocAgora liga-o a profissionais de saúde verificados em todo o Portugal. Explore especialistas por competência, língua e localização.",
+    "readMore": "Ler mais",
     "members": {
-      "member1": { "name": "Mike Dooley", "job": "Cardiology Specialist", "desc": "Muldoone obtained his undergraduate degree in Biomedical Engineering at Tulane University prior to attending St George's University School of Medicine" },
-      "member2": { "name": "Dermatologists", "job": "Cardiology Specialist", "desc": "Brian specializes in treating skin, hair, nail, and mucous membrane. He also address cosmetic issues, helping to revitalize the appearance of the skin" },
-      "member3": { "name": "Maria Andaloro", "job": "Pediatrician", "desc": "Andaloro graduated from medical school and completed 3 years residency program in pediatrics. She passed rigorous exams by the American Board of Pediatrics." },
-      "member4": { "name": "Dupree Black", "job": "Urologist", "desc": "Black diagnose and treat diseases of the urinary tract in both men and women. He also diagnose and treat anything involving the reproductive tract in men." },
-      "member5": { "name": "Markus skar", "job": "Laboratory", "desc": "Skar play a very important role in your health care. People working in the clinical laboratory are responsible for conducting tests that provide crucial information." },
-      "member6": { "name": "Kiano Barker", "job": "Pathologist", "desc": "Barker help care for patients every day by providing their doctors with the information needed to ensure appropriate care. He also valuable resources for other physicians." }
+      "member1": { "name": "Mike Dooley", "job": "Especialista em Cardiologia", "desc": "Dooley obteve a sua licenciatura em Engenharia Biomédica na Universidade de Tulane antes de frequentar a Escola de Medicina da Universidade de St George." },
+      "member2": { "name": "Dermatologists", "job": "Especialista em Cardiologia", "desc": "Brian é especialista no tratamento da pele, cabelo, unhas e mucosas. Também trata questões estéticas, ajudando a revitalizar a aparência da pele." },
+      "member3": { "name": "Maria Andaloro", "job": "Pediatra", "desc": "Andaloro formou-se em medicina e completou 3 anos de internato em pediatria. Foi aprovada nos exames rigorosos da American Board of Pediatrics." },
+      "member4": { "name": "Dupree Black", "job": "Urologista", "desc": "Black diagnostica e trata doenças do trato urinário em homens e mulheres. Também diagnostica e trata tudo o que envolve o aparelho reprodutor masculino." },
+      "member5": { "name": "Markus skar", "job": "Laboratório", "desc": "Skar desempenha um papel muito importante nos seus cuidados de saúde. Os profissionais de laboratório clínico são responsáveis pela realização de exames que fornecem informações cruciais." },
+      "member6": { "name": "Kiano Barker", "job": "Patologista", "desc": "Barker contribui diariamente para os cuidados dos pacientes, fornecendo aos médicos as informações necessárias para garantir um tratamento adequado." }
     }
   },
   "process": {
-    "subtitle": "How DocAgora works",
-    "title": "Find, compare and book your doctor in just a few clicks.",
-    "desc": "Whether you need a general practitioner or a specialist, DocAgora guides you from search to appointment. No phone calls, no waiting — just a simple, fast and multilingual experience.",
-    "tags": ["Smart search", "Verified professionals", "Real-time availability", "Multilingual support", "Automatic reminders"],
+    "subtitle": "Como funciona a DocAgora",
+    "title": "Encontre, compare e marque o seu médico em poucos cliques.",
+    "desc": "Quer precise de um clínico geral ou de um especialista, a DocAgora guia-o da pesquisa à consulta. Sem telefonemas, sem esperas — apenas uma experiência simples, rápida e multilingue.",
+    "tags": ["Pesquisa inteligente", "Profissionais verificados", "Disponibilidade em tempo real", "Apoio multilingue", "Lembretes automáticos"],
     "steps": {
-      "step1": { "number": "01", "title": "Describe your need", "desc": "Free-form search or AI-assisted, in your language.", "cta": "Start my search" },
-      "step2": { "number": "02", "title": "Compare professionals", "desc": "Specialty, reviews, spoken languages, distance, accepted insurance.", "cta": "Browse specialties" },
-      "step3": { "number": "03", "title": "Choose your slot", "desc": "Real-time availability, no phone call needed.", "cta": "Find a professional" },
-      "step4": { "number": "04", "title": "Confirm in one click", "desc": "Instant booking, email confirmation. No waiting — your appointment is secured immediately.", "cta": "Create my account" },
-      "step5": { "number": "05", "title": "Get reminded", "desc": "Automatic reminders before your appointment, post-consultation follow-up.", "cta": "Learn more" }
+      "step1": { "number": "01", "title": "Descreva a sua necessidade", "desc": "Pesquisa livre ou assistida por IA, na sua língua.", "cta": "Começar a minha pesquisa" },
+      "step2": { "number": "02", "title": "Compare profissionais", "desc": "Especialidade, avaliações, línguas faladas, distância, seguros aceites.", "cta": "Ver especialidades" },
+      "step3": { "number": "03", "title": "Escolha o seu horário", "desc": "Disponibilidade em tempo real, sem necessidade de telefonema.", "cta": "Encontrar um profissional" },
+      "step4": { "number": "04", "title": "Confirme num clique", "desc": "Marcação instantânea, confirmação por e-mail. Sem esperas — a sua consulta fica imediatamente reservada.", "cta": "Criar a minha conta" },
+      "step5": { "number": "05", "title": "Receba lembretes", "desc": "Lembretes automáticos antes da consulta, acompanhamento pós-consulta.", "cta": "Saber mais" }
     },
-    "ctaTitle": "Your health journey, simplified.",
-    "ctaDesc": "Find the right professional, book in your language and get reminded automatically. All for free.",
-    "ctaButton": "Create my account"
+    "ctaTitle": "O seu percurso de saúde, simplificado.",
+    "ctaDesc": "Encontre o profissional certo, marque na sua língua e receba lembretes automáticos. Tudo gratuitamente.",
+    "ctaButton": "Criar a minha conta"
   },
   "testimonials": {
-    "title": "What our users say",
+    "title": "O que dizem os nossos utilizadores",
     "items": {
-      "item1": { "quote": "DocAgora helped me find a French-speaking pediatrician in Lisbon in less than 5 minutes. Game changer.", "name": "Sophie M.", "location": "Lisbon" },
-      "item2": { "quote": "I booked my dentist appointment in 30 seconds, in English, without a single phone call.", "name": "James W.", "location": "Porto" },
-      "item3": { "quote": "As an expat in Portugal, finding a doctor used to be a nightmare. Not anymore.", "name": "Lukas R.", "location": "Cascais" }
+      "item1": { "quote": "A DocAgora ajudou-me a encontrar um pediatra que fala francês em Lisboa em menos de 5 minutos. Uma revolução.", "name": "Sophie M.", "location": "Lisboa" },
+      "item2": { "quote": "Marquei a minha consulta de dentista em 30 segundos, em inglês, sem um único telefonema.", "name": "James W.", "location": "Porto" },
+      "item3": { "quote": "Como expatriado em Portugal, encontrar um médico costumava ser um pesadelo. Já não é.", "name": "Lukas R.", "location": "Cascais" }
     }
   },
   "cities": {
-    "title": "Available across Portugal",
-    "desc": "Find healthcare professionals in major Portuguese cities.",
+    "title": "Disponível em todo o Portugal",
+    "desc": "Encontre profissionais de saúde nas principais cidades portuguesas.",
     "items": ["Lisboa", "Porto", "Coimbra", "Braga", "Faro", "Cascais"]
   },
   "contactForm": {
-    "title": "Find a professional",
-    "desc": "Tell us what you're looking for and we'll help you find the right healthcare professional.",
-    "name": "Name",
-    "email": "Email",
-    "specialty": "Specialty",
-    "city": "City",
-    "preferredLanguage": "Preferred language",
-    "languageOptions": { "pt": "Portuguese", "fr": "French", "en": "English" },
-    "submit": "Start my search",
-    "whyTitle": "Why DocAgora?",
-    "whyDesc": "Find the right professional faster. Book in your language. Get reminded automatically. All for free.",
-    "findProfessional": "Find a professional",
-    "playVideo": "Play Video",
-    "freeText": "DocAgora is free for patients. Search, compare and book verified healthcare professionals across Portugal — in Portuguese, French or English.",
-    "teamSignature": "The DocAgora team"
+    "title": "Encontrar um profissional",
+    "desc": "Diga-nos o que procura e ajudamo-lo a encontrar o profissional de saúde certo.",
+    "name": "Nome",
+    "email": "E-mail",
+    "specialty": "Especialidade",
+    "city": "Cidade",
+    "preferredLanguage": "Língua preferida",
+    "languageOptions": { "pt": "Português", "fr": "Francês", "en": "Inglês" },
+    "submit": "Começar a minha pesquisa",
+    "whyTitle": "Porquê a DocAgora?",
+    "whyDesc": "Encontre o profissional certo mais rapidamente. Marque na sua língua. Receba lembretes automáticos. Tudo gratuitamente.",
+    "findProfessional": "Encontrar um profissional",
+    "playVideo": "Ver vídeo",
+    "freeText": "A DocAgora é gratuita para pacientes. Pesquise, compare e marque com profissionais de saúde verificados em todo o Portugal — em português, francês ou inglês.",
+    "teamSignature": "A equipa DocAgora"
   },
   "faqHighlights": {
-    "subtitle": "Quick answers to help you get started",
-    "title": "Frequently asked questions",
-    "seeAllFaqs": "See all FAQs",
+    "subtitle": "Respostas rápidas para começar",
+    "title": "Perguntas frequentes",
+    "seeAllFaqs": "Ver todas as perguntas frequentes",
     "items": {
-      "item1": { "category": "Pricing", "question": "Is DocAgora free for patients?", "answer": "Yes, creating an account and searching for professionals is completely free. You only pay your healthcare provider directly, as you would normally." },
-      "item2": { "category": "Trust", "question": "Are the professionals verified?", "answer": "Every healthcare professional on DocAgora is reviewed and approved by our team before going live. We verify their credentials and registration number." },
-      "item3": { "category": "Languages", "question": "Can I use DocAgora in my language?", "answer": "Yes. The platform is available in Portuguese, French and English, and you can filter professionals by the language they speak." }
+      "item1": { "category": "Preços", "question": "A DocAgora é gratuita para pacientes?", "answer": "Sim, criar uma conta e pesquisar profissionais é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente." },
+      "item2": { "category": "Confiança", "question": "Os profissionais são verificados?", "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais e número de cédula profissional." },
+      "item3": { "category": "Línguas", "question": "Posso usar a DocAgora na minha língua?", "answer": "Sim. A plataforma está disponível em português, francês e inglês, e pode filtrar profissionais pela língua que falam." }
     }
   },
   "footer": {
-    "aboutText": "DocAgora connects you with verified healthcare professionals in Portugal. Search by specialty, language and location — book in just a few clicks.",
-    "findProfessional": "Find a professional",
-    "specialtiesTitle": "Specialties",
-    "linksTitle": "Links",
-    "linkAbout": "About",
-    "linkLegal": "Legal notice",
-    "linkPrivacy": "Privacy policy",
-    "linkTerms": "Terms of use",
+    "aboutText": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquise por especialidade, língua e localização — marque em poucos cliques.",
+    "findProfessional": "Encontrar um profissional",
+    "specialtiesTitle": "Especialidades",
+    "linksTitle": "Ligações",
+    "linkAbout": "Sobre",
+    "linkLegal": "Aviso legal",
+    "linkPrivacy": "Política de privacidade",
+    "linkTerms": "Termos de utilização",
     "linkBlog": "Blog",
-    "linkContact": "Contact",
-    "contactTitle": "Get in touch",
-    "contactDesc": "If you have any questions or need help, feel free to contact our team.",
+    "linkContact": "Contacto",
+    "contactTitle": "Entre em contacto",
+    "contactDesc": "Se tiver alguma questão ou precisar de ajuda, não hesite em contactar a nossa equipa.",
     "contactEmail": "hello@docagora.com",
     "contactLocation": "Portugal",
-    "contactUs": "Contact us",
-    "gdprNote": "GDPR-compliant platform · Data hosted in Europe",
-    "linkSpecialties": "Specialties",
-    "copyright": "\u00a9 2026 DocAgora. All rights reserved.",
-    "gdprBadge": "GDPR-compliant platform \u00b7 Data hosted in Europe.",
-    "bottomTerms": "Terms of use",
-    "bottomPrivacy": "Privacy policy",
-    "bottomGdpr": "GDPR",
+    "contactUs": "Contacte-nos",
+    "gdprNote": "Plataforma em conformidade com o RGPD · Dados alojados na Europa",
+    "linkSpecialties": "Especialidades",
+    "copyright": "\u00a9 2026 DocAgora. Todos os direitos reservados.",
+    "gdprBadge": "Plataforma em conformidade com o RGPD \u00b7 Dados alojados na Europa.",
+    "bottomTerms": "Termos de utilização",
+    "bottomPrivacy": "Política de privacidade",
+    "bottomGdpr": "RGPD",
     "footerSpecialties": {
-      "generalPractice": "General Practice",
-      "cardiology": "Cardiology",
-      "dermatology": "Dermatology",
-      "pediatrics": "Pediatrics",
-      "dentistry": "Dentistry",
-      "psychology": "Psychology"
+      "generalPractice": "Clínica Geral",
+      "cardiology": "Cardiologia",
+      "dermatology": "Dermatologia",
+      "pediatrics": "Pediatria",
+      "dentistry": "Medicina Dentária",
+      "psychology": "Psicologia"
     }
   },
   "aboutPage": {
-    "pageHeading": "Finding the right healthcare professional in Portugal, made simple.",
-    "pageDesc": "DocAgora connects you with verified healthcare professionals across Portugal. Search by specialty, language and location.",
-    "ctaFindDoctor": "Find a professional",
-    "ctaSpecialties": "Our specialties",
-    "aboutTitle": "Improving access to healthcare in Portugal, for everyone.",
-    "aboutP1": "Our goal is to connect every person in Portugal — residents, expatriates and travelers — with the right healthcare professional. DocAgora was born from a simple observation: finding a doctor who speaks your language, accepts your insurance, and has availability shouldn't be a battle.",
-    "aboutP2": "We work with verified healthcare professionals across all major specialties. Every practitioner on the platform is reviewed and approved by our team before going live. We believe that access to quality healthcare starts with a simple, fast and multilingual booking experience.",
-    "meetProfessionals": "Meet our professionals",
-    "watchVideo": "Watch Our Video!",
-    "featuresTitle": "Why patients choose DocAgora.",
-    "featuresDesc": "We built DocAgora around the needs of patients in Portugal — whether you're a local resident, an expat, or just passing through. Here's what makes us different.",
-    "featuresCta1": "Find a professional",
-    "featuresCta2": "Our core values",
+    "pageHeading": "Encontrar o profissional de saúde certo em Portugal, de forma simples.",
+    "pageDesc": "A DocAgora liga-o a profissionais de saúde verificados em todo o Portugal. Pesquise por especialidade, língua e localização.",
+    "ctaFindDoctor": "Encontrar um profissional",
+    "ctaSpecialties": "As nossas especialidades",
+    "aboutTitle": "A melhorar o acesso à saúde em Portugal, para todos.",
+    "aboutP1": "O nosso objetivo é ligar cada pessoa em Portugal — residentes, expatriados e viajantes — ao profissional de saúde certo. A DocAgora nasceu de uma observação simples: encontrar um médico que fale a sua língua, aceite o seu seguro e tenha disponibilidade não deveria ser uma batalha.",
+    "aboutP2": "Trabalhamos com profissionais de saúde verificados em todas as principais especialidades. Cada profissional na plataforma é analisado e aprovado pela nossa equipa antes de ficar disponível. Acreditamos que o acesso a cuidados de saúde de qualidade começa com uma experiência de marcação simples, rápida e multilingue.",
+    "meetProfessionals": "Conheça os nossos profissionais",
+    "watchVideo": "Veja o nosso vídeo!",
+    "featuresTitle": "Porque é que os pacientes escolhem a DocAgora.",
+    "featuresDesc": "Construímos a DocAgora em torno das necessidades dos pacientes em Portugal — quer seja residente, expatriado ou esteja apenas de passagem. Veja o que nos distingue.",
+    "featuresCta1": "Encontrar um profissional",
+    "featuresCta2": "Os nossos valores",
     "features": {
-      "f1": "Smart search by specialty, city or language",
-      "f2": "Verified and approved professionals",
-      "f3": "Platform available 24/7",
-      "f4": "Multilingual support (PT/FR/EN)",
-      "f5": "Free for all patients",
-      "f6": "Real-time appointment availability",
-      "f7": "Reviews from real patients",
-      "f8": "Automatic appointment reminders"
+      "f1": "Pesquisa inteligente por especialidade, cidade ou língua",
+      "f2": "Profissionais verificados e aprovados",
+      "f3": "Plataforma disponível 24/7",
+      "f4": "Apoio multilingue (PT/FR/EN)",
+      "f5": "Gratuito para todos os pacientes",
+      "f6": "Disponibilidade de consultas em tempo real",
+      "f7": "Avaliações de pacientes reais",
+      "f8": "Lembretes automáticos de consulta"
     },
-    "featuresBottom": "We believe quality healthcare starts with a simple booking experience.",
-    "featuresBottomCta": "Contact us for more information"
+    "featuresBottom": "Acreditamos que cuidados de saúde de qualidade começam com uma experiência de marcação simples.",
+    "featuresBottomCta": "Contacte-nos para mais informações"
   },
   "specialtiesPage": {
-    "pageSubheading": "Browse 16 medical specialties available on DocAgora.",
-    "pageHeading": "Find the right specialist for your needs.",
-    "pageDesc": "DocAgora connects you with verified healthcare professionals across 16 medical specialties in Portugal.",
-    "ctaFindDoctor": "Find a professional",
-    "ctaAbout": "More about us",
-    "servicesSubtitle": "All specialties available on DocAgora",
-    "servicesTitle": "Verified professionals across 16 medical specialties.",
+    "pageSubheading": "Explore 16 especialidades médicas disponíveis na DocAgora.",
+    "pageHeading": "Encontre o especialista certo para as suas necessidades.",
+    "pageDesc": "A DocAgora liga-o a profissionais de saúde verificados em 16 especialidades médicas em Portugal.",
+    "ctaFindDoctor": "Encontrar um profissional",
+    "ctaAbout": "Mais sobre nós",
+    "servicesSubtitle": "Todas as especialidades disponíveis na DocAgora",
+    "servicesTitle": "Profissionais verificados em 16 especialidades médicas.",
     "subItems": {
-      "generalPractice": ["Routine check-ups", "Chronic disease management", "Preventive care"],
-      "cardiology": ["Cardiac check-ups", "Hypertension management", "Heart disease prevention"],
-      "dermatology": ["Skin conditions", "Cosmetic dermatology", "Mole screening"],
-      "pediatrics": ["Childhood vaccinations", "Growth monitoring", "Paediatric check-ups"],
-      "gynecology": ["Routine gynaecological exams", "Prenatal care", "Reproductive health"],
-      "ophthalmology": ["Vision testing", "Eye disease treatment", "Glaucoma screening"],
-      "orthopedics": ["Joint pain treatment", "Sports injuries", "Bone fracture care"],
-      "psychology": ["Individual therapy", "Anxiety and depression", "Psychological assessments"],
-      "dentistry": ["Dental cleanings", "Restorative dentistry", "Cosmetic dentistry"],
-      "physiotherapy": ["Post-surgery rehabilitation", "Sports physiotherapy", "Pain management"],
-      "ent": ["Hearing assessments", "Sinus treatment", "Voice disorders"],
-      "endocrinology": ["Diabetes management", "Thyroid disorders", "Hormonal imbalances"],
-      "gastroenterology": ["Digestive disorders", "Liver conditions", "Gastroscopy"],
-      "neurology": ["Migraine treatment", "Neurological assessments", "Nerve disorders"],
-      "urology": ["Urinary tract conditions", "Prostate health", "Kidney stone treatment"],
-      "rheumatology": ["Arthritis treatment", "Autoimmune conditions", "Joint inflammation"]
+      "generalPractice": ["Exames de rotina", "Gestão de doenças crónicas", "Cuidados preventivos"],
+      "cardiology": ["Exames cardíacos", "Gestão da hipertensão", "Prevenção de doenças cardíacas"],
+      "dermatology": ["Doenças de pele", "Dermatologia estética", "Rastreio de sinais"],
+      "pediatrics": ["Vacinação infantil", "Acompanhamento do crescimento", "Exames pediátricos"],
+      "gynecology": ["Exames ginecológicos de rotina", "Cuidados pré-natais", "Saúde reprodutiva"],
+      "ophthalmology": ["Testes de visão", "Tratamento de doenças oculares", "Rastreio de glaucoma"],
+      "orthopedics": ["Tratamento de dor articular", "Lesões desportivas", "Tratamento de fraturas"],
+      "psychology": ["Terapia individual", "Ansiedade e depressão", "Avaliações psicológicas"],
+      "dentistry": ["Limpeza dentária", "Medicina dentária restauradora", "Medicina dentária estética"],
+      "physiotherapy": ["Reabilitação pós-cirúrgica", "Fisioterapia desportiva", "Gestão da dor"],
+      "ent": ["Avaliações auditivas", "Tratamento sinusal", "Perturbações da voz"],
+      "endocrinology": ["Gestão da diabetes", "Doenças da tiroide", "Desequilíbrios hormonais"],
+      "gastroenterology": ["Perturbações digestivas", "Doenças do fígado", "Gastroscopia"],
+      "neurology": ["Tratamento de enxaquecas", "Avaliações neurológicas", "Perturbações nervosas"],
+      "urology": ["Condições do trato urinário", "Saúde da próstata", "Tratamento de cálculos renais"],
+      "rheumatology": ["Tratamento de artrite", "Doenças autoimunes", "Inflamação articular"]
     },
-    "featuresTitle": "DocAgora simplifies access to healthcare across Portugal.",
-    "featuresDesc": "Whether you're a Portuguese resident, an expatriate or a traveler, DocAgora helps you find, compare and book verified healthcare professionals — in your language.",
-    "featuresCoreValues": "Our core values",
+    "featuresTitle": "A DocAgora simplifica o acesso à saúde em todo o Portugal.",
+    "featuresDesc": "Quer seja residente português, expatriado ou viajante, a DocAgora ajuda-o a encontrar, comparar e marcar com profissionais de saúde verificados — na sua língua.",
+    "featuresCoreValues": "Os nossos valores",
     "features": {
-      "f1": "Smart search by specialty, city or language",
-      "f2": "Verified and approved professionals",
-      "f3": "Platform available 24/7",
-      "f4": "Multilingual support (PT/FR/EN)",
-      "f5": "Free for all patients",
-      "f6": "Real-time appointment availability",
-      "f7": "Reviews from real patients",
-      "f8": "Automatic appointment reminders"
+      "f1": "Pesquisa inteligente por especialidade, cidade ou língua",
+      "f2": "Profissionais verificados e aprovados",
+      "f3": "Plataforma disponível 24/7",
+      "f4": "Apoio multilingue (PT/FR/EN)",
+      "f5": "Gratuito para todos os pacientes",
+      "f6": "Disponibilidade de consultas em tempo real",
+      "f7": "Avaliações de pacientes reais",
+      "f8": "Lembretes automáticos de consulta"
     },
-    "featuresBottom": "We strive to be the most trusted healthcare booking platform in Portugal.",
-    "featuresBottomCta": "Contact us for more information"
+    "featuresBottom": "Ambicionamos ser a plataforma de marcação de consultas mais fiável em Portugal.",
+    "featuresBottomCta": "Contacte-nos para mais informações"
   },
   "faqPage": {
-    "pageTitle": "FAQs",
-    "breadcrumbHome": "Home",
-    "breadcrumbAbout": "About",
-    "breadcrumbFaq": "FAQs",
-    "sidebarEmergencyTitle": "Emergency Cases",
-    "sidebarEmergencyDesc": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
+    "pageTitle": "Perguntas Frequentes",
+    "breadcrumbHome": "Início",
+    "breadcrumbAbout": "Sobre",
+    "breadcrumbFaq": "Perguntas Frequentes",
+    "sidebarEmergencyTitle": "Casos de Emergência",
+    "sidebarEmergencyDesc": "Em caso de emergência médica, ligue 112. A DocAgora não é um serviço de emergência.",
     "sidebarEmergencyPhone": "112",
-    "sidebarAvailableTitle": "Platform Availability",
-    "sidebarAvailable": "Platform",
+    "sidebarAvailableTitle": "Disponibilidade da Plataforma",
+    "sidebarAvailable": "Plataforma",
     "sidebarAvailableValue": "24/7",
-    "sidebarSearch": "Search & Book",
-    "sidebarSearchValue": "Anytime",
-    "sidebarReminders": "Reminders",
-    "sidebarRemindersValue": "Automatic",
-    "sidebarCta": "Find a professional",
+    "sidebarSearch": "Pesquisar e marcar",
+    "sidebarSearchValue": "A qualquer momento",
+    "sidebarReminders": "Lembretes",
+    "sidebarRemindersValue": "Automáticos",
+    "sidebarCta": "Encontrar um profissional",
     "items": {
-      "q1": { "question": "Is DocAgora free for patients?", "answer": "Yes, creating an account, searching for professionals and booking appointments is completely free. You only pay your healthcare provider directly, as you would normally." },
-      "q2": { "question": "Are the professionals verified?", "answer": "Every healthcare professional on DocAgora is reviewed and approved by our team before going live. We verify their credentials, registration number and professional standing." },
-      "q3": { "question": "What languages is DocAgora available in?", "answer": "The platform is available in Portuguese, French and English. You can also filter professionals by the languages they speak during consultations." },
-      "q4": { "question": "How do I book an appointment?", "answer": "Search for a professional by specialty, city or language. Compare profiles, reviews and availability. Choose a time slot and confirm your booking in one click. You'll receive an email confirmation instantly." },
-      "q5": { "question": "Can I cancel or reschedule my appointment?", "answer": "Yes, you can cancel or reschedule from your patient account at any time. We recommend doing so at least 24 hours before your appointment out of respect for the professional's time." },
-      "q6": { "question": "Is my personal data safe?", "answer": "DocAgora is fully GDPR-compliant. Your personal data is hosted in Europe and is never shared with third parties without your explicit consent. We take your privacy seriously." },
-      "q7": { "question": "Which cities are covered?", "answer": "DocAgora is available across major Portuguese cities including Lisbon, Porto, Coimbra, Braga, Faro and Cascais. We are continuously expanding our network of professionals." },
-      "q8": { "question": "Do I need to create an account?", "answer": "You can browse professionals and their availability without an account. However, you'll need to create a free account to book appointments and receive reminders." },
-      "q9": { "question": "How do I contact support?", "answer": "You can reach our team at hello@docagora.com. We aim to respond within 24 hours. The platform is available 24/7 for searching and booking." },
-      "q10": { "question": "Can I filter professionals by insurance?", "answer": "Yes, you can filter professionals by the health insurance plans they accept. This helps you find in-network providers and avoid unexpected costs." }
+      "q1": { "question": "A DocAgora é gratuita para pacientes?", "answer": "Sim, criar uma conta, pesquisar profissionais e marcar consultas é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente." },
+      "q2": { "question": "Os profissionais são verificados?", "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais, número de cédula profissional e situação profissional." },
+      "q3": { "question": "Em que línguas está a DocAgora disponível?", "answer": "A plataforma está disponível em português, francês e inglês. Também pode filtrar profissionais pelas línguas que falam durante as consultas." },
+      "q4": { "question": "Como marco uma consulta?", "answer": "Pesquise um profissional por especialidade, cidade ou língua. Compare perfis, avaliações e disponibilidade. Escolha um horário e confirme a sua marcação num clique. Receberá uma confirmação por e-mail instantaneamente." },
+      "q5": { "question": "Posso cancelar ou remarcar a minha consulta?", "answer": "Sim, pode cancelar ou remarcar a partir da sua conta de paciente a qualquer momento. Recomendamos fazê-lo pelo menos 24 horas antes da consulta, por respeito ao tempo do profissional." },
+      "q6": { "question": "Os meus dados pessoais estão seguros?", "answer": "A DocAgora está totalmente em conformidade com o RGPD. Os seus dados pessoais estão alojados na Europa e nunca são partilhados com terceiros sem o seu consentimento explícito. Levamos a sua privacidade a sério." },
+      "q7": { "question": "Que cidades estão cobertas?", "answer": "A DocAgora está disponível nas principais cidades portuguesas, incluindo Lisboa, Porto, Coimbra, Braga, Faro e Cascais. Estamos continuamente a expandir a nossa rede de profissionais." },
+      "q8": { "question": "Preciso de criar uma conta?", "answer": "Pode consultar profissionais e a sua disponibilidade sem conta. No entanto, precisará de criar uma conta gratuita para marcar consultas e receber lembretes." },
+      "q9": { "question": "Como contacto o suporte?", "answer": "Pode contactar a nossa equipa em hello@docagora.com. Procuramos responder no prazo de 24 horas. A plataforma está disponível 24/7 para pesquisa e marcação." },
+      "q10": { "question": "Posso filtrar profissionais por seguro?", "answer": "Sim, pode filtrar profissionais pelos planos de seguro de saúde que aceitam. Isto ajuda-o a encontrar prestadores dentro da sua rede e evitar custos inesperados." }
     }
   },
   "contactPage": {
-    "formTitle": "How can we help?",
-    "formDesc": "Have a question about DocAgora? Looking for a specific specialty? Our team is here to help you find the right healthcare professional.",
-    "labelName": "Name",
-    "labelEmail": "Email",
-    "labelSpecialty": "Specialty",
-    "labelCity": "City",
-    "labelLanguage": "Preferred language",
-    "labelMessage": "Message",
-    "submitButton": "Start my search",
-    "panelTitle": "Quick contacts",
-    "panelDesc": "Have a question about DocAgora? Our team is here to help.",
-    "panelEmergency": "Emergency Line: 112",
+    "formTitle": "Como podemos ajudar?",
+    "formDesc": "Tem alguma questão sobre a DocAgora? Procura uma especialidade específica? A nossa equipa está aqui para o ajudar a encontrar o profissional de saúde certo.",
+    "labelName": "Nome",
+    "labelEmail": "E-mail",
+    "labelSpecialty": "Especialidade",
+    "labelCity": "Cidade",
+    "labelLanguage": "Língua preferida",
+    "labelMessage": "Mensagem",
+    "submitButton": "Começar a minha pesquisa",
+    "panelTitle": "Contactos rápidos",
+    "panelDesc": "Tem alguma questão sobre a DocAgora? A nossa equipa está aqui para ajudar.",
+    "panelEmergency": "Linha de emergência: 112",
     "panelLocation": "Portugal",
     "panelEmail": "hello@docagora.com",
-    "panelAvailable": "Platform available 24/7",
-    "panelContactUs": "Contact us",
-    "faqSubtitle": "Find answers to common questions",
-    "faqTitle": "Frequently asked questions"
+    "panelAvailable": "Plataforma disponível 24/7",
+    "panelContactUs": "Contacte-nos",
+    "faqSubtitle": "Encontre respostas às perguntas mais comuns",
+    "faqTitle": "Perguntas frequentes"
   },
   "blogPage": {
-    "pageTitle": "Health Essentials",
-    "breadcrumbHome": "Home",
+    "pageTitle": "Essenciais de Saúde",
+    "breadcrumbHome": "Início",
     "breadcrumbBlog": "Blog",
-    "readMore": "Read More",
-    "paginationPrev": "Previous",
-    "paginationNext": "Next",
+    "readMore": "Ler mais",
+    "paginationPrev": "Anterior",
+    "paginationNext": "Seguinte",
     "articles": {
       "a1": {
-        "category": "Patient Tips",
-        "date": "May 2, 2026",
-        "author": "DocAgora Team",
-        "title": "How to find a doctor who speaks your language in Portugal",
-        "excerpt": "Moving to Portugal or just visiting? Here's a practical guide to finding healthcare professionals who speak Portuguese, English, French or Spanish."
+        "category": "Dicas para Pacientes",
+        "date": "2 de maio de 2026",
+        "author": "Equipa DocAgora",
+        "title": "Como encontrar um médico que fale a sua língua em Portugal",
+        "excerpt": "Vai mudar-se para Portugal ou está apenas de visita? Aqui está um guia prático para encontrar profissionais de saúde que falam português, inglês, francês ou espanhol."
       },
       "a2": {
-        "category": "Healthcare",
-        "date": "April 14, 2026",
-        "author": "DocAgora Team",
-        "title": "Understanding the Portuguese healthcare system as an expat",
-        "excerpt": "Public vs private healthcare in Portugal — what every newcomer needs to know before their first medical appointment."
+        "category": "Saúde",
+        "date": "14 de abril de 2026",
+        "author": "Equipa DocAgora",
+        "title": "Compreender o sistema de saúde português como expatriado",
+        "excerpt": "Saúde pública vs privada em Portugal — o que cada recém-chegado precisa de saber antes da sua primeira consulta médica."
       },
       "a3": {
-        "category": "Patient Tips",
-        "date": "March 20, 2026",
-        "author": "DocAgora Team",
-        "title": "The 5 most common reasons patients miss their appointments (and how to avoid them)",
-        "excerpt": "No-shows hurt both patients and doctors. Here are the simple habits that make sure you never miss an appointment again."
+        "category": "Dicas para Pacientes",
+        "date": "20 de março de 2026",
+        "author": "Equipa DocAgora",
+        "title": "As 5 razões mais comuns para faltar a uma consulta (e como evitá-las)",
+        "excerpt": "As faltas prejudicam tanto pacientes como médicos. Aqui estão os hábitos simples que garantem que nunca mais falta a uma consulta."
       },
       "a4": {
-        "category": "Wellness",
-        "date": "February 18, 2026",
-        "author": "DocAgora Team",
-        "title": "What to expect during your first consultation in Portugal",
-        "excerpt": "From paperwork to insurance, here's a step-by-step guide to your first medical appointment as a foreign resident or visitor."
+        "category": "Bem-estar",
+        "date": "18 de fevereiro de 2026",
+        "author": "Equipa DocAgora",
+        "title": "O que esperar da sua primeira consulta em Portugal",
+        "excerpt": "Da documentação ao seguro, aqui está um guia passo a passo para a sua primeira consulta médica como residente estrangeiro ou visitante."
       },
       "a5": {
-        "category": "Doctor Insights",
-        "date": "January 25, 2026",
-        "author": "DocAgora Team",
-        "title": "Why online booking is changing healthcare in Portugal",
-        "excerpt": "Real-time availability, fewer phone calls, faster bookings — how digital tools are transforming patient-doctor relationships."
+        "category": "Perspetivas Médicas",
+        "date": "25 de janeiro de 2026",
+        "author": "Equipa DocAgora",
+        "title": "Porque é que a marcação online está a transformar a saúde em Portugal",
+        "excerpt": "Disponibilidade em tempo real, menos telefonemas, marcações mais rápidas — como as ferramentas digitais estão a transformar a relação paciente-médico."
       },
       "a6": {
-        "category": "Wellness",
-        "date": "March 30, 2026",
-        "author": "DocAgora Team",
-        "title": "Mental health resources for English-speaking expats in Lisbon and Porto",
-        "excerpt": "Therapists, psychologists and counsellors who speak English in Portugal — a curated guide for expats and travelers."
+        "category": "Bem-estar",
+        "date": "30 de março de 2026",
+        "author": "Equipa DocAgora",
+        "title": "Recursos de saúde mental para expatriados em Lisboa e Porto",
+        "excerpt": "Terapeutas, psicólogos e conselheiros que falam inglês em Portugal — um guia selecionado para expatriados e viajantes."
       }
     }
   },
   "home": {
     "mobileApp": {
-      "title": "DocAgora app — coming soon",
-      "subtitle": "The DocAgora mobile app is on its way. Find a healthcare professional, book appointments, receive reminders — all from your phone, in your language. Be the first to know when it launches.",
-      "starsLabel": "Available soon on iOS and Android",
-      "downloadOn": "Download on the",
+      "title": "App DocAgora — em breve",
+      "subtitle": "A aplicação móvel DocAgora está a chegar. Encontre um profissional de saúde, marque consultas, receba lembretes — tudo a partir do seu telemóvel, na sua língua. Seja o primeiro a saber quando for lançada.",
+      "starsLabel": "Em breve disponível no iOS e Android",
+      "downloadOn": "Descarregar na",
       "appStoreLabel": "App Store",
-      "getItOn": "Get it on",
+      "getItOn": "Obter no",
       "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "App launching soon — sign up for early access",
-      "cta": "Sign up on the platform to be notified at launch →"
+      "comingSoonTooltip": "Lançamento da app em breve — inscreva-se para acesso antecipado",
+      "cta": "Inscreva-se na plataforma para ser notificado no lançamento →"
     }
   },
   "chatbot": {
@@ -473,21 +473,21 @@
     "freeSearches": "pesquisas gratuitas",
     "placeholder": "Descreva o profissional que procura...",
     "placeholderDisabled": "Crie uma conta para continuar...",
-    "welcome": "Ola! Sou o assistente DocAgora. Descreva o profissional de saude que procura e encontrarei as melhores opcoes para si.",
+    "welcome": "Olá! Sou o assistente DocAgora. Descreva o profissional de saúde que procura e encontrarei as melhores opções para si.",
     "errorMessage": "Ocorreu um erro. Por favor, tente novamente.",
     "viewProfiles": "Crie uma conta para ver perfis completos e marcar consultas",
     "wallTitle": "Gostou dos resultados?",
     "wallDescription": "Crie uma conta gratuita para continuar a pesquisar sem limites e aceder a todas as funcionalidades.",
     "wallBenefit1": "Pesquisas ilimitadas com IA",
-    "wallBenefit2": "Marcacao de consultas online",
-    "wallBenefit3": "Lembretes automaticos",
-    "wallBenefit4": "Historico de consultas",
+    "wallBenefit2": "Marcação de consultas online",
+    "wallBenefit3": "Lembretes automáticos",
+    "wallBenefit4": "Histórico de consultas",
     "wallCreateAccount": "Criar conta gratuita",
-    "wallLogin": "Ja tenho conta",
-    "wallRgpd": "Os seus dados estao protegidos em conformidade com o RGPD.",
+    "wallLogin": "Já tenho conta",
+    "wallRgpd": "Os seus dados estão protegidos em conformidade com o RGPD.",
     "suggestion1": "Dentista em Lisboa",
-    "suggestion2": "Medico de familia no Porto",
-    "suggestion3": "Dermatologista que fale ingles",
-    "suggestion4": "Psicologo barato"
+    "suggestion2": "Médico de família no Porto",
+    "suggestion3": "Dermatologista que fale inglês",
+    "suggestion4": "Psicólogo acessível"
   }
 }

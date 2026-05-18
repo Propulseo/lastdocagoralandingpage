@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
-import HeaderTopbar from "@/components/layout/HeaderTopbar";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { locales } from "@/i18n/config";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import JQueryLoader from "@/lib/jquery-loader";
 import Preloader from "@/components/shared/Preloader";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -54,12 +56,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="wrapper" style={{ overflowX: "hidden" }}>
             <Preloader />
-            <header className="header header-layout1">
-              <HeaderTopbar />
-              <Navbar locale={locale} />
-            </header>
             {children}
-            <Footer />
             <ScrollToTop />
           </div>
           <JQueryLoader />

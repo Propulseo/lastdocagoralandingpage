@@ -2,8 +2,9 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navbar({ locale }: { locale: string }) {
+export default function Navbar() {
   const t = useTranslations("navbar");
   const pathname = usePathname();
 
@@ -47,9 +48,9 @@ export default function Navbar({ locale }: { locale: string }) {
               </Link>
             </li>
             <li className="nav__item">
-              <a href={`/${locale}#process`} className="nav__item-link">
+              <Link href="/#process" className="nav__item-link">
                 {t("howItWorks")}
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
               <Link href="/blog" className={`nav__item-link${pathname === "/blog" ? " active" : ""}`}>
@@ -62,11 +63,15 @@ export default function Navbar({ locale }: { locale: string }) {
               </Link>
             </li>
           </ul>
+          <div className="d-block d-lg-none py-3 px-3">
+            <LanguageSwitcher />
+          </div>
           <button className="close-mobile-menu d-block d-lg-none">
             <i className="fas fa-times"></i>
           </button>
         </div>
         <div className="d-none d-xl-flex align-items-center position-relative ml-30">
+          <LanguageSwitcher />
           <a href="#" className="btn btn__primary btn__rounded ml-30">
             <i className="icon-calendar"></i>
             <span>{t("findProfessional")}</span>
