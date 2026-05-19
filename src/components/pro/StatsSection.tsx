@@ -14,7 +14,7 @@ export default function StatsSection() {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #070C16, #0C121E)",
+        background: "linear-gradient(135deg, var(--color-dark-2), var(--color-dark-1))",
         padding: "70px 0",
         position: "relative",
       }}
@@ -26,7 +26,7 @@ export default function StatsSection() {
         left: 0,
         right: 0,
         height: 1,
-        background: "linear-gradient(90deg, transparent, rgba(103,203,199,0.2), transparent)",
+        background: "linear-gradient(90deg, transparent, rgba(var(--color-cobalt-rgb),0.2), transparent)",
       }} />
 
       <div className="container">
@@ -78,11 +78,11 @@ export default function StatsSection() {
           <div className="col-lg-4 offset-lg-1 mt-4 mt-lg-0">
             <div
               style={{
-                borderLeft: "3px solid var(--color-accent)",
+                borderLeft: "3px solid var(--color-pro-accent)",
                 paddingLeft: 24,
               }}
             >
-              <i className="fas fa-quote-left" style={{ color: "rgba(103,203,199,0.3)", fontSize: 24, marginBottom: 12, display: "block" }}></i>
+              <i className="fas fa-quote-left" style={{ color: "rgba(var(--color-cobalt-rgb),0.3)", fontSize: 24, marginBottom: 12, display: "block" }}></i>
               <p
                 style={{
                   fontSize: 15,
@@ -97,7 +97,7 @@ export default function StatsSection() {
               <p
                 style={{
                   fontSize: 14,
-                  color: "var(--color-accent)",
+                  color: "var(--color-pro-accent)",
                   fontWeight: 600,
                   marginBottom: 2,
                 }}

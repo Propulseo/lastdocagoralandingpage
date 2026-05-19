@@ -15,8 +15,8 @@ export default function ImproveSection() {
       bullets: ["block1Bullet1", "block1Bullet2"],
       ctaKey: "block1Cta",
       icon: "fas fa-heartbeat",
-      gradient: "linear-gradient(135deg, #67CBC7, #5AA2AA)",
-      accentColor: "var(--color-accent)",
+      gradient: "linear-gradient(135deg, var(--color-teal), var(--color-mint))",
+      accentColor: "var(--color-pro-accent)",
     },
     {
       titleKey: "block2Title",
@@ -24,8 +24,8 @@ export default function ImproveSection() {
       bullets: ["block2Bullet1", "block2Bullet2"],
       ctaKey: "block2Cta",
       icon: "fas fa-hand-holding-medical",
-      gradient: "linear-gradient(135deg, #4A7CC7, #244882)",
-      accentColor: "var(--color-cobalt)",
+      gradient: "linear-gradient(135deg, var(--color-cobalt), var(--color-navy))",
+      accentColor: "var(--color-pro-accent)",
     },
     {
       titleKey: "block3Title",
@@ -39,7 +39,7 @@ export default function ImproveSection() {
   ] as const;
 
   return (
-    <section style={{ padding: "80px 0", background: "#F8FAFD" }}>
+    <section style={{ padding: "80px 0", background: "var(--bg-section)" }}>
       <div className="container">
         <div className="row g-4">
           {blocks.map((block) => (
@@ -49,7 +49,7 @@ export default function ImproveSection() {
                   background: "#fff",
                   borderRadius: 16,
                   padding: "32px 26px 28px",
-                  border: "1px solid #f0f0f5",
+                  border: "1px solid var(--border-default)",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
@@ -94,7 +94,7 @@ export default function ImproveSection() {
                 <p
                   style={{
                     fontSize: 14,
-                    color: "#6b7280",
+                    color: "var(--text-muted)",
                     marginBottom: 20,
                     lineHeight: 1.6,
                   }}

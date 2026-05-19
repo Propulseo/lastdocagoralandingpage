@@ -13,7 +13,7 @@ export default function HeroProSection() {
     <section
       className="hero-pro"
       style={{
-        background: "linear-gradient(135deg, #070C16 0%, #0C121E 60%, #244882 100%)",
+        background: "linear-gradient(135deg, var(--color-dark-2) 0%, var(--color-dark-1) 60%, var(--color-navy) 100%)",
         paddingTop: 160,
         paddingBottom: 80,
         position: "relative",
@@ -57,8 +57,8 @@ export default function HeroProSection() {
                   key={key}
                   style={{
                     display: "inline-block",
-                    background: "rgba(103,203,199,0.12)",
-                    color: "var(--color-accent)",
+                    background: "rgba(var(--color-cobalt-rgb),0.12)",
+                    color: "var(--color-pro-accent)",
                     padding: "6px 16px",
                     borderRadius: 20,
                     fontSize: 12,
@@ -99,7 +99,7 @@ export default function HeroProSection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  background: "var(--color-accent)",
+                  background: "var(--color-primary)",
                   color: "#fff",
                   padding: "14px 28px",
                   borderRadius: 10,
@@ -107,15 +107,15 @@ export default function HeroProSection() {
                   fontWeight: 600,
                   textDecoration: "none",
                   transition: "all 0.3s",
-                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
+                  boxShadow: "0 4px 16px rgba(var(--color-navy-rgb), 0.3)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-navy-rgb), 0.4)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-navy-rgb), 0.3)";
                 }}
               >
                 {t("ctaGetStarted")}
@@ -175,7 +175,7 @@ export default function HeroProSection() {
               <p
                 style={{
                   fontSize: 13,
-                  color: "#6b7280",
+                  color: "var(--text-muted)",
                   marginBottom: 20,
                   lineHeight: 1.6,
                 }}
@@ -191,7 +191,7 @@ export default function HeroProSection() {
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   <select
                     className="form-control"
-                    style={{ color: "#6b7280", cursor: "pointer" }}
+                    style={{ color: "var(--text-muted)", cursor: "pointer" }}
                   >
                     <option>{t("formSubjectLabel")}</option>
                     <option>{t("formSubjectOption1")}</option>
@@ -245,7 +245,7 @@ export default function HeroProSection() {
                     style={{
                       width: "100%",
                       padding: "13px 20px",
-                      background: "var(--color-accent)",
+                      background: "var(--color-primary)",
                       color: "#fff",
                       border: "none",
                       borderRadius: 10,
@@ -256,12 +256,12 @@ export default function HeroProSection() {
                       marginTop: 4,
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "var(--color-accent-hover)";
+                      e.currentTarget.style.background = "var(--color-primary-hover)";
                       e.currentTarget.style.transform = "translateY(-1px)";
-                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-teal-rgb), 0.3)";
+                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-navy-rgb), 0.3)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "var(--color-accent)";
+                      e.currentTarget.style.background = "var(--color-primary)";
                       e.currentTarget.style.transform = "translateY(0)";
                       e.currentTarget.style.boxShadow = "none";
                     }}
@@ -281,7 +281,7 @@ export default function HeroProSection() {
                   marginBottom: 4,
                 }}
               >
-                <i className="fas fa-shield-alt" style={{ fontSize: 12, color: "var(--color-accent)" }}></i>
+                <i className="fas fa-shield-alt" style={{ fontSize: 12, color: "var(--color-pro-accent)" }}></i>
                 <span style={{ fontSize: 12, color: "#9ca3af" }}>
                   {t("formTrustLine")}
                 </span>
@@ -317,8 +317,8 @@ export default function HeroProSection() {
           font-size: 14px !important;
         }
         .hero-pro .form-control:focus {
-          border-color: #67CBC7 !important;
-          box-shadow: 0 0 0 3px rgba(103,203,199,0.1) !important;
+          border-color: var(--color-pro-accent) !important;
+          box-shadow: 0 0 0 3px rgba(var(--color-cobalt-rgb),0.1) !important;
         }
         .hero-pro select.form-control {
           appearance: auto;

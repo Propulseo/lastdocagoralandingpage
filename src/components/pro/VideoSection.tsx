@@ -19,7 +19,7 @@ export default function VideoSection() {
         <div
           className="text-center mb-5"
           style={{
-            background: "linear-gradient(135deg, #070C16 0%, #0C121E 80%, #244882 100%)",
+            background: "linear-gradient(135deg, var(--color-dark-2) 0%, var(--color-dark-1) 80%, var(--color-navy) 100%)",
             borderRadius: 20,
             position: "relative",
             overflow: "hidden",
@@ -62,7 +62,7 @@ export default function VideoSection() {
                   background: "#fff",
                   borderRadius: 14,
                   padding: "28px 22px",
-                  border: "1px solid #f0f0f5",
+                  border: "1px solid var(--border-default)",
                   height: "100%",
                   transition: "box-shadow 0.3s, transform 0.3s",
                 }}
@@ -80,19 +80,19 @@ export default function VideoSection() {
                     width: 48,
                     height: 48,
                     borderRadius: 12,
-                    background: "rgba(var(--color-teal-rgb), 0.1)",
+                    background: "rgba(var(--color-cobalt-rgb), 0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 16,
                   }}
                 >
-                  <i className={card.icon} style={{ fontSize: 20, color: "var(--color-accent)" }}></i>
+                  <i className={card.icon} style={{ fontSize: 20, color: "var(--color-pro-accent)" }}></i>
                 </div>
                 <h6 style={{ fontSize: 15, fontWeight: 700, marginBottom: 8, color: "var(--color-dark-1)" }}>
                   {t(card.titleKey)}
                 </h6>
-                <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.7, marginBottom: 0 }}>
+                <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 0 }}>
                   {t(card.descKey)}
                 </p>
               </div>

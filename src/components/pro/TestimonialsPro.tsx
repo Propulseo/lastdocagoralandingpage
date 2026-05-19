@@ -26,7 +26,7 @@ export default function TestimonialsPro() {
           style={{
             width: 48,
             height: 3,
-            background: "var(--color-accent)",
+            background: "var(--color-pro-accent)",
             borderRadius: 2,
             margin: "0 auto",
             marginTop: 16,
@@ -38,13 +38,13 @@ export default function TestimonialsPro() {
             <div key={item} className="col-md-6 col-lg-3">
               <div
                 style={{
-                  background: "#F8FAFD",
+                  background: "var(--bg-section)",
                   borderRadius: 14,
                   padding: "28px 22px",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  border: "1px solid #f0f0f5",
+                  border: "1px solid var(--border-default)",
                   transition: "box-shadow 0.3s",
                 }}
                 onMouseEnter={(e) => {
@@ -57,7 +57,7 @@ export default function TestimonialsPro() {
                 <i
                   className="fas fa-quote-left"
                   style={{
-                    color: "var(--color-accent)",
+                    color: "var(--color-pro-accent)",
                     fontSize: 18,
                     marginBottom: 14,
                     opacity: 0.6,
@@ -88,7 +88,7 @@ export default function TestimonialsPro() {
                   <p
                     style={{
                       fontSize: 13,
-                      color: "#6b7280",
+                      color: "var(--text-muted)",
                       marginBottom: 0,
                     }}
                   >

@@ -11,7 +11,7 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #070C16 0%, #0C121E 60%, #244882 100%)",
+        background: "linear-gradient(135deg, var(--color-dark-2) 0%, var(--color-dark-1) 60%, var(--color-navy) 100%)",
         padding: "90px 0",
         textAlign: "center",
         position: "relative",
@@ -27,7 +27,7 @@ export default function CTASection() {
           left: 0,
           right: 0,
           height: 1,
-          background: "linear-gradient(90deg, transparent, rgba(103,203,199,0.2), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(var(--color-cobalt-rgb),0.2), transparent)",
         }}
       />
       <div
@@ -38,7 +38,7 @@ export default function CTASection() {
           width: 400,
           height: 400,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(103,203,199,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--color-teal-rgb),0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -50,7 +50,7 @@ export default function CTASection() {
           width: 300,
           height: 300,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(74,124,199,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(var(--color-cobalt-rgb),0.04) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -63,7 +63,7 @@ export default function CTASection() {
                 width: 48,
                 height: 48,
                 borderRadius: 14,
-                background: "rgba(103,203,199,0.12)",
+                background: "rgba(var(--color-cobalt-rgb),0.12)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -72,7 +72,7 @@ export default function CTASection() {
             >
               <i
                 className="fas fa-rocket"
-                style={{ fontSize: 20, color: "var(--color-accent)" }}
+                style={{ fontSize: 20, color: "var(--color-pro-accent)" }}
               ></i>
             </div>
             <h3
@@ -106,7 +106,7 @@ export default function CTASection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  background: "var(--color-accent)",
+                  background: "var(--color-primary)",
                   color: "#fff",
                   padding: "14px 32px",
                   borderRadius: 10,
@@ -114,15 +114,15 @@ export default function CTASection() {
                   fontWeight: 600,
                   textDecoration: "none",
                   transition: "all 0.3s",
-                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
+                  boxShadow: "0 4px 16px rgba(var(--color-navy-rgb), 0.3)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-navy-rgb), 0.4)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-navy-rgb), 0.3)";
                 }}
               >
                 {t("ctaGetStarted")}

@@ -51,6 +51,11 @@
   --color-link: var(--color-navy);
   --color-link-hover: var(--color-cobalt);
 
+  /* Pro Landing — B2B accent (Cobalt-dominant instead of Teal) */
+  --color-pro-accent: var(--color-cobalt);
+  --color-pro-accent-rgb: var(--color-cobalt-rgb);
+  --color-pro-accent-hover: var(--color-navy);
+
   /* Borders */
   --border-default: #e5e8ea;
   --border-light: rgba(255, 255, 255, 0.08);
@@ -302,4 +307,25 @@ h1, h2, h3, h4, h5, h6,
 /* ── Slide description ── */
 .slide__desc {
   font-family: var(--font-body) !important;
+}
+
+/* ============================================================
+   Focus-visible — Restore keyboard focus indicators
+   (overrides legacy style.css `outline: none` on * / buttons / forms)
+   ============================================================ */
+*:focus-visible {
+  outline: 2px solid var(--color-cobalt) !important;
+  outline-offset: 2px !important;
+}
+
+button:focus-visible,
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.form-control:focus-visible {
+  outline: 2px solid var(--color-cobalt) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(var(--color-cobalt-rgb), 0.25) !important;
 }

@@ -34,7 +34,7 @@ export default function FooterPro() {
                   href="/pro"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "var(--color-accent)",
+                    color: "var(--color-pro-accent)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -71,7 +71,7 @@ export default function FooterPro() {
                         textDecoration: "none",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "var(--color-accent)";
+                        e.currentTarget.style.background = "var(--color-pro-accent)";
                         e.currentTarget.style.color = "#fff";
                       }}
                       onMouseLeave={(e) => {
@@ -222,7 +222,7 @@ export default function FooterPro() {
                   >
                     <i
                       className="fas fa-map-marker-alt"
-                      style={{ color: "var(--color-accent)", fontSize: 14 }}
+                      style={{ color: "var(--color-pro-accent)", fontSize: 14 }}
                     ></i>
                     {t("contactLocation")}
                   </li>

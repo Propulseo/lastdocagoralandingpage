@@ -37,7 +37,7 @@ export default function ProPlaceholderPage({
               <span
                 style={{
                   display: "inline-block",
-                  background: "linear-gradient(135deg, var(--color-accent), var(--color-cobalt))",
+                  background: "linear-gradient(135deg, var(--color-navy), var(--color-cobalt))",
                   color: "#fff",
                   padding: "6px 20px",
                   borderRadius: 20,
@@ -60,7 +60,7 @@ export default function ProPlaceholderPage({
               <p
                 style={{
                   fontSize: 18,
-                  color: "var(--color-accent)",
+                  color: "var(--color-pro-accent)",
                   fontWeight: 500,
                   marginBottom: 20,
                 }}
@@ -70,7 +70,7 @@ export default function ProPlaceholderPage({
               <p
                 style={{
                   fontSize: 15,
-                  color: "#6b7280",
+                  color: "var(--text-muted)",
                   lineHeight: 1.8,
                   marginBottom: 40,
                   maxWidth: 560,
@@ -90,7 +90,7 @@ export default function ProPlaceholderPage({
                 <Link
                   href="/pro"
                   style={{
-                    color: "var(--color-accent)",
+                    color: "var(--color-pro-accent)",
                     fontSize: 14,
                     fontWeight: 500,
                     textDecoration: "none",

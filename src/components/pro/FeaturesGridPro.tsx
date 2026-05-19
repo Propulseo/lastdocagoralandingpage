@@ -345,7 +345,7 @@ export default function FeaturesGridPro() {
         .ft-showcase {
           position: relative;
           padding: 120px 0;
-          background: linear-gradient(170deg, #070C16 0%, #0C121E 35%, #244882 70%, #070C16 100%);
+          background: linear-gradient(170deg, var(--color-dark-2) 0%, var(--color-dark-1) 35%, var(--color-navy) 70%, var(--color-dark-2) 100%);
           overflow: clip;
         }
         .ft-showcase::before {
@@ -353,8 +353,8 @@ export default function FeaturesGridPro() {
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
           background:
-            radial-gradient(ellipse 800px 600px at 20% 20%, rgba(103,203,199,0.06) 0%, transparent 100%),
-            radial-gradient(ellipse 600px 800px at 80% 80%, rgba(74,124,199,0.08) 0%, transparent 100%);
+            radial-gradient(ellipse 800px 600px at 20% 20%, rgba(var(--color-teal-rgb),0.06) 0%, transparent 100%),
+            radial-gradient(ellipse 600px 800px at 80% 80%, rgba(var(--color-cobalt-rgb),0.08) 0%, transparent 100%);
           pointer-events: none;
           z-index: 0;
         }
@@ -379,13 +379,13 @@ export default function FeaturesGridPro() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(103,203,199,0.08);
-          border: 1px solid rgba(103,203,199,0.18);
+          background: rgba(var(--color-cobalt-rgb),0.08);
+          border: 1px solid rgba(var(--color-cobalt-rgb),0.18);
           border-radius: 50px;
           padding: 7px 22px;
           font-size: 12px;
           font-weight: 700;
-          color: #67CBC7;
+          color: var(--color-pro-accent);
           text-transform: uppercase;
           letter-spacing: 2px;
           margin-bottom: 28px;
@@ -421,7 +421,7 @@ export default function FeaturesGridPro() {
           top: 120px;
         }
         .ft-showcase .ft-device {
-          background: #0C121E;
+          background: var(--color-dark-1);
           border-radius: 20px;
           border: 1px solid rgba(255,255,255,0.06);
           box-shadow:
@@ -469,7 +469,7 @@ export default function FeaturesGridPro() {
         }
         .mk-result-dot {
           width: 8px; height: 8px; border-radius: 50%;
-          background: #67CBC7; display: inline-block;
+          background: var(--color-pro-accent); display: inline-block;
           animation: mkPulse 2s infinite;
         }
         @keyframes mkPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -490,8 +490,8 @@ export default function FeaturesGridPro() {
           background: rgba(255,255,255,0.02);
         }
         .ft-showcase .ft-item--active {
-          border-left-color: #67CBC7;
-          background: rgba(103,203,199,0.04);
+          border-left-color: var(--color-pro-accent);
+          background: rgba(var(--color-cobalt-rgb),0.04);
         }
         .ft-showcase .ft-item__head {
           display: flex;
@@ -506,7 +506,7 @@ export default function FeaturesGridPro() {
           min-width: 22px;
           transition: color 0.3s;
         }
-        .ft-showcase .ft-item--active .ft-item__num { color: #67CBC7; }
+        .ft-showcase .ft-item--active .ft-item__num { color: var(--color-pro-accent); }
         .ft-showcase .ft-item__icon {
           width: 40px;
           height: 40px;
@@ -521,8 +521,8 @@ export default function FeaturesGridPro() {
           flex-shrink: 0;
         }
         .ft-showcase .ft-item--active .ft-item__icon {
-          background: rgba(103,203,199,0.1);
-          color: #67CBC7;
+          background: rgba(var(--color-cobalt-rgb),0.1);
+          color: var(--color-pro-accent);
         }
         .ft-showcase .ft-item__title {
           font-size: 15px;
@@ -561,17 +561,18 @@ export default function FeaturesGridPro() {
           gap: 10px;
           padding: 14px 36px;
           border-radius: 50px;
-          border: 1px solid rgba(103,203,199,0.25);
-          color: #67CBC7;
+          border: 1px solid rgba(var(--color-cobalt-rgb),0.25);
+          color: var(--color-pro-accent) !important;
           font-size: 15px;
           font-weight: 600;
-          text-decoration: none;
+          text-decoration: none !important;
           transition: all 0.3s;
         }
         .ft-showcase .ft-cta a:hover {
-          background: rgba(103,203,199,0.08);
-          border-color: #67CBC7;
-          box-shadow: 0 0 30px rgba(103,203,199,0.1);
+          background: rgba(var(--color-cobalt-rgb),0.08);
+          border-color: var(--color-pro-accent);
+          box-shadow: 0 0 30px rgba(var(--color-cobalt-rgb),0.1);
+          color: var(--color-pro-accent) !important;
         }
 
         /* ===== RESPONSIVE ===== */

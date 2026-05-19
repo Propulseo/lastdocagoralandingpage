@@ -33,7 +33,7 @@ export default function SolutionsSection() {
   );
 
   return (
-    <section id="solutions" style={{ padding: "80px 0", background: "#F8FAFD" }}>
+    <section id="solutions" style={{ padding: "80px 0", background: "var(--bg-section)" }}>
       <div className="container">
         <h3
           className="text-center"
@@ -50,7 +50,7 @@ export default function SolutionsSection() {
           style={{
             width: 48,
             height: 3,
-            background: "var(--color-accent)",
+            background: "var(--color-pro-accent)",
             borderRadius: 2,
             margin: "16px auto 36px",
           }}
@@ -67,10 +67,10 @@ export default function SolutionsSection() {
               fontSize: 14,
               fontWeight: 600,
               cursor: "pointer",
-              background: activeTab === "practitioners" ? "var(--color-accent)" : "#fff",
+              background: activeTab === "practitioners" ? "var(--color-primary)" : "#fff",
               color: activeTab === "practitioners" ? "#fff" : "#374151",
               transition: "all 0.2s",
-              boxShadow: activeTab === "practitioners" ? "0 4px 12px rgba(var(--color-teal-rgb), 0.3)" : "none",
+              boxShadow: activeTab === "practitioners" ? "0 4px 12px rgba(var(--color-navy-rgb), 0.3)" : "none",
             }}
           >
             {t("tabPractitioners")}
@@ -84,10 +84,10 @@ export default function SolutionsSection() {
               fontSize: 14,
               fontWeight: 600,
               cursor: "pointer",
-              background: activeTab === "facilities" ? "var(--color-accent)" : "#fff",
+              background: activeTab === "facilities" ? "var(--color-primary)" : "#fff",
               color: activeTab === "facilities" ? "#fff" : "#374151",
               transition: "all 0.2s",
-              boxShadow: activeTab === "facilities" ? "0 4px 12px rgba(var(--color-teal-rgb), 0.3)" : "none",
+              boxShadow: activeTab === "facilities" ? "0 4px 12px rgba(var(--color-navy-rgb), 0.3)" : "none",
             }}
           >
             {t("tabFacilities")}
@@ -108,19 +108,19 @@ export default function SolutionsSection() {
                     background: "#fff",
                     borderRadius: 12,
                     padding: "14px 16px",
-                    border: "1px solid #f0f0f5",
+                    border: "1px solid var(--border-default)",
                     textDecoration: "none",
                     color: "var(--color-dark-1)",
                     transition: "all 0.25s",
                     height: "100%",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-teal-rgb), 0.12)";
+                    e.currentTarget.style.borderColor = "var(--color-pro-accent)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-cobalt-rgb), 0.12)";
                     e.currentTarget.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "#f0f0f5";
+                    e.currentTarget.style.borderColor = "var(--border-default)";
                     e.currentTarget.style.boxShadow = "none";
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
@@ -130,7 +130,7 @@ export default function SolutionsSection() {
                       width: 36,
                       height: 36,
                       borderRadius: 8,
-                      background: "rgba(var(--color-teal-rgb), 0.08)",
+                      background: "rgba(var(--color-cobalt-rgb), 0.08)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -139,7 +139,7 @@ export default function SolutionsSection() {
                   >
                     <i
                       className={spec.icon}
-                      style={{ fontSize: 14, color: "var(--color-accent)" }}
+                      style={{ fontSize: 14, color: "var(--color-pro-accent)" }}
                     ></i>
                   </div>
                   <span style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.3 }}>
@@ -156,14 +156,14 @@ export default function SolutionsSection() {
               background: "#fff",
               borderRadius: 16,
               padding: "60px 20px",
-              border: "1px solid #f0f0f5",
+              border: "1px solid var(--border-default)",
             }}
           >
             <i
               className="fas fa-hospital"
               style={{ fontSize: 40, color: "#d1d5db", marginBottom: 16, display: "block" }}
             ></i>
-            <p style={{ fontSize: 15, color: "#6b7280", marginBottom: 0 }}>
+            <p style={{ fontSize: 15, color: "var(--text-muted)", marginBottom: 0 }}>
               {t("facilitiesComingSoon")}
             </p>
           </div>
