@@ -9,7 +9,7 @@ export default function CitiesGallery() {
     <section className="gallery pt-80 pb-90">
       <div className="container">
         <div className="row mb-30">
-          <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3 text-center">
+          <div className="col-sm-12 col-md-12 col-lg-8 offset-lg-2 text-center">
             <h3 className="heading__title">{t("title")}</h3>
             <p className="heading__desc">{t("desc")}</p>
           </div>
