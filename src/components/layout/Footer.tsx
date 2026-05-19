@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-primary" style={{ paddingTop: 60, paddingBottom: 40 }}>
-        <div className="container">
+        <div className="container" style={{ maxWidth: 1320 }}>
           <div className="row">
             {/* Column 1 — Logo + About */}
             <div className="col-sm-12 col-md-6 col-lg-3">
@@ -27,7 +27,7 @@ export default function Footer() {
                   src="/assets/images/logo/logo-light.png"
                   alt="DocAgora logo"
                   className="mb-3"
-                  style={{ maxHeight: 50 }}
+                  style={{ maxHeight: 70 }}
                 />
                 <p className="color-gray" style={{ fontSize: 13, lineHeight: 1.8 }}>
                   {t("aboutText")}
@@ -36,7 +36,7 @@ export default function Footer() {
                   href="/specialties"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "var(--color-accent)",
+                    color: "var(--color-link)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -50,14 +50,15 @@ export default function Footer() {
                 {/* Social icons */}
                 <div className="d-flex gap-2 mt-4">
                   {[
-                    { icon: "fab fa-facebook-f", href: "#" },
-                    { icon: "fab fa-instagram", href: "#" },
-                    { icon: "fab fa-twitter", href: "#" },
-                    { icon: "fab fa-linkedin-in", href: "#" },
+                    { icon: "fab fa-facebook-f", label: "Facebook" },
+                    { icon: "fab fa-instagram", label: "Instagram" },
+                    { icon: "fab fa-twitter", label: "Twitter" },
+                    { icon: "fab fa-linkedin-in", label: "LinkedIn" },
                   ].map((social) => (
-                    <a
+                    <button
                       key={social.icon}
-                      href={social.href}
+                      type="button"
+                      aria-label={social.label}
                       className="d-flex align-items-center justify-content-center"
                       style={{
                         width: 34,
@@ -67,7 +68,8 @@ export default function Footer() {
                         color: "rgba(255,255,255,0.6)",
                         fontSize: 13,
                         transition: "all 0.3s",
-                        textDecoration: "none",
+                        border: "none",
+                        cursor: "pointer",
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = "var(--color-accent)"
@@ -79,7 +81,7 @@ export default function Footer() {
                       }}
                     >
                       <i className={social.icon}></i>
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -219,7 +221,7 @@ export default function Footer() {
             <div className="footer-bottom__right">
               <Link href="/terms-of-use">{t("bottomTerms")}</Link>
               <Link href="/privacy-policy">{t("bottomPrivacy")}</Link>
-              <a href="#">{t("bottomGdpr")}</a>
+              <Link href="/privacy-policy">{t("bottomGdpr")}</Link>
             </div>
           </div>
         </div>
