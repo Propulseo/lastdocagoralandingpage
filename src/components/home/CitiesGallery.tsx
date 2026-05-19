@@ -6,7 +6,7 @@ export default function CitiesGallery() {
   const cities = t.raw("items") as string[];
 
   return (
-    <section className="gallery pt-0 pb-90">
+    <section className="gallery pt-80 pb-90">
       <div className="container">
         <div className="row mb-30">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3 text-center">

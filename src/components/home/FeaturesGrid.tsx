@@ -30,21 +30,21 @@ function MockupSearch() {
     <div className="mk-inner">
       <div className="mk-search">
         <div className="mk-search__bar">
-          <i className="fas fa-search" style={{ color: "#21cdc0", fontSize: 14 }}></i>
+          <i className="fas fa-search" style={{ color: "var(--color-accent)", fontSize: 14 }}></i>
           <span className="mk-search__text">I need a cardiologist who speaks French...</span>
           <span className="mk-search__cursor"></span>
         </div>
         <div className="mk-search__suggestions">
           <div className="mk-search__item mk-search__item--active">
-            <i className="icon-heart" style={{ color: "#21cdc0", fontSize: 16 }}></i>
+            <i className="icon-heart" style={{ color: "var(--color-accent)", fontSize: 16 }}></i>
             <div><strong>Cardiology</strong><span className="mk-muted"> · 23 professionals available</span></div>
           </div>
           <div className="mk-search__item">
-            <i className="icon-doctor" style={{ color: "#354f8e", fontSize: 16 }}></i>
+            <i className="icon-doctor" style={{ color: "var(--color-cobalt)", fontSize: 16 }}></i>
             <div><strong>Dr. Marie Dupont</strong><span className="mk-muted"> · Cardiologist · FR/PT/EN</span></div>
           </div>
           <div className="mk-search__item">
-            <i className="icon-doctor" style={{ color: "#354f8e", fontSize: 16 }}></i>
+            <i className="icon-doctor" style={{ color: "var(--color-cobalt)", fontSize: 16 }}></i>
             <div><strong>Dr. Jean Moreau</strong><span className="mk-muted"> · Cardiologist · FR/EN</span></div>
           </div>
         </div>
@@ -142,7 +142,7 @@ function MockupLang() {
         <div className="mk-lang__item mk-lang__item--active">
           <span className="mk-flag">🇵🇹</span>
           <div><strong>Português</strong><span className="mk-muted"> · Interface & doctors</span></div>
-          <i className="fas fa-check-circle" style={{ color: "#21cdc0", marginLeft: "auto" }}></i>
+          <i className="fas fa-check-circle" style={{ color: "var(--color-accent)", marginLeft: "auto" }}></i>
         </div>
         <div className="mk-lang__item">
           <span className="mk-flag">🇫🇷</span>
@@ -178,8 +178,8 @@ function MockupProfile() {
           <div className="mk-stat"><span className="mk-stat__val">FR PT EN</span><span className="mk-muted">Languages</span></div>
         </div>
         <div className="mk-profile__creds">
-          <div className="mk-cred"><i className="fas fa-graduation-cap" style={{ color: "#21cdc0", fontSize: 11 }}></i> Univ. de Lisboa – Medicine</div>
-          <div className="mk-cred"><i className="fas fa-certificate" style={{ color: "#21cdc0", fontSize: 11 }}></i> Ordem dos Médicos – #48291</div>
+          <div className="mk-cred"><i className="fas fa-graduation-cap" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Univ. de Lisboa – Medicine</div>
+          <div className="mk-cred"><i className="fas fa-certificate" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Ordem dos Médicos – #48291</div>
         </div>
       </div>
     </div>
@@ -219,7 +219,7 @@ function MockupReminders() {
     <div className="mk-inner">
       <div className="mk-reminders">
         <div className="mk-notif mk-notif--highlight">
-          <div className="mk-notif__icon"><i className="fas fa-bell" style={{ color: "#21cdc0" }}></i></div>
+          <div className="mk-notif__icon"><i className="fas fa-bell" style={{ color: "var(--color-accent)" }}></i></div>
           <div>
             <strong>Appointment tomorrow</strong><br />
             <span className="mk-muted">Dr. Dupont · Cardiology · 14:30</span>
@@ -227,7 +227,7 @@ function MockupReminders() {
           <span className="mk-notif__time">1h ago</span>
         </div>
         <div className="mk-notif">
-          <div className="mk-notif__icon"><i className="fas fa-envelope" style={{ color: "#354f8e" }}></i></div>
+          <div className="mk-notif__icon"><i className="fas fa-envelope" style={{ color: "var(--color-cobalt)" }}></i></div>
           <div>
             <strong>Confirmation email sent</strong><br />
             <span className="mk-muted">Check your inbox for details</span>
@@ -235,7 +235,7 @@ function MockupReminders() {
           <span className="mk-notif__time">2 days</span>
         </div>
         <div className="mk-notif">
-          <div className="mk-notif__icon"><i className="fas fa-notes-medical" style={{ color: "#354f8e" }}></i></div>
+          <div className="mk-notif__icon"><i className="fas fa-notes-medical" style={{ color: "var(--color-cobalt)" }}></i></div>
           <div>
             <strong>Post-visit follow-up</strong><br />
             <span className="mk-muted">How was your appointment?</span>
@@ -270,7 +270,7 @@ export default function FeaturesGrid() {
         .ft-showcase {
           position: relative;
           padding: 120px 0;
-          background: linear-gradient(170deg, #060d1a 0%, #0e1f3d 35%, #132c54 70%, #0a1628 100%);
+          background: linear-gradient(170deg, #070C16 0%, #0C121E 35%, #244882 70%, #070C16 100%);
           overflow: hidden;
         }
         .ft-showcase::before {
@@ -278,8 +278,8 @@ export default function FeaturesGrid() {
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
           background:
-            radial-gradient(ellipse 800px 600px at 20% 20%, rgba(33,205,192,0.06) 0%, transparent 100%),
-            radial-gradient(ellipse 600px 800px at 80% 80%, rgba(53,79,142,0.08) 0%, transparent 100%);
+            radial-gradient(ellipse 800px 600px at 20% 20%, rgba(103,203,199,0.06) 0%, transparent 100%),
+            radial-gradient(ellipse 600px 800px at 80% 80%, rgba(74,124,199,0.08) 0%, transparent 100%);
           pointer-events: none;
         }
         .ft-showcase::after {
@@ -302,13 +302,13 @@ export default function FeaturesGrid() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(33,205,192,0.08);
-          border: 1px solid rgba(33,205,192,0.18);
+          background: rgba(103,203,199,0.08);
+          border: 1px solid rgba(103,203,199,0.18);
           border-radius: 50px;
           padding: 7px 22px;
           font-size: 12px;
           font-weight: 700;
-          color: #21cdc0;
+          color: #67CBC7;
           text-transform: uppercase;
           letter-spacing: 2px;
           margin-bottom: 28px;
@@ -344,7 +344,7 @@ export default function FeaturesGrid() {
           top: 120px;
         }
         .ft-showcase .ft-device {
-          background: #111b2e;
+          background: #0C121E;
           border-radius: 20px;
           border: 1px solid rgba(255,255,255,0.06);
           box-shadow:
@@ -406,7 +406,7 @@ export default function FeaturesGrid() {
         .mk-search__text { color: rgba(255,255,255,0.6); font-size: 14px; }
         .mk-search__cursor {
           width: 2px; height: 18px;
-          background: #21cdc0;
+          background: #67CBC7;
           animation: mkBlink 1s infinite;
           border-radius: 1px;
         }
@@ -428,7 +428,7 @@ export default function FeaturesGrid() {
           transition: background 0.2s;
         }
         .mk-search__item:last-child { border-bottom: none; }
-        .mk-search__item--active { background: rgba(33,205,192,0.06); }
+        .mk-search__item--active { background: rgba(103,203,199,0.06); }
         .mk-tag-row { display: flex; gap: 8px; margin-top: 16px; }
         .mk-tag {
           font-size: 11px;
@@ -438,7 +438,7 @@ export default function FeaturesGrid() {
           color: rgba(255,255,255,0.4);
           font-weight: 600;
         }
-        .mk-tag--teal { background: rgba(33,205,192,0.1); color: #21cdc0; }
+        .mk-tag--teal { background: rgba(103,203,199,0.1); color: #67CBC7; }
 
         /* Filter mockup */
         .mk-filters { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
@@ -448,10 +448,10 @@ export default function FeaturesGrid() {
           background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5);
           font-weight: 500; border: 1px solid transparent; transition: all 0.2s;
         }
-        .mk-chip--active { background: rgba(33,205,192,0.12); color: #21cdc0; border-color: rgba(33,205,192,0.25); }
+        .mk-chip--active { background: rgba(103,203,199,0.12); color: #67CBC7; border-color: rgba(103,203,199,0.25); }
         .mk-chip--outline { background: transparent; border: 1px solid rgba(255,255,255,0.1); }
-        .mk-chip--outline.mk-chip--active { border-color: rgba(33,205,192,0.3); color: #21cdc0; background: rgba(33,205,192,0.06); }
-        .mk-chip--more { background: rgba(53,79,142,0.2); color: #7b9ad8; }
+        .mk-chip--outline.mk-chip--active { border-color: rgba(103,203,199,0.3); color: #67CBC7; background: rgba(103,203,199,0.06); }
+        .mk-chip--more { background: rgba(74,124,199,0.2); color: #7b9ad8; }
         .mk-result-count {
           display: flex; align-items: center; gap: 8px;
           font-size: 14px; color: rgba(255,255,255,0.6);
@@ -459,7 +459,7 @@ export default function FeaturesGrid() {
         }
         .mk-result-dot {
           width: 8px; height: 8px; border-radius: 50%;
-          background: #21cdc0; display: inline-block;
+          background: #67CBC7; display: inline-block;
           animation: mkPulse 2s infinite;
         }
         @keyframes mkPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
@@ -479,7 +479,7 @@ export default function FeaturesGrid() {
         }
         .mk-map__line { height: 1px; background: rgba(255,255,255,0.03); }
         .mk-map__pin {
-          position: absolute; font-size: 20px; color: #354f8e;
+          position: absolute; font-size: 20px; color: #4A7CC7;
           transition: transform 0.3s;
         }
         .mk-map__pin--1 { top: 25%; left: 30%; }
@@ -487,10 +487,10 @@ export default function FeaturesGrid() {
         .mk-map__pin--3 { top: 55%; left: 45%; }
         .mk-map__pin--4 { top: 70%; left: 25%; }
         .mk-map__pin--5 { top: 35%; left: 78%; }
-        .mk-map__pin--active { color: #21cdc0; font-size: 24px; z-index: 2; }
+        .mk-map__pin--active { color: #67CBC7; font-size: 24px; z-index: 2; }
         .mk-map__tooltip {
           position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
-          background: #1a2942; border: 1px solid rgba(33,205,192,0.2);
+          background: #0C121E; border: 1px solid rgba(103,203,199,0.2);
           border-radius: 8px; padding: 8px 14px; font-size: 12px;
           color: #fff; white-space: nowrap; margin-bottom: 4px;
           box-shadow: 0 8px 24px rgba(0,0,0,0.4);
@@ -510,16 +510,16 @@ export default function FeaturesGrid() {
           display: flex; align-items: center; justify-content: center;
           background: rgba(255,255,255,0.06); font-size: 12px; color: rgba(255,255,255,0.3);
         }
-        .mk-step--done .mk-step__num { background: #21cdc0; color: #fff; }
-        .mk-step--done { color: #21cdc0; }
-        .mk-step--active .mk-step__num { background: rgba(33,205,192,0.15); color: #21cdc0; border: 1px solid #21cdc0; }
+        .mk-step--done .mk-step__num { background: #67CBC7; color: #fff; }
+        .mk-step--done { color: #67CBC7; }
+        .mk-step--active .mk-step__num { background: rgba(103,203,199,0.15); color: #67CBC7; border: 1px solid #67CBC7; }
         .mk-step--active { color: #fff; }
         .mk-step__line {
           width: 40px; height: 2px; background: rgba(255,255,255,0.08);
           margin: 0 10px; border-radius: 2px;
         }
-        .mk-step__line--done { background: #21cdc0; }
-        .mk-step__line--active { background: linear-gradient(90deg, #21cdc0, rgba(255,255,255,0.08)); }
+        .mk-step__line--done { background: #67CBC7; }
+        .mk-step__line--active { background: linear-gradient(90deg, #67CBC7, rgba(255,255,255,0.08)); }
         .mk-booking-card {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
           border-radius: 14px; padding: 24px;
@@ -527,7 +527,7 @@ export default function FeaturesGrid() {
         .mk-booking-doc { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; color: #fff; font-size: 14px; }
         .mk-avatar {
           width: 44px; height: 44px; border-radius: 12px;
-          background: linear-gradient(135deg, #21cdc0, #354f8e);
+          background: linear-gradient(135deg, #67CBC7, #4A7CC7);
           display: flex; align-items: center; justify-content: center;
           color: #fff; font-weight: 700; font-size: 13px; flex-shrink: 0;
         }
@@ -539,12 +539,12 @@ export default function FeaturesGrid() {
           background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
           color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600;
         }
-        .mk-slot--selected { background: rgba(33,205,192,0.12); border-color: #21cdc0; color: #21cdc0; }
+        .mk-slot--selected { background: rgba(103,203,199,0.12); border-color: #67CBC7; color: #67CBC7; }
         .mk-confirm-btn {
-          background: linear-gradient(135deg, #21cdc0, #1ab5aa);
+          background: linear-gradient(135deg, #67CBC7, #5AA2AA);
           color: #fff; text-align: center; padding: 12px;
           border-radius: 10px; font-weight: 700; font-size: 14px;
-          box-shadow: 0 4px 16px rgba(33,205,192,0.25);
+          box-shadow: 0 4px 16px rgba(103,203,199,0.25);
         }
 
         /* Lang mockup */
@@ -555,7 +555,7 @@ export default function FeaturesGrid() {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
           color: #fff; font-size: 14px; transition: all 0.2s;
         }
-        .mk-lang__item--active { border-color: rgba(33,205,192,0.25); background: rgba(33,205,192,0.05); }
+        .mk-lang__item--active { border-color: rgba(103,203,199,0.25); background: rgba(103,203,199,0.05); }
         .mk-flag { font-size: 24px; }
         .mk-lang-stat {
           display: flex; align-items: center; gap: 8px;
@@ -570,7 +570,7 @@ export default function FeaturesGrid() {
         }
         .mk-badge {
           display: inline-flex; align-items: center;
-          background: rgba(33,205,192,0.12); color: #21cdc0;
+          background: rgba(103,203,199,0.12); color: #67CBC7;
           font-size: 11px; font-weight: 700; padding: 3px 10px;
           border-radius: 6px; margin-left: 8px;
         }
@@ -605,7 +605,7 @@ export default function FeaturesGrid() {
         .mk-review__tags { display: flex; gap: 6px; }
         .mk-rtag {
           font-size: 11px; padding: 4px 10px; border-radius: 6px;
-          background: rgba(33,205,192,0.08); color: rgba(33,205,192,0.8); font-weight: 600;
+          background: rgba(103,203,199,0.08); color: rgba(103,203,199,0.8); font-weight: 600;
         }
 
         /* Reminders mockup */
@@ -616,7 +616,7 @@ export default function FeaturesGrid() {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
           color: #fff; font-size: 13px; position: relative;
         }
-        .mk-notif--highlight { border-color: rgba(33,205,192,0.2); background: rgba(33,205,192,0.04); }
+        .mk-notif--highlight { border-color: rgba(103,203,199,0.2); background: rgba(103,203,199,0.04); }
         .mk-notif__icon {
           width: 36px; height: 36px; border-radius: 10px;
           background: rgba(255,255,255,0.05);
@@ -644,8 +644,8 @@ export default function FeaturesGrid() {
           background: rgba(255,255,255,0.02);
         }
         .ft-showcase .ft-item--active {
-          border-left-color: #21cdc0;
-          background: rgba(33,205,192,0.04);
+          border-left-color: #67CBC7;
+          background: rgba(103,203,199,0.04);
         }
         .ft-showcase .ft-item__head {
           display: flex;
@@ -660,7 +660,7 @@ export default function FeaturesGrid() {
           min-width: 22px;
           transition: color 0.3s;
         }
-        .ft-showcase .ft-item--active .ft-item__num { color: #21cdc0; }
+        .ft-showcase .ft-item--active .ft-item__num { color: #67CBC7; }
         .ft-showcase .ft-item__icon {
           width: 40px;
           height: 40px;
@@ -675,8 +675,8 @@ export default function FeaturesGrid() {
           flex-shrink: 0;
         }
         .ft-showcase .ft-item--active .ft-item__icon {
-          background: rgba(33,205,192,0.1);
-          color: #21cdc0;
+          background: rgba(103,203,199,0.1);
+          color: #67CBC7;
         }
         .ft-showcase .ft-item__title {
           font-size: 15px;
@@ -715,17 +715,17 @@ export default function FeaturesGrid() {
           gap: 10px;
           padding: 14px 36px;
           border-radius: 50px;
-          border: 1px solid rgba(33,205,192,0.25);
-          color: #21cdc0;
+          border: 1px solid rgba(103,203,199,0.25);
+          color: #67CBC7;
           font-size: 15px;
           font-weight: 600;
           text-decoration: none;
           transition: all 0.3s;
         }
         .ft-showcase .ft-cta a:hover {
-          background: rgba(33,205,192,0.08);
-          border-color: #21cdc0;
-          box-shadow: 0 0 30px rgba(33,205,192,0.1);
+          background: rgba(103,203,199,0.08);
+          border-color: #67CBC7;
+          box-shadow: 0 0 30px rgba(103,203,199,0.1);
         }
 
         /* ===== RESPONSIVE ===== */

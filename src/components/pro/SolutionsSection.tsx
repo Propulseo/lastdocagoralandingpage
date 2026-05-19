@@ -33,34 +33,44 @@ export default function SolutionsSection() {
   );
 
   return (
-    <section id="solutions" style={{ padding: "80px 0" }}>
+    <section id="solutions" style={{ padding: "80px 0", background: "#F8FAFD" }}>
       <div className="container">
         <h3
           className="text-center"
           style={{
             fontSize: "clamp(24px, 3vw, 34px)",
             fontWeight: 700,
-            marginBottom: 36,
+            marginBottom: 12,
+            color: "var(--color-dark-1)",
           }}
         >
           {t("title")}
         </h3>
+        <div
+          style={{
+            width: 48,
+            height: 3,
+            background: "var(--color-accent)",
+            borderRadius: 2,
+            margin: "16px auto 36px",
+          }}
+        />
 
         {/* Tabs */}
-        <div className="d-flex justify-content-center gap-3 mb-5">
+        <div className="d-flex justify-content-center gap-2 mb-5">
           <button
             onClick={() => setActiveTab("practitioners")}
             style={{
               padding: "10px 28px",
               borderRadius: 24,
-              border: "none",
+              border: activeTab === "practitioners" ? "none" : "1px solid #e2e8f0",
               fontSize: 14,
               fontWeight: 600,
               cursor: "pointer",
-              background:
-                activeTab === "practitioners" ? "#21cdc0" : "#f1f5f9",
+              background: activeTab === "practitioners" ? "var(--color-accent)" : "#fff",
               color: activeTab === "practitioners" ? "#fff" : "#374151",
               transition: "all 0.2s",
+              boxShadow: activeTab === "practitioners" ? "0 4px 12px rgba(var(--color-teal-rgb), 0.3)" : "none",
             }}
           >
             {t("tabPractitioners")}
@@ -70,14 +80,14 @@ export default function SolutionsSection() {
             style={{
               padding: "10px 28px",
               borderRadius: 24,
-              border: "none",
+              border: activeTab === "facilities" ? "none" : "1px solid #e2e8f0",
               fontSize: 14,
               fontWeight: 600,
               cursor: "pointer",
-              background:
-                activeTab === "facilities" ? "#21cdc0" : "#f1f5f9",
+              background: activeTab === "facilities" ? "var(--color-accent)" : "#fff",
               color: activeTab === "facilities" ? "#fff" : "#374151",
               transition: "all 0.2s",
+              boxShadow: activeTab === "facilities" ? "0 4px 12px rgba(var(--color-teal-rgb), 0.3)" : "none",
             }}
           >
             {t("tabFacilities")}
@@ -86,7 +96,7 @@ export default function SolutionsSection() {
 
         {/* Tab content */}
         {activeTab === "practitioners" ? (
-          <div className="row g-3 justify-content-center">
+          <div className="row g-3">
             {specialties.map((spec) => (
               <div key={spec.key} className="col-6 col-md-4 col-lg-3">
                 <a
@@ -97,27 +107,30 @@ export default function SolutionsSection() {
                     gap: 12,
                     background: "#fff",
                     borderRadius: 12,
-                    padding: "16px 18px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                    padding: "14px 16px",
+                    border: "1px solid #f0f0f5",
                     textDecoration: "none",
-                    color: "#1a1a2e",
-                    transition: "box-shadow 0.2s, transform 0.2s",
+                    color: "var(--color-dark-1)",
+                    transition: "all 0.25s",
+                    height: "100%",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.1)";
+                    e.currentTarget.style.borderColor = "var(--color-accent)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-teal-rgb), 0.12)";
                     e.currentTarget.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+                    e.currentTarget.style.borderColor = "#f0f0f5";
+                    e.currentTarget.style.boxShadow = "none";
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
                   <div
                     style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 10,
-                      background: "rgba(33,205,192,0.1)",
+                      width: 36,
+                      height: 36,
+                      borderRadius: 8,
+                      background: "rgba(var(--color-teal-rgb), 0.08)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -126,10 +139,10 @@ export default function SolutionsSection() {
                   >
                     <i
                       className={spec.icon}
-                      style={{ fontSize: 16, color: "#21cdc0" }}
+                      style={{ fontSize: 14, color: "var(--color-accent)" }}
                     ></i>
                   </div>
-                  <span style={{ fontSize: 13, fontWeight: 600 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.3 }}>
                     {tSpec(`items.${spec.key}.title`)}
                   </span>
                 </a>
@@ -140,16 +153,17 @@ export default function SolutionsSection() {
           <div
             className="text-center"
             style={{
-              background: "#f8fafc",
+              background: "#fff",
               borderRadius: 16,
               padding: "60px 20px",
+              border: "1px solid #f0f0f5",
             }}
           >
             <i
               className="fas fa-hospital"
-              style={{ fontSize: 40, color: "#d1d5db", marginBottom: 16 }}
+              style={{ fontSize: 40, color: "#d1d5db", marginBottom: 16, display: "block" }}
             ></i>
-            <p style={{ fontSize: 15, color: "#6b7280" }}>
+            <p style={{ fontSize: 15, color: "#6b7280", marginBottom: 0 }}>
               {t("facilitiesComingSoon")}
             </p>
           </div>

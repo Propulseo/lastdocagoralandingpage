@@ -1,11 +1,11 @@
 import { setRequestLocale } from "next-intl/server";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import HeroProSection from "@/components/pro/HeroProSection";
-import VideoSection from "@/components/pro/VideoSection";
-import StatsSection from "@/components/pro/StatsSection";
+
 import ImproveSection from "@/components/pro/ImproveSection";
-import TestimonialsPro from "@/components/pro/TestimonialsPro";
 import SolutionsSection from "@/components/pro/SolutionsSection";
+import FeaturesGridPro from "@/components/pro/FeaturesGridPro";
+import TestimonialsPro from "@/components/pro/TestimonialsPro";
 import CTASection from "@/components/pro/CTASection";
 
 export default async function ProHomePage({
@@ -18,22 +18,28 @@ export default async function ProHomePage({
 
   return (
     <>
+      {/* 1. ATTENTION — Hook + primary CTA + lead form */}
       <HeroProSection />
-      <AnimatedSection>
-        <VideoSection />
-      </AnimatedSection>
-      <AnimatedSection>
-        <StatsSection />
-      </AnimatedSection>
-      <AnimatedSection>
+
+      {/* 2. INTEREST — Value propositions: why switch */}
+      <AnimatedSection once>
         <ImproveSection />
       </AnimatedSection>
-      <AnimatedSection>
-        <TestimonialsPro />
-      </AnimatedSection>
-      <AnimatedSection>
+
+      {/* 4. PLATFORM — Interactive ERP showcase */}
+      <FeaturesGridPro />
+
+      {/* 5. RELEVANCE — Show specialty coverage */}
+      <AnimatedSection once>
         <SolutionsSection />
       </AnimatedSection>
+
+      {/* 6. DESIRE — Peer proof reinforcement */}
+      <AnimatedSection once>
+        <TestimonialsPro />
+      </AnimatedSection>
+
+      {/* 7. ACTION — Final conversion push */}
       <CTASection />
     </>
   );

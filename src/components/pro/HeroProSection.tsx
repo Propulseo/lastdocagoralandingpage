@@ -11,31 +11,59 @@ export default function HeroProSection() {
 
   return (
     <section
-      id="hero-form"
       className="hero-pro"
       style={{
-        background: "linear-gradient(135deg, #0a1628 0%, #132144 60%, #1a3a5c 100%)",
-        padding: "120px 0 80px",
+        background: "linear-gradient(135deg, #070C16 0%, #0C121E 60%, #244882 100%)",
+        paddingTop: 160,
+        paddingBottom: 80,
         position: "relative",
         overflow: "hidden",
+        zIndex: 1,
       }}
     >
-      <div className="container">
-        <div className="row align-items-center">
-          {/* Left column -- Text */}
-          <div className="col-lg-6">
+      {/* Decorative elements */}
+      <div
+        style={{
+          position: "absolute",
+          top: -200,
+          right: -200,
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(103,203,199,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: -150,
+          left: -100,
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(74,124,199,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <div className="container" style={{ position: "relative", zIndex: 1 }}>
+        <div className="row align-items-start">
+          {/* Left column */}
+          <div className="col-lg-6" style={{ paddingTop: 20 }}>
             <div className="d-flex flex-wrap gap-2 mb-4">
-              {["badge1", "badge2", "badge3"].map((key) => (
+              {(["badge1", "badge2", "badge3"] as const).map((key) => (
                 <span
                   key={key}
                   style={{
                     display: "inline-block",
-                    background: "rgba(33,205,192,0.12)",
-                    color: "#21cdc0",
-                    padding: "5px 14px",
+                    background: "rgba(103,203,199,0.12)",
+                    color: "var(--color-accent)",
+                    padding: "6px 16px",
                     borderRadius: 20,
                     fontSize: 12,
                     fontWeight: 600,
+                    letterSpacing: 0.3,
                   }}
                 >
                   {t(key)}
@@ -44,11 +72,11 @@ export default function HeroProSection() {
             </div>
             <h1
               style={{
-                fontSize: "clamp(28px, 4vw, 46px)",
+                fontSize: "clamp(30px, 4vw, 48px)",
                 fontWeight: 700,
                 color: "#fff",
-                lineHeight: 1.2,
-                marginBottom: 16,
+                lineHeight: 1.15,
+                marginBottom: 20,
               }}
             >
               {t("title")}
@@ -56,10 +84,10 @@ export default function HeroProSection() {
             <p
               style={{
                 fontSize: 17,
-                color: "rgba(255,255,255,0.7)",
+                color: "rgba(255,255,255,0.65)",
                 lineHeight: 1.7,
-                marginBottom: 32,
-                maxWidth: 500,
+                marginBottom: 36,
+                maxWidth: 480,
               }}
             >
               {t("subtitle")}
@@ -67,42 +95,79 @@ export default function HeroProSection() {
             <div className="d-flex flex-wrap gap-3">
               <a
                 href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
-                className="btn btn__primary btn__rounded"
-                style={{ fontSize: 15 }}
-              >
-                <span>{t("ctaGetStarted")}</span>
-              </a>
-              <a
-                href="#hero-form"
-                className="btn btn__secondary btn__rounded"
                 style={{
-                  fontSize: 15,
-                  background: "rgba(255,255,255,0.08)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  background: "var(--color-accent)",
                   color: "#fff",
-                  border: "1px solid rgba(255,255,255,0.15)",
+                  padding: "14px 28px",
+                  borderRadius: 10,
+                  fontSize: 15,
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  transition: "all 0.3s",
+                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
                 }}
               >
-                <span>{t("ctaBookDemo")}</span>
+                {t("ctaGetStarted")}
+                <i className="fas fa-arrow-right" style={{ fontSize: 13 }}></i>
+              </a>
+              <a
+                href="#contact-form"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  background: "rgba(255,255,255,0.06)",
+                  color: "#fff",
+                  padding: "14px 28px",
+                  borderRadius: 10,
+                  fontSize: 15,
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  transition: "all 0.3s",
+                }}
+                className="d-lg-none"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                }}
+              >
+                {t("ctaLearnMore")}
+                <i className="fas fa-chevron-down" style={{ fontSize: 11 }}></i>
               </a>
             </div>
           </div>
 
-          {/* Right column -- Contact form */}
+          {/* Right column - Form */}
           <div className="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
             <div
+              id="contact-form"
               style={{
                 background: "#fff",
                 borderRadius: 16,
-                padding: "32px 28px",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+                padding: "32px 28px 24px",
+                boxShadow: "0 24px 64px rgba(0,0,0,0.2)",
               }}
             >
               <h5
                 style={{
-                  fontSize: 18,
+                  fontSize: 19,
                   fontWeight: 700,
-                  marginBottom: 6,
-                  color: "#1a1a2e",
+                  marginBottom: 4,
+                  color: "var(--color-dark-1)",
                 }}
               >
                 {t("formTitle")}
@@ -112,6 +177,7 @@ export default function HeroProSection() {
                   fontSize: 13,
                   color: "#6b7280",
                   marginBottom: 20,
+                  lineHeight: 1.6,
                 }}
               >
                 {t("formNote")}
@@ -121,78 +187,111 @@ export default function HeroProSection() {
                   e.preventDefault();
                   window.location.href = `${PLATFORM_URL}/register?role=professional&utm_source=landing_pro&utm_medium=form`;
                 }}
-                className="d-flex flex-column gap-3"
               >
-                <select
-                  className="form-control"
-                  style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                >
-                  <option>{t("formSubjectLabel")}</option>
-                  <option>{t("formSubjectOption1")}</option>
-                  <option>{t("formSubjectOption2")}</option>
-                  <option>{t("formSubjectOption3")}</option>
-                </select>
-                <div className="row g-2">
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder={t("formFirstName")}
-                      style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                    />
+                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  <select
+                    className="form-control"
+                    style={{ color: "#6b7280", cursor: "pointer" }}
+                  >
+                    <option>{t("formSubjectLabel")}</option>
+                    <option>{t("formSubjectOption1")}</option>
+                    <option>{t("formSubjectOption2")}</option>
+                    <option>{t("formSubjectOption3")}</option>
+                  </select>
+                  <div className="row g-2">
+                    <div className="col-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder={t("formFirstName")}
+                      />
+                    </div>
+                    <div className="col-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder={t("formLastName")}
+                      />
+                    </div>
                   </div>
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder={t("formLastName")}
-                      style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                    />
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder={t("formEmail")}
+                  />
+                  <div className="row g-2">
+                    <div className="col-6">
+                      <input
+                        type="tel"
+                        className="form-control"
+                        placeholder={t("formPhone")}
+                      />
+                    </div>
+                    <div className="col-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder={t("formPostalCode")}
+                      />
+                    </div>
                   </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={t("formSpecialty")}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      width: "100%",
+                      padding: "13px 20px",
+                      background: "var(--color-accent)",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: 10,
+                      fontSize: 15,
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      transition: "all 0.3s",
+                      marginTop: 4,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "var(--color-accent-hover)";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-teal-rgb), 0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "var(--color-accent)";
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  >
+                    {t("formSubmit")}
+                  </button>
                 </div>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder={t("formEmail")}
-                  style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                />
-                <div className="row g-2">
-                  <div className="col-6">
-                    <input
-                      type="tel"
-                      className="form-control"
-                      placeholder={t("formPhone")}
-                      style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                    />
-                  </div>
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder={t("formPostalCode")}
-                      style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                    />
-                  </div>
-                </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={t("formSpecialty")}
-                  style={{ fontSize: 14, borderRadius: 8, padding: "10px 14px" }}
-                />
-                <button
-                  type="submit"
-                  className="btn btn__primary btn__rounded w-100"
-                  style={{ fontSize: 15, padding: "12px" }}
-                >
-                  {t("formSubmit")}
-                </button>
               </form>
+              {/* Trust indicators */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 6,
+                  marginTop: 16,
+                  marginBottom: 4,
+                }}
+              >
+                <i className="fas fa-shield-alt" style={{ fontSize: 12, color: "var(--color-accent)" }}></i>
+                <span style={{ fontSize: 12, color: "#9ca3af" }}>
+                  {t("formTrustLine")}
+                </span>
+              </div>
               <p
                 style={{
                   fontSize: 11,
                   color: "#9ca3af",
-                  marginTop: 12,
+                  marginTop: 4,
+                  marginBottom: 0,
                   textAlign: "center",
                 }}
               >
@@ -207,6 +306,28 @@ export default function HeroProSection() {
           </div>
         </div>
       </div>
+
+      {/* Override template form-control pill shape inside this section */}
+      <style>{`
+        .hero-pro .form-control {
+          border-radius: 8px !important;
+          height: auto !important;
+          padding: 10px 14px !important;
+          border: 1px solid #e2e8f0 !important;
+          font-size: 14px !important;
+        }
+        .hero-pro .form-control:focus {
+          border-color: #67CBC7 !important;
+          box-shadow: 0 0 0 3px rgba(103,203,199,0.1) !important;
+        }
+        .hero-pro select.form-control {
+          appearance: auto;
+          -webkit-appearance: auto;
+        }
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
     </section>
   );
 }

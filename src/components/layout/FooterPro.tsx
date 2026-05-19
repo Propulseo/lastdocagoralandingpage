@@ -34,7 +34,7 @@ export default function FooterPro() {
                   href="/pro"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "#21cdc0",
+                    color: "var(--color-accent)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -71,7 +71,7 @@ export default function FooterPro() {
                         textDecoration: "none",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#21cdc0";
+                        e.currentTarget.style.background = "var(--color-accent)";
                         e.currentTarget.style.color = "#fff";
                       }}
                       onMouseLeave={(e) => {
@@ -91,7 +91,7 @@ export default function FooterPro() {
             {/* Column 2 -- Pro links */}
             <div className="col-sm-6 col-md-6 col-lg-2 offset-lg-1">
               <div className="footer-widget-nav" style={{ marginTop: 10 }}>
-                <h6 className="footer-widget__title">{t("linksTitle")}</h6>
+                <h6 className="footer-widget__title">{tp("footerPro.proLinksTitle")}</h6>
                 <nav>
                   <ul className="list-unstyled mb-0">
                     <li>
@@ -198,7 +198,7 @@ export default function FooterPro() {
                       href={`mailto:${t("contactEmail")}`}
                       className="d-inline-flex align-items-center gap-2"
                       style={{
-                        color: "#0d6efd",
+                        color: "var(--color-cobalt)",
                         fontWeight: 600,
                         fontSize: 15,
                         textDecoration: "none",
@@ -222,7 +222,7 @@ export default function FooterPro() {
                   >
                     <i
                       className="fas fa-map-marker-alt"
-                      style={{ color: "#21cdc0", fontSize: 14 }}
+                      style={{ color: "var(--color-accent)", fontSize: 14 }}
                     ></i>
                     {t("contactLocation")}
                   </li>
@@ -236,7 +236,7 @@ export default function FooterPro() {
                     className="d-inline-flex align-items-center gap-2"
                     style={{
                       background:
-                        "linear-gradient(135deg, #0d6efd, #0a58ca)",
+                        "linear-gradient(135deg, var(--color-navy), var(--color-cobalt))",
                       color: "#fff",
                       padding: "10px 24px",
                       borderRadius: 10,
@@ -249,7 +249,7 @@ export default function FooterPro() {
                       e.currentTarget.style.transform =
                         "translateY(-1px)";
                       e.currentTarget.style.boxShadow =
-                        "0 4px 12px rgba(13,110,253,0.3)";
+                        "0 4px 12px rgba(var(--color-navy-rgb), 0.3)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";

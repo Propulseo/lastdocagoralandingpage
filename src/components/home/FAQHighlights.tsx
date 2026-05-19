@@ -10,11 +10,26 @@ export default function FAQHighlights() {
   const faqHref = `/${locale}/contact#faq`;
 
   return (
-    <section className="blog-grid pb-50">
+    <section className="blog-grid pb-50 bg-overlay bg-overlay-primary-gradient">
+      <style>{`
+        .da-faq-card {
+          background: #fff;
+          border-radius: 14px;
+          border: 1px solid rgba(0,0,0,0.06);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .da-faq-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+        }
+      `}</style>
+      <div className="bg-img"><img src="/assets/images/banners/3.jpg" alt="background" /></div>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
-            <div className="heading text-center mb-40">
+            <div className="heading heading-light text-center mb-40">
               <h2 className="heading__subtitle">{t("subtitle")}</h2>
               <h3 className="heading__title">{t("title")}</h3>
             </div>
@@ -23,7 +38,7 @@ export default function FAQHighlights() {
         <AnimatedCardsContainer className="row">
           {ITEM_KEYS.map((key, i) => (
             <AnimatedCard key={key} className="col-sm-12 col-md-6 col-lg-4">
-              <div className="post-item">
+              <div className="post-item da-faq-card">
                 <div className="post__img">
                   <a href={faqHref}>
                     <img src={`/assets/images/blog/grid/${i + 1}.jpg`} alt="FAQ image" loading="lazy" />

@@ -32,7 +32,7 @@ export default function Navbar({ locale }: { locale?: string }) {
           </span>
         </button>
         <div className="collapse navbar-collapse" id="mainNavigation">
-          <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav mx-auto" style={{ paddingLeft: "5vw" }}>
             <li className="nav__item">
               <Link href="/" className={`nav__item-link${pathname === "/" ? " active" : ""}`}>
                 {t("home")}
@@ -46,11 +46,6 @@ export default function Navbar({ locale }: { locale?: string }) {
             <li className="nav__item">
               <Link href="/specialties" className={`nav__item-link${pathname === "/specialties" ? " active" : ""}`}>
                 {t("specialties")}
-              </Link>
-            </li>
-            <li className="nav__item">
-              <Link href="/#process" className="nav__item-link">
-                {t("howItWorks")}
               </Link>
             </li>
             <li className="nav__item">
@@ -75,22 +70,11 @@ export default function Navbar({ locale }: { locale?: string }) {
           <LanguageSwitcher />
           <Link
             href="/pro"
-            className="nav__item-link"
-            style={{
-              color: "#21cdc0",
-              fontSize: 14,
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-              marginLeft: 20,
-              marginRight: 20,
-            }}
+            className="btn btn__primary btn__rounded ml-30"
           >
-            {t("imAProfessional")}
+            <i className="icon-doctor"></i>
+            <span>{t("imAProfessional")}</span>
           </Link>
-          <a href="#" className="btn btn__primary btn__rounded ml-30">
-            <i className="icon-calendar"></i>
-            <span>{t("findProfessional")}</span>
-          </a>
         </div>
       </div>
     </nav>

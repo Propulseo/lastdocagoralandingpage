@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales } from "@/i18n/config";
@@ -14,39 +15,87 @@ export default function LanguageSwitcher() {
   const currentLocale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   function handleSwitch(newLocale: string) {
     router.replace(pathname, { locale: newLocale as "pt" | "en" | "fr" });
+    setOpen(false);
   }
 
+  const otherLocales = locales.filter((l) => l !== currentLocale);
+
   return (
-    <div className="d-flex align-items-center gap-1" style={{ fontSize: 13 }}>
-      {locales.map((locale, i) => (
-        <span key={locale} className="d-flex align-items-center gap-1">
-          {i > 0 && (
-            <span style={{ color: "rgba(255,255,255,0.3)", userSelect: "none" }}>|</span>
-          )}
-          <button
-            onClick={() => handleSwitch(locale)}
-            style={{
-              background: "none",
-              border: "none",
-              padding: "2px 4px",
-              cursor: locale === currentLocale ? "default" : "pointer",
-              color: locale === currentLocale ? "#21cdc0" : "rgba(255,255,255,0.7)",
-              fontWeight: locale === currentLocale ? 700 : 400,
-              fontSize: 13,
-              fontFamily: "inherit",
-              transition: "color 0.2s",
-              textDecoration: "none",
-            }}
-            aria-label={`Switch to ${localeLabels[locale]}`}
-            aria-current={locale === currentLocale ? "true" : undefined}
-          >
-            {localeLabels[locale]}
-          </button>
-        </span>
-      ))}
+    <div
+      style={{ position: "relative", fontSize: 13 }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        style={{
+          background: "none",
+          border: "none",
+          padding: "2px 6px",
+          cursor: "pointer",
+          color: "var(--color-accent)",
+          fontWeight: 700,
+          fontSize: 13,
+          fontFamily: "inherit",
+          display: "flex",
+          alignItems: "center",
+          gap: 4,
+        }}
+        aria-label="Change language"
+      >
+        {localeLabels[currentLocale]}
+        <span style={{ fontSize: 10, opacity: 0.7 }}>&#9662;</span>
+      </button>
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            background: "var(--color-dark-1)",
+            borderRadius: 6,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
+            padding: "4px 0",
+            minWidth: 52,
+            zIndex: 1000,
+          }}
+        >
+          {otherLocales.map((locale) => (
+            <button
+              key={locale}
+              onClick={() => handleSwitch(locale)}
+              style={{
+                display: "block",
+                width: "100%",
+                background: "none",
+                border: "none",
+                padding: "6px 12px",
+                cursor: "pointer",
+                color: "rgba(255,255,255,0.8)",
+                fontWeight: 400,
+                fontSize: 13,
+                fontFamily: "inherit",
+                textAlign: "left",
+                transition: "color 0.2s, background 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--color-accent)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "rgba(255,255,255,0.8)";
+                e.currentTarget.style.background = "none";
+              }}
+              aria-label={`Switch to ${localeLabels[locale]}`}
+            >
+              {localeLabels[locale]}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

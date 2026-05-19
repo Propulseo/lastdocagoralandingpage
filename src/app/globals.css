@@ -1,1 +1,12 @@
 /* Global styles are loaded via public/assets/css/style.css and libraries.css */
+/* Brand tokens defined in src/styles/tokens.css (single source of truth) */
+
+/* Fix: AnimatedSection wrappers break the CSS adjacent sibling selector
+   .about-layout2 + .services-layout1 { padding-top: 200px } in style.css.
+   The video-banner in about-layout2 is position:absolute and overflows,
+   so the specialties section needs extra top padding on desktop. */
+@media (min-width: 1200px) {
+  .services-layout1.services-carousel {
+    padding-top: 200px;
+  }
+}

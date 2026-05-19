@@ -11,6 +11,7 @@ interface AnimatedSectionProps {
   direction?: "up" | "down" | "left" | "right";
   className?: string;
   disabled?: boolean;
+  once?: boolean;
 }
 
 const directionMap = {
@@ -23,11 +24,12 @@ const directionMap = {
 export default function AnimatedSection({
   children,
   delay = 0,
-  duration = 0.7,
-  distance = 40,
+  duration = 0.8,
+  distance = 60,
   direction = "up",
   className,
   disabled = false,
+  once = false,
 }: AnimatedSectionProps) {
   const prefersReduced = useReducedMotion();
 
@@ -40,9 +42,10 @@ export default function AnimatedSection({
   return (
     <motion.div
       className={className}
+      style={{ position: "relative" }}
       initial={{ opacity: 0, x: dir.x * distance, y: dir.y * distance }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once, amount: 0.15 }}
       transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}

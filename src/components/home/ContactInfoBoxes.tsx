@@ -5,7 +5,7 @@ import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/Animat
 export default function ContactInfoBoxes() {
   const t = useTranslations("contactInfo");
   return (
-    <section className="contact-info py-0" style={{ marginTop: "-2cm" , position: "relative", zIndex: 10 }}>
+    <section className="contact-info py-4">
       <div className="container">
         <AnimatedCardsContainer className="row row-no-gutter boxes-wrapper" stagger={0.15}>
           <AnimatedCard className="col-sm-12 col-md-4">

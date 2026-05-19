@@ -19,7 +19,7 @@ function PhoneMockup() {
         <div className="ma-phone__search">
           <i
             className="fas fa-search"
-            style={{ fontSize: 11, color: "#21cdc0" }}
+            style={{ fontSize: 11, color: "var(--color-accent)" }}
           />
           <span className="ma-phone__search-text">
             Find a professional...
@@ -77,7 +77,7 @@ export default function MobileAppSection() {
         .ma-section {
           position: relative;
           padding: 100px 0;
-          background: #f8f9fb;
+          background: #F8FAFD;
           overflow: hidden;
         }
 
@@ -92,7 +92,7 @@ export default function MobileAppSection() {
         .ma-blob--1 {
           width: 320px;
           height: 320px;
-          background: rgba(33, 205, 192, 0.18);
+          background: rgba(103, 203, 199, 0.18);
           top: -40px;
           right: 5%;
           animation: maBlobFloat1 12s ease-in-out infinite;
@@ -100,7 +100,7 @@ export default function MobileAppSection() {
         .ma-blob--2 {
           width: 220px;
           height: 220px;
-          background: rgba(53, 79, 142, 0.12);
+          background: rgba(74, 124, 199, 0.12);
           bottom: -30px;
           right: 15%;
           border-radius: 45% 55% 40% 60%;
@@ -140,7 +140,7 @@ export default function MobileAppSection() {
         .ma-title {
           font-size: 36px;
           font-weight: 700;
-          color: #0e1f3d;
+          color: #0C121E;
           line-height: 1.2;
           margin-bottom: 20px;
         }
@@ -223,7 +223,7 @@ export default function MobileAppSection() {
           bottom: calc(100% + 10px);
           left: 50%;
           transform: translateX(-50%) scale(0.95);
-          background: #0e1f3d;
+          background: #0C121E;
           color: #fff;
           font-size: 12px;
           font-weight: 500;
@@ -245,7 +245,7 @@ export default function MobileAppSection() {
           position: absolute;
           top: -8px;
           right: -8px;
-          background: #21cdc0;
+          background: #67CBC7;
           color: #fff;
           font-size: 9px;
           font-weight: 700;
@@ -261,14 +261,14 @@ export default function MobileAppSection() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          color: #21cdc0;
+          color: #67CBC7;
           font-size: 15px;
           font-weight: 600;
           text-decoration: none;
           transition: gap 0.2s, color 0.2s;
         }
         .ma-cta:hover {
-          color: #1ab5aa;
+          color: #5AA2AA;
           gap: 12px;
           text-decoration: none;
         }
@@ -285,7 +285,7 @@ export default function MobileAppSection() {
           position: relative;
           width: 260px;
           height: 520px;
-          background: #0e1f3d;
+          background: #0C121E;
           border-radius: 36px;
           padding: 12px;
           box-shadow:
@@ -313,7 +313,7 @@ export default function MobileAppSection() {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #1a2942;
+          background: #0C121E;
         }
         .ma-phone__screen {
           width: 100%;
@@ -325,7 +325,7 @@ export default function MobileAppSection() {
           flex-direction: column;
         }
         .ma-phone__header {
-          background: linear-gradient(135deg, #21cdc0, #354f8e);
+          background: linear-gradient(135deg, #67CBC7, #244882);
           padding: 38px 16px 14px;
           text-align: center;
         }
@@ -341,7 +341,7 @@ export default function MobileAppSection() {
           gap: 8px;
           margin: 12px 12px 8px;
           padding: 9px 12px;
-          background: #f1f3f6;
+          background: #F8FAFD;
           border-radius: 10px;
           font-size: 11px;
           color: #8a96a8;
@@ -359,7 +359,7 @@ export default function MobileAppSection() {
           align-items: center;
           gap: 10px;
           padding: 10px;
-          background: #f8f9fb;
+          background: #F8FAFD;
           border-radius: 10px;
           border: 1px solid #eef0f4;
         }
@@ -367,7 +367,7 @@ export default function MobileAppSection() {
           width: 34px;
           height: 34px;
           border-radius: 10px;
-          background: linear-gradient(135deg, #21cdc0, #354f8e);
+          background: linear-gradient(135deg, #67CBC7, #244882);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -384,7 +384,7 @@ export default function MobileAppSection() {
         }
         .ma-phone__card-info strong {
           font-size: 12px;
-          color: #0e1f3d;
+          color: #0C121E;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;

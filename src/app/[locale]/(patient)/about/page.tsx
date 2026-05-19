@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import AboutLayout1 from "@/components/about/AboutLayout1";
 import FeaturesLayout1 from "@/components/about/FeaturesLayout1";
-import WorkProcess from "@/components/home/WorkProcess";
+
 import TeamCarousel from "@/components/home/TeamCarousel";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
@@ -53,9 +53,6 @@ export default async function AboutPage({
       </AnimatedSection>
       <AnimatedSection>
         <FeaturesLayout1 />
-      </AnimatedSection>
-      <AnimatedSection>
-        <WorkProcess />
       </AnimatedSection>
       <AnimatedSection>
         <TeamCarousel />

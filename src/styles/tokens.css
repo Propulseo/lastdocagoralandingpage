@@ -1,0 +1,305 @@
+/* ============================================================
+   DocAgora Design Tokens — Brandbook v3
+   Source of truth for all brand colors, fonts, and semantic tokens.
+   Loaded AFTER style.css to override legacy template values.
+   ============================================================ */
+
+:root {
+  /* ── Brand Colors (raw) ── */
+  --color-navy: #244882;
+  --color-cobalt: #4A7CC7;
+  --color-mint: #5AA2AA;
+  --color-teal: #67CBC7;
+  --color-dark-1: #0C121E;
+  --color-dark-2: #070C16;
+  --color-light-1: #FCFEFE;
+  --color-light-2: #F8FAFD;
+
+  /* ── RGB channels (for rgba() usage) ── */
+  --color-navy-rgb: 36, 72, 130;
+  --color-cobalt-rgb: 74, 124, 199;
+  --color-mint-rgb: 90, 162, 170;
+  --color-teal-rgb: 103, 203, 199;
+  --color-dark-1-rgb: 12, 18, 30;
+  --color-dark-2-rgb: 7, 12, 22;
+
+  /* ── Semantic Tokens ── */
+
+  /* Backgrounds */
+  --bg-default: var(--color-light-1);
+  --bg-section: var(--color-light-2);
+  --bg-dark: var(--color-dark-1);
+  --bg-darker: var(--color-dark-2);
+
+  /* Text */
+  --text-default: var(--color-dark-1);
+  --text-muted: #6b7280;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.55);
+
+  /* Primary action */
+  --color-primary: var(--color-navy);
+  --color-primary-rgb: var(--color-navy-rgb);
+  --color-primary-hover: var(--color-cobalt);
+
+  /* Accent (luminous elements) */
+  --color-accent: var(--color-teal);
+  --color-accent-rgb: var(--color-teal-rgb);
+  --color-accent-hover: var(--color-mint);
+
+  /* Links */
+  --color-link: var(--color-navy);
+  --color-link-hover: var(--color-cobalt);
+
+  /* Borders */
+  --border-default: #e5e8ea;
+  --border-light: rgba(255, 255, 255, 0.08);
+
+  /* ── Typography ── */
+  --font-display: var(--font-manrope), "Manrope", sans-serif;
+  --font-body: var(--font-montserrat), "Montserrat", sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* ── Font Size Scale ── */
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 17px;
+  --fs-lg: 20px;
+  --fs-xl: 26px;
+  --fs-2xl: 32px;
+  --fs-3xl: 42px;
+  --fs-4xl: 48px;
+}
+
+/* ============================================================
+   Override legacy style.css values
+   ============================================================ */
+
+/* ── Base ── */
+body {
+  font-family: var(--font-body) !important;
+  color: var(--text-default) !important;
+  background-color: var(--bg-default) !important;
+}
+
+::selection {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+a {
+  color: var(--color-link) !important;
+}
+
+a:hover {
+  color: var(--color-link-hover) !important;
+}
+
+/* ── Utility color classes ── */
+.color-primary {
+  color: var(--color-primary) !important;
+}
+
+.color-secondary {
+  color: var(--color-cobalt) !important;
+}
+
+.color-heading {
+  color: var(--color-dark-1) !important;
+}
+
+.color-body {
+  color: var(--text-default) !important;
+}
+
+.color-gray {
+  color: var(--text-muted) !important;
+}
+
+/* ── Utility background classes ── */
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-cobalt) !important;
+}
+
+.bg-gray {
+  background-color: var(--bg-section) !important;
+}
+
+.bg-heading {
+  background-color: var(--color-dark-1) !important;
+}
+
+.bg-light-blue {
+  background-color: var(--color-cobalt) !important;
+}
+
+/* ── Buttons ── */
+.btn__primary {
+  color: #ffffff !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary:active,
+.btn__primary:focus {
+  color: #ffffff !important;
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary:hover {
+  color: #ffffff !important;
+}
+
+.btn__primary .icon-outlined {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.btn__primary .icon-filled {
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary:hover .icon-filled {
+  background-color: var(--color-dark-1) !important;
+}
+
+.btn__primary.btn__outlined {
+  background-color: transparent !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+.btn__primary.btn__outlined .icon-arrow-right,
+.btn__primary.btn__outlined .icon-arrow-left {
+  color: #ffffff !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary.btn__outlined:hover {
+  color: #ffffff !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary.btn__outlined:hover .icon-arrow-right,
+.btn__primary.btn__outlined:hover .icon-arrow-left {
+  color: var(--color-primary) !important;
+  background-color: #ffffff !important;
+}
+
+.btn__secondary {
+  color: #ffffff !important;
+  background-color: var(--color-dark-1) !important;
+}
+
+.btn__secondary.btn__outlined {
+  background-color: transparent !important;
+  border-color: var(--color-dark-1) !important;
+  color: var(--color-dark-1) !important;
+}
+
+.btn__secondary.btn__outlined:hover {
+  color: #ffffff !important;
+  background-color: var(--color-dark-1) !important;
+}
+
+.btn__link.btn__primary {
+  color: var(--color-primary) !important;
+}
+
+.btn__link.btn__primary:hover {
+  color: var(--color-primary-hover) !important;
+}
+
+/* ── Primary style2 (before pseudo-element hover) ── */
+.btn__primary-style2:hover {
+  color: var(--color-dark-1) !important;
+}
+
+.btn__primary-style2:hover .icon-arrow-right,
+.btn__primary-style2:hover .icon-arrow-left {
+  color: #ffffff !important;
+  background-color: var(--color-dark-1) !important;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6,
+.heading__title,
+.slide__title,
+.heading__subtitle {
+  font-family: var(--font-body) !important;
+}
+
+/* ── Feature items ── */
+.feature__icon i {
+  color: var(--color-primary) !important;
+}
+
+/* ── Contact boxes ── */
+.contact__icon i {
+  color: var(--color-accent) !important;
+}
+
+.contact-box .phone__number {
+  color: var(--color-primary) !important;
+}
+
+/* ── Services / Specialties ── */
+.service__icon i {
+  color: var(--color-primary) !important;
+}
+
+/* ── Overlay gradient (FAQ section etc.) ── */
+.bg-overlay-primary-gradient::before {
+  background: linear-gradient(135deg, rgba(var(--color-dark-1-rgb), 0.93) 0%, rgba(var(--color-navy-rgb), 0.85) 100%) !important;
+}
+
+/* ── Footer ── */
+.footer-widget__title {
+  font-family: var(--font-body) !important;
+}
+
+.footer-widget-nav a {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.footer-widget-nav a:hover {
+  color: var(--color-accent) !important;
+}
+
+/* ── Navbar ── */
+.navbar .nav__item-link {
+  font-family: var(--font-body) !important;
+}
+
+.sticky-navbar.is-sticky {
+  background-color: #ffffff !important;
+}
+
+/* ── Misc template overrides ── */
+.text__link a:not(.btn).color-secondary {
+  color: var(--color-cobalt) !important;
+}
+
+.text__link:hover a:not(.btn).color-secondary {
+  color: var(--color-primary) !important;
+}
+
+/* ── Slide description ── */
+.slide__desc {
+  font-family: var(--font-body) !important;
+}

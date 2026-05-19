@@ -522,8 +522,8 @@
       "badge1": "Conforme com o RGPD",
       "badge2": "Dados alojados na Europa",
       "badge3": "Feito para Portugal",
-      "ctaGetStarted": "Come\u00e7ar",
-      "ctaBookDemo": "Marcar uma demonstra\u00e7\u00e3o",
+      "ctaGetStarted": "Come\u00e7ar \u2014 \u00e9 gratuito",
+      "ctaLearnMore": "Saber mais",
       "formTitle": "Falar com um consultor",
       "formSubjectLabel": "Assunto",
       "formSubjectOption1": "Quero saber mais",
@@ -537,7 +537,8 @@
       "formSpecialty": "Especialidade",
       "formSubmit": "Enviar o seu pedido",
       "formNote": "Os nossos consultores est\u00e3o aqui para ajud\u00e1-lo a escolher a oferta mais adequada \u00e0 sua atividade.",
-      "formPrivacyLink": "Saiba mais sobre as nossas pr\u00e1ticas de recolha de dados"
+      "formPrivacyLink": "Saiba mais sobre as nossas pr\u00e1ticas de recolha de dados",
+      "formTrustLine": "Sem compromisso \u00b7 Gratuito para come\u00e7ar \u00b7 Conforme RGPD"
     },
     "video": {
       "placeholder": "DocAgora \u2014 Em breve",
@@ -566,17 +567,17 @@
       "block1Subtitle": "Menos administra\u00e7\u00e3o, mais tranquilidade.",
       "block1Bullet1": "Reduza o tempo administrativo",
       "block1Bullet2": "Gest\u00e3o centralizada de pacientes",
-      "block1Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192",
+      "block1Cta": "Come\u00e7ar \u2192",
       "block2Title": "Preste melhores cuidados",
       "block2Subtitle": "Novos padr\u00f5es de cuidados.",
       "block2Bullet1": "Comunica\u00e7\u00e3o simplificada com pacientes",
       "block2Bullet2": "Mais tempo de qualidade com os pacientes",
-      "block2Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192",
+      "block2Cta": "Come\u00e7ar \u2192",
       "block3Title": "Fa\u00e7a crescer a sua pr\u00e1tica",
       "block3Subtitle": "Desenvolva e otimize sem esfor\u00e7o.",
       "block3Bullet1": "Alcance mais pacientes",
       "block3Bullet2": "Vis\u00edvel na plataforma DocAgora",
-      "block3Cta": "Marcar uma demonstra\u00e7\u00e3o \u2192"
+      "block3Cta": "Come\u00e7ar \u2192"
     },
     "testimonials": {
       "title": "A palavra aos profissionais",
@@ -609,13 +610,55 @@
       "tabFacilities": "Estabelecimentos de sa\u00fade",
       "facilitiesComingSoon": "Em breve \u2014 Estamos a trabalhar em solu\u00e7\u00f5es adaptadas a estabelecimentos de sa\u00fade."
     },
+    "featuresGrid": {
+      "pill": "Plataforma profissional",
+      "title": "Tudo o que precisa para gerir o seu consult\u00f3rio, num s\u00f3 lugar.",
+      "desc": "O DocAgora Pro re\u00fane gest\u00e3o de agenda, acompanhamento de pacientes e an\u00e1lise da atividade numa plataforma integrada \u2014 concebida para profissionais de sa\u00fade em Portugal.",
+      "cta": "Come\u00e7ar \u2014 \u00e9 gratuito",
+      "items": {
+        "agenda": {
+          "title": "Agenda inteligente",
+          "desc": "Gira o seu calend\u00e1rio com uma interface intuitiva. Consultas coloridas, arrastar e largar e sincroniza\u00e7\u00e3o em tempo real."
+        },
+        "patients": {
+          "title": "Gest\u00e3o de pacientes",
+          "desc": "Fichas de pacientes digitais centralizadas. Pesquisa, hist\u00f3rico, notas e pr\u00f3ximas consultas num reli\u00e2nce."
+        },
+        "booking": {
+          "title": "Marca\u00e7\u00e3o online 24h/24",
+          "desc": "Os pacientes marcam diretamente no seu perfil DocAgora. Os hor\u00e1rios atualizam-se automaticamente."
+        },
+        "dashboard": {
+          "title": "Painel de controlo",
+          "desc": "Acompanhe a sua atividade em tempo real. Consultas, taxa de presen\u00e7a e satisfa\u00e7\u00e3o dos pacientes."
+        },
+        "multilingual": {
+          "title": "Plataforma multilingue",
+          "desc": "Interface dispon\u00edvel em portugu\u00eas, franc\u00eas e ingl\u00eas. Os seus pacientes veem o site na sua l\u00edngua."
+        },
+        "reminders": {
+          "title": "Lembretes autom\u00e1ticos",
+          "desc": "Reduza as faltas com lembretes autom\u00e1ticos por SMS e email. Acompanhamento de confirma\u00e7\u00e3o inclu\u00eddo."
+        },
+        "profile": {
+          "title": "P\u00e1gina de perfil profissional",
+          "desc": "Um perfil p\u00fablico verificado que destaca as suas qualifica\u00e7\u00f5es, idiomas falados e avalia\u00e7\u00f5es de pacientes."
+        },
+        "documents": {
+          "title": "Documentos seguros",
+          "desc": "Gere e armazene relat\u00f3rios, receitas e certificados. Encripta\u00e7\u00e3o de ponta a ponta."
+        }
+      }
+    },
     "cta": {
       "title": "Pronto para transformar a sua pr\u00e1tica?",
       "subtitle": "Junte-se \u00e0 DocAgora hoje e descubra uma forma mais inteligente de gerir o seu consult\u00f3rio.",
-      "ctaGetStarted": "Come\u00e7ar",
-      "ctaBookDemo": "Marcar uma demonstra\u00e7\u00e3o"
+      "ctaGetStarted": "Come\u00e7ar \u2014 \u00e9 gratuito",
+      "ctaBookDemo": "Falar com um consultor",
+      "trustLine": "Sem cart\u00e3o de cr\u00e9dito \u00b7 Cancele a qualquer momento"
     },
     "footerPro": {
+      "proLinksTitle": "Para profissionais",
       "pricingLink": "Pre\u00e7os",
       "resourcesLink": "Recursos",
       "aboutLink": "Sobre",

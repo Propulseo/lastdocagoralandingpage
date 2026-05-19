@@ -36,7 +36,7 @@ export default function Footer() {
                   href="/specialties"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "#21cdc0",
+                    color: "var(--color-accent)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -70,7 +70,7 @@ export default function Footer() {
                         textDecoration: "none",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#21cdc0"
+                        e.currentTarget.style.background = "var(--color-accent)"
                         e.currentTarget.style.color = "#fff"
                       }}
                       onMouseLeave={(e) => {
@@ -154,7 +154,7 @@ export default function Footer() {
                       href={`mailto:${t("contactEmail")}`}
                       className="d-inline-flex align-items-center gap-2"
                       style={{
-                        color: "#0d6efd",
+                        color: "var(--color-cobalt)",
                         fontWeight: 600,
                         fontSize: 15,
                         textDecoration: "none",
@@ -169,7 +169,7 @@ export default function Footer() {
                     className="d-flex align-items-center gap-2"
                     style={{ fontSize: 13, color: "#6b7280", marginTop: 8 }}
                   >
-                    <i className="fas fa-map-marker-alt" style={{ color: "#21cdc0", fontSize: 14 }}></i>
+                    <i className="fas fa-map-marker-alt" style={{ color: "var(--color-accent)", fontSize: 14 }}></i>
                     {t("contactLocation")}
                   </li>
                 </ul>
@@ -178,7 +178,7 @@ export default function Footer() {
                     href="/contact"
                     className="d-inline-flex align-items-center gap-2"
                     style={{
-                      background: "linear-gradient(135deg, #0d6efd, #0a58ca)",
+                      background: "linear-gradient(135deg, var(--color-navy), var(--color-cobalt))",
                       color: "#fff",
                       padding: "10px 24px",
                       borderRadius: 10,
@@ -189,7 +189,7 @@ export default function Footer() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-1px)"
-                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(13,110,253,0.3)"
+                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-navy-rgb), 0.3)"
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)"

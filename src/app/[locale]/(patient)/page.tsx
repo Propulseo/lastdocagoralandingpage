@@ -3,12 +3,12 @@ import HeroSlider from "@/components/home/HeroSlider";
 import ContactInfoBoxes from "@/components/home/ContactInfoBoxes";
 import AboutSection from "@/components/home/AboutSection";
 import SpecialtiesCarousel from "@/components/home/SpecialtiesCarousel";
-import FeaturesGrid from "@/components/home/FeaturesGrid";
+
 import TeamCarousel from "@/components/home/TeamCarousel";
-import WorkProcess from "@/components/home/WorkProcess";
+
 import Testimonials from "@/components/home/Testimonials";
 import CitiesGallery from "@/components/home/CitiesGallery";
-import ContactForm from "@/components/home/ContactForm";
+
 import FAQHighlights from "@/components/home/FAQHighlights";
 import MobileAppSection from "@/components/home/MobileAppSection";
 import AnimatedSection from "@/components/shared/AnimatedSection";
@@ -24,21 +24,17 @@ export default async function HomePage({
   return (
     <>
       <HeroSlider />
-      <AnimatedSection delay={0.1}>
-        <ContactInfoBoxes />
-      </AnimatedSection>
       <AnimatedSection>
         <AboutSection />
       </AnimatedSection>
       <AnimatedSection>
         <SpecialtiesCarousel />
       </AnimatedSection>
-      <FeaturesGrid />
       <AnimatedSection>
-        <TeamCarousel />
+        <ContactInfoBoxes />
       </AnimatedSection>
       <AnimatedSection>
-        <WorkProcess />
+        <TeamCarousel />
       </AnimatedSection>
       <AnimatedSection>
         <MobileAppSection />
@@ -47,13 +43,10 @@ export default async function HomePage({
         <Testimonials />
       </AnimatedSection>
       <AnimatedSection>
-        <CitiesGallery />
-      </AnimatedSection>
-      <AnimatedSection>
-        <ContactForm />
-      </AnimatedSection>
-      <AnimatedSection>
         <FAQHighlights />
+      </AnimatedSection>
+      <AnimatedSection>
+        <CitiesGallery />
       </AnimatedSection>
     </>
   );

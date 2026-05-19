@@ -522,8 +522,8 @@
       "badge1": "Conforme RGPD",
       "badge2": "Donn\u00e9es h\u00e9berg\u00e9es en Europe",
       "badge3": "Con\u00e7u pour le Portugal",
-      "ctaGetStarted": "Commencer",
-      "ctaBookDemo": "R\u00e9server une d\u00e9mo",
+      "ctaGetStarted": "Commencer \u2014 c'est gratuit",
+      "ctaLearnMore": "En savoir plus",
       "formTitle": "Parler \u00e0 un conseiller",
       "formSubjectLabel": "Sujet",
       "formSubjectOption1": "Je veux en savoir plus",
@@ -537,7 +537,8 @@
       "formSpecialty": "Sp\u00e9cialit\u00e9",
       "formSubmit": "Envoyer votre demande",
       "formNote": "Nos conseillers sont l\u00e0 pour vous aider \u00e0 choisir l'offre la mieux adapt\u00e9e \u00e0 votre activit\u00e9.",
-      "formPrivacyLink": "En savoir plus sur nos pratiques de collecte de donn\u00e9es"
+      "formPrivacyLink": "En savoir plus sur nos pratiques de collecte de donn\u00e9es",
+      "formTrustLine": "Sans engagement \u00b7 Gratuit pour commencer \u00b7 Conforme RGPD"
     },
     "video": {
       "placeholder": "DocAgora \u2014 Bient\u00f4t disponible",
@@ -566,17 +567,17 @@
       "block1Subtitle": "Moins d'administratif, plus de s\u00e9r\u00e9nit\u00e9.",
       "block1Bullet1": "R\u00e9duisez le temps administratif",
       "block1Bullet2": "Gestion centralis\u00e9e des patients",
-      "block1Cta": "R\u00e9server une d\u00e9mo \u2192",
+      "block1Cta": "Commencer \u2192",
       "block2Title": "Offrez de meilleurs soins",
       "block2Subtitle": "De nouveaux standards de soins.",
       "block2Bullet1": "Communication patient simplifi\u00e9e",
       "block2Bullet2": "Plus de temps de qualit\u00e9 avec les patients",
-      "block2Cta": "R\u00e9server une d\u00e9mo \u2192",
+      "block2Cta": "Commencer \u2192",
       "block3Title": "D\u00e9veloppez votre cabinet",
       "block3Subtitle": "D\u00e9veloppez et optimisez sans effort.",
       "block3Bullet1": "Touchez plus de patients",
       "block3Bullet2": "Visible sur la plateforme DocAgora",
-      "block3Cta": "R\u00e9server une d\u00e9mo \u2192"
+      "block3Cta": "Commencer \u2192"
     },
     "testimonials": {
       "title": "La parole aux professionnels",
@@ -609,13 +610,55 @@
       "tabFacilities": "\u00c9tablissements de sant\u00e9",
       "facilitiesComingSoon": "Bient\u00f4t disponible \u2014 Nous travaillons sur des solutions adapt\u00e9es aux \u00e9tablissements de sant\u00e9."
     },
+    "featuresGrid": {
+      "pill": "Plateforme professionnelle",
+      "title": "Tout ce qu'il vous faut pour g\u00e9rer votre cabinet, au m\u00eame endroit.",
+      "desc": "DocAgora Pro r\u00e9unit gestion d'agenda, suivi des patients et analyse de votre activit\u00e9 dans une plateforme int\u00e9gr\u00e9e — con\u00e7ue pour les professionnels de sant\u00e9 au Portugal.",
+      "cta": "Commencer \u2014 c'est gratuit",
+      "items": {
+        "agenda": {
+          "title": "Agenda intelligent",
+          "desc": "G\u00e9rez votre planning avec un calendrier intuitif. Rendez-vous color\u00e9s, glisser-d\u00e9poser et synchronisation en temps r\u00e9el."
+        },
+        "patients": {
+          "title": "Gestion des patients",
+          "desc": "Dossiers patients num\u00e9riques centralis\u00e9s. Recherche, historique, notes et prochains rendez-vous en un coup d'\u0153il."
+        },
+        "booking": {
+          "title": "R\u00e9servation en ligne 24h/24",
+          "desc": "Vos patients r\u00e9servent directement depuis votre profil DocAgora. Les cr\u00e9neaux se mettent \u00e0 jour automatiquement."
+        },
+        "dashboard": {
+          "title": "Tableau de bord",
+          "desc": "Suivez votre activit\u00e9 en temps r\u00e9el. Rendez-vous, taux de pr\u00e9sence et satisfaction patient en un coup d'\u0153il."
+        },
+        "multilingual": {
+          "title": "Plateforme multilingue",
+          "desc": "Interface disponible en portugais, fran\u00e7ais et anglais. Vos patients voient le site dans leur langue."
+        },
+        "reminders": {
+          "title": "Rappels automatiques",
+          "desc": "R\u00e9duisez les absences avec des rappels SMS et email automatiques. Suivi de confirmation inclus."
+        },
+        "profile": {
+          "title": "Page profil professionnel",
+          "desc": "Un profil public v\u00e9rifi\u00e9 mettant en avant vos qualifications, langues parl\u00e9es et avis patients."
+        },
+        "documents": {
+          "title": "Documents s\u00e9curis\u00e9s",
+          "desc": "G\u00e9n\u00e9rez et stockez comptes-rendus, ordonnances et certificats. Chiffrement de bout en bout."
+        }
+      }
+    },
     "cta": {
       "title": "Pr\u00eat \u00e0 transformer votre pratique ?",
       "subtitle": "Rejoignez DocAgora aujourd'hui et d\u00e9couvrez une mani\u00e8re plus intelligente de g\u00e9rer votre cabinet.",
-      "ctaGetStarted": "Commencer",
-      "ctaBookDemo": "R\u00e9server une d\u00e9mo"
+      "ctaGetStarted": "Commencer \u2014 c'est gratuit",
+      "ctaBookDemo": "Parler \u00e0 un conseiller",
+      "trustLine": "Sans carte bancaire \u00b7 Annulez \u00e0 tout moment"
     },
     "footerPro": {
+      "proLinksTitle": "Pour les professionnels",
       "pricingLink": "Tarifs",
       "resourcesLink": "Ressources",
       "aboutLink": "\u00c0 propos",

@@ -21,10 +21,11 @@ const containerVariants = (stagger: number) => ({
 });
 
 const itemVariants = (distance: number, duration: number) => ({
-  hidden: { opacity: 0, y: distance },
+  hidden: { opacity: 0, y: distance, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: { duration, ease: "easeOut" as const },
   },
 });
@@ -46,7 +47,7 @@ export function AnimatedCardsContainer({
       variants={containerVariants(stagger)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: false, amount: 0.1 }}
     >
       {children}
     </motion.div>
@@ -56,7 +57,7 @@ export function AnimatedCardsContainer({
 export function AnimatedCard({
   children,
   duration = 0.6,
-  distance = 30,
+  distance = 50,
   className,
 }: {
   children: ReactNode;

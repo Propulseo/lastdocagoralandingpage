@@ -1,12 +1,29 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
+import { Montserrat, Manrope } from "next/font/google";
+import "@/app/globals.css";
+import "@/styles/tokens.css";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { locales } from "@/i18n/config";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import JQueryLoader from "@/lib/jquery-loader";
 import Preloader from "@/components/shared/Preloader";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -37,13 +54,9 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${montserrat.variable} ${manrope.variable}`}>
       <head>
         <link rel="icon" href="/assets/images/favicon/favicon.png" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap"
-        />
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"

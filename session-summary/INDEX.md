@@ -1,0 +1,3 @@
+[2026-05-19 18:00] brand-identity — Charte graphique DocAgora v3 appliquee : tokens CSS, Montserrat/Manrope, palette Navy/Cobalt/Mint/Teal sur 19 composants patient+pro → [voir details](./2026-05-19-1800-brand-identity.md)
+[2026-05-19 14:00] patient-uiux-audit — Audit UI/UX read-only complet des 5 pages patient, 7 sections (design system, page-by-page, transverse, benchmark secteur, 36 fixes priorises, 5 reco strategiques) → [voir details](./2026-05-19-1400-patient-uiux-audit.md)
+[2026-05-18 12:00] pro-landing-page — Add dedicated pro landing page with 7 sections, NavbarPro, FooterPro, i18n EN/FR/PT → [voir details](./2026-05-18-1200-pro-landing-page.md)

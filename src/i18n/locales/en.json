@@ -522,8 +522,8 @@
       "badge1": "GDPR-compliant",
       "badge2": "Data hosted in Europe",
       "badge3": "Made for Portugal",
-      "ctaGetStarted": "Get started",
-      "ctaBookDemo": "Book a demo",
+      "ctaGetStarted": "Get started — it's free",
+      "ctaLearnMore": "Learn more",
       "formTitle": "Talk to an advisor",
       "formSubjectLabel": "Subject",
       "formSubjectOption1": "I want to know more",
@@ -537,7 +537,8 @@
       "formSpecialty": "Specialty",
       "formSubmit": "Submit your request",
       "formNote": "Our advisors are here to help you choose the offer best suited to your activity.",
-      "formPrivacyLink": "Learn more about our data collection practices"
+      "formPrivacyLink": "Learn more about our data collection practices",
+      "formTrustLine": "No commitment · Free to start · GDPR compliant"
     },
     "video": {
       "placeholder": "DocAgora — Coming soon",
@@ -566,17 +567,17 @@
       "block1Subtitle": "Less admin, more peace of mind.",
       "block1Bullet1": "Cut admin time",
       "block1Bullet2": "Centralized patient management",
-      "block1Cta": "Book a demo \u2192",
+      "block1Cta": "Get started \u2192",
       "block2Title": "Provide better care",
       "block2Subtitle": "New standards of care.",
       "block2Bullet1": "Streamlined patient communication",
       "block2Bullet2": "More quality time with patients",
-      "block2Cta": "Book a demo \u2192",
+      "block2Cta": "Get started \u2192",
       "block3Title": "Grow your practice",
       "block3Subtitle": "Develop and optimize effortlessly.",
       "block3Bullet1": "Reach more patients",
       "block3Bullet2": "Visible on DocAgora platform",
-      "block3Cta": "Book a demo \u2192"
+      "block3Cta": "Get started \u2192"
     },
     "testimonials": {
       "title": "Words from professionals",
@@ -609,13 +610,55 @@
       "tabFacilities": "Healthcare facilities",
       "facilitiesComingSoon": "Coming soon \u2014 We are working on solutions tailored for healthcare facilities."
     },
+    "featuresGrid": {
+      "pill": "Professional platform",
+      "title": "Everything you need to manage your practice, all in one place.",
+      "desc": "DocAgora Pro brings together smart scheduling, patient management, and practice analytics into one integrated platform — designed for healthcare professionals in Portugal.",
+      "cta": "Get started — it's free",
+      "items": {
+        "agenda": {
+          "title": "Smart agenda",
+          "desc": "Manage your schedule with an intuitive calendar. Color-coded appointments, drag-and-drop, and real-time availability sync."
+        },
+        "patients": {
+          "title": "Patient management",
+          "desc": "Centralized digital patient files. Search, history, notes, and upcoming appointments at a glance."
+        },
+        "booking": {
+          "title": "Online booking 24/7",
+          "desc": "Let patients book directly from your DocAgora profile. Available slots update automatically."
+        },
+        "dashboard": {
+          "title": "Practice dashboard",
+          "desc": "Track your activity in real time. Appointments, attendance rates, and patient satisfaction at a glance."
+        },
+        "multilingual": {
+          "title": "Multilingual platform",
+          "desc": "Interface available in Portuguese, French and English. Your patients see the site in their language."
+        },
+        "reminders": {
+          "title": "Automatic reminders",
+          "desc": "Reduce no-shows with automatic SMS and email reminders. Confirmation tracking included."
+        },
+        "profile": {
+          "title": "Professional profile page",
+          "desc": "A verified public profile showcasing your credentials, languages spoken, and patient reviews."
+        },
+        "documents": {
+          "title": "Secure documents",
+          "desc": "Generate and store consultation reports, prescriptions, and certificates. End-to-end encrypted."
+        }
+      }
+    },
     "cta": {
       "title": "Ready to transform your practice?",
       "subtitle": "Join DocAgora today and discover a smarter way to manage your healthcare practice.",
-      "ctaGetStarted": "Get started",
-      "ctaBookDemo": "Book a demo"
+      "ctaGetStarted": "Get started — it's free",
+      "ctaBookDemo": "Talk to an advisor",
+      "trustLine": "No credit card required · Cancel anytime"
     },
     "footerPro": {
+      "proLinksTitle": "For Professionals",
       "pricingLink": "Pricing",
       "resourcesLink": "Resources",
       "aboutLink": "About",

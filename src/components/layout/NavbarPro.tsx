@@ -86,7 +86,7 @@ export default function NavbarPro({ locale }: { locale?: string }) {
             href="/"
             className="nav__item-link"
             style={{
-              color: "#21cdc0",
+              color: "var(--color-accent)",
               fontSize: 14,
               fontWeight: 500,
               whiteSpace: "nowrap",
@@ -98,10 +98,32 @@ export default function NavbarPro({ locale }: { locale?: string }) {
           </Link>
           <a
             href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
-            className="btn btn__primary btn__rounded ml-30"
+            className="ml-30"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "var(--color-primary)",
+              color: "#fff",
+              padding: "10px 24px",
+              borderRadius: 8,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: "none",
+              transition: "all 0.3s",
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--color-cobalt)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-navy-rgb), 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "var(--color-primary)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
-            <i className="icon-calendar"></i>
             <span>{t("getStarted")}</span>
+            <i className="fas fa-arrow-right" style={{ fontSize: 12 }}></i>
           </a>
         </div>
       </div>
