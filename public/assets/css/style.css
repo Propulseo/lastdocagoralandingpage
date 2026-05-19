@@ -4739,6 +4739,41 @@ input[type=radio] {
   left: 40px;
 }
 
+.team-layout1 .slick-arrow,
+.team-layout2 .slick-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.team-layout1 .slick-arrow.slick-prev,
+.team-layout2 .slick-arrow.slick-prev {
+  left: -50px;
+}
+.team-layout1 .slick-arrow.slick-next,
+.team-layout2 .slick-arrow.slick-next {
+  right: -50px;
+}
+@media (max-width: 1199px) {
+  .team-layout1 .slick-arrow.slick-prev,
+  .team-layout2 .slick-arrow.slick-prev {
+    left: -15px;
+  }
+  .team-layout1 .slick-arrow.slick-next,
+  .team-layout2 .slick-arrow.slick-next {
+    right: -15px;
+  }
+}
+@media (max-width: 767px) {
+  .team-layout1 .slick-arrow.slick-prev,
+  .team-layout2 .slick-arrow.slick-prev {
+    left: 0;
+  }
+  .team-layout1 .slick-arrow.slick-next,
+  .team-layout2 .slick-arrow.slick-next {
+    right: 0;
+  }
+}
+
 .team-layout1 .slick-list,
 .team-layout2 .slick-list {
   margin: -15px;
