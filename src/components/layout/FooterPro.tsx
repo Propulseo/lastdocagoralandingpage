@@ -13,7 +13,7 @@ export default function FooterPro() {
         className="footer-primary"
         style={{ paddingTop: 60, paddingBottom: 40 }}
       >
-        <div className="container">
+        <div className="container" style={{ maxWidth: 1320 }}>
           <div className="row">
             {/* Column 1 -- Logo + About */}
             <div className="col-sm-12 col-md-6 col-lg-3">
@@ -22,7 +22,7 @@ export default function FooterPro() {
                   src="/assets/images/logo/logo-light.png"
                   alt="DocAgora logo"
                   className="mb-3"
-                  style={{ maxHeight: 50 }}
+                  style={{ maxHeight: 70 }}
                 />
                 <p
                   className="color-gray"
@@ -282,7 +282,7 @@ export default function FooterPro() {
             <div className="footer-bottom__right">
               <Link href="/terms-of-use">{t("bottomTerms")}</Link>
               <Link href="/privacy-policy">{t("bottomPrivacy")}</Link>
-              <a href="#">{t("bottomGdpr")}</a>
+              <Link href="/privacy-policy">{t("bottomGdpr")}</Link>
             </div>
           </div>
         </div>
