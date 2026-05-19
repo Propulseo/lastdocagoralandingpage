@@ -407,7 +407,12 @@
       "q10": { "question": "Can I filter professionals by insurance?", "answer": "Yes, you can filter professionals by the health insurance plans they accept. This helps you find in-network providers and avoid unexpected costs." }
     }
   },
+  "headerSearch": {
+    "placeholder": "Search...",
+    "noResults": "No results found."
+  },
   "contactPage": {
+    "pageHeading": "Contact us",
     "formTitle": "How can we help?",
     "formDesc": "Have a question about DocAgora? Looking for a specific specialty? Our team is here to help you find the right healthcare professional.",
     "labelName": "Name",
@@ -489,7 +494,12 @@
       "getItOn": "Get it on",
       "googlePlayLabel": "Google Play",
       "comingSoonTooltip": "App launching soon — sign up for early access",
-      "cta": "Sign up on the platform to be notified at launch →"
+      "cta": "Sign up on the platform to be notified at launch →",
+      "phoneSearch": "Find a professional...",
+      "phoneDoc1Spec": "Cardiologist",
+      "phoneDoc2Spec": "Dentist",
+      "phoneDoc3Spec": "Pediatrician",
+      "comingSoon": "Soon"
     }
   },
   "chatbot": {
@@ -662,6 +672,7 @@
       "pricingLink": "Pricing",
       "resourcesLink": "Resources",
       "aboutLink": "About",
+      "featuresLink": "Features",
       "patientSite": "Patient site"
     },
     "placeholder": {

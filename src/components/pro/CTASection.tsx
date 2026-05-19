@@ -11,8 +11,8 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, var(--color-dark-2) 0%, var(--color-dark-1) 60%, var(--color-navy) 100%)",
-        padding: "90px 0",
+        background: "linear-gradient(180deg, var(--color-dark-1) 0%, var(--color-navy) 100%)",
+        padding: "90px 0 60px",
         textAlign: "center",
         position: "relative",
         overflow: "hidden",
@@ -106,23 +106,25 @@ export default function CTASection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  background: "var(--color-primary)",
-                  color: "#fff",
+                  background: "var(--color-teal)",
+                  color: "var(--color-dark-1)",
                   padding: "14px 32px",
                   borderRadius: 10,
                   fontSize: 15,
                   fontWeight: 600,
                   textDecoration: "none",
                   transition: "all 0.3s",
-                  boxShadow: "0 4px 16px rgba(var(--color-navy-rgb), 0.3)",
+                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
                 }}
                 onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "var(--color-mint)";
                   e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-navy-rgb), 0.4)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
                 }}
                 onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--color-teal)";
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-navy-rgb), 0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
                 }}
               >
                 {t("ctaGetStarted")}
@@ -135,40 +137,29 @@ export default function CTASection() {
                   alignItems: "center",
                   gap: 8,
                   background: "rgba(255,255,255,0.08)",
-                  color: "#fff",
+                  color: "var(--color-light-1)",
                   padding: "14px 32px",
                   borderRadius: 10,
                   fontSize: 15,
                   fontWeight: 600,
                   textDecoration: "none",
-                  border: "1px solid rgba(255,255,255,0.15)",
+                  border: "1px solid rgba(255,255,255,0.2)",
                   transition: "all 0.3s",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
                   e.currentTarget.style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 {t("ctaBookDemo")}
               </a>
             </div>
-            {/* Trust line — reduce friction */}
-            <p
-              style={{
-                fontSize: 13,
-                color: "rgba(255,255,255,0.4)",
-                marginTop: 20,
-                marginBottom: 0,
-              }}
-            >
-              {t("trustLine")}
-            </p>
           </div>
         </div>
       </div>

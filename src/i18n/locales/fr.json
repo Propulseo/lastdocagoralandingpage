@@ -407,7 +407,12 @@
       "q10": { "question": "Puis-je filtrer les professionnels par assurance ?", "answer": "Oui, vous pouvez filtrer les professionnels par les régimes d'assurance santé qu'ils acceptent. Cela vous aide à trouver des praticiens conventionnés et à éviter les frais imprévus." }
     }
   },
+  "headerSearch": {
+    "placeholder": "Rechercher...",
+    "noResults": "Aucun résultat trouvé."
+  },
   "contactPage": {
+    "pageHeading": "Contactez-nous",
     "formTitle": "Comment pouvons-nous vous aider ?",
     "formDesc": "Vous avez une question sur DocAgora ? Vous cherchez une spécialité en particulier ? Notre équipe est là pour vous aider à trouver le bon professionnel de santé.",
     "labelName": "Nom",
@@ -489,7 +494,12 @@
       "getItOn": "Disponible sur",
       "googlePlayLabel": "Google Play",
       "comingSoonTooltip": "Lancement de l'application bientôt — inscrivez-vous pour un accès anticipé",
-      "cta": "Inscrivez-vous sur la plateforme pour être notifié au lancement →"
+      "cta": "Inscrivez-vous sur la plateforme pour être notifié au lancement →",
+      "phoneSearch": "Trouver un professionnel...",
+      "phoneDoc1Spec": "Cardiologue",
+      "phoneDoc2Spec": "Dentiste",
+      "phoneDoc3Spec": "Pédiatre",
+      "comingSoon": "Bientôt"
     }
   },
   "chatbot": {
@@ -662,6 +672,7 @@
       "pricingLink": "Tarifs",
       "resourcesLink": "Ressources",
       "aboutLink": "\u00c0 propos",
+      "featuresLink": "Fonctionnalit\u00e9s",
       "patientSite": "Site patient"
     },
     "placeholder": {

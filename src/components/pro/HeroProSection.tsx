@@ -99,23 +99,25 @@ export default function HeroProSection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  background: "var(--color-primary)",
-                  color: "#fff",
+                  background: "var(--color-teal)",
+                  color: "var(--color-dark-1)",
                   padding: "14px 28px",
                   borderRadius: 10,
                   fontSize: 15,
                   fontWeight: 600,
                   textDecoration: "none",
                   transition: "all 0.3s",
-                  boxShadow: "0 4px 16px rgba(var(--color-navy-rgb), 0.3)",
+                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
                 }}
                 onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "var(--color-mint)";
                   e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-navy-rgb), 0.4)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
                 }}
                 onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "var(--color-teal)";
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-navy-rgb), 0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
                 }}
               >
                 {t("ctaGetStarted")}

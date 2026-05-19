@@ -407,7 +407,12 @@
       "q10": { "question": "Posso filtrar profissionais por seguro?", "answer": "Sim, pode filtrar profissionais pelos planos de seguro de saúde que aceitam. Isto ajuda-o a encontrar prestadores dentro da sua rede e evitar custos inesperados." }
     }
   },
+  "headerSearch": {
+    "placeholder": "Pesquisar...",
+    "noResults": "Nenhum resultado encontrado."
+  },
   "contactPage": {
+    "pageHeading": "Contacte-nos",
     "formTitle": "Como podemos ajudar?",
     "formDesc": "Tem alguma questão sobre a DocAgora? Procura uma especialidade específica? A nossa equipa está aqui para o ajudar a encontrar o profissional de saúde certo.",
     "labelName": "Nome",
@@ -489,7 +494,12 @@
       "getItOn": "Obter no",
       "googlePlayLabel": "Google Play",
       "comingSoonTooltip": "Lançamento da app em breve — inscreva-se para acesso antecipado",
-      "cta": "Inscreva-se na plataforma para ser notificado no lançamento →"
+      "cta": "Inscreva-se na plataforma para ser notificado no lançamento →",
+      "phoneSearch": "Encontrar um profissional...",
+      "phoneDoc1Spec": "Cardiologista",
+      "phoneDoc2Spec": "Dentista",
+      "phoneDoc3Spec": "Pediatra",
+      "comingSoon": "Em breve"
     }
   },
   "chatbot": {
@@ -662,6 +672,7 @@
       "pricingLink": "Pre\u00e7os",
       "resourcesLink": "Recursos",
       "aboutLink": "Sobre",
+      "featuresLink": "Funcionalidades",
       "patientSite": "Site para pacientes"
     },
     "placeholder": {

@@ -8,7 +8,7 @@ export default function FooterPro() {
   const tp = useTranslations("pro");
 
   return (
-    <footer className="footer">
+    <footer className="footer footer-pro">
       <div
         className="footer-primary"
         style={{ paddingTop: 60, paddingBottom: 40 }}
@@ -59,7 +59,7 @@ export default function FooterPro() {
                     <a
                       key={social.icon}
                       href={social.href}
-                      className="d-flex align-items-center justify-content-center"
+                      className="d-flex align-items-center justify-content-center footer-social-link"
                       style={{
                         width: 34,
                         height: 34,
@@ -105,13 +105,8 @@ export default function FooterPro() {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/pro/about">
-                        {tp("footerPro.aboutLink")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/">
-                        {tp("footerPro.patientSite")}
+                      <Link href="/pro#solutions">
+                        {tp("footerPro.featuresLink")}
                       </Link>
                     </li>
                   </ul>
@@ -129,15 +124,15 @@ export default function FooterPro() {
                       <Link href="/about">{t("linkAbout")}</Link>
                     </li>
                     <li>
-                      <Link href="/specialties">
-                        {t("linkSpecialties")}
-                      </Link>
-                    </li>
-                    <li>
                       <Link href="/blog">{t("linkBlog")}</Link>
                     </li>
                     <li>
                       <Link href="/contact">{t("linkContact")}</Link>
+                    </li>
+                    <li>
+                      <Link href="/">
+                        {tp("footerPro.patientSite")}
+                      </Link>
                     </li>
                     <li>
                       <Link href="/legal-notice">{t("linkLegal")}</Link>

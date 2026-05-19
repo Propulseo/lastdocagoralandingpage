@@ -104,11 +104,11 @@ body {
 }
 
 a {
-  color: var(--color-link) !important;
+  color: var(--color-link);
 }
 
 a:hover {
-  color: var(--color-link-hover) !important;
+  color: var(--color-link-hover);
 }
 
 /* ── Utility color classes ── */
@@ -247,6 +247,7 @@ h1, h2, h3, h4, h5, h6,
 .slide__title,
 .heading__subtitle {
   font-family: var(--font-body) !important;
+  text-transform: none !important;
 }
 
 /* ── Feature items ── */
@@ -276,6 +277,11 @@ h1, h2, h3, h4, h5, h6,
 /* ── Footer ── */
 .footer-widget__title {
   font-family: var(--font-body) !important;
+  text-transform: uppercase !important;
+}
+
+.footer-pro .footer-primary {
+  background-color: var(--color-navy) !important;
 }
 
 .footer-widget-nav a {
@@ -284,6 +290,15 @@ h1, h2, h3, h4, h5, h6,
 
 .footer-widget-nav a:hover {
   color: var(--color-accent) !important;
+}
+
+/* Footer social icons — visible on dark background */
+.footer-social-link {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.footer-social-link:hover {
+  color: #fff !important;
 }
 
 /* ── Navbar ── */
