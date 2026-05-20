@@ -15,7 +15,7 @@ const FEATURES = [
 ] as const;
 
 const FEATURE_DESCS: Record<string, string> = {
-  item1: "Natural language search powered by AI. Type symptoms, specialties or questions — get matched instantly.",
+  item1: "Natural language search powered by AI. Type symptoms, specialties or questions. Get matched instantly.",
   item2: "Filter by specialty, language spoken, distance, insurance accepted and patient ratings.",
   item3: "See all available professionals near you on an interactive map with real-time slots.",
   item4: "Describe your need, pick a professional, confirm your slot. Done in under 60 seconds.",
@@ -178,8 +178,8 @@ function MockupProfile() {
           <div className="mk-stat"><span className="mk-stat__val">FR PT EN</span><span className="mk-muted">Languages</span></div>
         </div>
         <div className="mk-profile__creds">
-          <div className="mk-cred"><i className="fas fa-graduation-cap" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Univ. de Lisboa – Medicine</div>
-          <div className="mk-cred"><i className="fas fa-certificate" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Ordem dos Médicos – #48291</div>
+          <div className="mk-cred"><i className="fas fa-graduation-cap" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Univ. de Lisboa, Medicine</div>
+          <div className="mk-cred"><i className="fas fa-certificate" style={{ color: "var(--color-accent)", fontSize: 11 }}></i> Ordem dos Médicos, #48291</div>
         </div>
       </div>
     </div>

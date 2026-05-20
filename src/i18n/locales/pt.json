@@ -1,41 +1,41 @@
 {
   "metadata": {
     "home": {
-      "title": "DocAgora — Encontre o seu médico em Portugal",
+      "title": "DocAgora | Encontre o seu médico em Portugal",
       "description": "Marque consultas presenciais com profissionais de saúde verificados em Portugal. Disponível em português, francês e inglês."
     },
     "about": {
-      "title": "Sobre a DocAgora — Marcação de consultas em Portugal",
+      "title": "Sobre a DocAgora | Marcação de consultas em Portugal",
       "description": "Descubra como a DocAgora o ajuda a encontrar e marcar consultas com profissionais de saúde verificados em Portugal."
     },
     "specialties": {
-      "title": "Especialidades médicas — DocAgora",
+      "title": "Especialidades médicas | DocAgora",
       "description": "Explore 16 especialidades médicas disponíveis na DocAgora."
     },
     "blog": {
-      "title": "Blog — DocAgora · Saúde e bem-estar em Portugal",
+      "title": "Blog | DocAgora · Saúde e bem-estar em Portugal",
       "description": "Artigos, dicas e informações sobre saúde em Portugal. Encontre um médico que fale a sua língua, compreenda o sistema de saúde e mantenha-se informado.",
       "keywords": "blog saúde, saúde Portugal, saúde expatriados, encontrar médico Portugal, médicos multilingues"
     },
     "contact": {
-      "title": "Contacte-nos \u2014 DocAgora \u00b7 Perguntas e apoio",
-      "description": "Entre em contacto com a DocAgora. Encontre respostas \u00e0s perguntas mais frequentes sobre a nossa plataforma e como marcar consultas com profissionais de sa\u00fade em Portugal."
+      "title": "Contacte-nos | DocAgora · Perguntas e apoio",
+      "description": "Entre em contacto com a DocAgora. Encontre respostas às perguntas mais frequentes sobre a nossa plataforma e como marcar consultas com profissionais de saúde em Portugal."
     },
     "pro": {
-      "title": "DocAgora Pro \u2014 A solu\u00e7\u00e3o tudo-em-um para profissionais de sa\u00fade em Portugal",
-      "description": "Fa\u00e7a a gest\u00e3o dos seus pacientes, agenda e desenvolva a sua pr\u00e1tica com a DocAgora. Software para profissionais de sa\u00fade em Portugal."
+      "title": "DocAgora Pro | A solução tudo-em-um para profissionais de saúde em Portugal",
+      "description": "Faça a gestão dos seus pacientes, agenda e desenvolva a sua prática com a DocAgora. Software para profissionais de saúde em Portugal."
     },
     "proPricing": {
-      "title": "Pre\u00e7os \u2014 DocAgora Pro",
-      "description": "Descubra os planos de pre\u00e7os da DocAgora Pro para profissionais de sa\u00fade em Portugal."
+      "title": "Preços | DocAgora Pro",
+      "description": "Descubra os planos de preços da DocAgora Pro para profissionais de saúde em Portugal."
     },
     "proResources": {
-      "title": "Recursos \u2014 DocAgora Pro",
-      "description": "Recursos e documenta\u00e7\u00e3o para profissionais de sa\u00fade que utilizam a DocAgora."
+      "title": "Recursos | DocAgora Pro",
+      "description": "Recursos e documentação para profissionais de saúde que utilizam a DocAgora."
     },
     "proAbout": {
-      "title": "Sobre \u2014 DocAgora Pro",
-      "description": "Conhe\u00e7a a miss\u00e3o da DocAgora para os profissionais de sa\u00fade em Portugal."
+      "title": "Sobre | DocAgora Pro",
+      "description": "Conheça a missão da DocAgora para os profissionais de saúde em Portugal."
     }
   },
   "topbar": {
@@ -55,18 +55,19 @@
     "blog": "Blog",
     "contact": "Contacto",
     "findProfessional": "Encontrar um profissional",
-    "imAProfessional": "Sou um profissional \u2192"
+    "imAProfessional": "Sou um profissional →"
   },
   "navbarPro": {
-    "solution": "Solu\u00e7\u00e3o",
-    "pricing": "Pre\u00e7os",
+    "solution": "Solução",
+    "pricing": "Preços",
     "resources": "Recursos",
     "about": "Sobre",
-    "getStarted": "Come\u00e7ar",
-    "imAPatient": "Sou um paciente \u2192"
+    "getStarted": "Começar",
+    "imAPatient": "Sou um paciente →",
+    "soon": "Em breve"
   },
   "hero": {
-    "slide1Title": "Encontre um m\u00e9dico que o compreenda, em Portugal",
+    "slide1Title": "Encontre um médico que o compreenda, em Portugal",
     "slide2Title": "A sua saúde, na sua língua, perto de si",
     "description": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquisa inteligente, marcação online, disponível em português, francês e inglês.",
     "feature1": "Pesquisa inteligente",
@@ -95,11 +96,11 @@
     "subtitle": "Marque consultas presenciais com profissionais de saúde verificados. Rápido, simples e seguro.",
     "findProfessional": "Encontrar um profissional",
     "watchVideo": "Veja o nosso vídeo!",
-    "paragraph1": "A DocAgora nasceu de uma observação simples: encontrar o profissional de saúde certo em Portugal não deveria ser uma batalha. Para residentes portugueses, expatriados e viajantes, a plataforma reúne médicos verificados, apresenta a sua disponibilidade em tempo real e permite-lhe marcar em poucos cliques — na língua que melhor lhe convém.",
+    "paragraph1": "A DocAgora nasceu de uma observação simples: encontrar o profissional de saúde certo em Portugal não deveria ser uma batalha. Para residentes portugueses, expatriados e viajantes, a plataforma reúne médicos verificados, apresenta a sua disponibilidade em tempo real e permite-lhe marcar em poucos cliques, na língua que melhor lhe convém.",
     "paragraph2": "Quer precise de um clínico geral, de um especialista ou de um dentista, a DocAgora ajuda-o a comparar profissionais por especialidade, avaliações, línguas faladas, distância e seguros aceites.",
     "list1": "Pesquise por especialidade, cidade, língua falada ou seguro aceite.",
     "list2": "Cada profissional é analisado e aprovado pela nossa equipa antes de ficar disponível.",
-    "list3": "Disponível em português, francês e inglês — encontre cuidados na língua que prefere."
+    "list3": "Disponível em português, francês e inglês. Encontre cuidados na língua que prefere."
   },
   "specialties": {
     "subtitle": "Explore 16 especialidades médicas disponíveis na DocAgora",
@@ -195,7 +196,7 @@
   },
   "features": {
     "title": "Tudo o que precisa para encontrar o médico certo, marcar e ser lembrado.",
-    "desc": "A DocAgora reúne pesquisa inteligente, profissionais verificados e marcação simples numa única plataforma — disponível em português, francês e inglês. Veja o que a torna simples.",
+    "desc": "A DocAgora reúne pesquisa inteligente, profissionais verificados e marcação simples numa única plataforma, disponível em português, francês e inglês. Veja o que a torna simples.",
     "learnMore": "Saber mais sobre a DocAgora",
     "item1": "Pesquisa inteligente com IA",
     "item2": "Pesquisa filtrada",
@@ -213,25 +214,80 @@
     "desc": "A DocAgora liga-o a profissionais de saúde verificados em todo o Portugal. Explore especialistas por competência, língua e localização.",
     "readMore": "Ler mais",
     "members": {
-      "member1": { "name": "Mike Dooley", "job": "Especialista em Cardiologia", "desc": "Dooley obteve a sua licenciatura em Engenharia Biomédica na Universidade de Tulane antes de frequentar a Escola de Medicina da Universidade de St George." },
-      "member2": { "name": "Dermatologists", "job": "Especialista em Cardiologia", "desc": "Brian é especialista no tratamento da pele, cabelo, unhas e mucosas. Também trata questões estéticas, ajudando a revitalizar a aparência da pele." },
-      "member3": { "name": "Maria Andaloro", "job": "Pediatra", "desc": "Andaloro formou-se em medicina e completou 3 anos de internato em pediatria. Foi aprovada nos exames rigorosos da American Board of Pediatrics." },
-      "member4": { "name": "Dupree Black", "job": "Urologista", "desc": "Black diagnostica e trata doenças do trato urinário em homens e mulheres. Também diagnostica e trata tudo o que envolve o aparelho reprodutor masculino." },
-      "member5": { "name": "Markus skar", "job": "Laboratório", "desc": "Skar desempenha um papel muito importante nos seus cuidados de saúde. Os profissionais de laboratório clínico são responsáveis pela realização de exames que fornecem informações cruciais." },
-      "member6": { "name": "Kiano Barker", "job": "Patologista", "desc": "Barker contribui diariamente para os cuidados dos pacientes, fornecendo aos médicos as informações necessárias para garantir um tratamento adequado." }
+      "member1": {
+        "name": "Mike Dooley",
+        "job": "Especialista em Cardiologia",
+        "desc": "Dooley obteve a sua licenciatura em Engenharia Biomédica na Universidade de Tulane antes de frequentar a Escola de Medicina da Universidade de St George."
+      },
+      "member2": {
+        "name": "Dermatologists",
+        "job": "Especialista em Cardiologia",
+        "desc": "Brian é especialista no tratamento da pele, cabelo, unhas e mucosas. Também trata questões estéticas, ajudando a revitalizar a aparência da pele."
+      },
+      "member3": {
+        "name": "Maria Andaloro",
+        "job": "Pediatra",
+        "desc": "Andaloro formou-se em medicina e completou 3 anos de internato em pediatria. Foi aprovada nos exames rigorosos da American Board of Pediatrics."
+      },
+      "member4": {
+        "name": "Dupree Black",
+        "job": "Urologista",
+        "desc": "Black diagnostica e trata doenças do trato urinário em homens e mulheres. Também diagnostica e trata tudo o que envolve o aparelho reprodutor masculino."
+      },
+      "member5": {
+        "name": "Markus skar",
+        "job": "Laboratório",
+        "desc": "Skar desempenha um papel muito importante nos seus cuidados de saúde. Os profissionais de laboratório clínico são responsáveis pela realização de exames que fornecem informações cruciais."
+      },
+      "member6": {
+        "name": "Kiano Barker",
+        "job": "Patologista",
+        "desc": "Barker contribui diariamente para os cuidados dos pacientes, fornecendo aos médicos as informações necessárias para garantir um tratamento adequado."
+      }
     }
   },
   "process": {
     "subtitle": "Como funciona a DocAgora",
     "title": "Encontre, compare e marque o seu médico em poucos cliques.",
-    "desc": "Quer precise de um clínico geral ou de um especialista, a DocAgora guia-o da pesquisa à consulta. Sem telefonemas, sem esperas — apenas uma experiência simples, rápida e multilingue.",
-    "tags": ["Pesquisa inteligente", "Profissionais verificados", "Disponibilidade em tempo real", "Apoio multilingue", "Lembretes automáticos"],
+    "desc": "Quer precise de um clínico geral ou de um especialista, a DocAgora guia-o da pesquisa à consulta. Sem telefonemas, sem esperas. Apenas uma experiência simples, rápida e multilingue.",
+    "tags": [
+      "Pesquisa inteligente",
+      "Profissionais verificados",
+      "Disponibilidade em tempo real",
+      "Apoio multilingue",
+      "Lembretes automáticos"
+    ],
     "steps": {
-      "step1": { "number": "01", "title": "Descreva a sua necessidade", "desc": "Pesquisa livre ou assistida por IA, na sua língua.", "cta": "Começar a minha pesquisa" },
-      "step2": { "number": "02", "title": "Compare profissionais", "desc": "Especialidade, avaliações, línguas faladas, distância, seguros aceites.", "cta": "Ver especialidades" },
-      "step3": { "number": "03", "title": "Escolha o seu horário", "desc": "Disponibilidade em tempo real, sem necessidade de telefonema.", "cta": "Encontrar um profissional" },
-      "step4": { "number": "04", "title": "Confirme num clique", "desc": "Marcação instantânea, confirmação por e-mail. Sem esperas — a sua consulta fica imediatamente reservada.", "cta": "Criar a minha conta" },
-      "step5": { "number": "05", "title": "Receba lembretes", "desc": "Lembretes automáticos antes da consulta, acompanhamento pós-consulta.", "cta": "Saber mais" }
+      "step1": {
+        "number": "01",
+        "title": "Descreva a sua necessidade",
+        "desc": "Pesquisa livre ou assistida por IA, na sua língua.",
+        "cta": "Começar a minha pesquisa"
+      },
+      "step2": {
+        "number": "02",
+        "title": "Compare profissionais",
+        "desc": "Especialidade, avaliações, línguas faladas, distância, seguros aceites.",
+        "cta": "Ver especialidades"
+      },
+      "step3": {
+        "number": "03",
+        "title": "Escolha o seu horário",
+        "desc": "Disponibilidade em tempo real, sem necessidade de telefonema.",
+        "cta": "Encontrar um profissional"
+      },
+      "step4": {
+        "number": "04",
+        "title": "Confirme num clique",
+        "desc": "Marcação instantânea, confirmação por e-mail. Sem esperas. A sua consulta fica imediatamente reservada.",
+        "cta": "Criar a minha conta"
+      },
+      "step5": {
+        "number": "05",
+        "title": "Receba lembretes",
+        "desc": "Lembretes automáticos antes da consulta, acompanhamento pós-consulta.",
+        "cta": "Saber mais"
+      }
     },
     "ctaTitle": "O seu percurso de saúde, simplificado.",
     "ctaDesc": "Encontre o profissional certo, marque na sua língua e receba lembretes automáticos. Tudo gratuitamente.",
@@ -240,15 +296,34 @@
   "testimonials": {
     "title": "O que dizem os nossos utilizadores",
     "items": {
-      "item1": { "quote": "A DocAgora ajudou-me a encontrar um pediatra que fala francês em Lisboa em menos de 5 minutos. Uma revolução.", "name": "Sophie M.", "location": "Lisboa" },
-      "item2": { "quote": "Marquei a minha consulta de dentista em 30 segundos, em inglês, sem um único telefonema.", "name": "James W.", "location": "Porto" },
-      "item3": { "quote": "Como expatriado em Portugal, encontrar um médico costumava ser um pesadelo. Já não é.", "name": "Lukas R.", "location": "Cascais" }
+      "item1": {
+        "quote": "A DocAgora ajudou-me a encontrar um pediatra que fala francês em Lisboa em menos de 5 minutos. Uma revolução.",
+        "name": "Sophie M.",
+        "location": "Lisboa"
+      },
+      "item2": {
+        "quote": "Marquei a minha consulta de dentista em 30 segundos, em inglês, sem um único telefonema.",
+        "name": "James W.",
+        "location": "Porto"
+      },
+      "item3": {
+        "quote": "Como expatriado em Portugal, encontrar um médico costumava ser um pesadelo. Já não é.",
+        "name": "Lukas R.",
+        "location": "Cascais"
+      }
     }
   },
   "cities": {
     "title": "Disponível em todo o Portugal",
     "desc": "Encontre profissionais de saúde nas principais cidades portuguesas.",
-    "items": ["Lisboa", "Porto", "Coimbra", "Braga", "Faro", "Cascais"]
+    "items": [
+      "Lisboa",
+      "Porto",
+      "Coimbra",
+      "Braga",
+      "Faro",
+      "Cascais"
+    ]
   },
   "contactForm": {
     "title": "Encontrar um profissional",
@@ -258,13 +333,17 @@
     "specialty": "Especialidade",
     "city": "Cidade",
     "preferredLanguage": "Língua preferida",
-    "languageOptions": { "pt": "Português", "fr": "Francês", "en": "Inglês" },
+    "languageOptions": {
+      "pt": "Português",
+      "fr": "Francês",
+      "en": "Inglês"
+    },
     "submit": "Começar a minha pesquisa",
     "whyTitle": "Porquê a DocAgora?",
     "whyDesc": "Encontre o profissional certo mais rapidamente. Marque na sua língua. Receba lembretes automáticos. Tudo gratuitamente.",
     "findProfessional": "Encontrar um profissional",
     "playVideo": "Ver vídeo",
-    "freeText": "A DocAgora é gratuita para pacientes. Pesquise, compare e marque com profissionais de saúde verificados em todo o Portugal — em português, francês ou inglês.",
+    "freeText": "A DocAgora é gratuita para pacientes. Pesquise, compare e marque com profissionais de saúde verificados em todo o Portugal, em português, francês ou inglês.",
     "teamSignature": "A equipa DocAgora"
   },
   "faqHighlights": {
@@ -272,13 +351,25 @@
     "title": "Perguntas frequentes",
     "seeAllFaqs": "Ver todas as perguntas frequentes",
     "items": {
-      "item1": { "category": "Preços", "question": "A DocAgora é gratuita para pacientes?", "answer": "Sim, criar uma conta e pesquisar profissionais é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente." },
-      "item2": { "category": "Confiança", "question": "Os profissionais são verificados?", "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais e número de cédula profissional." },
-      "item3": { "category": "Línguas", "question": "Posso usar a DocAgora na minha língua?", "answer": "Sim. A plataforma está disponível em português, francês e inglês, e pode filtrar profissionais pela língua que falam." }
+      "item1": {
+        "category": "Preços",
+        "question": "A DocAgora é gratuita para pacientes?",
+        "answer": "Sim, criar uma conta e pesquisar profissionais é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente."
+      },
+      "item2": {
+        "category": "Confiança",
+        "question": "Os profissionais são verificados?",
+        "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais e número de cédula profissional."
+      },
+      "item3": {
+        "category": "Línguas",
+        "question": "Posso usar a DocAgora na minha língua?",
+        "answer": "Sim. A plataforma está disponível em português, francês e inglês, e pode filtrar profissionais pela língua que falam."
+      }
     }
   },
   "footer": {
-    "aboutText": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquise por especialidade, língua e localização — marque em poucos cliques.",
+    "aboutText": "A DocAgora liga-o a profissionais de saúde verificados em Portugal. Pesquise por especialidade, língua e localização. Marque em poucos cliques.",
     "findProfessional": "Encontrar um profissional",
     "specialtiesTitle": "Especialidades",
     "linksTitle": "Ligações",
@@ -295,8 +386,8 @@
     "contactUs": "Contacte-nos",
     "gdprNote": "Plataforma em conformidade com o RGPD · Dados alojados na Europa",
     "linkSpecialties": "Especialidades",
-    "copyright": "\u00a9 2026 DocAgora. Todos os direitos reservados.",
-    "gdprBadge": "Plataforma em conformidade com o RGPD \u00b7 Dados alojados na Europa.",
+    "copyright": "© 2026 DocAgora. Todos os direitos reservados.",
+    "gdprBadge": "Plataforma em conformidade com o RGPD · Dados alojados na Europa.",
     "bottomTerms": "Termos de utilização",
     "bottomPrivacy": "Política de privacidade",
     "bottomGdpr": "RGPD",
@@ -315,12 +406,12 @@
     "ctaFindDoctor": "Encontrar um profissional",
     "ctaSpecialties": "As nossas especialidades",
     "aboutTitle": "A melhorar o acesso à saúde em Portugal, para todos.",
-    "aboutP1": "O nosso objetivo é ligar cada pessoa em Portugal — residentes, expatriados e viajantes — ao profissional de saúde certo. A DocAgora nasceu de uma observação simples: encontrar um médico que fale a sua língua, aceite o seu seguro e tenha disponibilidade não deveria ser uma batalha.",
+    "aboutP1": "O nosso objetivo é ligar cada pessoa em Portugal, residentes, expatriados e viajantes, ao profissional de saúde certo. A DocAgora nasceu de uma observação simples: encontrar um médico que fale a sua língua, aceite o seu seguro e tenha disponibilidade não deveria ser uma batalha.",
     "aboutP2": "Trabalhamos com profissionais de saúde verificados em todas as principais especialidades. Cada profissional na plataforma é analisado e aprovado pela nossa equipa antes de ficar disponível. Acreditamos que o acesso a cuidados de saúde de qualidade começa com uma experiência de marcação simples, rápida e multilingue.",
     "meetProfessionals": "Conheça os nossos profissionais",
     "watchVideo": "Veja o nosso vídeo!",
     "featuresTitle": "Porque é que os pacientes escolhem a DocAgora.",
-    "featuresDesc": "Construímos a DocAgora em torno das necessidades dos pacientes em Portugal — quer seja residente, expatriado ou esteja apenas de passagem. Veja o que nos distingue.",
+    "featuresDesc": "Construímos a DocAgora em torno das necessidades dos pacientes em Portugal, quer seja residente, expatriado ou esteja apenas de passagem. Veja o que nos distingue.",
     "featuresCta1": "Encontrar um profissional",
     "featuresCta2": "Os nossos valores",
     "features": {
@@ -345,25 +436,89 @@
     "servicesSubtitle": "Todas as especialidades disponíveis na DocAgora",
     "servicesTitle": "Profissionais verificados em 16 especialidades médicas.",
     "subItems": {
-      "generalPractice": ["Exames de rotina", "Gestão de doenças crónicas", "Cuidados preventivos"],
-      "cardiology": ["Exames cardíacos", "Gestão da hipertensão", "Prevenção de doenças cardíacas"],
-      "dermatology": ["Doenças de pele", "Dermatologia estética", "Rastreio de sinais"],
-      "pediatrics": ["Vacinação infantil", "Acompanhamento do crescimento", "Exames pediátricos"],
-      "gynecology": ["Exames ginecológicos de rotina", "Cuidados pré-natais", "Saúde reprodutiva"],
-      "ophthalmology": ["Testes de visão", "Tratamento de doenças oculares", "Rastreio de glaucoma"],
-      "orthopedics": ["Tratamento de dor articular", "Lesões desportivas", "Tratamento de fraturas"],
-      "psychology": ["Terapia individual", "Ansiedade e depressão", "Avaliações psicológicas"],
-      "dentistry": ["Limpeza dentária", "Medicina dentária restauradora", "Medicina dentária estética"],
-      "physiotherapy": ["Reabilitação pós-cirúrgica", "Fisioterapia desportiva", "Gestão da dor"],
-      "ent": ["Avaliações auditivas", "Tratamento sinusal", "Perturbações da voz"],
-      "endocrinology": ["Gestão da diabetes", "Doenças da tiroide", "Desequilíbrios hormonais"],
-      "gastroenterology": ["Perturbações digestivas", "Doenças do fígado", "Gastroscopia"],
-      "neurology": ["Tratamento de enxaquecas", "Avaliações neurológicas", "Perturbações nervosas"],
-      "urology": ["Condições do trato urinário", "Saúde da próstata", "Tratamento de cálculos renais"],
-      "rheumatology": ["Tratamento de artrite", "Doenças autoimunes", "Inflamação articular"]
+      "generalPractice": [
+        "Exames de rotina",
+        "Gestão de doenças crónicas",
+        "Cuidados preventivos"
+      ],
+      "cardiology": [
+        "Exames cardíacos",
+        "Gestão da hipertensão",
+        "Prevenção de doenças cardíacas"
+      ],
+      "dermatology": [
+        "Doenças de pele",
+        "Dermatologia estética",
+        "Rastreio de sinais"
+      ],
+      "pediatrics": [
+        "Vacinação infantil",
+        "Acompanhamento do crescimento",
+        "Exames pediátricos"
+      ],
+      "gynecology": [
+        "Exames ginecológicos de rotina",
+        "Cuidados pré-natais",
+        "Saúde reprodutiva"
+      ],
+      "ophthalmology": [
+        "Testes de visão",
+        "Tratamento de doenças oculares",
+        "Rastreio de glaucoma"
+      ],
+      "orthopedics": [
+        "Tratamento de dor articular",
+        "Lesões desportivas",
+        "Tratamento de fraturas"
+      ],
+      "psychology": [
+        "Terapia individual",
+        "Ansiedade e depressão",
+        "Avaliações psicológicas"
+      ],
+      "dentistry": [
+        "Limpeza dentária",
+        "Medicina dentária restauradora",
+        "Medicina dentária estética"
+      ],
+      "physiotherapy": [
+        "Reabilitação pós-cirúrgica",
+        "Fisioterapia desportiva",
+        "Gestão da dor"
+      ],
+      "ent": [
+        "Avaliações auditivas",
+        "Tratamento sinusal",
+        "Perturbações da voz"
+      ],
+      "endocrinology": [
+        "Gestão da diabetes",
+        "Doenças da tiroide",
+        "Desequilíbrios hormonais"
+      ],
+      "gastroenterology": [
+        "Perturbações digestivas",
+        "Doenças do fígado",
+        "Gastroscopia"
+      ],
+      "neurology": [
+        "Tratamento de enxaquecas",
+        "Avaliações neurológicas",
+        "Perturbações nervosas"
+      ],
+      "urology": [
+        "Condições do trato urinário",
+        "Saúde da próstata",
+        "Tratamento de cálculos renais"
+      ],
+      "rheumatology": [
+        "Tratamento de artrite",
+        "Doenças autoimunes",
+        "Inflamação articular"
+      ]
     },
     "featuresTitle": "A DocAgora simplifica o acesso à saúde em todo o Portugal.",
-    "featuresDesc": "Quer seja residente português, expatriado ou viajante, a DocAgora ajuda-o a encontrar, comparar e marcar com profissionais de saúde verificados — na sua língua.",
+    "featuresDesc": "Quer seja residente português, expatriado ou viajante, a DocAgora ajuda-o a encontrar, comparar e marcar com profissionais de saúde verificados, na sua língua.",
     "featuresCoreValues": "Os nossos valores",
     "features": {
       "f1": "Pesquisa inteligente por especialidade, cidade ou língua",
@@ -395,16 +550,46 @@
     "sidebarRemindersValue": "Automáticos",
     "sidebarCta": "Encontrar um profissional",
     "items": {
-      "q1": { "question": "A DocAgora é gratuita para pacientes?", "answer": "Sim, criar uma conta, pesquisar profissionais e marcar consultas é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente." },
-      "q2": { "question": "Os profissionais são verificados?", "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais, número de cédula profissional e situação profissional." },
-      "q3": { "question": "Em que línguas está a DocAgora disponível?", "answer": "A plataforma está disponível em português, francês e inglês. Também pode filtrar profissionais pelas línguas que falam durante as consultas." },
-      "q4": { "question": "Como marco uma consulta?", "answer": "Pesquise um profissional por especialidade, cidade ou língua. Compare perfis, avaliações e disponibilidade. Escolha um horário e confirme a sua marcação num clique. Receberá uma confirmação por e-mail instantaneamente." },
-      "q5": { "question": "Posso cancelar ou remarcar a minha consulta?", "answer": "Sim, pode cancelar ou remarcar a partir da sua conta de paciente a qualquer momento. Recomendamos fazê-lo pelo menos 24 horas antes da consulta, por respeito ao tempo do profissional." },
-      "q6": { "question": "Os meus dados pessoais estão seguros?", "answer": "A DocAgora está totalmente em conformidade com o RGPD. Os seus dados pessoais estão alojados na Europa e nunca são partilhados com terceiros sem o seu consentimento explícito. Levamos a sua privacidade a sério." },
-      "q7": { "question": "Que cidades estão cobertas?", "answer": "A DocAgora está disponível nas principais cidades portuguesas, incluindo Lisboa, Porto, Coimbra, Braga, Faro e Cascais. Estamos continuamente a expandir a nossa rede de profissionais." },
-      "q8": { "question": "Preciso de criar uma conta?", "answer": "Pode consultar profissionais e a sua disponibilidade sem conta. No entanto, precisará de criar uma conta gratuita para marcar consultas e receber lembretes." },
-      "q9": { "question": "Como contacto o suporte?", "answer": "Pode contactar a nossa equipa em hello@docagora.com. Procuramos responder no prazo de 24 horas. A plataforma está disponível 24/7 para pesquisa e marcação." },
-      "q10": { "question": "Posso filtrar profissionais por seguro?", "answer": "Sim, pode filtrar profissionais pelos planos de seguro de saúde que aceitam. Isto ajuda-o a encontrar prestadores dentro da sua rede e evitar custos inesperados." }
+      "q1": {
+        "question": "A DocAgora é gratuita para pacientes?",
+        "answer": "Sim, criar uma conta, pesquisar profissionais e marcar consultas é totalmente gratuito. Paga apenas diretamente ao seu profissional de saúde, como habitualmente."
+      },
+      "q2": {
+        "question": "Os profissionais são verificados?",
+        "answer": "Todos os profissionais de saúde na DocAgora são analisados e aprovados pela nossa equipa antes de ficarem disponíveis. Verificamos as suas credenciais, número de cédula profissional e situação profissional."
+      },
+      "q3": {
+        "question": "Em que línguas está a DocAgora disponível?",
+        "answer": "A plataforma está disponível em português, francês e inglês. Também pode filtrar profissionais pelas línguas que falam durante as consultas."
+      },
+      "q4": {
+        "question": "Como marco uma consulta?",
+        "answer": "Pesquise um profissional por especialidade, cidade ou língua. Compare perfis, avaliações e disponibilidade. Escolha um horário e confirme a sua marcação num clique. Receberá uma confirmação por e-mail instantaneamente."
+      },
+      "q5": {
+        "question": "Posso cancelar ou remarcar a minha consulta?",
+        "answer": "Sim, pode cancelar ou remarcar a partir da sua conta de paciente a qualquer momento. Recomendamos fazê-lo pelo menos 24 horas antes da consulta, por respeito ao tempo do profissional."
+      },
+      "q6": {
+        "question": "Os meus dados pessoais estão seguros?",
+        "answer": "A DocAgora está totalmente em conformidade com o RGPD. Os seus dados pessoais estão alojados na Europa e nunca são partilhados com terceiros sem o seu consentimento explícito. Levamos a sua privacidade a sério."
+      },
+      "q7": {
+        "question": "Que cidades estão cobertas?",
+        "answer": "A DocAgora está disponível nas principais cidades portuguesas, incluindo Lisboa, Porto, Coimbra, Braga, Faro e Cascais. Estamos continuamente a expandir a nossa rede de profissionais."
+      },
+      "q8": {
+        "question": "Preciso de criar uma conta?",
+        "answer": "Pode consultar profissionais e a sua disponibilidade sem conta. No entanto, precisará de criar uma conta gratuita para marcar consultas e receber lembretes."
+      },
+      "q9": {
+        "question": "Como contacto o suporte?",
+        "answer": "Pode contactar a nossa equipa em hello@docagora.com. Procuramos responder no prazo de 24 horas. A plataforma está disponível 24/7 para pesquisa e marcação."
+      },
+      "q10": {
+        "question": "Posso filtrar profissionais por seguro?",
+        "answer": "Sim, pode filtrar profissionais pelos planos de seguro de saúde que aceitam. Isto ajuda-o a encontrar prestadores dentro da sua rede e evitar custos inesperados."
+      }
     }
   },
   "headerSearch": {
@@ -452,7 +637,7 @@
         "date": "14 de abril de 2026",
         "author": "Equipa DocAgora",
         "title": "Compreender o sistema de saúde português como expatriado",
-        "excerpt": "Saúde pública vs privada em Portugal — o que cada recém-chegado precisa de saber antes da sua primeira consulta médica."
+        "excerpt": "Saúde pública vs privada em Portugal: o que cada recém-chegado precisa de saber antes da sua primeira consulta médica."
       },
       "a3": {
         "category": "Dicas para Pacientes",
@@ -473,27 +658,27 @@
         "date": "25 de janeiro de 2026",
         "author": "Equipa DocAgora",
         "title": "Porque é que a marcação online está a transformar a saúde em Portugal",
-        "excerpt": "Disponibilidade em tempo real, menos telefonemas, marcações mais rápidas — como as ferramentas digitais estão a transformar a relação paciente-médico."
+        "excerpt": "Disponibilidade em tempo real, menos telefonemas, marcações mais rápidas: como as ferramentas digitais estão a transformar a relação paciente-médico."
       },
       "a6": {
         "category": "Bem-estar",
         "date": "30 de março de 2026",
         "author": "Equipa DocAgora",
         "title": "Recursos de saúde mental para expatriados em Lisboa e Porto",
-        "excerpt": "Terapeutas, psicólogos e conselheiros que falam inglês em Portugal — um guia selecionado para expatriados e viajantes."
+        "excerpt": "Terapeutas, psicólogos e conselheiros que falam inglês em Portugal: um guia selecionado para expatriados e viajantes."
       }
     }
   },
   "home": {
     "mobileApp": {
-      "title": "App DocAgora — em breve",
-      "subtitle": "A aplicação móvel DocAgora está a chegar. Encontre um profissional de saúde, marque consultas, receba lembretes — tudo a partir do seu telemóvel, na sua língua. Seja o primeiro a saber quando for lançada.",
+      "title": "App DocAgora: em breve",
+      "subtitle": "A aplicação móvel DocAgora está a chegar. Encontre um profissional de saúde, marque consultas, receba lembretes, tudo a partir do seu telemóvel, na sua língua. Seja o primeiro a saber quando for lançada.",
       "starsLabel": "Em breve disponível no iOS e Android",
       "downloadOn": "Descarregar na",
       "appStoreLabel": "App Store",
       "getItOn": "Obter no",
       "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "Lançamento da app em breve — inscreva-se para acesso antecipado",
+      "comingSoonTooltip": "Lançamento da app em breve. Inscreva-se para acesso antecipado",
       "cta": "Inscreva-se na plataforma para ser notificado no lançamento →",
       "phoneSearch": "Encontrar um profissional...",
       "phoneDoc1Spec": "Cardiologista",
@@ -523,77 +708,79 @@
     "suggestion1": "Dentista em Lisboa",
     "suggestion2": "Médico de família no Porto",
     "suggestion3": "Dermatologista que fale inglês",
-    "suggestion4": "Psic\u00f3logo acess\u00edvel"
+    "suggestion4": "Psicólogo acessível"
   },
   "pro": {
     "hero": {
-      "title": "A solu\u00e7\u00e3o tudo-em-um que reinventa o seu dia a dia profissional.",
-      "subtitle": "Software para profissionais de sa\u00fade em Portugal.",
+      "title": "A solução tudo-em-um que reinventa o seu dia a dia profissional.",
+      "subtitle": "Software para profissionais de saúde em Portugal.",
       "badge1": "Conforme com o RGPD",
       "badge2": "Dados alojados na Europa",
       "badge3": "Feito para Portugal",
-      "ctaGetStarted": "Come\u00e7ar \u2014 \u00e9 gratuito",
+      "ctaGetStarted": "Começar gratuitamente",
       "ctaLearnMore": "Saber mais",
       "formTitle": "Falar com um consultor",
-      "formSubjectLabel": "Assunto",
-      "formSubjectOption1": "Quero saber mais",
-      "formSubjectOption2": "Quero come\u00e7ar",
-      "formSubjectOption3": "Tenho quest\u00f5es",
-      "formFirstName": "Nome",
-      "formLastName": "Apelido",
-      "formEmail": "Email",
-      "formPhone": "Telem\u00f3vel",
-      "formPostalCode": "C\u00f3digo postal",
+      "formFirstName": "ex. João",
+      "formEmail": "ex. joao@example.com",
       "formSpecialty": "Especialidade",
       "formSubmit": "Enviar o seu pedido",
-      "formNote": "Os nossos consultores est\u00e3o aqui para ajud\u00e1-lo a escolher a oferta mais adequada \u00e0 sua atividade.",
-      "formPrivacyLink": "Saiba mais sobre as nossas pr\u00e1ticas de recolha de dados",
-      "formTrustLine": "Sem compromisso \u00b7 Gratuito para come\u00e7ar \u00b7 Conforme RGPD"
+      "formNote": "Os nossos consultores estão aqui para ajudá-lo a escolher a oferta mais adequada à sua atividade.",
+      "formPrivacyLink": "Saiba mais sobre as nossas práticas de recolha de dados",
+      "formTrustLine": "Sem compromisso · Gratuito para começar · Conforme RGPD",
+      "formFirstNameLabel": "Nome",
+      "formEmailLabel": "Email",
+      "formSpecialtyLabel": "Especialidade",
+      "formSpecialtyDefault": "-- Selecionar --",
+      "formConfirmation": "Vamos criar a sua conta e contactá-lo em breve.",
+      "formSpecialtyGP": "Medicina Geral",
+      "formSpecialtySpecialist": "Especialista",
+      "formSpecialtyOther": "Outro"
     },
     "video": {
-      "placeholder": "DocAgora \u2014 Em breve",
-      "card1Title": "Uma plataforma \u00fanica",
-      "card1Desc": "Cubra todas as suas atividades di\u00e1rias num s\u00f3 lugar.",
+      "placeholder": "DocAgora (Em breve)",
+      "card1Title": "Uma plataforma única",
+      "card1Desc": "Cubra todas as suas atividades diárias num só lugar.",
       "card2Title": "Pacientes como atores",
-      "card2Desc": "Os pacientes podem encontr\u00e1-lo e marcar consultas online facilmente.",
-      "card3Title": "IA no centro da sua pr\u00e1tica",
-      "card3Desc": "Pesquisa inteligente e correspond\u00eancia com pacientes.",
-      "card4Title": "Servi\u00e7o \u00e0 altura das suas exig\u00eancias",
+      "card2Desc": "Os pacientes podem encontrá-lo e marcar consultas online facilmente.",
+      "card3Title": "IA no centro da sua prática",
+      "card3Desc": "Pesquisa inteligente e correspondência com pacientes.",
+      "card4Title": "Serviço à altura das suas exigências",
       "card4Desc": "Centro de ajuda, suporte dedicado e recursos."
     },
     "stats": {
       "stat1Value": "16",
-      "stat1Label": "especialidades m\u00e9dicas suportadas",
+      "stat1Label": "especialidades médicas suportadas",
       "stat2Value": "3 idiomas",
-      "stat2Label": "PT \u00b7 FR \u00b7 EN",
+      "stat2Label": "PT · FR · EN",
       "stat3Value": "RGPD",
-      "stat3Label": "conforme \u00b7 alojado na UE",
-      "testimonialQuote": "A DocAgora mudou a forma como fa\u00e7o a gest\u00e3o do meu consult\u00f3rio. Poupo tempo em tarefas administrativas e foco-me no que importa: os meus pacientes.",
+      "stat3Label": "conforme · alojado na UE",
+      "testimonialQuote": "A DocAgora mudou a forma como faço a gestão do meu consultório. Poupo tempo em tarefas administrativas e foco-me no que importa: os meus pacientes.",
       "testimonialName": "Dr. [Nome]",
-      "testimonialSpecialty": "[Especialidade] \u2014 Lisboa"
+      "testimonialSpecialty": "[Especialidade], Lisboa"
     },
     "improve": {
       "block1Title": "Melhore o seu dia a dia",
-      "block1Subtitle": "Menos administra\u00e7\u00e3o, mais tranquilidade.",
+      "block1Subtitle": "Menos administração, mais tranquilidade.",
       "block1Bullet1": "Reduza o tempo administrativo",
-      "block1Bullet2": "Gest\u00e3o centralizada de pacientes",
-      "block1Cta": "Come\u00e7ar \u2192",
+      "block1Bullet2": "Gestão centralizada de pacientes",
+      "block1Cta": "Saber mais →",
       "block2Title": "Preste melhores cuidados",
-      "block2Subtitle": "Novos padr\u00f5es de cuidados.",
-      "block2Bullet1": "Comunica\u00e7\u00e3o simplificada com pacientes",
+      "block2Subtitle": "Novos padrões de cuidados.",
+      "block2Bullet1": "Comunicação simplificada com pacientes",
       "block2Bullet2": "Mais tempo de qualidade com os pacientes",
-      "block2Cta": "Come\u00e7ar \u2192",
-      "block3Title": "Fa\u00e7a crescer a sua pr\u00e1tica",
-      "block3Subtitle": "Desenvolva e otimize sem esfor\u00e7o.",
+      "block2Cta": "Saber mais →",
+      "block3Title": "Faça crescer a sua prática",
+      "block3Subtitle": "Desenvolva e otimize sem esforço.",
       "block3Bullet1": "Alcance mais pacientes",
-      "block3Bullet2": "Vis\u00edvel na plataforma DocAgora",
-      "block3Cta": "Come\u00e7ar \u2192"
+      "block3Bullet2": "Visível na plataforma DocAgora",
+      "block3Cta": "Saber mais →",
+      "sectionTitle": "Como a DocAgora o ajuda"
     },
     "testimonials": {
       "title": "A palavra aos profissionais",
       "items": {
         "item1": {
-          "quote": "A DocAgora melhora a minha pr\u00e1tica: menos interrup\u00e7\u00f5es, mais aten\u00e7\u00e3o aos pacientes.",
+          "quote": "A DocAgora melhora a minha prática: menos interrupções, mais atenção aos pacientes.",
           "name": "Dr. Florian D.",
           "specialty": "Osteopata"
         },
@@ -603,91 +790,262 @@
           "specialty": "Gastroenterologista"
         },
         "item3": {
-          "quote": "A DocAgora poupa-me das interrup\u00e7\u00f5es telef\u00f3nicas constantes e simplifica a marca\u00e7\u00e3o para os pacientes a qualquer hora.",
+          "quote": "A DocAgora poupa-me das interrupções telefónicas constantes e simplifica a marcação para os pacientes a qualquer hora.",
           "name": "Dr. Elodie V.",
-          "specialty": "M\u00e9dica de Cl\u00ednica Geral"
+          "specialty": "Médica de Clínica Geral"
         },
         "item4": {
-          "quote": "Quando comecei, o meu consult\u00f3rio era stressante e desorganizado. Com a DocAgora, a minha agenda est\u00e1 estruturada.",
-          "name": "Dr. R\u00e9my S.",
+          "quote": "Quando comecei, o meu consultório era stressante e desorganizado. Com a DocAgora, a minha agenda está estruturada.",
+          "name": "Dr. Rémy S.",
           "specialty": "Dentista"
         }
       }
     },
     "solutions": {
-      "title": "Descubra as nossas solu\u00e7\u00f5es para si",
+      "title": "Descubra as nossas soluções para si",
       "tabPractitioners": "Profissionais",
-      "tabFacilities": "Estabelecimentos de sa\u00fade",
-      "facilitiesComingSoon": "Em breve \u2014 Estamos a trabalhar em solu\u00e7\u00f5es adaptadas a estabelecimentos de sa\u00fade."
+      "tabFacilities": "Estabelecimentos de saúde",
+      "facilitiesComingSoon": "Em breve. Estamos a trabalhar em soluções adaptadas a estabelecimentos de saúde."
     },
     "featuresGrid": {
       "pill": "Plataforma profissional",
-      "title": "Tudo o que precisa para gerir o seu consult\u00f3rio, num s\u00f3 lugar.",
-      "desc": "O DocAgora Pro re\u00fane gest\u00e3o de agenda, acompanhamento de pacientes e an\u00e1lise da atividade numa plataforma integrada \u2014 concebida para profissionais de sa\u00fade em Portugal.",
-      "cta": "Come\u00e7ar \u2014 \u00e9 gratuito",
+      "title": "Tudo o que precisa para gerir o seu consultório, num só lugar.",
+      "desc": "O DocAgora Pro reúne gestão de agenda, acompanhamento de pacientes e análise da atividade numa plataforma integrada, concebida para profissionais de saúde em Portugal.",
+      "cta": "Começar gratuitamente",
       "items": {
         "agenda": {
           "title": "Agenda inteligente",
-          "desc": "Gira o seu calend\u00e1rio com uma interface intuitiva. Consultas coloridas, arrastar e largar e sincroniza\u00e7\u00e3o em tempo real."
+          "desc": "Gira o seu calendário com uma interface intuitiva. Consultas coloridas, arrastar e largar e sincronização em tempo real."
         },
         "patients": {
-          "title": "Gest\u00e3o de pacientes",
-          "desc": "Fichas de pacientes digitais centralizadas. Pesquisa, hist\u00f3rico, notas e pr\u00f3ximas consultas num reli\u00e2nce."
+          "title": "Gestão de pacientes",
+          "desc": "Fichas de pacientes digitais centralizadas. Pesquisa, histórico, notas e próximas consultas num reliânce."
         },
         "booking": {
-          "title": "Marca\u00e7\u00e3o online 24h/24",
-          "desc": "Os pacientes marcam diretamente no seu perfil DocAgora. Os hor\u00e1rios atualizam-se automaticamente."
+          "title": "Marcação online 24h/24",
+          "desc": "Os pacientes marcam diretamente no seu perfil DocAgora. Os horários atualizam-se automaticamente."
         },
         "dashboard": {
           "title": "Painel de controlo",
-          "desc": "Acompanhe a sua atividade em tempo real. Consultas, taxa de presen\u00e7a e satisfa\u00e7\u00e3o dos pacientes."
+          "desc": "Acompanhe a sua atividade em tempo real. Consultas, taxa de presença e satisfação dos pacientes."
         },
         "multilingual": {
           "title": "Plataforma multilingue",
-          "desc": "Interface dispon\u00edvel em portugu\u00eas, franc\u00eas e ingl\u00eas. Os seus pacientes veem o site na sua l\u00edngua."
+          "desc": "Interface disponível em português, francês e inglês. Os seus pacientes veem o site na sua língua."
         },
         "reminders": {
-          "title": "Lembretes autom\u00e1ticos",
-          "desc": "Reduza as faltas com lembretes autom\u00e1ticos por SMS e email. Acompanhamento de confirma\u00e7\u00e3o inclu\u00eddo."
+          "title": "Lembretes automáticos",
+          "desc": "Reduza as faltas com lembretes automáticos por SMS e email. Acompanhamento de confirmação incluído."
         },
         "profile": {
-          "title": "P\u00e1gina de perfil profissional",
-          "desc": "Um perfil p\u00fablico verificado que destaca as suas qualifica\u00e7\u00f5es, idiomas falados e avalia\u00e7\u00f5es de pacientes."
+          "title": "Página de perfil profissional",
+          "desc": "Um perfil público verificado que destaca as suas qualificações, idiomas falados e avaliações de pacientes."
         },
         "documents": {
           "title": "Documentos seguros",
-          "desc": "Gere e armazene relat\u00f3rios, receitas e certificados. Encripta\u00e7\u00e3o de ponta a ponta."
+          "desc": "Gere e armazene relatórios, receitas e certificados. Encriptação de ponta a ponta."
+        }
+      },
+      "mockups": {
+        "days": {
+          "mon": "Seg",
+          "tue": "Ter",
+          "wed": "Qua",
+          "thu": "Qui",
+          "fri": "Sex"
+        },
+        "agenda": {
+          "consultation": "Consulta",
+          "followup": "Seguimento",
+          "new": "Novo"
+        },
+        "patients": {
+          "search": "Pesquisar um paciente...",
+          "patientsLabel": "pacientes",
+          "patient1": {
+            "name": "Maria Silva",
+            "info": "42 anos · Seguimento cardio",
+            "tag": "Próximo: Amanhã 10h",
+            "initials": "MS"
+          },
+          "patient2": {
+            "name": "João Santos",
+            "info": "35 anos · Check-up anual",
+            "tag": "Visto há 3 dias",
+            "initials": "JS"
+          },
+          "patient3": {
+            "name": "Ana Costa",
+            "info": "58 anos · Diabetes T2",
+            "tag": "Próximo: Sexta",
+            "initials": "AC"
+          }
+        },
+        "booking": {
+          "patientView": "Vista do paciente",
+          "subtitle": "Os seus pacientes marcam online, 24h/24",
+          "you": "Você",
+          "yourProfile": "O seu perfil DocAgora",
+          "publiclyVisible": "Visível publicamente",
+          "confirmBooking": "Confirmar marcação"
+        },
+        "dashboard": {
+          "thisWeek": "Esta semana",
+          "appointments": "consultas",
+          "attendanceRate": "Taxa presença",
+          "vsLastMonth": "+4% vs mês anterior",
+          "satisfaction": "Satisfação",
+          "outOf": "de 5.0",
+          "weeklyAppointments": "Consultas esta semana",
+          "dayMon": "S",
+          "dayTue": "T",
+          "dayWed": "Q",
+          "dayThu": "Q",
+          "dayFri": "S"
+        },
+        "multilingual": {
+          "interfacePatient": "Interface + ficha do paciente",
+          "patientsSeeSite": "Os seus pacientes veem o site na sua língua"
+        },
+        "reminders": {
+          "autoReminderSent": "Lembrete enviado automaticamente",
+          "reminderDesc": "Sr. Silva · Amanhã 10h30",
+          "oneHourAgo": "Há 1h",
+          "appointmentConfirmed": "Consulta confirmada",
+          "confirmedDesc": "Sra. Santos confirmou presença",
+          "threeHoursAgo": "Há 3h",
+          "smsReminder": "Lembrete SMS D-1 programado",
+          "smsDesc": "3 pacientes · Envio amanhã 8h",
+          "scheduled": "Programado",
+          "noShowReduced": "Taxa de faltas reduzida",
+          "noShowDesc": "-40% desde a ativação dos lembretes",
+          "thisMonth": "Este mês"
+        },
+        "profile": {
+          "you": "Você",
+          "yourName": "Dr. O Seu Nome",
+          "verified": "Verificado",
+          "yourSpecialty": "A sua especialidade · A sua cidade",
+          "rating": "Avaliação",
+          "languages": "Idiomas",
+          "status": "Estado",
+          "online": "Online",
+          "yourTraining": "A sua formação",
+          "medicalLicense": "Ordem dos Médicos, N.º cédula"
+        },
+        "documents": {
+          "consultReport": "Relatório de consulta",
+          "prescription": "Receita",
+          "medicalCertificate": "Certificado médico",
+          "consultNotes": "Notas de consulta",
+          "statusNew": "Novo",
+          "statusDraft": "Rascunho",
+          "statusSent": "Enviado",
+          "today": "Hoje",
+          "yesterday": "Ontem",
+          "may12": "12 de maio",
+          "may10": "10 de maio",
+          "secureStorage": "Armazenamento seguro · Encriptação ponta a ponta",
+          "patient1": "Sr. Silva",
+          "patient2": "Sra. Santos",
+          "patient3": "Sr. Costa",
+          "patient4": "Sra. Ferreira"
+        },
+        "slots": {
+          "patient1": "Sr. Silva",
+          "patient2": "Sra. Santos",
+          "patient3": "Sr. Costa",
+          "patient4": "Sra. Ferreira",
+          "patient5": "Sr. Oliveira",
+          "patient6": "Sra. Pereira",
+          "patient7": "Sr. Rodrigues",
+          "patient8": "Sra. Alves",
+          "patient9": "Sr. Martins",
+          "patient10": "Sra. Gomes"
         }
       }
     },
     "cta": {
-      "title": "Pronto para transformar a sua pr\u00e1tica?",
-      "subtitle": "Junte-se \u00e0 DocAgora hoje e descubra uma forma mais inteligente de gerir o seu consult\u00f3rio.",
-      "ctaGetStarted": "Come\u00e7ar \u2014 \u00e9 gratuito",
-      "ctaBookDemo": "Falar com um consultor",
-      "trustLine": "Sem cart\u00e3o de cr\u00e9dito \u00b7 Cancele a qualquer momento"
+      "title": "Pronto para transformar a sua prática?",
+      "subtitle": "Junte-se à DocAgora hoje e descubra uma forma mais inteligente de gerir o seu consultório.",
+      "ctaGetStarted": "Começar gratuitamente",
+      "trustLine": "Sem cartão de crédito · Cancele a qualquer momento",
+      "ctaContactUs": "Contacte-nos"
     },
     "footerPro": {
       "proLinksTitle": "Para profissionais",
-      "pricingLink": "Pre\u00e7os",
+      "pricingLink": "Preços",
       "resourcesLink": "Recursos",
       "aboutLink": "Sobre",
       "featuresLink": "Funcionalidades",
       "patientSite": "Site para pacientes"
     },
     "placeholder": {
-      "pricingTitle": "Pre\u00e7os",
-      "pricingSubtitle": "Os nossos planos de pre\u00e7os est\u00e3o a ser finalizados.",
-      "pricingDesc": "Estamos a preparar pre\u00e7os competitivos adaptados aos profissionais de sa\u00fade em Portugal. Comece gratuitamente e explore a nossa plataforma.",
+      "pricingTitle": "Preços",
+      "pricingSubtitle": "Os nossos planos de preços estão a ser finalizados.",
+      "pricingDesc": "Estamos a preparar preços competitivos adaptados aos profissionais de saúde em Portugal. Comece gratuitamente e explore a nossa plataforma.",
       "resourcesTitle": "Recursos",
-      "resourcesSubtitle": "Recursos para profissionais de sa\u00fade.",
-      "resourcesDesc": "Guias, tutoriais e documenta\u00e7\u00e3o para tirar o m\u00e1ximo partido da DocAgora. Em breve.",
+      "resourcesSubtitle": "Recursos para profissionais de saúde.",
+      "resourcesDesc": "Guias, tutoriais e documentação para tirar o máximo partido da DocAgora. Em breve.",
       "aboutTitle": "Sobre a DocAgora Pro",
-      "aboutSubtitle": "A nossa miss\u00e3o para os profissionais de sa\u00fade.",
-      "aboutDesc": "A DocAgora foi constru\u00edda para simplificar o dia a dia dos profissionais de sa\u00fade em Portugal. Saiba mais sobre a nossa vis\u00e3o e equipa.",
+      "aboutSubtitle": "A nossa missão para os profissionais de saúde.",
+      "aboutDesc": "A DocAgora foi construída para simplificar o dia a dia dos profissionais de saúde em Portugal. Saiba mais sobre a nossa visão e equipa.",
       "comingSoon": "Em breve",
-      "getStarted": "Come\u00e7ar agora",
-      "backToHome": "\u2190 Voltar \u00e0 p\u00e1gina pro"
+      "getStarted": "Começar agora",
+      "backToHome": "← Voltar à página pro"
+    },
+    "earlyAdopters": {
+      "title": "A construir o futuro da saúde em Portugal, consigo",
+      "subtitle": "A DocAgora está em acesso antecipado. Estamos a trabalhar com um pequeno grupo de profissionais de saúde para moldar a plataforma. Junte-se aos primeiros.",
+      "bullet1Title": "Influencie o roadmap do produto",
+      "bullet1Desc": "O seu feedback molda o que construímos a seguir.",
+      "bullet2Title": "Suporte prioritário",
+      "bullet2Desc": "Acesso direto à nossa equipa para qualquer questão.",
+      "bullet3Title": "Preços de fundador",
+      "bullet3Desc": "Garanta as tarifas de early adopter para toda a vida.",
+      "cta": "Aderir ao programa early adopters"
+    },
+    "whyDocAgora": {
+      "title": "Porquê a DocAgora",
+      "subtitle": "Não tentamos ser tudo para todos. Eis o que nos torna diferentes.",
+      "card1Title": "Feita para Portugal, trilingue por defeito",
+      "card1Desc": "PT, FR, EN desde o primeiro dia. Adaptada às práticas de saúde portuguesas. Não é um produto francês traduzido.",
+      "card2Title": "Stack moderna, sem legacy",
+      "card2Desc": "Construída com tecnologia web moderna. Mobile-first. Rápida. Intuitiva. Não é «software médico» de 2010.",
+      "card3Title": "Transparente por conceção",
+      "card3Desc": "Preços claros. Sem taxas ocultas. Roadmap aberto. Os seus dados, o seu controlo. Conforme RGPD, alojado na UE.",
+      "card4Title": "Construída com os profissionais",
+      "card4Desc": "Não adivinhamos o que precisa. Cada funcionalidade é moldada pelo feedback de profissionais de saúde reais em Portugal.",
+      "cta": "Começar gratuitamente"
+    },
+    "aboutSection": {
+      "eyebrow": "Sobre a DocAgora",
+      "title": "A saúde merece melhores ferramentas, feitas por quem se importa",
+      "desc": "A DocAgora foi fundada com uma convicção: que os profissionais de saúde em Portugal merecem ferramentas modernas, transparentes e multilingues. Somos uma pequena equipa a construir cuidadosamente, em estreita colaboração com os profissionais que servimos.",
+      "bullet1Title": "Feita para Portugal",
+      "bullet1Desc": "Português, francês, inglês. Concebida para o contexto de saúde português.",
+      "bullet2Title": "Independente",
+      "bullet2Desc": "Liderada pelo fundador, não por investidores. Construímos para os utilizadores, não para métricas.",
+      "bullet3Title": "Aberta ao feedback",
+      "bullet3Desc": "Cada linha de código reflete o feedback de profissionais de saúde reais."
+    },
+    "pricingPage": {
+      "title": "Preços (em breve)",
+      "subtitle": "Estamos a finalizar o nosso modelo de preços para garantir que funciona para profissionais de saúde de todas as dimensões. Seja notificado quando estiver disponível.",
+      "card1Title": "Preços transparentes",
+      "card1Desc": "Sem taxas ocultas, sem surpresas. Publicaremos os nossos preços completos publicamente.",
+      "card2Title": "Para todas as dimensões",
+      "card2Desc": "Planos para profissionais independentes e clínicas com múltiplos profissionais.",
+      "notifyTitle": "Seja notificado quando os preços estiverem disponíveis",
+      "emailLabel": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "specialtyLabel": "Especialidade",
+      "specialtyDefault": "-- Selecionar --",
+      "cta": "Notifique-me",
+      "mention": "Enviar-lhe-emos os detalhes dos preços em primeiro lugar, antes de qualquer outra pessoa.",
+      "trustLine": "Conforme RGPD · Sem spam · Cancelamento a qualquer momento",
+      "ctaBack": "Voltar ao início",
+      "thankYou": "Obrigado! Notificá-lo-emos quando os preços estiverem disponíveis."
     }
   }
 }
