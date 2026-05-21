@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 const FEATURES = [
   { key: "agenda", icon: "fas fa-calendar-alt" },
@@ -618,13 +618,14 @@ export default function FeaturesGridPro() {
             </div>
           </div>
 
-          <div className="ft-list-wrap" aria-label={t("title")} role="list">
+          <div className="ft-list-wrap" aria-label={t("title")} role="tablist" aria-orientation="vertical">
             {FEATURES.map(({ key, icon }, i) => (
               <div
                 key={key}
                 className={`ft-item${active === i ? " ft-item--active" : ""}`}
-                role="button"
-                tabIndex={0}
+                role="tab"
+                aria-selected={active === i}
+                tabIndex={active === i ? 0 : -1}
                 onClick={() => setActive(i)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -636,7 +637,7 @@ export default function FeaturesGridPro() {
                 <div className="ft-item__head">
                   <span className="ft-item__num">{String(i + 1).padStart(2, "0")}</span>
                   <div className="ft-item__icon"><i className={icon} /></div>
-                  <h4 className="ft-item__title">{t(`items.${key}.title`)}</h4>
+                  <h3 className="ft-item__title">{t(`items.${key}.title`)}</h3>
                 </div>
                 <div className="ft-item__desc">{t(`items.${key}.desc`)}</div>
               </div>

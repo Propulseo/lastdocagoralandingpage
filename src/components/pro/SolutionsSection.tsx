@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const TABS = ["practitioners", "facilities"] as const;
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 const specialties = [
   { key: "generalPractice", slug: "general-practice", icon: "fas fa-stethoscope" },
@@ -56,7 +56,7 @@ export default function SolutionsSection() {
   );
 
   return (
-    <section id="solutions" style={{ background: "var(--color-light-1)", padding: "96px 0", position: "relative" }}>
+    <section id="solutions" style={{ background: "var(--color-light-1)", padding: "120px 0", position: "relative" }}>
       {/* Thin Cobalt separator at top */}
       <div
         style={{
@@ -89,7 +89,7 @@ export default function SolutionsSection() {
         <div
           className="d-flex justify-content-center mb-5"
           role="tablist"
-          aria-label="Solutions by practice type"
+          aria-label={t("title")}
         >
           <div
             style={{

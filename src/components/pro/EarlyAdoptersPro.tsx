@@ -124,7 +124,7 @@ export default function EarlyAdoptersPro() {
         {/* Primary CTA */}
         <div className="text-center">
           <a
-            href={`${PLATFORM_URL}/register?role=professional`}
+            href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
             style={{
               display: "inline-flex",
               alignItems: "center",

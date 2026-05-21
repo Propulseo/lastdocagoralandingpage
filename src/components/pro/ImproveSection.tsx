@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 export default function ImproveSection() {
   const t = useTranslations("pro.improve");
-  const [focusedCard, setFocusedCard] = useState<string | null>(null);
 
   const blocks = [
     {
@@ -62,26 +60,19 @@ export default function ImproveSection() {
 
         {/* Cards */}
         <div className="row g-4">
-          {blocks.map((block) => {
-            const isElevated = focusedCard === block.titleKey;
-            return (
+          {blocks.map((block) => (
               <div key={block.titleKey} className="col-lg-4 col-md-6">
                 <div
-                  tabIndex={0}
                   style={{
                     background: "var(--color-light-1)",
                     borderRadius: 12,
                     padding: 32,
-                    border: `1px solid rgba(var(--color-cobalt-rgb), 0.15)`,
+                    border: "1px solid rgba(var(--color-cobalt-rgb), 0.15)",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     transition: "box-shadow 0.2s ease, transform 0.2s ease",
-                    outline: "none",
-                    boxShadow: isElevated
-                      ? "0 8px 24px rgba(36, 72, 130, 0.1)"
-                      : "0 2px 8px rgba(36, 72, 130, 0.06)",
-                    transform: isElevated ? "translateY(-4px)" : "translateY(0)",
+                    boxShadow: "0 2px 8px rgba(36, 72, 130, 0.06)",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow =
@@ -89,26 +80,12 @@ export default function ImproveSection() {
                     e.currentTarget.style.transform = "translateY(-4px)";
                   }}
                   onMouseLeave={(e) => {
-                    if (focusedCard !== block.titleKey) {
-                      e.currentTarget.style.boxShadow =
-                        "0 2px 8px rgba(36, 72, 130, 0.06)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }
+                    e.currentTarget.style.boxShadow =
+                      "0 2px 8px rgba(36, 72, 130, 0.06)";
+                    e.currentTarget.style.transform = "translateY(0)";
                   }}
-                  onFocus={() => setFocusedCard(block.titleKey)}
-                  onBlur={() => setFocusedCard(null)}
                 >
                   {/* Icon circle */}
-                  <div
-                    style={{
-                      width: 52,
-                      height: 52,
-                      borderRadius: "50%",
-                      background: `${block.accentColor}`,
-                      opacity: 0.1,
-                      position: "absolute",
-                    }}
-                  />
                   <div
                     style={{
                       width: 52,
@@ -195,8 +172,7 @@ export default function ImproveSection() {
                   </a>
                 </div>
               </div>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

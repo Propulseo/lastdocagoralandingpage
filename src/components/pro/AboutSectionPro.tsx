@@ -84,7 +84,7 @@ export default function AboutSectionPro() {
                 marginBottom: 12,
               }}
             >
-              {t("aboutSection.eyebrow") ?? "Sobre"}
+              {t("aboutSection.eyebrow")}
             </div>
             <h2
               style={{

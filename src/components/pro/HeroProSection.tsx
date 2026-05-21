@@ -247,7 +247,7 @@ export default function HeroProSection() {
                 boxShadow: "0 24px 64px rgba(0,0,0,0.3)",
               }}
             >
-              <h5
+              <p
                 style={{
                   fontSize: 18,
                   fontWeight: 700,
@@ -256,7 +256,7 @@ export default function HeroProSection() {
                 }}
               >
                 {t("hero.formTitle")}
-              </h5>
+              </p>
               <p
                 style={{
                   fontSize: 13,
