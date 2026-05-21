@@ -434,22 +434,22 @@ h1, h2, h3, h4, h5, h6,
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 64px !important;
+  height: 72px !important;
   transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
 }
 
 .navbar.navbar-pro-glass > .container,
 .navbar.navbar-pro-glass > .container-fluid {
-  height: 64px !important;
+  height: 72px !important;
 }
 
 .navbar.navbar-pro-glass .navbar-brand {
   margin-left: 0 !important;
-  line-height: 64px !important;
+  line-height: 72px !important;
 }
 
 .navbar.navbar-pro-glass .nav__item {
-  margin-right: 16px !important;
+  margin-right: 20px !important;
 }
 
 .navbar.navbar-pro-glass .nav__item:last-child {
