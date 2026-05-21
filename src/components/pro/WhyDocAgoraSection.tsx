@@ -20,15 +20,16 @@ export default function WhyDocAgoraSection() {
       }}
     >
       <style>{`
-        .row.why-grid {
-          --bs-gutter-x: var(--spacing-lg) !important;
-          --bs-gutter-y: var(--spacing-lg) !important;
+        .why-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--spacing-lg);
         }
         .why-card { padding: var(--spacing-xl); }
         @media (max-width: 767px) {
-          .row.why-grid {
-            --bs-gutter-x: var(--spacing-md) !important;
-            --bs-gutter-y: var(--spacing-md) !important;
+          .why-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
           }
           .why-card { padding: var(--spacing-lg); }
         }
@@ -60,9 +61,9 @@ export default function WhyDocAgoraSection() {
         </div>
 
         {/* 2x2 grid */}
-        <div className="row why-grid">
+        <div className="why-grid">
           {differentiators.map((diff) => (
-            <div key={diff.titleKey} className="col-lg-6 col-md-6">
+            <div key={diff.titleKey}>
               <div
                 className="why-card"
                 style={{

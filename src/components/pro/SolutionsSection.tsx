@@ -58,15 +58,19 @@ export default function SolutionsSection() {
   return (
     <section id="solutions" style={{ background: "linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-navy) 100%)", padding: "120px 0" }}>
       <style>{`
-        .row.solutions-grid {
-          --bs-gutter-x: var(--spacing-md) !important;
-          --bs-gutter-y: var(--spacing-md) !important;
+        .solutions-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--spacing-md);
+        }
+        @media (min-width: 768px) {
+          .solutions-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 992px) {
+          .solutions-grid { grid-template-columns: repeat(4, 1fr); }
         }
         @media (max-width: 767px) {
-          .row.solutions-grid {
-            --bs-gutter-x: var(--spacing-sm) !important;
-            --bs-gutter-y: var(--spacing-sm) !important;
-          }
+          .solutions-grid { gap: var(--spacing-sm); }
         }
       `}</style>
       <div className="container-landing">
@@ -137,10 +141,10 @@ export default function SolutionsSection() {
             id="tabpanel-practitioners"
             aria-labelledby="tab-practitioners"
             tabIndex={0}
-            className="row solutions-grid"
+            className="solutions-grid"
           >
             {specialties.map((spec) => (
-              <div key={spec.key} className="col-6 col-md-4 col-lg-3">
+              <div key={spec.key}>
                 <a
                   href={`${PLATFORM_URL}/register?role=professional&specialty=${spec.slug}`}
                   style={{
