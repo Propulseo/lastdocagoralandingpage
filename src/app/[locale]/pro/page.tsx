@@ -8,6 +8,7 @@ import FeaturesGridPro from "@/components/pro/FeaturesGridPro";
 import WhyDocAgoraSection from "@/components/pro/WhyDocAgoraSection";
 import AboutSectionPro from "@/components/pro/AboutSectionPro";
 import EarlyAdoptersPro from "@/components/pro/EarlyAdoptersPro";
+import CTASection from "@/components/pro/CTASection";
 
 
 export default async function ProHomePage({
@@ -50,6 +51,9 @@ export default async function ProHomePage({
       <AnimatedSection once>
         <EarlyAdoptersPro />
       </AnimatedSection>
+
+      {/* 8. ACTION — Final CTA (seamless dark continuation) */}
+      <CTASection />
     </>
   );
 }

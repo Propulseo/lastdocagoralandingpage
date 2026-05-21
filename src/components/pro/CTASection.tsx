@@ -11,25 +11,14 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: "linear-gradient(180deg, var(--color-dark-1) 0%, var(--color-navy) 100%)",
-        padding: "90px 0 60px",
+        background: "var(--color-dark-1)",
+        padding: "80px 0 120px",
         textAlign: "center",
         position: "relative",
         overflow: "hidden",
-        zIndex: 1,
       }}
     >
-      {/* Decorative elements */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 1,
-          background: "linear-gradient(90deg, transparent, rgba(var(--color-cobalt-rgb),0.2), transparent)",
-        }}
-      />
+      {/* Subtle ambient glow */}
       <div
         style={{
           position: "absolute",
@@ -42,124 +31,78 @@ export default function CTASection() {
           pointerEvents: "none",
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-20%",
-          left: "-5%",
-          width: 300,
-          height: 300,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(var(--color-cobalt-rgb),0.04) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
 
-      <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div
+      <div className="container-landing" style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 640, margin: "0 auto" }}>
+          <h2
+            style={{
+              fontSize: "clamp(28px, 3.5vw, 40px)",
+              fontWeight: 700,
+              color: "#fff",
+              marginBottom: 16,
+              lineHeight: 1.15,
+            }}
+          >
+            {t("title")}
+          </h2>
+          <p
+            style={{
+              fontSize: 17,
+              color: "rgba(255,255,255,0.6)",
+              lineHeight: 1.6,
+              marginBottom: 40,
+            }}
+          >
+            {t("subtitle")}
+          </p>
+
+          {/* Primary CTA */}
+          <a
+            href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+              background: "var(--color-teal)",
+              color: "var(--color-dark-1)",
+              padding: "16px 40px",
+              borderRadius: 8,
+              fontSize: 16,
+              fontWeight: 600,
+              textDecoration: "none",
+              transition: "all 0.2s ease",
+              boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--color-mint)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "var(--color-teal)";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
+            }}
+          >
+            {t("ctaGetStarted")}
+            <i className="fas fa-arrow-right" style={{ fontSize: 13 }} />
+          </a>
+
+          {/* Tertiary link */}
+          <div style={{ marginTop: 20 }}>
+            <a
+              href="mailto:hello@docagora.com"
               style={{
-                width: 48,
-                height: 48,
-                borderRadius: 14,
-                background: "rgba(var(--color-cobalt-rgb),0.12)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
+                color: "var(--color-cobalt)",
+                fontSize: 15,
+                fontWeight: 500,
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
               }}
             >
-              <i
-                className="fas fa-rocket"
-                style={{ fontSize: 20, color: "var(--color-pro-accent)" }}
-              ></i>
-            </div>
-            <h3
-              style={{
-                fontSize: "clamp(24px, 3vw, 38px)",
-                fontWeight: 700,
-                color: "#fff",
-                marginBottom: 16,
-                lineHeight: 1.3,
-              }}
-            >
-              {t("title")}
-            </h3>
-            <p
-              style={{
-                fontSize: 16,
-                color: "rgba(255,255,255,0.65)",
-                lineHeight: 1.7,
-                marginBottom: 32,
-                maxWidth: 560,
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              {t("subtitle")}
-            </p>
-            <div className="d-flex flex-wrap justify-content-center gap-3">
-              <a
-                href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  background: "var(--color-teal)",
-                  color: "var(--color-dark-1)",
-                  padding: "14px 32px",
-                  borderRadius: 10,
-                  fontSize: 15,
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  transition: "all 0.3s",
-                  boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--color-mint)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "var(--color-teal)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
-                }}
-              >
-                {t("ctaGetStarted")}
-                <i className="fas fa-arrow-right" style={{ fontSize: 13 }}></i>
-              </a>
-              <a
-                href="#contact-form"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  background: "rgba(255,255,255,0.08)",
-                  color: "var(--color-light-1)",
-                  padding: "14px 32px",
-                  borderRadius: 10,
-                  fontSize: 15,
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  transition: "all 0.3s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                {t("ctaBookDemo")}
-              </a>
-            </div>
+              {t("ctaContactUs")}
+            </a>
           </div>
         </div>
       </div>

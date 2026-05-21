@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+
+const TABS = ["practitioners", "facilities"] as const;
 
 const PLATFORM_URL =
   process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
@@ -31,96 +33,136 @@ export default function SolutionsSection() {
   const [activeTab, setActiveTab] = useState<"practitioners" | "facilities">(
     "practitioners"
   );
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleTabKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      const currentIndex = TABS.indexOf(activeTab);
+      let newIndex: number | null = null;
+
+      if (e.key === "ArrowRight") {
+        newIndex = (currentIndex + 1) % TABS.length;
+      } else if (e.key === "ArrowLeft") {
+        newIndex = (currentIndex - 1 + TABS.length) % TABS.length;
+      }
+
+      if (newIndex !== null) {
+        e.preventDefault();
+        setActiveTab(TABS[newIndex]);
+        tabRefs.current[newIndex]?.focus();
+      }
+    },
+    [activeTab]
+  );
 
   return (
-    <section id="solutions" style={{ padding: "80px 0", background: "var(--bg-section)" }}>
-      <div className="container">
-        <h3
-          className="text-center"
-          style={{
-            fontSize: "clamp(24px, 3vw, 34px)",
-            fontWeight: 700,
-            marginBottom: 12,
-            color: "var(--color-dark-1)",
-          }}
-        >
-          {t("title")}
-        </h3>
-        <div
-          style={{
-            width: 48,
-            height: 3,
-            background: "var(--color-pro-accent)",
-            borderRadius: 2,
-            margin: "16px auto 36px",
-          }}
-        />
+    <section id="solutions" style={{ background: "var(--color-light-1)", padding: "96px 0", position: "relative" }}>
+      {/* Thin Cobalt separator at top */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "10%",
+          right: "10%",
+          height: 1,
+          background: "rgba(var(--color-cobalt-rgb), 0.2)",
+        }}
+      />
 
-        {/* Tabs */}
-        <div className="d-flex justify-content-center gap-2 mb-5">
-          <button
-            onClick={() => setActiveTab("practitioners")}
+      <div className="container-landing">
+        {/* Header */}
+        <div className="text-center" style={{ maxWidth: 640, margin: "0 auto 48px" }}>
+          <h2
             style={{
-              padding: "10px 28px",
-              borderRadius: 24,
-              border: activeTab === "practitioners" ? "none" : "1px solid #e2e8f0",
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: "pointer",
-              background: activeTab === "practitioners" ? "var(--color-primary)" : "#fff",
-              color: activeTab === "practitioners" ? "#fff" : "#374151",
-              transition: "all 0.2s",
-              boxShadow: activeTab === "practitioners" ? "0 4px 12px rgba(var(--color-navy-rgb), 0.3)" : "none",
+              fontSize: "clamp(28px, 3.5vw, 40px)",
+              fontWeight: 700,
+              marginBottom: 16,
+              color: "var(--color-dark-1)",
+              lineHeight: 1.15,
             }}
           >
-            {t("tabPractitioners")}
-          </button>
-          <button
-            onClick={() => setActiveTab("facilities")}
+            {t("title")}
+          </h2>
+        </div>
+
+        {/* Segmented control tabs */}
+        <div
+          className="d-flex justify-content-center mb-5"
+          role="tablist"
+          aria-label="Solutions by practice type"
+        >
+          <div
             style={{
-              padding: "10px 28px",
-              borderRadius: 24,
-              border: activeTab === "facilities" ? "none" : "1px solid #e2e8f0",
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: "pointer",
-              background: activeTab === "facilities" ? "var(--color-primary)" : "#fff",
-              color: activeTab === "facilities" ? "#fff" : "#374151",
-              transition: "all 0.2s",
-              boxShadow: activeTab === "facilities" ? "0 4px 12px rgba(var(--color-navy-rgb), 0.3)" : "none",
+              display: "inline-flex",
+              background: "var(--color-light-2)",
+              borderRadius: 8,
+              padding: 4,
+              border: "1px solid rgba(var(--color-cobalt-rgb), 0.12)",
             }}
           >
-            {t("tabFacilities")}
-          </button>
+            {TABS.map((tab, idx) => (
+              <button
+                key={tab}
+                ref={(el) => { tabRefs.current[idx] = el; }}
+                role="tab"
+                id={`tab-${tab}`}
+                aria-selected={activeTab === tab}
+                aria-controls={`tabpanel-${tab}`}
+                tabIndex={activeTab === tab ? 0 : -1}
+                onClick={() => setActiveTab(tab)}
+                onKeyDown={handleTabKeyDown}
+                style={{
+                  padding: "10px 28px",
+                  borderRadius: 6,
+                  border: "none",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  background: activeTab === tab ? "var(--color-navy)" : "transparent",
+                  color: activeTab === tab ? "#fff" : "var(--text-muted)",
+                  transition: "all 0.2s ease",
+                  boxShadow: activeTab === tab ? "0 2px 8px rgba(var(--color-navy-rgb), 0.2)" : "none",
+                }}
+              >
+                {t(tab === "practitioners" ? "tabPractitioners" : "tabFacilities")}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Tab content */}
         {activeTab === "practitioners" ? (
-          <div className="row g-3">
+          <div
+            role="tabpanel"
+            id="tabpanel-practitioners"
+            aria-labelledby="tab-practitioners"
+            tabIndex={0}
+            className="row g-3"
+          >
             {specialties.map((spec) => (
               <div key={spec.key} className="col-6 col-md-4 col-lg-3">
                 <a
-                  href={`${PLATFORM_URL}/patient/search?specialty=${spec.slug}`}
+                  href={`${PLATFORM_URL}/register?role=professional&specialty=${spec.slug}`}
                   style={{
                     display: "flex",
                     alignItems: "center",
                     gap: 12,
-                    background: "#fff",
+                    background: "var(--color-light-2)",
                     borderRadius: 12,
                     padding: "14px 16px",
-                    border: "1px solid var(--border-default)",
+                    border: "1px solid rgba(var(--color-cobalt-rgb), 0.1)",
                     textDecoration: "none",
                     color: "var(--color-dark-1)",
-                    transition: "all 0.25s",
+                    transition: "all 0.2s ease",
                     height: "100%",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-pro-accent)";
-                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-cobalt-rgb), 0.12)";
+                    e.currentTarget.style.borderColor = "rgba(var(--color-cobalt-rgb), 0.3)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(36, 72, 130, 0.08)";
                     e.currentTarget.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border-default)";
+                    e.currentTarget.style.borderColor = "rgba(var(--color-cobalt-rgb), 0.1)";
                     e.currentTarget.style.boxShadow = "none";
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
@@ -139,8 +181,8 @@ export default function SolutionsSection() {
                   >
                     <i
                       className={spec.icon}
-                      style={{ fontSize: 14, color: "var(--color-pro-accent)" }}
-                    ></i>
+                      style={{ fontSize: 14, color: "var(--color-cobalt)" }}
+                    />
                   </div>
                   <span style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.3 }}>
                     {tSpec(`items.${spec.key}.title`)}
@@ -151,18 +193,22 @@ export default function SolutionsSection() {
           </div>
         ) : (
           <div
+            role="tabpanel"
+            id="tabpanel-facilities"
+            aria-labelledby="tab-facilities"
+            tabIndex={0}
             className="text-center"
             style={{
-              background: "#fff",
+              background: "var(--color-light-2)",
               borderRadius: 16,
               padding: "60px 20px",
-              border: "1px solid var(--border-default)",
+              border: "1px solid rgba(var(--color-cobalt-rgb), 0.1)",
             }}
           >
             <i
               className="fas fa-hospital"
-              style={{ fontSize: 40, color: "#d1d5db", marginBottom: 16, display: "block" }}
-            ></i>
+              style={{ fontSize: 40, color: "var(--text-muted)", marginBottom: 16, display: "block", opacity: 0.4 }}
+            />
             <p style={{ fontSize: 15, color: "var(--text-muted)", marginBottom: 0 }}>
               {t("facilitiesComingSoon")}
             </p>
