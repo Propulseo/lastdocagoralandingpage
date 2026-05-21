@@ -28,9 +28,9 @@ export default function NotesSection() {
                   </div>
                 </div>
               </div>
-              <a href="#" className="btn btn__primary btn__rounded">
+              <Link href="/specialties" className="btn btn__primary btn__rounded">
                 <span>{t("createAccount")}</span> <i className="icon-arrow-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

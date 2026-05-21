@@ -109,7 +109,7 @@ export default function HeaderSearch() {
       <input
         type="text"
         className="form-control"
-        placeholder="Search..."
+        placeholder={t("headerSearch.placeholder")}
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         onFocus={() => { if (results.length > 0) setOpen(true); }}
@@ -136,7 +136,7 @@ export default function HeaderSearch() {
         >
           {results.length === 0 ? (
             <div style={{ padding: "16px 20px", color: "#999", fontSize: "14px" }}>
-              No results found.
+              {t("headerSearch.noResults")}
             </div>
           ) : (
             results.map((item, i) => (

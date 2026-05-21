@@ -8,7 +8,7 @@ const PLATFORM_URL =
 
 const REGISTER_URL = `${PLATFORM_URL}/register?role=patient&utm_source=landing&utm_medium=app_section&utm_campaign=early_access`;
 
-function PhoneMockup() {
+function PhoneMockup({ t }: { t: (key: string) => string }) {
   return (
     <div className="ma-phone">
       <div className="ma-phone__notch" />
@@ -22,21 +22,21 @@ function PhoneMockup() {
             style={{ fontSize: 11, color: "var(--color-accent)" }}
           />
           <span className="ma-phone__search-text">
-            Find a professional...
+            {t("phoneSearch")}
           </span>
         </div>
         <div className="ma-phone__cards">
           {[
-            { initials: "MD", name: "Dr. Marie Dupont", spec: "Cardiologist", langs: "FR PT EN" },
-            { initials: "JS", name: "Dr. João Silva", spec: "Dentist", langs: "PT EN" },
-            { initials: "LB", name: "Dr. Laura Branco", spec: "Pediatrician", langs: "PT FR" },
+            { initials: "MD", name: "Dr. Marie Dupont", specKey: "phoneDoc1Spec", langs: "FR PT EN" },
+            { initials: "JS", name: "Dr. João Silva", specKey: "phoneDoc2Spec", langs: "PT EN" },
+            { initials: "LB", name: "Dr. Laura Branco", specKey: "phoneDoc3Spec", langs: "PT FR" },
           ].map((doc) => (
             <div key={doc.initials} className="ma-phone__card">
               <div className="ma-phone__avatar">{doc.initials}</div>
               <div className="ma-phone__card-info">
                 <strong>{doc.name}</strong>
                 <span>
-                  {doc.spec} · {doc.langs}
+                  {t(doc.specKey)} · {doc.langs}
                 </span>
               </div>
             </div>
@@ -261,14 +261,14 @@ export default function MobileAppSection() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          color: #67CBC7;
+          color: var(--color-link);
           font-size: 15px;
           font-weight: 600;
           text-decoration: none;
           transition: gap 0.2s, color 0.2s;
         }
         .ma-cta:hover {
-          color: #5AA2AA;
+          color: var(--color-link-hover);
           gap: 12px;
           text-decoration: none;
         }
@@ -428,7 +428,7 @@ export default function MobileAppSection() {
           <div className="col-lg-5 order-1 order-lg-2">
             <div className="ma-phone-wrap">
               {prefersReduced ? (
-                <PhoneMockup />
+                <PhoneMockup t={t} />
               ) : (
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
@@ -438,7 +438,7 @@ export default function MobileAppSection() {
                     ease: "easeInOut",
                   }}
                 >
-                  <PhoneMockup />
+                  <PhoneMockup t={t} />
                 </motion.div>
               )}
             </div>
@@ -460,14 +460,12 @@ export default function MobileAppSection() {
 
               {/* Store buttons */}
               <div className="ma-store-buttons">
-                <a
-                  href="#"
+                <div
                   className="ma-store-btn"
                   aria-disabled="true"
                   role="button"
                   tabIndex={-1}
                   data-tooltip={t("comingSoonTooltip")}
-                  onClick={(e) => e.preventDefault()}
                 >
                   <AppleIcon />
                   <span className="ma-store-btn__text">
@@ -478,16 +476,14 @@ export default function MobileAppSection() {
                       {t("appStoreLabel")}
                     </span>
                   </span>
-                  <span className="ma-coming-badge">Soon</span>
-                </a>
-                <a
-                  href="#"
+                  <span className="ma-coming-badge">{t("comingSoon")}</span>
+                </div>
+                <div
                   className="ma-store-btn"
                   aria-disabled="true"
                   role="button"
                   tabIndex={-1}
                   data-tooltip={t("comingSoonTooltip")}
-                  onClick={(e) => e.preventDefault()}
                 >
                   <PlayStoreIcon />
                   <span className="ma-store-btn__text">
@@ -496,8 +492,8 @@ export default function MobileAppSection() {
                       {t("googlePlayLabel")}
                     </span>
                   </span>
-                  <span className="ma-coming-badge">Soon</span>
-                </a>
+                  <span className="ma-coming-badge">{t("comingSoon")}</span>
+                </div>
               </div>
 
               {/* CTA */}

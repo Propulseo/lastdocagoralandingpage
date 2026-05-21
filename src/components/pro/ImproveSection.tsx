@@ -16,6 +16,7 @@ export default function ImproveSection() {
       ctaKey: "block1Cta",
       icon: "fas fa-heartbeat",
       accentColor: "var(--color-cobalt)",
+      accentBg: "rgba(var(--color-cobalt-rgb), 0.12)",
     },
     {
       titleKey: "block2Title",
@@ -24,6 +25,7 @@ export default function ImproveSection() {
       ctaKey: "block2Cta",
       icon: "fas fa-hand-holding-medical",
       accentColor: "var(--color-mint)",
+      accentBg: "rgba(var(--color-mint-rgb), 0.12)",
     },
     {
       titleKey: "block3Title",
@@ -32,6 +34,7 @@ export default function ImproveSection() {
       ctaKey: "block3Cta",
       icon: "fas fa-chart-line",
       accentColor: "var(--color-teal)",
+      accentBg: "rgba(var(--color-teal-rgb), 0.12)",
     },
   ] as const;
 
@@ -95,13 +98,7 @@ export default function ImproveSection() {
                       alignItems: "center",
                       justifyContent: "center",
                       marginBottom: 24,
-                      position: "relative",
-                      background:
-                        block.accentColor === "var(--color-cobalt)"
-                          ? "rgba(var(--color-cobalt-rgb), 0.1)"
-                          : block.accentColor === "var(--color-mint)"
-                            ? "rgba(var(--color-mint-rgb), 0.1)"
-                            : "rgba(var(--color-teal-rgb), 0.1)",
+                      background: block.accentBg,
                     }}
                   >
                     <i
@@ -140,13 +137,19 @@ export default function ImproveSection() {
                     {block.bullets.map((bullet) => (
                       <li
                         key={bullet}
-                        className="d-flex align-items-start gap-2 mb-2"
-                        style={{ fontSize: 14, color: "var(--color-dark-1)" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 10,
+                          marginBottom: 10,
+                          fontSize: 14,
+                          color: "var(--color-dark-1)",
+                        }}
                       >
                         <i
                           className="fas fa-check-circle"
                           style={{
-                            color: block.accentColor,
+                            color: "var(--color-cobalt)",
                             marginTop: 3,
                             fontSize: 14,
                             flexShrink: 0,
@@ -160,15 +163,24 @@ export default function ImproveSection() {
                   {/* Tertiary CTA */}
                   <a
                     href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
-                    style={{
-                      color: "var(--color-cobalt)",
-                      fontSize: 14,
-                      fontWeight: 600,
-                      textDecoration: "underline",
-                      textUnderlineOffset: 3,
-                    }}
+                    className="improve-card__cta"
                   >
-                    {t(block.ctaKey)} &rarr;
+                    <span>{t(block.ctaKey)}</span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="improve-card__cta-icon"
+                      aria-hidden="true"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
                   </a>
                 </div>
               </div>

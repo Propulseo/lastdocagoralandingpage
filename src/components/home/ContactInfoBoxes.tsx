@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 export default function ContactInfoBoxes() {
@@ -30,9 +31,9 @@ export default function ContactInfoBoxes() {
               <div className="contact__content">
                 <h2 className="contact__title">{t("bookingTitle")}</h2>
                 <p className="contact__desc">{t("bookingDesc")}</p>
-                <a href="#" className="btn btn__white btn__outlined btn__rounded">
+                <Link href="/specialties" className="btn btn__white btn__outlined btn__rounded">
                   <span>{t("bookingCta")}</span><i className="icon-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </AnimatedCard>

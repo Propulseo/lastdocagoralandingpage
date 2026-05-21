@@ -36,7 +36,7 @@ export default function LanguageSwitcher() {
           border: "none",
           padding: "2px 6px",
           cursor: "pointer",
-          color: "var(--color-accent)",
+          color: "var(--color-link)",
           fontWeight: 700,
           fontSize: 13,
           fontFamily: "inherit",
@@ -82,7 +82,7 @@ export default function LanguageSwitcher() {
                 transition: "color 0.2s, background 0.2s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-accent)";
+                e.currentTarget.style.color = "var(--color-link)";
                 e.currentTarget.style.background = "rgba(255,255,255,0.05)";
               }}
               onMouseLeave={(e) => {

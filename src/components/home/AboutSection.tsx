@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function AboutSection() {
   const t = useTranslations("about");
@@ -21,20 +22,20 @@ export default function AboutSection() {
               </div>
               <div className="text__content">
                 <p className="heading__desc font-weight-bold color-secondary mb-30">{t("subtitle")}</p>
-                <a href="#" className="btn btn__secondary btn__rounded mb-70">
+                <Link href="/specialties" className="btn btn__secondary btn__rounded mb-70">
                   <span>{t("findProfessional")}</span> <i className="icon-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="video-banner-layout2 bg-overlay">
               <img src="/assets/images/about/2.jpg" alt="about" className="w-100" />
               {/* Video placeholder */}
-              <a className="video__btn video__btn-white" href="#">
+              <button type="button" className="video__btn video__btn-white">
                 <div className="video__player">
                   <i className="fa fa-play"></i>
                 </div>
                 <span className="video__btn-title color-white">{t("watchVideo")}</span>
-              </a>
+              </button>
             </div>
           </div>
           <div className="col-sm-12 col-md-12 col-lg-7">

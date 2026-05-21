@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const FEATURE_ICONS = [
@@ -29,10 +30,10 @@ export default function FeaturesOverlay() {
           </div>
           <div className="col-sm-9 col-md-9 col-lg-6">
             <p className="heading__desc font-weight-bold color-white mb-30">{t("featuresDesc")}</p>
-            <a href="#" className="btn btn__white btn__link">
+            <Link href="/about" className="btn btn__white btn__link">
               <i className="icon-arrow-right icon-filled"></i>
               <span>{t("featuresCoreValues")}</span>
-            </a>
+            </Link>
           </div>
         </div>
         <AnimatedCardsContainer className="row" stagger={0.08}>
@@ -48,9 +49,9 @@ export default function FeaturesOverlay() {
                   </div>
                   <h4 className="feature__title">{t(`features.${key}`)}</h4>
                 </div>
-                <a href="#" className="btn__link">
+                <span className="btn__link" aria-hidden="true">
                   <i className="icon-arrow-right icon-outlined"></i>
-                </a>
+                </span>
               </div>
             </AnimatedCard>
           ))}
@@ -59,9 +60,9 @@ export default function FeaturesOverlay() {
           <div className="col-md-12 col-lg-6 offset-lg-3 text-center">
             <p className="font-weight-bold color-gray mb-0">
               {t("featuresBottom")}{" "}
-              <a href="#" className="color-secondary">
+              <Link href="/contact" className="color-secondary">
                 <span>{t("featuresBottomCta")}</span> <i className="icon-arrow-right"></i>
-              </a>
+              </Link>
             </p>
           </div>
         </div>

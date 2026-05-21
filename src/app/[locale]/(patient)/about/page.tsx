@@ -35,7 +35,7 @@ export default async function AboutPage({
               <h1 className="pagetitle__heading">{t("pageHeading")}</h1>
               <p className="pagetitle__desc">{t("pageDesc")}</p>
               <div className="d-flex flex-wrap align-items-center">
-                <a href="#" className="btn btn__primary btn__rounded mr-30">
+                <a href={`/${locale}/specialties`} className="btn btn__primary btn__rounded mr-30">
                   <span>{t("ctaFindDoctor")}</span>
                   <i className="icon-arrow-right"></i>
                 </a>

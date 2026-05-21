@@ -30,8 +30,8 @@ export default function FAQHighlights() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
             <div className="heading heading-light text-center mb-40">
-              <h2 className="heading__subtitle">{t("subtitle")}</h2>
-              <h3 className="heading__title">{t("title")}</h3>
+              <span className="heading__subtitle d-block">{t("subtitle")}</span>
+              <h2 className="heading__title">{t("title")}</h2>
             </div>
           </div>
         </div>

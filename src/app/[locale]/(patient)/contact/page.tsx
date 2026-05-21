@@ -37,9 +37,12 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "contactPage" });
+
   return (
     <>
       <section className="google-map py-0">
+        <h1 className="visually-hidden">{t("pageHeading")}</h1>
         <iframe
           frameBorder="0"
           height="500"

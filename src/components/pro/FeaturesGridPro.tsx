@@ -13,11 +13,45 @@ const FEATURES = [
   { key: "dashboard", icon: "fas fa-chart-bar" },
   { key: "multilingual", icon: "fas fa-globe-europe" },
   { key: "reminders", icon: "fas fa-bell" },
-  { key: "profile", icon: "fas fa-id-badge" },
-  { key: "documents", icon: "fas fa-file-medical" },
 ] as const;
 
 /* ── Mockup components ─────────────────────────────────────── */
+
+function AgendaCell({ name, type }: { name?: string; type?: "consult" | "followup" | "new" }) {
+  if (!name) {
+    return (
+      <div style={{
+        background: "rgba(255,255,255,0.02)",
+        border: "1px dashed rgba(255,255,255,0.06)",
+        borderRadius: 6,
+        minHeight: 30,
+      }} />
+    );
+  }
+  const styles: Record<string, { bg: string; border: string }> = {
+    consult: { bg: "rgba(103,203,199,0.18)", border: "var(--color-teal)" },
+    followup: { bg: "rgba(74,124,199,0.18)", border: "var(--color-cobalt)" },
+    new: { bg: "rgba(90,162,170,0.18)", border: "var(--color-mint)" },
+  };
+  const s = styles[type || "consult"];
+  return (
+    <div style={{
+      background: s.bg,
+      borderLeft: `3px solid ${s.border}`,
+      borderRadius: 6,
+      padding: "5px 8px",
+      fontSize: 10,
+      color: "rgba(255,255,255,0.8)",
+      fontWeight: 600,
+      lineHeight: 1.3,
+      minHeight: 30,
+      display: "flex",
+      alignItems: "center",
+    }}>
+      {name}
+    </div>
+  );
+}
 
 function MockupAgenda() {
   const t = useTranslations("pro");
@@ -28,59 +62,98 @@ function MockupAgenda() {
     t("featuresGrid.mockups.days.thu"),
     t("featuresGrid.mockups.days.fri"),
   ];
-  const slots = [
-    { day: 0, row: 0, label: t("featuresGrid.mockups.slots.patient1"), type: "consult" },
-    { day: 0, row: 1, label: t("featuresGrid.mockups.slots.patient2"), type: "followup" },
-    { day: 1, row: 0, label: t("featuresGrid.mockups.slots.patient3"), type: "consult" },
-    { day: 1, row: 2, label: t("featuresGrid.mockups.slots.patient4"), type: "new" },
-    { day: 2, row: 0, label: t("featuresGrid.mockups.slots.patient5"), type: "consult" },
-    { day: 2, row: 1, label: t("featuresGrid.mockups.slots.patient6"), type: "followup" },
-    { day: 3, row: 1, label: t("featuresGrid.mockups.slots.patient7"), type: "new" },
-    { day: 3, row: 2, label: t("featuresGrid.mockups.slots.patient8"), type: "consult" },
-    { day: 4, row: 0, label: t("featuresGrid.mockups.slots.patient9"), type: "consult" },
-    { day: 4, row: 2, label: t("featuresGrid.mockups.slots.patient10"), type: "followup" },
-  ];
-  const typeColors: Record<string, string> = {
-    consult: "rgba(103,203,199,0.15)",
-    followup: "rgba(74,124,199,0.12)",
-    new: "rgba(90,162,170,0.12)",
-  };
-  const typeBorders: Record<string, string> = {
-    consult: "rgba(103,203,199,0.4)",
-    followup: "rgba(74,124,199,0.3)",
-    new: "rgba(90,162,170,0.3)",
+  const hours = ["08:00", "09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
+  /* Mock data for visual demo — varied realistic distribution */
+  const slots: Record<string, { label: string; type: "consult" | "followup" | "new" }> = {
+    "0-0": { label: t("featuresGrid.mockups.slots.patient1"), type: "consult" },
+    "2-0": { label: t("featuresGrid.mockups.slots.patient5"), type: "followup" },
+    "4-0": { label: t("featuresGrid.mockups.slots.patient9"), type: "new" },
+    "0-1": { label: t("featuresGrid.mockups.slots.patient2"), type: "followup" },
+    "1-1": { label: "P. Santos", type: "new" },
+    "3-1": { label: t("featuresGrid.mockups.slots.patient7"), type: "consult" },
+    "1-2": { label: t("featuresGrid.mockups.slots.patient4"), type: "consult" },
+    "2-2": { label: t("featuresGrid.mockups.slots.patient6"), type: "followup" },
+    "4-2": { label: t("featuresGrid.mockups.slots.patient10"), type: "consult" },
+    "0-3": { label: "R. Oliveira", type: "consult" },
+    "3-3": { label: t("featuresGrid.mockups.slots.patient8"), type: "new" },
+    "1-4": { label: t("featuresGrid.mockups.slots.patient3"), type: "consult" },
+    "2-4": { label: "L. Ferreira", type: "followup" },
+    "4-4": { label: "M. Costa", type: "new" },
+    "0-5": { label: "A. Ribeiro", type: "new" },
+    "3-5": { label: "D. Martins", type: "followup" },
+    "1-6": { label: "S. Pereira", type: "consult" },
+    "2-6": { label: "H. Gomes", type: "new" },
+    "4-6": { label: "C. Almeida", type: "consult" },
   };
   return (
     <div className="mk-inner">
-      <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "40px repeat(5, 1fr)",
+        gap: 4,
+      }}>
+        {/* Header row: empty corner + 5 day headers */}
+        <div />
         {days.map((d) => (
-          <div key={d} style={{ flex: 1, textAlign: "center", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 1 }}>{d}</div>
+          <div key={d} style={{
+            textAlign: "center",
+            fontSize: 10,
+            fontWeight: 700,
+            color: "rgba(255,255,255,0.4)",
+            textTransform: "uppercase",
+            letterSpacing: 1,
+            paddingBottom: 6,
+          }}>{d}</div>
         ))}
-      </div>
-      <div style={{ display: "flex", gap: 6 }}>
-        {days.map((_, di) => (
-          <div key={di} style={{ flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
-            {[0, 1, 2].map((ri) => {
-              const slot = slots.find((s) => s.day === di && s.row === ri);
-              return slot ? (
-                <div key={ri} style={{ background: typeColors[slot.type], borderLeft: `3px solid ${typeBorders[slot.type]}`, borderRadius: 6, padding: "8px 6px", fontSize: 10, color: "rgba(255,255,255,0.7)", fontWeight: 600, lineHeight: 1.4 }}>
-                  {slot.label}
-                </div>
-              ) : (
-                <div key={ri} style={{ background: "rgba(255,255,255,0.02)", borderRadius: 6, padding: "8px 6px", minHeight: 36, border: "1px dashed rgba(255,255,255,0.04)" }} />
+        {/* Time rows */}
+        {hours.map((hour, ri) => (
+          <>
+            <div key={`t-${hour}`} style={{
+              fontSize: 10,
+              color: "rgba(255,255,255,0.3)",
+              textAlign: "right",
+              paddingRight: 6,
+              alignSelf: "center",
+            }}>{hour}</div>
+            {days.map((_, di) => {
+              const slot = slots[`${di}-${ri}`];
+              return (
+                <AgendaCell
+                  key={`${di}-${ri}`}
+                  name={slot?.label}
+                  type={slot?.type}
+                />
               );
             })}
-          </div>
+          </>
         ))}
       </div>
-      <div style={{ display: "flex", gap: 16, marginTop: 16, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      {/* Legend */}
+      <div style={{
+        display: "flex",
+        gap: 20,
+        marginTop: 14,
+        paddingTop: 12,
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+      }}>
         {[
-          { color: "rgba(103,203,199,0.4)", label: t("featuresGrid.mockups.agenda.consultation") },
-          { color: "rgba(74,124,199,0.3)", label: t("featuresGrid.mockups.agenda.followup") },
-          { color: "rgba(90,162,170,0.3)", label: t("featuresGrid.mockups.agenda.new") },
+          { color: "var(--color-teal)", label: t("featuresGrid.mockups.agenda.consultation") },
+          { color: "var(--color-cobalt)", label: t("featuresGrid.mockups.agenda.followup") },
+          { color: "var(--color-mint)", label: t("featuresGrid.mockups.agenda.new") },
         ].map((l) => (
-          <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10, color: "rgba(255,255,255,0.35)" }}>
-            <span style={{ width: 8, height: 8, borderRadius: 2, background: l.color }} />
+          <div key={l.label} style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 7,
+            fontSize: 10,
+            color: "rgba(255,255,255,0.5)",
+          }}>
+            <span style={{
+              width: 10,
+              height: 10,
+              borderRadius: 3,
+              background: l.color,
+            }} />
             {l.label}
           </div>
         ))}
@@ -95,6 +168,11 @@ function MockupPatients() {
     { initials: t("featuresGrid.mockups.patients.patient1.initials"), name: t("featuresGrid.mockups.patients.patient1.name"), info: t("featuresGrid.mockups.patients.patient1.info"), tag: t("featuresGrid.mockups.patients.patient1.tag"), active: true },
     { initials: t("featuresGrid.mockups.patients.patient2.initials"), name: t("featuresGrid.mockups.patients.patient2.name"), info: t("featuresGrid.mockups.patients.patient2.info"), tag: t("featuresGrid.mockups.patients.patient2.tag"), active: false },
     { initials: t("featuresGrid.mockups.patients.patient3.initials"), name: t("featuresGrid.mockups.patients.patient3.name"), info: t("featuresGrid.mockups.patients.patient3.info"), tag: t("featuresGrid.mockups.patients.patient3.tag"), active: false },
+    /* Mock data for visual demo */
+    { initials: "RS", name: "R. Santos", info: "46 · Cardiologia", tag: t("featuresGrid.mockups.patients.patient1.tag"), active: false },
+    { initials: "MC", name: "M. Costa", info: "32 · Dermatologia", tag: t("featuresGrid.mockups.patients.patient2.tag"), active: false },
+    { initials: "PL", name: "P. Lima", info: "58 · Endocrinologia", tag: t("featuresGrid.mockups.patients.patient1.tag"), active: false },
+    { initials: "AF", name: "A. Ferreira", info: "41 · Neurologia", tag: t("featuresGrid.mockups.patients.patient3.tag"), active: false },
   ];
   return (
     <div className="mk-inner">
@@ -192,6 +270,24 @@ function MockupDashboard() {
           ))}
         </div>
       </div>
+      {/* Mock data for visual demo — upcoming appointments */}
+      <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "14px 16px", marginTop: 12 }}>
+        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 10 }}>{t("featuresGrid.mockups.dashboard.dayThu")} — {t("featuresGrid.mockups.dashboard.appointments")}</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {[
+            { time: "09:00", name: "M. Silva", color: "rgba(103,203,199,0.4)" },
+            { time: "10:30", name: "A. Costa", color: "rgba(74,124,199,0.3)" },
+            { time: "14:00", name: "R. Oliveira", color: "rgba(103,203,199,0.4)" },
+            { time: "15:30", name: "P. Santos", color: "rgba(90,162,170,0.3)" },
+          ].map((a) => (
+            <div key={a.time} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12 }}>
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: a.color, flexShrink: 0 }} />
+              <span style={{ color: "rgba(255,255,255,0.35)", fontWeight: 600, width: 40, flexShrink: 0 }}>{a.time}</span>
+              <span style={{ color: "rgba(255,255,255,0.55)" }}>{a.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -258,88 +354,6 @@ function MockupReminders() {
   );
 }
 
-function MockupProfile() {
-  const t = useTranslations("pro");
-  return (
-    <div className="mk-inner">
-      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24, color: "#fff", fontSize: 15 }}>
-        <div style={{ width: 56, height: 56, borderRadius: 16, background: "linear-gradient(135deg, var(--color-accent), var(--color-navy))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 16, flexShrink: 0 }}>{t("featuresGrid.mockups.profile.you")}</div>
-        <div>
-          <strong>{t("featuresGrid.mockups.profile.yourName")}</strong>
-          <span style={{ display: "inline-flex", alignItems: "center", background: "rgba(103,203,199,0.12)", color: "var(--color-accent)", fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 6, marginLeft: 8 }}>
-            <i className="fas fa-shield-alt" style={{ fontSize: 9, marginRight: 3 }} />{t("featuresGrid.mockups.profile.verified")}
-          </span>
-          <br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>{t("featuresGrid.mockups.profile.yourSpecialty")}</span>
-        </div>
-      </div>
-      <div style={{ display: "flex", gap: 0, marginBottom: 20, background: "rgba(255,255,255,0.03)", borderRadius: 12, border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>
-        {[
-          { val: "4.9", label: t("featuresGrid.mockups.profile.rating") },
-          { val: "PT FR EN", label: t("featuresGrid.mockups.profile.languages") },
-          { val: t("featuresGrid.mockups.profile.online"), label: t("featuresGrid.mockups.profile.status") },
-        ].map((s, i) => (
-          <div key={s.label} style={{ flex: 1, textAlign: "center", padding: "16px 10px", borderRight: i < 2 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
-            <div style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>{s.val}</div>
-            <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 11 }}>{s.label}</div>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {[
-          { icon: "fas fa-graduation-cap", text: t("featuresGrid.mockups.profile.yourTraining") },
-          { icon: "fas fa-certificate", text: t("featuresGrid.mockups.profile.medicalLicense") },
-        ].map((c) => (
-          <div key={c.text} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.5)" }}>
-            <i className={c.icon} style={{ color: "var(--color-accent)", fontSize: 11 }} /> {c.text}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MockupDocuments() {
-  const t = useTranslations("pro");
-  return (
-    <div className="mk-inner">
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {[
-          { icon: "fas fa-file-medical-alt", name: t("featuresGrid.mockups.documents.consultReport"), patient: t("featuresGrid.mockups.documents.patient1"), date: t("featuresGrid.mockups.documents.today"), status: "new" },
-          { icon: "fas fa-file-prescription", name: t("featuresGrid.mockups.documents.prescription"), patient: t("featuresGrid.mockups.documents.patient2"), date: t("featuresGrid.mockups.documents.yesterday"), status: "sent" },
-          { icon: "fas fa-file-alt", name: t("featuresGrid.mockups.documents.medicalCertificate"), patient: t("featuresGrid.mockups.documents.patient3"), date: t("featuresGrid.mockups.documents.may12"), status: "sent" },
-          { icon: "fas fa-notes-medical", name: t("featuresGrid.mockups.documents.consultNotes"), patient: t("featuresGrid.mockups.documents.patient4"), date: t("featuresGrid.mockups.documents.may10"), status: "draft" },
-        ].map((d) => (
-          <div key={d.name + d.patient} style={{
-            display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", borderRadius: 12,
-            background: d.status === "new" ? "rgba(103,203,199,0.04)" : "rgba(255,255,255,0.03)",
-            border: `1px solid ${d.status === "new" ? "rgba(103,203,199,0.15)" : "rgba(255,255,255,0.05)"}`,
-          }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <i className={d.icon} style={{ color: d.status === "new" ? "var(--color-accent)" : "var(--color-cobalt)", fontSize: 14 }} />
-            </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ color: "#fff", fontWeight: 600, fontSize: 13 }}>{d.name}</div>
-              <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 11 }}>{d.patient}</div>
-            </div>
-            <div style={{ textAlign: "right", flexShrink: 0 }}>
-              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{d.date}</div>
-              <span style={{
-                fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, marginTop: 2, display: "inline-block",
-                background: d.status === "new" ? "rgba(103,203,199,0.1)" : d.status === "draft" ? "rgba(255,189,46,0.1)" : "rgba(255,255,255,0.04)",
-                color: d.status === "new" ? "var(--color-accent)" : d.status === "draft" ? "#ffbd2e" : "rgba(255,255,255,0.3)",
-              }}>{d.status === "new" ? t("featuresGrid.mockups.documents.statusNew") : d.status === "draft" ? t("featuresGrid.mockups.documents.statusDraft") : t("featuresGrid.mockups.documents.statusSent")}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 14, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <i className="fas fa-lock" style={{ color: "var(--color-accent)", fontSize: 11 }} />
-        {t("featuresGrid.mockups.documents.secureStorage")}
-      </div>
-    </div>
-  );
-}
-
 const MOCKUPS: Record<string, () => React.JSX.Element> = {
   agenda: MockupAgenda,
   patients: MockupPatients,
@@ -347,8 +361,6 @@ const MOCKUPS: Record<string, () => React.JSX.Element> = {
   dashboard: MockupDashboard,
   multilingual: MockupMultilingual,
   reminders: MockupReminders,
-  profile: MockupProfile,
-  documents: MockupDocuments,
 };
 
 /* ── Main component ─────────────────────────────────────────── */
@@ -365,7 +377,7 @@ export default function FeaturesGridPro() {
         .ft-showcase {
           position: relative;
           padding: 120px 0;
-          background: var(--color-dark-1);
+          background: linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-navy) 100%);
           overflow: clip;
         }
 
@@ -431,6 +443,8 @@ export default function FeaturesGridPro() {
             0 40px 80px rgba(0,0,0,0.3),
             inset 0 1px 0 rgba(255,255,255,0.04);
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
         }
         .ft-showcase .ft-device__bar {
           display: flex;
@@ -456,8 +470,8 @@ export default function FeaturesGridPro() {
           font-family: monospace;
         }
         .ft-showcase .ft-device__body {
-          padding: 32px 28px;
-          min-height: 420px;
+          padding: 28px 24px;
+          flex: 1;
           position: relative;
         }
 
@@ -587,10 +601,10 @@ export default function FeaturesGridPro() {
         @media (max-width: 991px) {
           .ft-showcase .ft-split { flex-direction: column; gap: 40px; }
           .ft-showcase .ft-mockup-wrap { flex: none; max-width: 100%; position: static; }
-          .ft-showcase { padding: 64px 0; background: var(--color-dark-1); }
+          .ft-showcase { padding: 64px 0; background: linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-navy) 100%); }
         }
         @media (max-width: 575px) {
-          .ft-showcase .ft-device__body { padding: 20px 16px; min-height: 340px; }
+          .ft-showcase .ft-device__body { padding: 20px 16px; }
         }
       `}</style>
 

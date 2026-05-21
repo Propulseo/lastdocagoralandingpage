@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const SPECIALTIES = [
@@ -53,10 +54,10 @@ export default function ServicesGrid() {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                  <a href="#" className="btn btn__secondary btn__outlined btn__rounded">
+                  <Link href="/specialties" className="btn btn__secondary btn__outlined btn__rounded">
                     <span>{t(`items.${key}.cta`)}</span>
                     <i className="icon-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </AnimatedCard>

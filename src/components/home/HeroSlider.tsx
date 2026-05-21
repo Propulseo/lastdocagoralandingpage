@@ -20,7 +20,7 @@ export default function HeroSlider() {
           <div className="row align-items-center justify-content-between">
             <div className="col-sm-12 col-md-12 col-lg-6 col-xl-6">
               <div className="slide__content">
-                <motion.h2
+                <motion.h1
                   className="slide__title"
                   initial={
                     prefersReducedMotion
@@ -35,7 +35,7 @@ export default function HeroSlider() {
                   }}
                 >
                   {t("slide1Title")}
-                </motion.h2>
+                </motion.h1>
                 <motion.p
                   className="slide__desc"
                   initial={
@@ -70,25 +70,25 @@ export default function HeroSlider() {
                     <div className="feature__icon">
                       <i className="icon-heart"></i>
                     </div>
-                    <h2 className="feature__title">{t("feature1")}</h2>
+                    <span className="feature__title">{t("feature1")}</span>
                   </li>
                   <li className="feature-item">
                     <div className="feature__icon">
                       <i className="icon-medicine"></i>
                     </div>
-                    <h2 className="feature__title">{t("feature2")}</h2>
+                    <span className="feature__title">{t("feature2")}</span>
                   </li>
                   <li className="feature-item">
                     <div className="feature__icon">
                       <i className="icon-heart2"></i>
                     </div>
-                    <h2 className="feature__title">{t("feature3")}</h2>
+                    <span className="feature__title">{t("feature3")}</span>
                   </li>
                   <li className="feature-item">
                     <div className="feature__icon">
                       <i className="icon-blood-test"></i>
                     </div>
-                    <h2 className="feature__title">{t("feature4")}</h2>
+                    <span className="feature__title">{t("feature4")}</span>
                   </li>
                 </motion.ul>
               </div>

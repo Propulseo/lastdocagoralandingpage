@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const SPECIALTY_KEYS = [
   "generalPractice", "cardiology", "dermatology", "pediatrics",
@@ -80,15 +81,15 @@ export default function ContactForm() {
               <p className="heading__desc">{t("whyDesc")}</p>
             </div>
             <div className="d-flex align-items-center">
-              <a href="#" className="btn btn__white btn__rounded mr-30">
+              <Link href="/specialties" className="btn btn__white btn__rounded mr-30">
                 <i className="fas fa-search"></i> <span>{t("findProfessional")}</span>
-              </a>
-              <a className="video__btn video__btn-white" href="#">
+              </Link>
+              <button type="button" className="video__btn video__btn-white">
                 <div className="video__player">
                   <i className="fa fa-play"></i>
                 </div>
                 <span className="video__btn-title color-white">{t("playVideo")}</span>
-              </a>
+              </button>
             </div>
             <div className="text__block">
               <p className="text__block-desc color-white font-weight-bold">{t("freeText")}</p>

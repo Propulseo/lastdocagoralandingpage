@@ -26,20 +26,23 @@ export default function ContactLayout() {
                   </div>
                   <div className="col-sm-6 col-md-6 col-lg-6">
                     <div className="form-group">
+                      <label htmlFor="contact-name" style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, display: "block", color: "var(--text-muted)" }}>{t("labelName")}</label>
                       <i className="icon-user form-group-icon"></i>
-                      <input type="text" className="form-control" placeholder={t("labelName")} />
+                      <input id="contact-name" type="text" className="form-control" placeholder={t("labelName")} />
                     </div>
                   </div>
                   <div className="col-sm-6 col-md-6 col-lg-6">
                     <div className="form-group">
+                      <label htmlFor="contact-email" style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, display: "block", color: "var(--text-muted)" }}>{t("labelEmail")}</label>
                       <i className="icon-email form-group-icon"></i>
-                      <input type="email" className="form-control" placeholder={t("labelEmail")} />
+                      <input id="contact-email" type="email" className="form-control" placeholder={t("labelEmail")} />
                     </div>
                   </div>
                   <div className="col-sm-6 col-md-6 col-lg-6">
                     <div className="form-group">
+                      <label htmlFor="contact-specialty" style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, display: "block", color: "var(--text-muted)" }}>{t("labelSpecialty")}</label>
                       <i className="icon-widget form-group-icon"></i>
-                      <select className="form-control">
+                      <select id="contact-specialty" className="form-control">
                         <option value="">{t("labelSpecialty")}</option>
                         {SPECIALTY_KEYS.map((key) => (
                           <option key={key} value={key}>{ts(`items.${key}.title`)}</option>
@@ -49,14 +52,16 @@ export default function ContactLayout() {
                   </div>
                   <div className="col-sm-6 col-md-6 col-lg-6">
                     <div className="form-group">
+                      <label htmlFor="contact-city" style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, display: "block", color: "var(--text-muted)" }}>{t("labelCity")}</label>
                       <i className="icon-location form-group-icon"></i>
-                      <input type="text" className="form-control" placeholder={t("labelCity")} />
+                      <input id="contact-city" type="text" className="form-control" placeholder={t("labelCity")} />
                     </div>
                   </div>
                   <div className="col-12">
                     <div className="form-group">
+                      <label htmlFor="contact-message" style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, display: "block", color: "var(--text-muted)" }}>{t("labelMessage")}</label>
                       <i className="icon-alert form-group-icon"></i>
-                      <textarea className="form-control" placeholder={t("labelMessage")}></textarea>
+                      <textarea id="contact-message" className="form-control" placeholder={t("labelMessage")}></textarea>
                     </div>
                     <button type="submit" className="btn btn__secondary btn__rounded btn__block btn__xhight mt-10">
                       <span>{t("submitButton")}</span> <i className="icon-arrow-right"></i>
@@ -76,13 +81,13 @@ export default function ContactLayout() {
                       <i className="icon-phone"></i><a href="tel:112">{t("panelEmergency")}</a>
                     </li>
                     <li>
-                      <i className="icon-location"></i><a href="#">{t("panelLocation")}</a>
+                      <i className="icon-location"></i><span>{t("panelLocation")}</span>
                     </li>
                     <li>
                       <i className="icon-email"></i><a href="mailto:hello@docagora.com">{t("panelEmail")}</a>
                     </li>
                   </ul>
-                  <a href="#" className="btn btn__white btn__rounded btn__outlined">{t("panelContactUs")}</a>
+                  <button type="submit" className="btn btn__white btn__rounded btn__outlined">{t("panelContactUs")}</button>
                 </div>
               </div>
             </div>

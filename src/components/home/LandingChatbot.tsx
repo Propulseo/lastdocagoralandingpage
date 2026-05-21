@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect, useCallback } from "react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import {
   getOrCreateSessionId,
   getLocalMessageCount,
@@ -22,6 +22,7 @@ const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3
 
 export default function LandingChatbot() {
   const t = useTranslations("chatbot")
+  const locale = useLocale()
 
   const [messages, setMessages] = useState<ChatEntry[]>([])
   const [input, setInput] = useState("")
@@ -71,7 +72,7 @@ export default function LandingChatbot() {
           message: trimmed,
           history,
           session_id: sessionId,
-          locale: "en",
+          locale,
         }),
       })
 

@@ -13,8 +13,8 @@ export default function FAQAccordion() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
             <div className="heading text-center mb-40">
-              <h2 className="heading__subtitle">{tc("faqSubtitle")}</h2>
-              <h3 className="heading__title">{tc("faqTitle")}</h3>
+              <span className="heading__subtitle d-block">{tc("faqSubtitle")}</span>
+              <h2 className="heading__title">{tc("faqTitle")}</h2>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@ export default function FAQAccordion() {
             {FAQ_KEYS.map((key, i) => (
               <div key={key} className={`accordion-item${i === 0 ? " opened" : ""}`}>
                 <div className="accordion__header" data-toggle="collapse" data-target={`#faq-collapse-${key}`}>
-                  <a className="accordion__title" href="#">{t(`items.${key}.question`)}</a>
+                  <button className="accordion__title" type="button">{t(`items.${key}.question`)}</button>
                 </div>
                 <div id={`faq-collapse-${key}`} className={`collapse${i === 0 ? " show" : ""}`} data-parent="#faq-accordion">
                   <div className="accordion__body">

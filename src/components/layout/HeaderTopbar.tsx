@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import HeaderSearch from "./HeaderSearch";
 
 export default function HeaderTopbar() {
@@ -28,10 +29,10 @@ export default function HeaderTopbar() {
                       <i className="icon-email"></i> <span>{t("email")}</span>
                     </a>
                     <p>{t("emergencyNotice")}</p>
-                    <a href="#" className="btn btn__secondary btn__link btn__block">
+                    <Link href="/specialties" className="btn btn__secondary btn__link btn__block">
                       <span>{t("findProfessional")}</span>{" "}
                       <i className="icon-arrow-right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li>
@@ -40,29 +41,29 @@ export default function HeaderTopbar() {
                 </li>
                 <li>
                   <i className="icon-location"></i>
-                  <a href="#">{t("location")}</a>
+                  <span>{t("location")}</span>
                 </li>
                 <li>
                   <i className="icon-clock"></i>
-                  <a href="#">{t("available247")}</a>
+                  <span>{t("available247")}</span>
                 </li>
               </ul>
               <div className="d-flex">
                 <ul className="social-icons list-unstyled mb-0 mr-30">
                   <li>
-                    <a href="#">
+                    <button type="button" aria-label="Facebook">
                       <i className="fab fa-facebook-f"></i>
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a href="#">
+                    <button type="button" aria-label="Instagram">
                       <i className="fab fa-instagram"></i>
-                    </a>
+                    </button>
                   </li>
                   <li>
-                    <a href="#">
+                    <button type="button" aria-label="Twitter">
                       <i className="fab fa-twitter"></i>
-                    </a>
+                    </button>
                   </li>
                 </ul>
                 <HeaderSearch />

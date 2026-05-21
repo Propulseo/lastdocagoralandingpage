@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function AboutLayout1() {
   const t = useTranslations("aboutPage");
@@ -19,20 +20,20 @@ export default function AboutLayout1() {
               <p className="mb-30">{t("aboutP1")}</p>
               <p className="mb-30">{t("aboutP2")}</p>
               <div className="d-flex align-items-center mb-30">
-                <a href="#" className="btn btn__primary btn__outlined btn__rounded mr-30">
+                <Link href="/specialties" className="btn btn__primary btn__outlined btn__rounded mr-30">
                   {t("meetProfessionals")}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="col-sm-12 col-md-12 col-lg-6">
             <div className="video-banner">
               <img src="/assets/images/about/1.jpg" alt="about" />
-              <a className="video__btn video__btn-white" href="#">
+              <button type="button" className="video__btn video__btn-white">
                 <div className="video__player">
                   <i className="fa fa-play"></i>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>
