@@ -20,28 +20,35 @@ const FEATURES = [
 /* ── Mockup components ─────────────────────────────────────── */
 
 function MockupAgenda() {
-  const days = ["Lun", "Mar", "Mer", "Jeu", "Ven"];
+  const t = useTranslations("pro");
+  const days = [
+    t("featuresGrid.mockups.days.mon"),
+    t("featuresGrid.mockups.days.tue"),
+    t("featuresGrid.mockups.days.wed"),
+    t("featuresGrid.mockups.days.thu"),
+    t("featuresGrid.mockups.days.fri"),
+  ];
   const slots = [
-    { day: 0, row: 0, label: "M. Silva", type: "consult" },
-    { day: 0, row: 1, label: "Mme Dupont", type: "followup" },
-    { day: 1, row: 0, label: "M. Santos", type: "consult" },
-    { day: 1, row: 2, label: "Mme Alves", type: "new" },
-    { day: 2, row: 0, label: "M. Moreau", type: "consult" },
-    { day: 2, row: 1, label: "Mme Costa", type: "followup" },
-    { day: 3, row: 1, label: "M. Ferreira", type: "new" },
-    { day: 3, row: 2, label: "Mme Leroy", type: "consult" },
-    { day: 4, row: 0, label: "M. Oliveira", type: "consult" },
-    { day: 4, row: 2, label: "Mme Martin", type: "followup" },
+    { day: 0, row: 0, label: t("featuresGrid.mockups.slots.patient1"), type: "consult" },
+    { day: 0, row: 1, label: t("featuresGrid.mockups.slots.patient2"), type: "followup" },
+    { day: 1, row: 0, label: t("featuresGrid.mockups.slots.patient3"), type: "consult" },
+    { day: 1, row: 2, label: t("featuresGrid.mockups.slots.patient4"), type: "new" },
+    { day: 2, row: 0, label: t("featuresGrid.mockups.slots.patient5"), type: "consult" },
+    { day: 2, row: 1, label: t("featuresGrid.mockups.slots.patient6"), type: "followup" },
+    { day: 3, row: 1, label: t("featuresGrid.mockups.slots.patient7"), type: "new" },
+    { day: 3, row: 2, label: t("featuresGrid.mockups.slots.patient8"), type: "consult" },
+    { day: 4, row: 0, label: t("featuresGrid.mockups.slots.patient9"), type: "consult" },
+    { day: 4, row: 2, label: t("featuresGrid.mockups.slots.patient10"), type: "followup" },
   ];
   const typeColors: Record<string, string> = {
     consult: "rgba(103,203,199,0.15)",
     followup: "rgba(74,124,199,0.12)",
-    new: "rgba(111,66,193,0.12)",
+    new: "rgba(90,162,170,0.12)",
   };
   const typeBorders: Record<string, string> = {
     consult: "rgba(103,203,199,0.4)",
     followup: "rgba(74,124,199,0.3)",
-    new: "rgba(111,66,193,0.3)",
+    new: "rgba(90,162,170,0.3)",
   };
   return (
     <div className="mk-inner">
@@ -68,9 +75,9 @@ function MockupAgenda() {
       </div>
       <div style={{ display: "flex", gap: 16, marginTop: 16, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         {[
-          { color: "rgba(103,203,199,0.4)", label: "Consultation" },
-          { color: "rgba(74,124,199,0.3)", label: "Suivi" },
-          { color: "rgba(111,66,193,0.3)", label: "Nouveau" },
+          { color: "rgba(103,203,199,0.4)", label: t("featuresGrid.mockups.agenda.consultation") },
+          { color: "rgba(74,124,199,0.3)", label: t("featuresGrid.mockups.agenda.followup") },
+          { color: "rgba(90,162,170,0.3)", label: t("featuresGrid.mockups.agenda.new") },
         ].map((l) => (
           <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10, color: "rgba(255,255,255,0.35)" }}>
             <span style={{ width: 8, height: 8, borderRadius: 2, background: l.color }} />
@@ -83,16 +90,17 @@ function MockupAgenda() {
 }
 
 function MockupPatients() {
+  const t = useTranslations("pro");
   const patients = [
-    { initials: "AS", name: "Ana Silva", info: "42 ans · Suivi cardio", tag: "Prochain: Demain 10h", active: true },
-    { initials: "PD", name: "Pierre Dupont", info: "35 ans · Bilan annuel", tag: "Vu il y a 3 jours", active: false },
-    { initials: "MC", name: "Maria Costa", info: "58 ans · Diabète T2", tag: "Prochain: Vendredi", active: false },
+    { initials: t("featuresGrid.mockups.patients.patient1.initials"), name: t("featuresGrid.mockups.patients.patient1.name"), info: t("featuresGrid.mockups.patients.patient1.info"), tag: t("featuresGrid.mockups.patients.patient1.tag"), active: true },
+    { initials: t("featuresGrid.mockups.patients.patient2.initials"), name: t("featuresGrid.mockups.patients.patient2.name"), info: t("featuresGrid.mockups.patients.patient2.info"), tag: t("featuresGrid.mockups.patients.patient2.tag"), active: false },
+    { initials: t("featuresGrid.mockups.patients.patient3.initials"), name: t("featuresGrid.mockups.patients.patient3.name"), info: t("featuresGrid.mockups.patients.patient3.info"), tag: t("featuresGrid.mockups.patients.patient3.tag"), active: false },
   ];
   return (
     <div className="mk-inner">
       <div style={{ display: "flex", alignItems: "center", gap: 12, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, padding: "10px 14px", marginBottom: 16 }}>
-        <i className="fas fa-search" style={{ color: "var(--color-accent)", fontSize: 13 }}></i>
-        <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>Rechercher un patient...</span>
+        <i className="fas fa-search" style={{ color: "var(--color-accent)", fontSize: 13 }} />
+        <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>{t("featuresGrid.mockups.patients.search")}</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {patients.map((p) => (
@@ -111,36 +119,37 @@ function MockupPatients() {
         ))}
       </div>
       <div className="mk-result-count" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.5)", paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 14 }}>
-        <span className="mk-result-dot"></span> <strong style={{ color: "rgba(255,255,255,0.7)" }}>127</strong> patients
+        <span className="mk-result-dot" /> <strong style={{ color: "rgba(255,255,255,0.7)" }}>127</strong> {t("featuresGrid.mockups.patients.patientsLabel")}
       </div>
     </div>
   );
 }
 
 function MockupBooking() {
+  const t = useTranslations("pro");
   return (
     <div className="mk-inner">
       <div style={{ textAlign: "center", marginBottom: 20 }}>
-        <div style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 6 }}>Vue patient</div>
-        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)" }}>Vos patients réservent en ligne, 24h/24</div>
+        <div style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 2, marginBottom: 6 }}>{t("featuresGrid.mockups.booking.patientView")}</div>
+        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)" }}>{t("featuresGrid.mockups.booking.subtitle")}</div>
       </div>
       <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 20 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18, color: "#fff", fontSize: 14 }}>
-          <div style={{ width: 44, height: 44, borderRadius: 12, background: "linear-gradient(135deg, var(--color-accent), var(--color-navy))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 13, flexShrink: 0 }}>Vous</div>
-          <div><strong>Votre profil DocAgora</strong><br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 12 }}>Visible publiquement</span></div>
+          <div style={{ width: 44, height: 44, borderRadius: 12, background: "linear-gradient(135deg, var(--color-accent), var(--color-navy))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 13, flexShrink: 0 }}>{t("featuresGrid.mockups.booking.you")}</div>
+          <div><strong>{t("featuresGrid.mockups.booking.yourProfile")}</strong><br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 12 }}>{t("featuresGrid.mockups.booking.publiclyVisible")}</span></div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8, marginBottom: 16 }}>
-          {["09:00", "10:30", "14:00", "15:30", "16:00", "17:00"].map((t, i) => (
-            <span key={t} style={{
+          {["09:00", "10:30", "14:00", "15:30", "16:00", "17:00"].map((time, i) => (
+            <span key={time} style={{
               textAlign: "center", padding: "10px 0", borderRadius: 8, fontSize: 13, fontWeight: 600,
               background: i === 2 ? "rgba(103,203,199,0.12)" : "rgba(255,255,255,0.04)",
               border: `1px solid ${i === 2 ? "var(--color-accent)" : "rgba(255,255,255,0.06)"}`,
               color: i === 2 ? "var(--color-accent)" : "rgba(255,255,255,0.5)",
-            }}>{t}</span>
+            }}>{time}</span>
           ))}
         </div>
         <div style={{ background: "linear-gradient(135deg, #67CBC7, #5AA2AA)", color: "#fff", textAlign: "center", padding: 12, borderRadius: 10, fontWeight: 700, fontSize: 14, boxShadow: "0 4px 16px rgba(103,203,199,0.25)" }}>
-          Confirmer le rendez-vous
+          {t("featuresGrid.mockups.booking.confirmBooking")}
         </div>
       </div>
     </div>
@@ -148,10 +157,18 @@ function MockupBooking() {
 }
 
 function MockupDashboard() {
+  const t = useTranslations("pro");
   const stats = [
-    { label: "Cette semaine", value: "24", sub: "rendez-vous", color: "var(--color-accent)" },
-    { label: "Taux présence", value: "96%", sub: "+4% vs mois dernier", color: "var(--color-cobalt)" },
-    { label: "Satisfaction", value: "4.8", sub: "sur 5.0", color: "#6f42c1" },
+    { label: t("featuresGrid.mockups.dashboard.thisWeek"), value: "24", sub: t("featuresGrid.mockups.dashboard.appointments"), color: "var(--color-accent)" },
+    { label: t("featuresGrid.mockups.dashboard.attendanceRate"), value: "96%", sub: t("featuresGrid.mockups.dashboard.vsLastMonth"), color: "var(--color-cobalt)" },
+    { label: t("featuresGrid.mockups.dashboard.satisfaction"), value: "4.8", sub: t("featuresGrid.mockups.dashboard.outOf"), color: "var(--color-mint)" },
+  ];
+  const dayLabels = [
+    t("featuresGrid.mockups.dashboard.dayMon"),
+    t("featuresGrid.mockups.dashboard.dayTue"),
+    t("featuresGrid.mockups.dashboard.dayWed"),
+    t("featuresGrid.mockups.dashboard.dayThu"),
+    t("featuresGrid.mockups.dashboard.dayFri"),
   ];
   return (
     <div className="mk-inner">
@@ -164,14 +181,13 @@ function MockupDashboard() {
           </div>
         ))}
       </div>
-      {/* Mini bar chart */}
       <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "18px 16px" }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>Rendez-vous cette semaine</div>
+        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>{t("featuresGrid.mockups.dashboard.weeklyAppointments")}</div>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 8, height: 80 }}>
           {[60, 80, 45, 90, 70].map((h, i) => (
             <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
               <div style={{ width: "100%", height: h, borderRadius: 6, background: i === 3 ? "linear-gradient(180deg, #67CBC7, rgba(103,203,199,0.3))" : "rgba(255,255,255,0.06)", transition: "height 0.3s" }} />
-              <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{["L", "M", "Me", "J", "V"][i]}</span>
+              <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>{dayLabels[i]}</span>
             </div>
           ))}
         </div>
@@ -181,13 +197,14 @@ function MockupDashboard() {
 }
 
 function MockupMultilingual() {
+  const t = useTranslations("pro");
   return (
     <div className="mk-inner">
       <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
         {[
-          { flag: "\u{1F1F5}\u{1F1F9}", lang: "Português", desc: "Interface + fiche patient", active: true },
-          { flag: "\u{1F1EB}\u{1F1F7}", lang: "Français", desc: "Interface + fiche patient", active: false },
-          { flag: "\u{1F1EC}\u{1F1E7}", lang: "English", desc: "Interface + fiche patient", active: false },
+          { flag: "\u{1F1F5}\u{1F1F9}", lang: "Portugu\u00EAs", desc: t("featuresGrid.mockups.multilingual.interfacePatient"), active: true },
+          { flag: "\u{1F1EB}\u{1F1F7}", lang: "Fran\u00E7ais", desc: t("featuresGrid.mockups.multilingual.interfacePatient"), active: false },
+          { flag: "\u{1F1EC}\u{1F1E7}", lang: "English", desc: t("featuresGrid.mockups.multilingual.interfacePatient"), active: false },
         ].map((l) => (
           <div key={l.lang} style={{
             display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", borderRadius: 12,
@@ -197,27 +214,28 @@ function MockupMultilingual() {
           }}>
             <span style={{ fontSize: 24 }}>{l.flag}</span>
             <div style={{ flex: 1 }}><strong>{l.lang}</strong><br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 12 }}>{l.desc}</span></div>
-            {l.active && <i className="fas fa-check-circle" style={{ color: "var(--color-accent)" }}></i>}
+            {l.active && <i className="fas fa-check-circle" style={{ color: "var(--color-accent)" }} />}
           </div>
         ))}
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.5)", paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <i className="fas fa-info-circle" style={{ color: "var(--color-accent)", fontSize: 12 }}></i>
-        Vos patients voient le site dans leur langue
+        <i className="fas fa-info-circle" style={{ color: "var(--color-accent)", fontSize: 12 }} />
+        {t("featuresGrid.mockups.multilingual.patientsSeeSite")}
       </div>
     </div>
   );
 }
 
 function MockupReminders() {
+  const t = useTranslations("pro");
   return (
     <div className="mk-inner">
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {[
-          { icon: "fas fa-bell", color: "var(--color-accent)", title: "Rappel envoyé automatiquement", desc: "M. Silva · Demain 10h30", time: "Il y a 1h", highlight: true },
-          { icon: "fas fa-check-circle", color: "#28c840", title: "Rendez-vous confirmé", desc: "Mme Dupont a confirmé sa présence", time: "Il y a 3h", highlight: false },
-          { icon: "fas fa-envelope", color: "var(--color-cobalt)", title: "Rappel SMS J-1 programmé", desc: "3 patients · Envoi demain 8h", time: "Planifié", highlight: false },
-          { icon: "fas fa-chart-line", color: "#6f42c1", title: "Taux de no-show réduit", desc: "-40% depuis l'activation des rappels", time: "Ce mois", highlight: false },
+          { icon: "fas fa-bell", color: "var(--color-accent)", title: t("featuresGrid.mockups.reminders.autoReminderSent"), desc: t("featuresGrid.mockups.reminders.reminderDesc"), time: t("featuresGrid.mockups.reminders.oneHourAgo"), highlight: true },
+          { icon: "fas fa-check-circle", color: "#28c840", title: t("featuresGrid.mockups.reminders.appointmentConfirmed"), desc: t("featuresGrid.mockups.reminders.confirmedDesc"), time: t("featuresGrid.mockups.reminders.threeHoursAgo"), highlight: false },
+          { icon: "fas fa-envelope", color: "var(--color-cobalt)", title: t("featuresGrid.mockups.reminders.smsReminder"), desc: t("featuresGrid.mockups.reminders.smsDesc"), time: t("featuresGrid.mockups.reminders.scheduled"), highlight: false },
+          { icon: "fas fa-chart-line", color: "var(--color-mint)", title: t("featuresGrid.mockups.reminders.noShowReduced"), desc: t("featuresGrid.mockups.reminders.noShowDesc"), time: t("featuresGrid.mockups.reminders.thisMonth"), highlight: false },
         ].map((n) => (
           <div key={n.title} style={{
             display: "flex", alignItems: "flex-start", gap: 14, padding: "14px 16px", borderRadius: 12,
@@ -226,7 +244,7 @@ function MockupReminders() {
             color: "#fff", fontSize: 13, position: "relative",
           }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <i className={n.icon} style={{ color: n.color, fontSize: 14 }}></i>
+              <i className={n.icon} style={{ color: n.color, fontSize: 14 }} />
             </div>
             <div style={{ flex: 1 }}>
               <strong>{n.title}</strong><br />
@@ -241,23 +259,24 @@ function MockupReminders() {
 }
 
 function MockupProfile() {
+  const t = useTranslations("pro");
   return (
     <div className="mk-inner">
       <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24, color: "#fff", fontSize: 15 }}>
-        <div style={{ width: 56, height: 56, borderRadius: 16, background: "linear-gradient(135deg, var(--color-accent), var(--color-navy))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 16, flexShrink: 0 }}>Vous</div>
+        <div style={{ width: 56, height: 56, borderRadius: 16, background: "linear-gradient(135deg, var(--color-accent), var(--color-navy))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 16, flexShrink: 0 }}>{t("featuresGrid.mockups.profile.you")}</div>
         <div>
-          <strong>Dr. Votre Nom</strong>
+          <strong>{t("featuresGrid.mockups.profile.yourName")}</strong>
           <span style={{ display: "inline-flex", alignItems: "center", background: "rgba(103,203,199,0.12)", color: "var(--color-accent)", fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 6, marginLeft: 8 }}>
-            <i className="fas fa-shield-alt" style={{ fontSize: 9, marginRight: 3 }}></i>Vérifié
+            <i className="fas fa-shield-alt" style={{ fontSize: 9, marginRight: 3 }} />{t("featuresGrid.mockups.profile.verified")}
           </span>
-          <br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>Votre spécialité · Votre ville</span>
+          <br /><span style={{ color: "rgba(255,255,255,0.35)", fontSize: 13 }}>{t("featuresGrid.mockups.profile.yourSpecialty")}</span>
         </div>
       </div>
       <div style={{ display: "flex", gap: 0, marginBottom: 20, background: "rgba(255,255,255,0.03)", borderRadius: 12, border: "1px solid rgba(255,255,255,0.06)", overflow: "hidden" }}>
         {[
-          { val: "4.9", label: "Note" },
-          { val: "PT FR EN", label: "Langues" },
-          { val: "En ligne", label: "Statut" },
+          { val: "4.9", label: t("featuresGrid.mockups.profile.rating") },
+          { val: "PT FR EN", label: t("featuresGrid.mockups.profile.languages") },
+          { val: t("featuresGrid.mockups.profile.online"), label: t("featuresGrid.mockups.profile.status") },
         ].map((s, i) => (
           <div key={s.label} style={{ flex: 1, textAlign: "center", padding: "16px 10px", borderRight: i < 2 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
             <div style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>{s.val}</div>
@@ -267,11 +286,11 @@ function MockupProfile() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {[
-          { icon: "fas fa-graduation-cap", text: "Votre formation" },
-          { icon: "fas fa-certificate", text: "Ordem dos Médicos — N° licence" },
+          { icon: "fas fa-graduation-cap", text: t("featuresGrid.mockups.profile.yourTraining") },
+          { icon: "fas fa-certificate", text: t("featuresGrid.mockups.profile.medicalLicense") },
         ].map((c) => (
           <div key={c.text} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.5)" }}>
-            <i className={c.icon} style={{ color: "var(--color-accent)", fontSize: 11 }}></i> {c.text}
+            <i className={c.icon} style={{ color: "var(--color-accent)", fontSize: 11 }} /> {c.text}
           </div>
         ))}
       </div>
@@ -280,14 +299,15 @@ function MockupProfile() {
 }
 
 function MockupDocuments() {
+  const t = useTranslations("pro");
   return (
     <div className="mk-inner">
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {[
-          { icon: "fas fa-file-medical-alt", name: "Compte-rendu consultation", patient: "M. Silva", date: "Aujourd'hui", status: "new" },
-          { icon: "fas fa-file-prescription", name: "Ordonnance", patient: "Mme Dupont", date: "Hier", status: "sent" },
-          { icon: "fas fa-file-alt", name: "Certificat médical", patient: "M. Santos", date: "12 mai", status: "sent" },
-          { icon: "fas fa-notes-medical", name: "Notes de consultation", patient: "Mme Costa", date: "10 mai", status: "draft" },
+          { icon: "fas fa-file-medical-alt", name: t("featuresGrid.mockups.documents.consultReport"), patient: t("featuresGrid.mockups.documents.patient1"), date: t("featuresGrid.mockups.documents.today"), status: "new" },
+          { icon: "fas fa-file-prescription", name: t("featuresGrid.mockups.documents.prescription"), patient: t("featuresGrid.mockups.documents.patient2"), date: t("featuresGrid.mockups.documents.yesterday"), status: "sent" },
+          { icon: "fas fa-file-alt", name: t("featuresGrid.mockups.documents.medicalCertificate"), patient: t("featuresGrid.mockups.documents.patient3"), date: t("featuresGrid.mockups.documents.may12"), status: "sent" },
+          { icon: "fas fa-notes-medical", name: t("featuresGrid.mockups.documents.consultNotes"), patient: t("featuresGrid.mockups.documents.patient4"), date: t("featuresGrid.mockups.documents.may10"), status: "draft" },
         ].map((d) => (
           <div key={d.name + d.patient} style={{
             display: "flex", alignItems: "center", gap: 14, padding: "14px 16px", borderRadius: 12,
@@ -295,7 +315,7 @@ function MockupDocuments() {
             border: `1px solid ${d.status === "new" ? "rgba(103,203,199,0.15)" : "rgba(255,255,255,0.05)"}`,
           }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <i className={d.icon} style={{ color: d.status === "new" ? "var(--color-accent)" : "var(--color-cobalt)", fontSize: 14 }}></i>
+              <i className={d.icon} style={{ color: d.status === "new" ? "var(--color-accent)" : "var(--color-cobalt)", fontSize: 14 }} />
             </div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ color: "#fff", fontWeight: 600, fontSize: 13 }}>{d.name}</div>
@@ -307,14 +327,14 @@ function MockupDocuments() {
                 fontSize: 10, fontWeight: 600, padding: "2px 8px", borderRadius: 4, marginTop: 2, display: "inline-block",
                 background: d.status === "new" ? "rgba(103,203,199,0.1)" : d.status === "draft" ? "rgba(255,189,46,0.1)" : "rgba(255,255,255,0.04)",
                 color: d.status === "new" ? "var(--color-accent)" : d.status === "draft" ? "#ffbd2e" : "rgba(255,255,255,0.3)",
-              }}>{d.status === "new" ? "Nouveau" : d.status === "draft" ? "Brouillon" : "Envoyé"}</span>
+              }}>{d.status === "new" ? t("featuresGrid.mockups.documents.statusNew") : d.status === "draft" ? t("featuresGrid.mockups.documents.statusDraft") : t("featuresGrid.mockups.documents.statusSent")}</span>
             </div>
           </div>
         ))}
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 14, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <i className="fas fa-lock" style={{ color: "var(--color-accent)", fontSize: 11 }}></i>
-        Stockage sécurisé · Chiffrement de bout en bout
+        <i className="fas fa-lock" style={{ color: "var(--color-accent)", fontSize: 11 }} />
+        {t("featuresGrid.mockups.documents.secureStorage")}
       </div>
     </div>
   );
@@ -341,30 +361,12 @@ export default function FeaturesGridPro() {
   return (
     <section className="ft-showcase">
       <style>{`
-        /* ===== SECTION ===== */
+        /* ===== SECTION — gradient transition from light to dark ===== */
         .ft-showcase {
           position: relative;
           padding: 120px 0;
-          background: linear-gradient(170deg, var(--color-dark-2) 0%, var(--color-dark-1) 35%, var(--color-navy) 70%, var(--color-dark-2) 100%);
+          background: linear-gradient(to bottom, var(--color-light-1) 0px, var(--color-dark-1) 120px);
           overflow: clip;
-        }
-        .ft-showcase::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background:
-            radial-gradient(ellipse 800px 600px at 20% 20%, rgba(var(--color-teal-rgb),0.06) 0%, transparent 100%),
-            radial-gradient(ellipse 600px 800px at 80% 80%, rgba(var(--color-cobalt-rgb),0.08) 0%, transparent 100%);
-          pointer-events: none;
-          z-index: 0;
-        }
-        .ft-showcase::after {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-          pointer-events: none;
-          z-index: 0;
         }
 
         /* ===== HEADER ===== */
@@ -391,7 +393,7 @@ export default function FeaturesGridPro() {
           margin-bottom: 28px;
         }
         .ft-showcase .ft-title {
-          font-size: 42px;
+          font-size: clamp(28px, 3.5vw, 40px);
           font-weight: 700;
           color: #fff;
           line-height: 1.15;
@@ -404,24 +406,24 @@ export default function FeaturesGridPro() {
           margin: 0;
         }
 
-        /* ===== SPLIT LAYOUT ===== */
+        /* ===== SPLIT LAYOUT — 60/40 ===== */
         .ft-showcase .ft-split {
           display: flex;
-          gap: 56px;
+          gap: 64px;
           align-items: flex-start;
           position: relative;
           z-index: 1;
         }
 
-        /* ===== MOCKUP (LEFT) ===== */
+        /* ===== MOCKUP (LEFT) — 60% ===== */
         .ft-showcase .ft-mockup-wrap {
-          flex: 0 0 55%;
-          max-width: 55%;
+          flex: 0 0 58%;
+          max-width: 58%;
           position: sticky;
           top: 120px;
         }
         .ft-showcase .ft-device {
-          background: var(--color-dark-1);
+          background: var(--color-dark-2);
           border-radius: 20px;
           border: 1px solid rgba(255,255,255,0.06);
           box-shadow:
@@ -474,7 +476,12 @@ export default function FeaturesGridPro() {
         }
         @keyframes mkPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        /* ===== FEATURE LIST (RIGHT) ===== */
+        @media (prefers-reduced-motion: reduce) {
+          .mk-inner { animation: none; }
+          .mk-result-dot { animation: none; }
+        }
+
+        /* ===== FEATURE LIST (RIGHT) — 40% ===== */
         .ft-showcase .ft-list-wrap {
           flex: 1;
           min-width: 0;
@@ -490,7 +497,7 @@ export default function FeaturesGridPro() {
           background: rgba(255,255,255,0.02);
         }
         .ft-showcase .ft-item--active {
-          border-left-color: var(--color-pro-accent);
+          border-left-color: var(--color-teal);
           background: rgba(var(--color-cobalt-rgb),0.04);
         }
         .ft-showcase .ft-item__head {
@@ -506,7 +513,7 @@ export default function FeaturesGridPro() {
           min-width: 22px;
           transition: color 0.3s;
         }
-        .ft-showcase .ft-item--active .ft-item__num { color: var(--color-pro-accent); }
+        .ft-showcase .ft-item--active .ft-item__num { color: var(--color-teal); }
         .ft-showcase .ft-item__icon {
           width: 40px;
           height: 40px;
@@ -521,8 +528,8 @@ export default function FeaturesGridPro() {
           flex-shrink: 0;
         }
         .ft-showcase .ft-item--active .ft-item__icon {
-          background: rgba(var(--color-cobalt-rgb),0.1);
-          color: var(--color-pro-accent);
+          background: rgba(var(--color-teal-rgb),0.1);
+          color: var(--color-teal);
         }
         .ft-showcase .ft-item__title {
           font-size: 15px;
@@ -548,7 +555,7 @@ export default function FeaturesGridPro() {
           margin-top: 12px;
         }
 
-        /* ===== CTA ===== */
+        /* ===== CTA — primary Teal filled ===== */
         .ft-showcase .ft-cta {
           text-align: center;
           margin-top: 72px;
@@ -559,41 +566,40 @@ export default function FeaturesGridPro() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          padding: 14px 36px;
-          border-radius: 50px;
-          border: 1px solid rgba(var(--color-cobalt-rgb),0.25);
-          color: var(--color-pro-accent) !important;
-          font-size: 15px;
+          padding: 16px 32px;
+          border-radius: 8px;
+          background: var(--color-teal);
+          color: var(--color-dark-1) !important;
+          font-size: 16px;
           font-weight: 600;
           text-decoration: none !important;
-          transition: all 0.3s;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 16px rgba(var(--color-teal-rgb), 0.3);
         }
         .ft-showcase .ft-cta a:hover {
-          background: rgba(var(--color-cobalt-rgb),0.08);
-          border-color: var(--color-pro-accent);
-          box-shadow: 0 0 30px rgba(var(--color-cobalt-rgb),0.1);
-          color: var(--color-pro-accent) !important;
+          background: var(--color-mint);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(var(--color-teal-rgb), 0.4);
+          color: var(--color-dark-1) !important;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
           .ft-showcase .ft-split { flex-direction: column; gap: 40px; }
           .ft-showcase .ft-mockup-wrap { flex: none; max-width: 100%; position: static; }
-          .ft-showcase .ft-title { font-size: 32px; }
-          .ft-showcase { padding: 80px 0; }
+          .ft-showcase { padding: 64px 0; background: linear-gradient(to bottom, var(--color-light-1) 0px, var(--color-dark-1) 80px); }
         }
         @media (max-width: 575px) {
-          .ft-showcase .ft-title { font-size: 26px; }
           .ft-showcase .ft-device__body { padding: 20px 16px; min-height: 340px; }
         }
       `}</style>
 
-      <div className="container">
+      <div className="container-landing">
         <div className="ft-header">
           <div className="ft-pill">
-            <i className="fas fa-laptop-medical"></i> {t("pill")}
+            <i className="fas fa-laptop-medical" /> {t("pill")}
           </div>
-          <h3 className="ft-title">{t("title")}</h3>
+          <h2 className="ft-title">{t("title")}</h2>
           <p className="ft-subtitle">{t("desc")}</p>
         </div>
 
@@ -601,9 +607,9 @@ export default function FeaturesGridPro() {
           <div className="ft-mockup-wrap">
             <div className="ft-device">
               <div className="ft-device__bar">
-                <span className="ft-dot"></span>
-                <span className="ft-dot"></span>
-                <span className="ft-dot"></span>
+                <span className="ft-dot" />
+                <span className="ft-dot" />
+                <span className="ft-dot" />
                 <span className="ft-device__url">pro.docagora.com</span>
               </div>
               <div className="ft-device__body" key={active}>
@@ -612,16 +618,24 @@ export default function FeaturesGridPro() {
             </div>
           </div>
 
-          <div className="ft-list-wrap">
+          <div className="ft-list-wrap" aria-label={t("title")} role="list">
             {FEATURES.map(({ key, icon }, i) => (
               <div
                 key={key}
                 className={`ft-item${active === i ? " ft-item--active" : ""}`}
+                role="button"
+                tabIndex={0}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setActive(i);
+                  }
+                }}
               >
                 <div className="ft-item__head">
                   <span className="ft-item__num">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="ft-item__icon"><i className={icon}></i></div>
+                  <div className="ft-item__icon"><i className={icon} /></div>
                   <h4 className="ft-item__title">{t(`items.${key}.title`)}</h4>
                 </div>
                 <div className="ft-item__desc">{t(`items.${key}.desc`)}</div>
@@ -633,7 +647,7 @@ export default function FeaturesGridPro() {
         <div className="ft-cta">
           <a href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}>
             <span>{t("cta")}</span>
-            <i className="fas fa-arrow-right"></i>
+            <i className="fas fa-arrow-right" />
           </a>
         </div>
       </div>
