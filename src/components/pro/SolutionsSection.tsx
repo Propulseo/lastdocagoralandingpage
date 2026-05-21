@@ -58,14 +58,14 @@ export default function SolutionsSection() {
   return (
     <section id="solutions" style={{ background: "linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-navy) 100%)", padding: "120px 0" }}>
       <style>{`
-        .solutions-grid {
-          --bs-gutter-x: var(--spacing-md);
-          --bs-gutter-y: var(--spacing-md);
+        .row.solutions-grid {
+          --bs-gutter-x: var(--spacing-md) !important;
+          --bs-gutter-y: var(--spacing-md) !important;
         }
         @media (max-width: 767px) {
-          .solutions-grid {
-            --bs-gutter-x: var(--spacing-sm);
-            --bs-gutter-y: var(--spacing-sm);
+          .row.solutions-grid {
+            --bs-gutter-x: var(--spacing-sm) !important;
+            --bs-gutter-y: var(--spacing-sm) !important;
           }
         }
       `}</style>

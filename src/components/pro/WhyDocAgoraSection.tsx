@@ -20,15 +20,15 @@ export default function WhyDocAgoraSection() {
       }}
     >
       <style>{`
-        .why-grid {
-          --bs-gutter-x: var(--spacing-lg);
-          --bs-gutter-y: var(--spacing-lg);
+        .row.why-grid {
+          --bs-gutter-x: var(--spacing-lg) !important;
+          --bs-gutter-y: var(--spacing-lg) !important;
         }
         .why-card { padding: var(--spacing-xl); }
         @media (max-width: 767px) {
-          .why-grid {
-            --bs-gutter-x: var(--spacing-md);
-            --bs-gutter-y: var(--spacing-md);
+          .row.why-grid {
+            --bs-gutter-x: var(--spacing-md) !important;
+            --bs-gutter-y: var(--spacing-md) !important;
           }
           .why-card { padding: var(--spacing-lg); }
         }
