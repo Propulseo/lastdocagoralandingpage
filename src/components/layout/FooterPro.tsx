@@ -14,7 +14,7 @@ export default function FooterPro() {
         className="footer-primary"
         style={{ paddingTop: 80, paddingBottom: 40 }}
       >
-        <div className="container-landing">
+        <div className="container" style={{ maxWidth: 1320 }}>
           <div className="row">
             {/* Column 1 -- Logo + About */}
             <div className="col-sm-12 col-md-6 col-lg-3">
@@ -120,106 +120,69 @@ export default function FooterPro() {
                 className="footer-widget-contact"
                 style={{
                   borderRadius: 12,
-                  padding: 32,
+                  padding: "var(--spacing-lg)",
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(var(--color-cobalt-rgb), 0.2)",
-                  position: "relative",
-                  overflow: "hidden",
                 }}
               >
                 <h6
                   style={{
                     fontSize: 15,
                     fontWeight: 700,
-                    marginBottom: 14,
+                    marginBottom: "var(--spacing-sm)",
                     color: "rgba(255,255,255,0.9)",
-                    position: "relative",
-                    zIndex: 1,
                   }}
                 >
                   {t("contactTitle")}
                 </h6>
-                <ul
-                  className="contact-list list-unstyled"
-                  style={{ position: "relative", zIndex: 1 }}
+                <p
+                  style={{
+                    fontSize: 13,
+                    color: "rgba(255,255,255,0.5)",
+                    lineHeight: 1.7,
+                    marginBottom: "var(--spacing-md)",
+                  }}
                 >
-                  <li
-                    style={{
-                      fontSize: 13,
-                      color: "rgba(255,255,255,0.5)",
-                      lineHeight: 1.7,
-                      marginBottom: 12,
-                    }}
-                  >
-                    {t("contactDesc")}
-                  </li>
-                  <li>
-                    <a
-                      href={`mailto:${t("contactEmail")}`}
-                      className="d-inline-flex align-items-center gap-2"
-                      style={{
-                        color: "var(--color-teal)",
-                        fontWeight: 600,
-                        fontSize: 15,
-                        textDecoration: "none",
-                        marginBottom: 8,
-                      }}
-                    >
-                      <i
-                        className="icon-email"
-                        style={{ fontSize: 16 }}
-                      />
-                      <span>{t("contactEmail")}</span>
-                    </a>
-                  </li>
-                  <li
-                    className="d-flex align-items-center gap-2"
-                    style={{
-                      fontSize: 13,
-                      color: "rgba(255,255,255,0.5)",
-                      marginTop: 8,
-                    }}
-                  >
-                    <i
-                      className="fas fa-map-marker-alt"
-                      style={{ color: "var(--color-teal)", fontSize: 14 }}
-                    />
-                    {t("contactLocation")}
-                  </li>
-                </ul>
+                  {t("contactDesc")}
+                </p>
                 <div
-                  className="mt-3"
-                  style={{ position: "relative", zIndex: 1 }}
+                  className="footer-pro__contact-item"
+                  style={{ marginBottom: "var(--spacing-xs)" }}
                 >
-                  <Link
-                    href="/contact"
-                    className="d-inline-flex align-items-center gap-2"
-                    style={{
-                      background: "var(--color-teal)",
-                      color: "var(--color-dark-1)",
-                      padding: "10px 24px",
-                      borderRadius: 8,
-                      fontSize: 13,
-                      fontWeight: 600,
-                      textDecoration: "none",
-                      transition: "all 0.2s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "var(--color-mint)";
-                      e.currentTarget.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "var(--color-teal)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
+                  <i
+                    className="icon-email footer-pro__contact-icon"
+                    aria-hidden="true"
+                  />
+                  <a
+                    href={`mailto:${t("contactEmail")}`}
+                    className="footer-pro__contact-link"
                   >
-                    <span>{t("contactUs")}</span>
-                    <i
-                      className="icon-arrow-right"
-                      style={{ fontSize: 11 }}
-                    />
-                  </Link>
+                    {t("contactEmail")}
+                  </a>
                 </div>
+                <div
+                  className="footer-pro__contact-item"
+                  style={{ marginBottom: "var(--spacing-md)" }}
+                >
+                  <i
+                    className="fas fa-map-marker-alt footer-pro__contact-icon"
+                    aria-hidden="true"
+                  />
+                  <span className="footer-pro__contact-text">
+                    {t("contactLocation")}
+                  </span>
+                </div>
+                <Link
+                  href="/contact"
+                  className="footer-pro__contact-cta"
+                >
+                  <span>{t("contactUs")}</span>
+                  <i
+                    className="icon-arrow-right"
+                    style={{ fontSize: 11 }}
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
             </div>
           </div>

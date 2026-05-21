@@ -331,6 +331,74 @@ h1, h2, h3, h4, h5, h6,
   color: var(--color-teal) !important;
 }
 
+/* ── Footer Pro: Get in touch card ── */
+
+/* Remove legacy decorative phone/cross icomoon glyph */
+.footer-pro .footer-widget-contact::before {
+  display: none !important;
+}
+
+/* Replace legacy absolute ::after with proper border-left on the card */
+.footer-pro .footer-widget-contact::after {
+  display: none !important;
+}
+
+.footer-pro .footer-widget-contact {
+  border-left: 3px solid var(--color-teal) !important;
+}
+
+/* Contact items: icon + text with proper gap */
+.footer-pro .footer-pro__contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.footer-pro .footer-pro__contact-icon {
+  flex-shrink: 0;
+  color: var(--color-teal);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.footer-pro .footer-pro__contact-link {
+  color: var(--color-teal) !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.footer-pro .footer-pro__contact-link:hover {
+  color: var(--color-mint) !important;
+}
+
+.footer-pro .footer-pro__contact-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+/* CTA button */
+.footer-pro .footer-pro__contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 10px 24px;
+  background-color: var(--color-teal);
+  color: var(--color-dark-1) !important;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: gap 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-pro .footer-pro__contact-cta:hover {
+  gap: var(--spacing-sm);
+  background-color: var(--color-mint);
+  transform: translateY(-1px);
+}
+
 /* ── Footer Patient (dark theme) ── */
 .footer-widget-nav a {
   color: rgba(255, 255, 255, 0.6) !important;
@@ -356,6 +424,91 @@ h1, h2, h3, h4, h5, h6,
 
 .sticky-navbar.is-sticky {
   background-color: #ffffff !important;
+}
+
+/* ── Navbar Pro — glass / transparent ── */
+.navbar.navbar-pro-glass {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar.navbar-pro-glass .nav__item-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.25s ease;
+}
+
+.navbar.navbar-pro-glass .nav__item-link:hover,
+.navbar.navbar-pro-glass .nav__item-link.active {
+  color: #ffffff !important;
+}
+
+.navbar.navbar-pro-glass .logo-dark {
+  display: none !important;
+}
+.navbar.navbar-pro-glass .logo-light {
+  display: inline-block !important;
+}
+
+.navbar.navbar-pro-glass .navbar-toggler .menu-lines:before,
+.navbar.navbar-pro-glass .navbar-toggler .menu-lines:after,
+.navbar.navbar-pro-glass .navbar-toggler .menu-lines span {
+  background-color: #fff;
+}
+
+/* Sticky state — frosted glass */
+.navbar.navbar-pro-glass.is-sticky {
+  position: fixed;
+  background-color: rgba(23, 37, 67, 0.92) !important;
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: 0 1px 16px rgba(0, 0, 0, 0.12);
+}
+
+.navbar.navbar-pro-glass.is-sticky .nav__item-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar.navbar-pro-glass.is-sticky .nav__item-link:hover,
+.navbar.navbar-pro-glass.is-sticky .nav__item-link.active {
+  color: #ffffff !important;
+}
+
+.navbar.navbar-pro-glass.is-sticky .logo-dark {
+  display: none !important;
+}
+.navbar.navbar-pro-glass.is-sticky .logo-light {
+  display: inline-block !important;
+}
+
+/* ── ImproveSection CTA ── */
+.improve-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-cobalt);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: gap 0.2s ease;
+}
+
+.improve-card__cta:hover {
+  color: var(--color-cobalt);
+  gap: 10px;
+}
+
+.improve-card__cta-icon {
+  transition: transform 0.2s ease;
+}
+
+.improve-card__cta:hover .improve-card__cta-icon {
+  transform: translateX(2px);
 }
 
 /* ── Misc template overrides ── */
