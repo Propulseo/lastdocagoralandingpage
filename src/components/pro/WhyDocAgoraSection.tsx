@@ -19,6 +19,20 @@ export default function WhyDocAgoraSection() {
         padding: "120px 0",
       }}
     >
+      <style>{`
+        .why-grid {
+          --bs-gutter-x: var(--spacing-lg);
+          --bs-gutter-y: var(--spacing-lg);
+        }
+        .why-card { padding: var(--spacing-xl); }
+        @media (max-width: 767px) {
+          .why-grid {
+            --bs-gutter-x: var(--spacing-md);
+            --bs-gutter-y: var(--spacing-md);
+          }
+          .why-card { padding: var(--spacing-lg); }
+        }
+      `}</style>
       <div className="container-landing">
         {/* Section header */}
         <div className="text-center" style={{ maxWidth: 640, margin: "0 auto 64px" }}>
@@ -46,19 +60,19 @@ export default function WhyDocAgoraSection() {
         </div>
 
         {/* 2x2 grid */}
-        <div className="row g-4">
+        <div className="row why-grid">
           {differentiators.map((diff) => (
             <div key={diff.titleKey} className="col-lg-6 col-md-6">
               <div
+                className="why-card"
                 style={{
                   background: "var(--color-light-1)",
                   borderRadius: 12,
-                  padding: 32,
                   height: "100%",
                   border: "1px solid rgba(var(--color-cobalt-rgb), 0.15)",
                   display: "flex",
                   alignItems: "flex-start",
-                  gap: 20,
+                  gap: 24,
                   transition: "box-shadow 0.2s ease, transform 0.2s ease",
                   boxShadow: "0 2px 8px rgba(36, 72, 130, 0.06)",
                 }}
@@ -79,12 +93,7 @@ export default function WhyDocAgoraSection() {
                     width: 48,
                     height: 48,
                     borderRadius: "50%",
-                    background:
-                      diff.color === "var(--color-cobalt)"
-                        ? "rgba(var(--color-cobalt-rgb), 0.1)"
-                        : diff.color === "var(--color-teal)"
-                          ? "rgba(var(--color-teal-rgb), 0.1)"
-                          : "rgba(var(--color-mint-rgb), 0.1)",
+                    background: diff.color,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -93,7 +102,7 @@ export default function WhyDocAgoraSection() {
                 >
                   <i
                     className={diff.icon}
-                    style={{ fontSize: 20, color: diff.color }}
+                    style={{ fontSize: 20, color: "#fff" }}
                   />
                 </div>
 
@@ -103,7 +112,7 @@ export default function WhyDocAgoraSection() {
                       fontSize: "clamp(18px, 2vw, 22px)",
                       fontWeight: 600,
                       color: "var(--color-dark-1)",
-                      marginBottom: 8,
+                      marginBottom: 16,
                       lineHeight: 1.3,
                     }}
                   >

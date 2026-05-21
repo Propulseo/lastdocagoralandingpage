@@ -17,7 +17,7 @@ export default function EarlyAdoptersPro() {
   return (
     <section
       style={{
-        background: "var(--color-dark-1)",
+        background: "linear-gradient(135deg, var(--color-dark-1) 0%, var(--color-navy) 100%)",
         padding: "120px 0 80px",
       }}
     >
@@ -48,7 +48,7 @@ export default function EarlyAdoptersPro() {
         </div>
 
         {/* Cards */}
-        <div className="row g-4 mb-5">
+        <div className="row g-4" style={{ marginBottom: "var(--spacing-2xl)" }}>
           {benefits.map((benefit) => (
             <div key={benefit.titleKey} className="col-lg-4 col-md-6">
               <div

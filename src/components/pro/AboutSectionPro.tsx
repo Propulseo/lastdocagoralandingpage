@@ -119,15 +119,16 @@ export default function AboutSectionPro() {
             </p>
 
             {/* Value bullets */}
-            <div className="d-flex flex-column gap-3">
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-md)" }}>
               {values.map((value) => (
                 <div
                   key={value}
                   style={{
                     background: "var(--color-light-2)",
-                    borderRadius: 10,
-                    padding: "16px 22px",
+                    borderRadius: 12,
+                    padding: "var(--spacing-md) var(--spacing-lg)",
                     border: "1px solid rgba(var(--color-cobalt-rgb), 0.1)",
+                    borderLeft: "3px solid var(--color-mint)",
                     display: "flex",
                     alignItems: "center",
                     gap: 12,

@@ -119,6 +119,21 @@ export default function HeroProSection() {
           color: #fff;
         }
 
+        .hero-pro__ctas {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: var(--spacing-sm);
+          margin-bottom: var(--spacing-sm);
+        }
+        @media (max-width: 767px) {
+          .hero-pro__ctas {
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--spacing-sm);
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .hero-pro__glow-1,
           .hero-pro__glow-2 {
@@ -184,7 +199,7 @@ export default function HeroProSection() {
             </p>
 
             {/* CTAs */}
-            <div className="d-flex flex-wrap align-items-center gap-3 mb-3">
+            <div className="hero-pro__ctas">
               {/* Primary CTA — Teal filled */}
               <a
                 href={`${PLATFORM_URL}/register?role=professional&utm_source=landing_pro`}
@@ -219,15 +234,32 @@ export default function HeroProSection() {
                 <i className="fas fa-arrow-right" style={{ fontSize: 13 }} />
               </a>
 
-              {/* Tertiary link — anchor to form */}
+              {/* Secondary CTA — ghost outline */}
               <a
                 href="#contact-form"
                 style={{
-                  color: "var(--color-cobalt)",
-                  fontSize: 15,
-                  fontWeight: 500,
-                  textDecoration: "underline",
-                  textUnderlineOffset: 3,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  background: "transparent",
+                  color: "var(--color-teal)",
+                  padding: "16px 32px",
+                  borderRadius: 8,
+                  fontSize: 16,
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  border: "1px solid rgba(var(--color-teal-rgb), 0.4)",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(var(--color-teal-rgb), 0.1)";
+                  e.currentTarget.style.borderColor = "var(--color-teal)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.borderColor = "rgba(var(--color-teal-rgb), 0.4)";
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 {t("hero.ctaLearnMore")}
