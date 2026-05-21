@@ -80,6 +80,18 @@
   --fs-2xl: 32px;
   --fs-3xl: 42px;
   --fs-4xl: 48px;
+  --fs-5xl: 60px;
+
+  /* ── Spacing Scale (8px base) ── */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-section: 96px;
+  --spacing-section-lg: 120px;
+  --spacing-hero: 160px;
 }
 
 /* ============================================================
@@ -280,10 +292,46 @@ h1, h2, h3, h4, h5, h6,
   text-transform: uppercase !important;
 }
 
+/* ── Footer Pro (dark theme — Sombre 2) ── */
+.footer-pro,
 .footer-pro .footer-primary {
-  background-color: var(--color-navy) !important;
+  background-color: var(--color-dark-2) !important;
 }
 
+.footer-pro .footer-widget__title {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.footer-pro .footer-widget-about .color-gray,
+.footer-pro .footer-widget-about p {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer-pro .footer-widget-nav a {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer-pro .footer-widget-nav a:hover {
+  color: var(--color-teal) !important;
+}
+
+.footer-pro .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.footer-pro .footer-bottom__left {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.footer-pro .footer-bottom__right a {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.footer-pro .footer-bottom__right a:hover {
+  color: var(--color-teal) !important;
+}
+
+/* ── Footer Patient (dark theme) ── */
 .footer-widget-nav a {
   color: rgba(255, 255, 255, 0.6) !important;
 }
@@ -325,6 +373,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ============================================================
+   Smooth scrolling (global)
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
    Focus-visible — Restore keyboard focus indicators
    (overrides legacy style.css `outline: none` on * / buttons / forms)
    ============================================================ */
@@ -343,4 +398,19 @@ textarea:focus-visible,
   outline: 2px solid var(--color-cobalt) !important;
   outline-offset: 2px !important;
   box-shadow: 0 0 0 3px rgba(var(--color-cobalt-rgb), 0.25) !important;
+}
+
+/* ============================================================
+   Landing Pro — Unified container (1200px max-width)
+   ============================================================ */
+.container-landing {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (max-width: 768px) {
+  .container-landing {
+    padding-inline: 16px;
+  }
 }
