@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 export default function FooterPro() {
   const t = useTranslations("footer");
@@ -11,30 +12,31 @@ export default function FooterPro() {
     <footer className="footer footer-pro">
       <div
         className="footer-primary"
-        style={{ paddingTop: 60, paddingBottom: 40 }}
+        style={{ paddingTop: 80, paddingBottom: 40 }}
       >
-        <div className="container" style={{ maxWidth: 1320 }}>
+        <div className="container-landing">
           <div className="row">
             {/* Column 1 -- Logo + About */}
             <div className="col-sm-12 col-md-6 col-lg-3">
               <div className="footer-widget-about">
-                <img
+                <Image
                   src="/assets/images/logo/logo-light.png"
-                  alt="DocAgora logo"
+                  alt="DocAgora"
+                  width={160}
+                  height={70}
                   className="mb-3"
-                  style={{ maxHeight: 70 }}
+                  style={{ filter: "brightness(1.1)" }}
                 />
                 <p
-                  className="color-gray"
-                  style={{ fontSize: 13, lineHeight: 1.8 }}
+                  style={{ fontSize: 13, lineHeight: 1.8, color: "rgba(255,255,255,0.5)" }}
                 >
                   {t("aboutText")}
                 </p>
                 <Link
-                  href="/pro"
+                  href="/"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "var(--color-pro-accent)",
+                    color: "var(--color-teal)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -45,46 +47,8 @@ export default function FooterPro() {
                   <i
                     className="icon-arrow-right"
                     style={{ fontSize: 11 }}
-                  ></i>
+                  />
                 </Link>
-
-                {/* Social icons */}
-                <div className="d-flex gap-2 mt-4">
-                  {[
-                    { icon: "fab fa-facebook-f", href: "#" },
-                    { icon: "fab fa-instagram", href: "#" },
-                    { icon: "fab fa-twitter", href: "#" },
-                    { icon: "fab fa-linkedin-in", href: "#" },
-                  ].map((social) => (
-                    <a
-                      key={social.icon}
-                      href={social.href}
-                      className="d-flex align-items-center justify-content-center footer-social-link"
-                      style={{
-                        width: 34,
-                        height: 34,
-                        borderRadius: "50%",
-                        background: "rgba(255,255,255,0.08)",
-                        color: "rgba(255,255,255,0.6)",
-                        fontSize: 13,
-                        transition: "all 0.3s",
-                        textDecoration: "none",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "var(--color-pro-accent)";
-                        e.currentTarget.style.color = "#fff";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background =
-                          "rgba(255,255,255,0.08)";
-                        e.currentTarget.style.color =
-                          "rgba(255,255,255,0.6)";
-                      }}
-                    >
-                      <i className={social.icon}></i>
-                    </a>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -150,24 +114,25 @@ export default function FooterPro() {
               </div>
             </div>
 
-            {/* Column 4 -- Get In Touch card */}
+            {/* Column 4 -- Get In Touch card (dark variant) */}
             <div className="col-sm-12 col-md-6 col-lg-4">
               <div
                 className="footer-widget-contact"
                 style={{
-                  borderRadius: 16,
-                  padding: "32px 30px",
-                  background: "#ffffff",
+                  borderRadius: 12,
+                  padding: 32,
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(var(--color-cobalt-rgb), 0.2)",
                   position: "relative",
                   overflow: "hidden",
                 }}
               >
                 <h6
-                  className="color-heading"
                   style={{
                     fontSize: 15,
                     fontWeight: 700,
                     marginBottom: 14,
+                    color: "rgba(255,255,255,0.9)",
                     position: "relative",
                     zIndex: 1,
                   }}
@@ -181,7 +146,7 @@ export default function FooterPro() {
                   <li
                     style={{
                       fontSize: 13,
-                      color: "#6b7280",
+                      color: "rgba(255,255,255,0.5)",
                       lineHeight: 1.7,
                       marginBottom: 12,
                     }}
@@ -193,7 +158,7 @@ export default function FooterPro() {
                       href={`mailto:${t("contactEmail")}`}
                       className="d-inline-flex align-items-center gap-2"
                       style={{
-                        color: "var(--color-cobalt)",
+                        color: "var(--color-teal)",
                         fontWeight: 600,
                         fontSize: 15,
                         textDecoration: "none",
@@ -203,7 +168,7 @@ export default function FooterPro() {
                       <i
                         className="icon-email"
                         style={{ fontSize: 16 }}
-                      ></i>
+                      />
                       <span>{t("contactEmail")}</span>
                     </a>
                   </li>
@@ -211,14 +176,14 @@ export default function FooterPro() {
                     className="d-flex align-items-center gap-2"
                     style={{
                       fontSize: 13,
-                      color: "#6b7280",
+                      color: "rgba(255,255,255,0.5)",
                       marginTop: 8,
                     }}
                   >
                     <i
                       className="fas fa-map-marker-alt"
-                      style={{ color: "var(--color-pro-accent)", fontSize: 14 }}
-                    ></i>
+                      style={{ color: "var(--color-teal)", fontSize: 14 }}
+                    />
                     {t("contactLocation")}
                   </li>
                 </ul>
@@ -230,32 +195,29 @@ export default function FooterPro() {
                     href="/contact"
                     className="d-inline-flex align-items-center gap-2"
                     style={{
-                      background:
-                        "linear-gradient(135deg, var(--color-navy), var(--color-cobalt))",
-                      color: "#fff",
+                      background: "var(--color-teal)",
+                      color: "var(--color-dark-1)",
                       padding: "10px 24px",
-                      borderRadius: 10,
+                      borderRadius: 8,
                       fontSize: 13,
                       fontWeight: 600,
                       textDecoration: "none",
-                      transition: "transform 0.2s, box-shadow 0.2s",
+                      transition: "all 0.2s ease",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform =
-                        "translateY(-1px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 4px 12px rgba(var(--color-navy-rgb), 0.3)";
+                      e.currentTarget.style.background = "var(--color-mint)";
+                      e.currentTarget.style.transform = "translateY(-1px)";
                     }}
                     onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "var(--color-teal)";
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <span>{t("contactUs")}</span>
                     <i
                       className="icon-arrow-right"
                       style={{ fontSize: 11 }}
-                    ></i>
+                    />
                   </Link>
                 </div>
               </div>
@@ -267,17 +229,16 @@ export default function FooterPro() {
             className="footer-bottom"
             style={{
               borderTop: "1px solid rgba(255,255,255,0.08)",
-              marginTop: 35,
+              marginTop: 40,
               paddingTop: 20,
             }}
           >
-            <div className="footer-bottom__left">
+            <div className="footer-bottom__left" style={{ color: "rgba(255,255,255,0.35)" }}>
               {t("copyright")} {t("gdprBadge")}
             </div>
             <div className="footer-bottom__right">
               <Link href="/terms-of-use">{t("bottomTerms")}</Link>
               <Link href="/privacy-policy">{t("bottomPrivacy")}</Link>
-              <Link href="/privacy-policy">{t("bottomGdpr")}</Link>
             </div>
           </div>
         </div>
