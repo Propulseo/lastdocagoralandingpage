@@ -365,7 +365,7 @@ export default function FeaturesGridPro() {
         .ft-showcase {
           position: relative;
           padding: 120px 0;
-          background: linear-gradient(to bottom, var(--color-light-1) 0px, var(--color-dark-1) 120px);
+          background: var(--color-dark-1);
           overflow: clip;
         }
 
@@ -587,7 +587,7 @@ export default function FeaturesGridPro() {
         @media (max-width: 991px) {
           .ft-showcase .ft-split { flex-direction: column; gap: 40px; }
           .ft-showcase .ft-mockup-wrap { flex: none; max-width: 100%; position: static; }
-          .ft-showcase { padding: 64px 0; background: linear-gradient(to bottom, var(--color-light-1) 0px, var(--color-dark-1) 80px); }
+          .ft-showcase { padding: 64px 0; background: var(--color-dark-1); }
         }
         @media (max-width: 575px) {
           .ft-showcase .ft-device__body { padding: 20px 16px; min-height: 340px; }

@@ -15,7 +15,7 @@ export default function WhyDocAgoraSection() {
   return (
     <section
       style={{
-        background: "linear-gradient(to bottom, var(--color-dark-1) 0px, var(--color-light-2) 120px)",
+        background: "var(--color-light-2)",
         padding: "120px 0",
       }}
     >

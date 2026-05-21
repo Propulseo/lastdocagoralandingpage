@@ -17,7 +17,7 @@ export default function EarlyAdoptersPro() {
   return (
     <section
       style={{
-        background: "linear-gradient(to bottom, var(--color-light-1) 0px, var(--color-dark-1) 120px)",
+        background: "var(--color-dark-1)",
         padding: "120px 0 80px",
       }}
     >

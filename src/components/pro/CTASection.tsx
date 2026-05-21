@@ -11,34 +11,18 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: "var(--color-dark-1)",
+        background: "var(--color-light-1)",
         padding: "80px 0 120px",
         textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      {/* Subtle ambient glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-30%",
-          right: "-10%",
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(var(--color-teal-rgb),0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div className="container-landing" style={{ position: "relative", zIndex: 1 }}>
+      <div className="container-landing">
         <div style={{ maxWidth: 640, margin: "0 auto" }}>
           <h2
             style={{
               fontSize: "clamp(28px, 3.5vw, 40px)",
               fontWeight: 700,
-              color: "#fff",
+              color: "var(--color-dark-1)",
               marginBottom: 16,
               lineHeight: 1.15,
             }}
@@ -48,7 +32,7 @@ export default function CTASection() {
           <p
             style={{
               fontSize: 17,
-              color: "rgba(255,255,255,0.6)",
+              color: "var(--text-muted)",
               lineHeight: 1.6,
               marginBottom: 40,
             }}
@@ -64,25 +48,25 @@ export default function CTASection() {
               alignItems: "center",
               justifyContent: "center",
               gap: 10,
-              background: "var(--color-teal)",
-              color: "var(--color-dark-1)",
+              background: "var(--color-navy)",
+              color: "var(--color-light-1)",
               padding: "16px 40px",
               borderRadius: 8,
               fontSize: 16,
               fontWeight: 600,
               textDecoration: "none",
               transition: "all 0.2s ease",
-              boxShadow: "0 4px 16px rgba(var(--color-teal-rgb), 0.3)",
+              boxShadow: "0 4px 16px rgba(var(--color-navy-rgb), 0.3)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--color-mint)";
+              e.currentTarget.style.background = "var(--color-cobalt)";
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-teal-rgb), 0.4)";
+              e.currentTarget.style.boxShadow = "0 8px 24px rgba(var(--color-navy-rgb), 0.4)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "var(--color-teal)";
+              e.currentTarget.style.background = "var(--color-navy)";
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-teal-rgb), 0.3)";
+              e.currentTarget.style.boxShadow = "0 4px 16px rgba(var(--color-navy-rgb), 0.3)";
             }}
           >
             {t("ctaGetStarted")}
