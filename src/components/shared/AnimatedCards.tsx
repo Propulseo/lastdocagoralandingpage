@@ -47,7 +47,7 @@ export function AnimatedCardsContainer({
       variants={containerVariants(stagger)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {children}
     </motion.div>

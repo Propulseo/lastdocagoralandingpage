@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>DocAgora Pro — 5 concepts de landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #0c121e;
+      --panel: #141d2e;
+      --line: rgba(255,255,255,0.08);
+      --txt: #eef2f7;
+      --muted: #9aa6b8;
+      --teal: #67CBC7;
+      --cobalt: #4A7CC7;
+      --navy: #244882;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
+      background:
+        radial-gradient(120% 80% at 80% -10%, rgba(74,124,199,0.18), transparent 55%),
+        radial-gradient(100% 70% at 0% 110%, rgba(103,203,199,0.12), transparent 55%),
+        var(--paper);
+      color: var(--txt);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding: clamp(32px, 6vw, 80px) clamp(20px, 5vw, 64px) 80px;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    header { margin-bottom: clamp(40px, 6vw, 72px); max-width: 720px; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 22px;
+    }
+    .kicker::before { content: ""; width: 28px; height: 1px; background: var(--teal); display: inline-block; }
+    h1 {
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+    .lead { font-size: clamp(15px, 2vw, 18px); color: var(--muted); line-height: 1.65; max-width: 620px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      position: relative;
+      display: flex; flex-direction: column;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 30px 26px;
+      text-decoration: none; color: inherit;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s ease, box-shadow .35s ease;
+    }
+    .card::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(120% 100% at 100% 0%, var(--swatch, rgba(103,203,199,0.14)), transparent 60%);
+      opacity: .6; pointer-events: none; transition: opacity .35s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(103,203,199,0.4);
+      box-shadow: 0 30px 60px -28px rgba(0,0,0,0.7);
+    }
+    .card:hover::after { opacity: 1; }
+    .card:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+    .num {
+      font-family: "Fraunces", serif; font-size: 40px; font-weight: 500;
+      color: rgba(255,255,255,0.18); line-height: 1; margin-bottom: 18px;
+    }
+    .cname { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .cdesc { font-size: 14.5px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+    .meta { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 22px; }
+    .meta b { color: rgba(255,255,255,0.7); font-weight: 600; }
+    .open {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 14px; font-weight: 700; color: var(--teal);
+      position: relative; z-index: 1;
+    }
+    .open span { transition: transform .3s ease; }
+    .card:hover .open span { transform: translateX(5px); }
+    footer { margin-top: 56px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="kicker">DocAgora Pro · Exploration</span>
+      <h1>5 concepts de landing, <em>from scratch</em></h1>
+      <p class="lead">Cinq directions de design radicalement différentes, même contenu réel. Ouvre chacune, compare, et dis-moi laquelle on développe.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" style="--swatch: rgba(103,203,199,0.16)" href="./concept-1.html">
+        <div class="num">01</div>
+        <div class="cname">Éditorial clinique</div>
+        <div class="cdesc">Clair & raffiné, magazine suisse. Grand serif Fraunces, beaucoup de blanc, grille asymétrique, filets fins. Premium et rassurant.</div>
+        <div class="meta"><b>Fonts</b> Fraunces + Hanken Grotesk · <b>Thème</b> clair</div>
+        <div class="open">Ouvrir le concept <span>→</span></div>
+      </a>
+
+      <a class="card" style="--swatch: rgba(74,124,199,0.22)" href="./concept-2.html">
+        <div class="num">02</div>
+        <div class="cname">Dark Aurora SaaS</div>
+        <div class="cdesc">Sombre cinématique, mesh aurora animé, glassmorphism, glows teal/cobalt. Énergie premium « Linear/Vercel » version santé.</div>
+        <div class="meta"><b>Fonts</b> Sora + Outfit · <b>Thème</b> sombre</div>
+        <div class="open">Ouvrir le concept <span>→</span></div>
+      </a>
+
+      <a class="card" style="--swatch: rgba(232,137,106,0.20)" href="./concept-3.html">
+        <div class="num">03</div>
+        <div class="cname">Humain & chaleureux</div>
+        <div class="cdesc">Crème chaleureux, formes organiques, coins arrondis généreux, accent corail + teal. Anti-corporate, humain et apaisant.</div>
+        <div class="meta"><b>Fonts</b> Bricolage Grotesque + Hanken · <b>Thème</b> clair chaud</div>
+        <div class="open">Ouvrir le concept <span>→</span></div>
+      </a>
+
+      <a class="card" style="--swatch: rgba(18,181,165,0.20)" href="./concept-4.html">
+        <div class="num">04</div>
+        <div class="cname">Brutalist typographique</div>
+        <div class="cdesc">Contraste fort, typo XXL, accents monospace, filets visibles, un accent électrique. Confiant, brut, build-in-public.</div>
+        <div class="meta"><b>Fonts</b> Archivo + Space Mono · <b>Thème</b> clair contrasté</div>
+        <div class="open">Ouvrir le concept <span>→</span></div>
+      </a>
+
+      <a class="card" style="--swatch: rgba(90,162,170,0.20)" href="./concept-5.html">
+        <div class="num">05</div>
+        <div class="cname">Bento produit</div>
+        <div class="cdesc">Clair, grille bento de tuiles arrondies, mock UI en CSS (agenda, patients, mini-graph). Le produit en héros, playful-premium.</div>
+        <div class="meta"><b>Fonts</b> Plus Jakarta Sans + Space Grotesk · <b>Thème</b> clair</div>
+        <div class="open">Ouvrir le concept <span>→</span></div>
+      </a>
+    </div>
+
+    <footer>DocAgora · Portugal · 2024 — concepts comparatifs (contenu réel, illustratif). Conforme RGPD · Données hébergées au Portugal.</footer>
+  </div>
+</body>
+</html>

@@ -6,7 +6,7 @@ import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/Animat
 export default function ContactInfoBoxes() {
   const t = useTranslations("contactInfo");
   return (
-    <section className="contact-info py-4">
+    <section className="contact-info contact-info--rhythm">
       <div className="container">
         <AnimatedCardsContainer className="row row-no-gutter boxes-wrapper" stagger={0.15}>
           <AnimatedCard className="col-sm-12 col-md-4">

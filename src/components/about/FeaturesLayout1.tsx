@@ -13,7 +13,7 @@ export default function FeaturesLayout1() {
   const t = useTranslations("aboutPage");
   return (
     <section className="features-layout1 pt-130 pb-50 mt--90">
-      <div className="bg-img"><img src="/assets/images/backgrounds/1.jpg" alt="background" /></div>
+      <div className="bg-img"><img src="/assets/images/backgrounds/1.jpg" alt="" /></div>
       <div className="container">
         <div className="row mb-40">
           <div className="col-sm-12 col-md-12 col-lg-5">

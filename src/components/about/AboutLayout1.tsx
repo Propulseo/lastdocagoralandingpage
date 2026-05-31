@@ -27,13 +27,8 @@ export default function AboutLayout1() {
             </div>
           </div>
           <div className="col-sm-12 col-md-12 col-lg-6">
-            <div className="video-banner">
-              <img src="/assets/images/about/1.jpg" alt="about" />
-              <button type="button" className="video__btn video__btn-white">
-                <div className="video__player">
-                  <i className="fa fa-play"></i>
-                </div>
-              </button>
+            <div className="video-banner da-about__media">
+              <img src="/assets/images/about/1.jpg" alt="" />
             </div>
           </div>
         </div>

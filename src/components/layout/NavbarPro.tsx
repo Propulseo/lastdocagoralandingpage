@@ -7,7 +7,7 @@ import Image from "next/image";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 export default function NavbarPro({ locale }: { locale?: string }) {
   void locale;

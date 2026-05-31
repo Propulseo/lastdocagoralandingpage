@@ -4,22 +4,22 @@ import { Link } from "@/i18n/navigation";
 import { AnimatedCardsContainer, AnimatedCard } from "@/components/shared/AnimatedCards";
 
 const SPECIALTIES = [
-  { key: "generalPractice", icon: "icon-doctor" },
-  { key: "cardiology", icon: "icon-heart" },
-  { key: "dermatology", icon: "icon-microscope" },
-  { key: "pediatrics", icon: "icon-heart3" },
-  { key: "gynecology", icon: "icon-heart2" },
-  { key: "ophthalmology", icon: "icon-first-aid-kit" },
-  { key: "orthopedics", icon: "icon-bandage" },
-  { key: "psychology", icon: "icon-head" },
-  { key: "dentistry", icon: "icon-medicine" },
-  { key: "physiotherapy", icon: "icon-stethoscope" },
-  { key: "ent", icon: "icon-hospital" },
-  { key: "endocrinology", icon: "icon-dropper" },
-  { key: "gastroenterology", icon: "icon-health-report" },
-  { key: "neurology", icon: "icon-head" },
-  { key: "urology", icon: "icon-drugs" },
-  { key: "rheumatology", icon: "icon-expenses" },
+  { key: "generalPractice", icon: "icon-doctor", slug: "general-practice" },
+  { key: "cardiology", icon: "icon-heart", slug: "cardiology" },
+  { key: "dermatology", icon: "icon-microscope", slug: "dermatology" },
+  { key: "pediatrics", icon: "icon-heart3", slug: "pediatrics" },
+  { key: "gynecology", icon: "icon-heart2", slug: "gynecology" },
+  { key: "ophthalmology", icon: "icon-first-aid-kit", slug: "ophthalmology" },
+  { key: "orthopedics", icon: "icon-bandage", slug: "orthopedics" },
+  { key: "psychology", icon: "icon-head", slug: "psychology" },
+  { key: "dentistry", icon: "icon-medicine", slug: "dentistry" },
+  { key: "physiotherapy", icon: "icon-stethoscope", slug: "physiotherapy" },
+  { key: "ent", icon: "icon-hospital", slug: "ent" },
+  { key: "endocrinology", icon: "icon-dropper", slug: "endocrinology" },
+  { key: "gastroenterology", icon: "icon-health-report", slug: "gastroenterology" },
+  { key: "neurology", icon: "icon-head", slug: "neurology" },
+  { key: "urology", icon: "icon-drugs", slug: "urology" },
+  { key: "rheumatology", icon: "icon-expenses", slug: "rheumatology" },
 ] as const;
 
 export default function ServicesGrid() {
@@ -27,8 +27,8 @@ export default function ServicesGrid() {
   const tp = useTranslations("specialtiesPage");
 
   return (
-    <section className="services-layout1 pt-130">
-      <div className="bg-img"><img src="/assets/images/backgrounds/2.jpg" alt="background" /></div>
+    <section className="services-layout1 pt-130" id="services">
+      <div className="bg-img"><img src="/assets/images/backgrounds/2.jpg" alt="" /></div>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
@@ -39,9 +39,9 @@ export default function ServicesGrid() {
           </div>
         </div>
         <AnimatedCardsContainer className="row" stagger={0.08}>
-          {SPECIALTIES.map(({ key, icon }) => (
+          {SPECIALTIES.map(({ key, icon, slug }) => (
             <AnimatedCard key={key} className="col-sm-12 col-md-6 col-lg-4">
-              <div className="service-item">
+              <div className="service-item" id={slug}>
                 <div className="service__icon">
                   <i className={icon}></i>
                   <i className={icon}></i>

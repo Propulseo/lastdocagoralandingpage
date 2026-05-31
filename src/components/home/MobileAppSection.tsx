@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 const REGISTER_URL = `${PLATFORM_URL}/register?role=patient&utm_source=landing&utm_medium=app_section&utm_campaign=early_access`;
 

@@ -1,16 +1,14 @@
 import { setRequestLocale } from "next-intl/server";
-import HeroSlider from "@/components/home/HeroSlider";
-import ContactInfoBoxes from "@/components/home/ContactInfoBoxes";
+import Hero from "@/components/home/Hero";
+import TrustBar from "@/components/home/TrustBar";
+import HowItWorks from "@/components/home/HowItWorks";
 import AboutSection from "@/components/home/AboutSection";
-import SpecialtiesCarousel from "@/components/home/SpecialtiesCarousel";
-
-import TeamCarousel from "@/components/home/TeamCarousel";
-
-import Testimonials from "@/components/home/Testimonials";
-import CitiesGallery from "@/components/home/CitiesGallery";
-
-import FAQHighlights from "@/components/home/FAQHighlights";
+import SpecialtiesBento from "@/components/home/SpecialtiesBento";
+import ContactInfoBoxes from "@/components/home/ContactInfoBoxes";
 import MobileAppSection from "@/components/home/MobileAppSection";
+import FAQHighlights from "@/components/home/FAQHighlights";
+import CitiesBento from "@/components/home/CitiesBento";
+import FinalCtaSearch from "@/components/home/FinalCtaSearch";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export default async function HomePage({
@@ -23,30 +21,31 @@ export default async function HomePage({
 
   return (
     <>
-      <HeroSlider />
+      <Hero />
+      <TrustBar />
+      <AnimatedSection>
+        <HowItWorks />
+      </AnimatedSection>
       <AnimatedSection>
         <AboutSection />
       </AnimatedSection>
       <AnimatedSection>
-        <SpecialtiesCarousel />
+        <SpecialtiesBento />
       </AnimatedSection>
       <AnimatedSection>
         <ContactInfoBoxes />
       </AnimatedSection>
       <AnimatedSection>
-        <TeamCarousel />
-      </AnimatedSection>
-      <AnimatedSection>
         <MobileAppSection />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Testimonials />
       </AnimatedSection>
       <AnimatedSection>
         <FAQHighlights />
       </AnimatedSection>
       <AnimatedSection>
-        <CitiesGallery />
+        <CitiesBento />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCtaSearch />
       </AnimatedSection>
     </>
   );

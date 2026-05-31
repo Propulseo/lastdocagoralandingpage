@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import AboutLayout1 from "@/components/about/AboutLayout1";
 import FeaturesLayout1 from "@/components/about/FeaturesLayout1";
 
-import TeamCarousel from "@/components/home/TeamCarousel";
+import HowItWorks from "@/components/home/HowItWorks";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
@@ -28,7 +28,7 @@ export default async function AboutPage({
   return (
     <>
       <section className="page-title page-title-layout1 bg-overlay">
-        <div className="bg-img"><img src="/assets/images/page-titles/1.jpg" alt="background" /></div>
+        <div className="bg-img"><img src="/assets/images/page-titles/1.jpg" alt="" /></div>
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12 col-xl-5">
@@ -55,7 +55,7 @@ export default async function AboutPage({
         <FeaturesLayout1 />
       </AnimatedSection>
       <AnimatedSection>
-        <TeamCarousel />
+        <HowItWorks />
       </AnimatedSection>
     </>
   );

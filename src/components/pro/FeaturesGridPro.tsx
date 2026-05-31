@@ -272,7 +272,7 @@ function MockupDashboard() {
       </div>
       {/* Mock data for visual demo — upcoming appointments */}
       <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "14px 16px", marginTop: 12 }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 10 }}>{t("featuresGrid.mockups.dashboard.dayThu")} — {t("featuresGrid.mockups.dashboard.appointments")}</div>
+        <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 10 }}>{t("featuresGrid.mockups.dashboard.dayThu")} · {t("featuresGrid.mockups.dashboard.appointments")}</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {[
             { time: "09:00", name: "M. Silva", color: "rgba(103,203,199,0.4)" },
@@ -371,7 +371,7 @@ export default function FeaturesGridPro() {
   const ActiveMockup = MOCKUPS[FEATURES[active].key];
 
   return (
-    <section className="ft-showcase">
+    <section className="ft-showcase pro-section pro-s-features">
       <style>{`
         /* ===== SECTION — gradient transition from light to dark ===== */
         .ft-showcase {

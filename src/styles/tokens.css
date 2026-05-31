@@ -61,7 +61,7 @@
   --border-light: rgba(255, 255, 255, 0.08);
 
   /* ── Typography ── */
-  --font-display: var(--font-manrope), "Manrope", sans-serif;
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: var(--font-montserrat), "Montserrat", sans-serif;
   --fw-light: 300;
   --fw-regular: 400;

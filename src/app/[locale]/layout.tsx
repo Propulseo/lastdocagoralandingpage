@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { Montserrat, Manrope } from "next/font/google";
+import { Montserrat, Fraunces } from "next/font/google";
 import "@/app/globals.css";
 import "@/styles/tokens.css";
+import "@/styles/polish.css";
+import "@/styles/redesign.css";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { locales } from "@/i18n/config";
@@ -18,10 +20,11 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const manrope = Manrope({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -54,7 +57,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${montserrat.variable} ${manrope.variable}`}>
+    <html lang={locale} className={`${montserrat.variable} ${fraunces.variable}`}>
       <head>
         <link rel="icon" href="/assets/images/favicon/favicon.png" />
         <link

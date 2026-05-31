@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactLayout from "@/components/contact/ContactLayout";
 import FAQAccordion from "@/components/shared/FAQAccordion";
-import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/shared/Gallery";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
@@ -47,8 +46,9 @@ export default async function ContactPage({
           frameBorder="0"
           height="500"
           width="100%"
+          loading="lazy"
           src="https://maps.google.com/maps?q=Lisbon%2C%20Portugal&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near"
-          title="Map"
+          title={t("mapTitle")}
         ></iframe>
       </section>
       <AnimatedSection>
@@ -56,9 +56,6 @@ export default async function ContactPage({
       </AnimatedSection>
       <AnimatedSection>
         <FAQAccordion />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Testimonials compact />
       </AnimatedSection>
       <AnimatedSection>
         <Gallery />

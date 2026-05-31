@@ -45,17 +45,6 @@ export default function BlogGrid() {
             </AnimatedCard>
           ))}
         </AnimatedCardsContainer>
-        <div className="row">
-          <div className="col-12 text-center">
-            <nav className="pagination-area">
-              <ul className="pagination justify-content-center">
-                <li><button type="button" className="current" aria-label="Page 1" aria-current="page">1</button></li>
-                <li><button type="button" aria-label="Page 2">2</button></li>
-                <li><button type="button" aria-label="Next page"><i className="icon-arrow-right"></i></button></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ServicesGrid from "@/components/specialties-page/ServicesGrid";
 import FeaturesOverlay from "@/components/specialties-page/FeaturesOverlay";
-import TeamCarousel from "@/components/home/TeamCarousel";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 export async function generateMetadata({
@@ -27,7 +26,7 @@ export default async function SpecialtiesPage({
   return (
     <>
       <section className="page-title page-title-layout1 bg-overlay">
-        <div className="bg-img"><img src="/assets/images/page-titles/2.jpg" alt="background" /></div>
+        <div className="bg-img"><img src="/assets/images/page-titles/2.jpg" alt="" /></div>
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12 col-xl-5">
@@ -52,9 +51,6 @@ export default async function SpecialtiesPage({
       </AnimatedSection>
       <AnimatedSection>
         <FeaturesOverlay />
-      </AnimatedSection>
-      <AnimatedSection>
-        <TeamCarousel />
       </AnimatedSection>
     </>
   );

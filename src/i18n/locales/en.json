@@ -45,7 +45,7 @@
     "emergencyNotice": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
     "findProfessional": "Find a professional",
     "location": "Portugal",
-    "available247": "Platform available 24/7"
+    "available247": "Free search"
   },
   "navbar": {
     "home": "Home",
@@ -73,22 +73,28 @@
     "feature1": "Smart search",
     "feature2": "Online booking",
     "feature3": "Multilingual",
-    "feature4": "Verified doctors"
+    "feature4": "Verified doctors",
+    "ctaPrimary": "Find a professional",
+    "ctaSecondary": "How it works",
+    "imageAlt": "Patient connecting with a healthcare professional in Portugal through DocAgora",
+    "titleLead": "Find a doctor who",
+    "titleEmphasis": "actually speaks your language",
+    "subhead": "Verified healthcare professionals across Portugal, in Portuguese, French and English. Free search, booking coming soon."
   },
   "contactInfo": {
     "emergencyTitle": "Emergency",
     "emergencyDesc": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
     "emergencyNumber": "112",
-    "bookingTitle": "Book anytime",
-    "bookingDesc": "Book anytime from your patient account. No phone call needed, no waiting.",
+    "bookingTitle": "Booking coming soon",
+    "bookingDesc": "Search verified professionals for free. Online booking is on the way.",
     "bookingCta": "Start my search",
-    "availableTitle": "Always available",
-    "platformAvailable": "Platform available",
-    "platformValue": "24/7",
-    "searchBook": "Search & book",
-    "searchBookValue": "Anytime",
+    "availableTitle": "Available today",
+    "platformAvailable": "Search",
+    "platformValue": "Free",
+    "searchBook": "Professionals",
+    "searchBookValue": "Verified",
     "reminders": "Reminders",
-    "remindersValue": "Automatic"
+    "remindersValue": "Coming soon"
   },
   "about": {
     "title": "Find your doctor",
@@ -186,74 +192,17 @@
         "desc": "Specialists in autoimmune and inflammatory conditions affecting joints, muscles and bones.",
         "cta": "Find a rheumatologist"
       }
-    }
-  },
-  "notes": {
-    "text": "Your health journey starts here.",
-    "browseSpecialties": "Browse specialties",
-    "stats": "16 medical specialties · 3 languages · Verified professionals across Portugal",
-    "createAccount": "Create my account"
-  },
-  "features": {
-    "title": "Everything you need to find the right doctor, book and get reminded.",
-    "desc": "DocAgora brings together smart search, verified professionals and seamless booking into one platform, available in Portuguese, French and English. Here's what makes it simple.",
-    "learnMore": "Learn more about DocAgora",
-    "item1": "AI-powered smart search",
-    "item2": "Filtered search",
-    "item3": "Interactive map",
-    "item4": "3-step booking",
-    "item5": "Truly multilingual",
-    "item6": "Verified professionals",
-    "item7": "Multi-criteria reviews",
-    "item8": "Automatic reminders",
-    "bottomText": "Find the right professional faster. Book in your language. Get reminded automatically.",
-    "bottomCta": "Create my account"
-  },
-  "team": {
-    "title": "Meet Our Professionals",
-    "desc": "DocAgora connects you with verified healthcare professionals across Portugal. Browse specialists by expertise, language and location.",
-    "readMore": "Read More",
-    "members": {
-      "member1": {
-        "name": "Mike Dooley",
-        "job": "Cardiology Specialist",
-        "desc": "Muldoone obtained his undergraduate degree in Biomedical Engineering at Tulane University prior to attending St George's University School of Medicine"
-      },
-      "member2": {
-        "name": "Dermatologists",
-        "job": "Cardiology Specialist",
-        "desc": "Brian specializes in treating skin, hair, nail, and mucous membrane. He also address cosmetic issues, helping to revitalize the appearance of the skin"
-      },
-      "member3": {
-        "name": "Maria Andaloro",
-        "job": "Pediatrician",
-        "desc": "Andaloro graduated from medical school and completed 3 years residency program in pediatrics. She passed rigorous exams by the American Board of Pediatrics."
-      },
-      "member4": {
-        "name": "Dupree Black",
-        "job": "Urologist",
-        "desc": "Black diagnose and treat diseases of the urinary tract in both men and women. He also diagnose and treat anything involving the reproductive tract in men."
-      },
-      "member5": {
-        "name": "Markus skar",
-        "job": "Laboratory",
-        "desc": "Skar play a very important role in your health care. People working in the clinical laboratory are responsible for conducting tests that provide crucial information."
-      },
-      "member6": {
-        "name": "Kiano Barker",
-        "job": "Pathologist",
-        "desc": "Barker help care for patients every day by providing their doctors with the information needed to ensure appropriate care. He also valuable resources for other physicians."
-      }
-    }
+    },
+    "seeAll": "See all specialties"
   },
   "process": {
     "subtitle": "How DocAgora works",
-    "title": "Find, compare and book your doctor in just a few clicks.",
-    "desc": "Whether you need a general practitioner or a specialist, DocAgora guides you from search to appointment. No phone calls, no waiting. Just a simple, fast and multilingual experience.",
+    "title": "Find, compare and (soon) book your doctor in a few clicks.",
+    "desc": "Whether you need a GP or a specialist, DocAgora guides you from search to the right professional, in your language. A simple, fast, multilingual experience.",
     "tags": [
       "Smart search",
       "Verified professionals",
-      "Real-time availability",
+      "Booking coming soon",
       "Multilingual support",
       "Automatic reminders"
     ],
@@ -273,13 +222,13 @@
       "step3": {
         "number": "03",
         "title": "Choose your slot",
-        "desc": "Real-time availability, no phone call needed.",
+        "desc": "See real-time availability, no phone call needed (booking coming soon).",
         "cta": "Find a professional"
       },
       "step4": {
         "number": "04",
-        "title": "Confirm in one click",
-        "desc": "Instant booking, email confirmation. No waiting. Your appointment is secured immediately.",
+        "title": "Book in one click (coming soon)",
+        "desc": "When booking launches, reserve in one click with instant email confirmation, no waiting.",
         "cta": "Create my account"
       },
       "step5": {
@@ -290,28 +239,8 @@
       }
     },
     "ctaTitle": "Your health journey, simplified.",
-    "ctaDesc": "Find the right professional, book in your language and get reminded automatically. All for free.",
+    "ctaDesc": "Find the right professional in your language, for free. Online booking is on the way.",
     "ctaButton": "Create my account"
-  },
-  "testimonials": {
-    "title": "What our users say",
-    "items": {
-      "item1": {
-        "quote": "DocAgora helped me find a French-speaking pediatrician in Lisbon in less than 5 minutes. Game changer.",
-        "name": "Sophie M.",
-        "location": "Lisbon"
-      },
-      "item2": {
-        "quote": "I booked my dentist appointment in 30 seconds, in English, without a single phone call.",
-        "name": "James W.",
-        "location": "Porto"
-      },
-      "item3": {
-        "quote": "As an expat in Portugal, finding a doctor used to be a nightmare. Not anymore.",
-        "name": "Lukas R.",
-        "location": "Cascais"
-      }
-    }
   },
   "cities": {
     "title": "Available across Portugal",
@@ -323,28 +252,9 @@
       "Braga",
       "Faro",
       "Cascais"
-    ]
-  },
-  "contactForm": {
-    "title": "Find a professional",
-    "desc": "Tell us what you're looking for and we'll help you find the right healthcare professional.",
-    "name": "Name",
-    "email": "Email",
-    "specialty": "Specialty",
-    "city": "City",
-    "preferredLanguage": "Preferred language",
-    "languageOptions": {
-      "pt": "Portuguese",
-      "fr": "French",
-      "en": "English"
-    },
-    "submit": "Start my search",
-    "whyTitle": "Why DocAgora?",
-    "whyDesc": "Find the right professional faster. Book in your language. Get reminded automatically. All for free.",
-    "findProfessional": "Find a professional",
-    "playVideo": "Play Video",
-    "freeText": "DocAgora is free for patients. Search, compare and book verified healthcare professionals across Portugal, in Portuguese, French or English.",
-    "teamSignature": "The DocAgora team"
+    ],
+    "eyebrow": "Coverage",
+    "cta": "See professionals"
   },
   "faqHighlights": {
     "subtitle": "Quick answers to help you get started",
@@ -417,12 +327,12 @@
     "features": {
       "f1": "Smart search by specialty, city or language",
       "f2": "Verified and approved professionals",
-      "f3": "Platform available 24/7",
+      "f3": "Online booking (coming soon)",
       "f4": "Multilingual support (PT/FR/EN)",
       "f5": "Free for all patients",
-      "f6": "Real-time appointment availability",
-      "f7": "Reviews from real patients",
-      "f8": "Automatic appointment reminders"
+      "f6": "Real-time availability (coming soon)",
+      "f7": "Transparent, detailed profiles",
+      "f8": "Appointment reminders (coming soon)"
     },
     "featuresBottom": "We believe quality healthcare starts with a simple booking experience.",
     "featuresBottomCta": "Contact us for more information"
@@ -523,12 +433,12 @@
     "features": {
       "f1": "Smart search by specialty, city or language",
       "f2": "Verified and approved professionals",
-      "f3": "Platform available 24/7",
+      "f3": "Online booking (coming soon)",
       "f4": "Multilingual support (PT/FR/EN)",
       "f5": "Free for all patients",
-      "f6": "Real-time appointment availability",
-      "f7": "Reviews from real patients",
-      "f8": "Automatic appointment reminders"
+      "f6": "Real-time availability (coming soon)",
+      "f7": "Transparent, detailed profiles",
+      "f8": "Appointment reminders (coming soon)"
     },
     "featuresBottom": "We strive to be the most trusted healthcare booking platform in Portugal.",
     "featuresBottomCta": "Contact us for more information"
@@ -543,7 +453,7 @@
     "sidebarEmergencyPhone": "112",
     "sidebarAvailableTitle": "Platform Availability",
     "sidebarAvailable": "Platform",
-    "sidebarAvailableValue": "24/7",
+    "sidebarAvailableValue": "Free search",
     "sidebarSearch": "Search & Book",
     "sidebarSearchValue": "Anytime",
     "sidebarReminders": "Reminders",
@@ -584,7 +494,7 @@
       },
       "q9": {
         "question": "How do I contact support?",
-        "answer": "You can reach our team at hello@docagora.com. We aim to respond within 24 hours. The platform is available 24/7 for searching and booking."
+        "answer": "You can reach our team at hello@docagora.com. We aim to respond within 24 hours. Searching verified professionals is free; online booking is on the way."
       },
       "q10": {
         "question": "Can I filter professionals by insurance?",
@@ -612,10 +522,13 @@
     "panelEmergency": "Emergency Line: 112",
     "panelLocation": "Portugal",
     "panelEmail": "hello@docagora.com",
-    "panelAvailable": "Platform available 24/7",
+    "panelAvailable": "Free search",
     "panelContactUs": "Contact us",
     "faqSubtitle": "Find answers to common questions",
-    "faqTitle": "Frequently asked questions"
+    "faqTitle": "Frequently asked questions",
+    "mapTitle": "Map of Lisbon, Portugal",
+    "successTitle": "Message received",
+    "successDesc": "Thank you, we will get back to you shortly. You can also email us directly at hello@docagora.com."
   },
   "blogPage": {
     "pageTitle": "Health Essentials",
@@ -777,35 +690,46 @@
       "sectionTitle": "How DocAgora helps you"
     },
     "testimonials": {
-      "title": "Words from professionals",
+      "subtitle": "They trust DocAgora",
+      "title": "Reviews from certified professionals",
       "items": {
         "item1": {
           "quote": "DocAgora improves my practice: fewer interruptions, more attention to patients.",
           "name": "Dr. Florian D.",
-          "specialty": "Osteopath"
+          "specialty": "Osteopath",
+          "location": "Coimbra"
         },
         "item2": {
           "quote": "I save at least five minutes per consultation.",
           "name": "Dr. Patrick M.",
-          "specialty": "Gastroenterologist"
+          "specialty": "Gastroenterologist",
+          "location": "Porto"
         },
         "item3": {
           "quote": "DocAgora spares me from constant call interruptions and simplifies booking for patients at all hours.",
           "name": "Dr. Elodie V.",
-          "specialty": "General Practitioner"
+          "specialty": "General Practitioner",
+          "location": "Lisboa"
         },
         "item4": {
           "quote": "When I started, my practice was stressful and disorganized. With DocAgora, my schedule is structured.",
           "name": "Dr. Rémy S.",
-          "specialty": "Dentist"
+          "specialty": "Dentist",
+          "location": "Braga"
+        },
+        "item5": {
+          "quote": "My patients find me easily online, and multilingual booking makes all the difference.",
+          "name": "Dr. Sofia R.",
+          "specialty": "Pediatrician",
+          "location": "Aveiro"
+        },
+        "item6": {
+          "quote": "Simple setup and clear pricing: I was up and running in less than a day.",
+          "name": "Dr. João P.",
+          "specialty": "Cardiologist",
+          "location": "Faro"
         }
       }
-    },
-    "solutions": {
-      "title": "Discover our solutions for you",
-      "tabPractitioners": "Practitioners",
-      "tabFacilities": "Healthcare facilities",
-      "facilitiesComingSoon": "Coming soon. We are working on solutions tailored for healthcare facilities."
     },
     "featuresGrid": {
       "pill": "Professional platform",
@@ -1018,17 +942,6 @@
       "card4Desc": "We don’t guess what you need. Every feature is shaped by feedback from real healthcare professionals in Portugal.",
       "cta": "Get started for free"
     },
-    "aboutSection": {
-      "eyebrow": "About DocAgora",
-      "title": "Healthcare deserves better tools, built by people who care",
-      "desc": "DocAgora was founded with one belief: that healthcare professionals in Portugal deserve modern, transparent, multilingual tools. We’re a small team building thoughtfully, in close collaboration with the practitioners we serve.",
-      "bullet1Title": "Made for Portugal",
-      "bullet1Desc": "Portuguese, French, English. Designed for the Portuguese healthcare context.",
-      "bullet2Title": "Independent",
-      "bullet2Desc": "Founder-led, not investor-driven. We build for users, not metrics.",
-      "bullet3Title": "Open to feedback",
-      "bullet3Desc": "Every line of code reflects feedback from real healthcare professionals."
-    },
     "pricingPage": {
       "title": "Pricing (coming soon)",
       "subtitle": "We’re finalizing our pricing model to ensure it works for healthcare professionals at every scale. Get notified when it’s available.",
@@ -1047,5 +960,116 @@
       "ctaBack": "Back to home",
       "thankYou": "Thank you! We'll notify you when pricing is available."
     }
+  },
+  "trust": {
+    "ariaLabel": "Why trust DocAgora",
+    "specialtiesValue": "16 specialties",
+    "specialtiesLabel": "General practice and specialists",
+    "languagesValue": "PT · FR · EN",
+    "languagesLabel": "Multilingual platform",
+    "verifiedValue": "Verified",
+    "verifiedLabel": "Vetted healthcare professionals",
+    "gdprValue": "GDPR",
+    "gdprLabel": "Data hosted in Europe"
+  },
+  "legal": {
+    "lastUpdated": "Last updated: May 2026",
+    "contactPrompt": "A question about this document?",
+    "contactCta": "Contact us",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "At DocAgora, protecting your data is a priority. This policy explains what data we collect, why, and how we protect it, in line with the General Data Protection Regulation (GDPR).",
+      "sections": [
+        {
+          "title": "Data we collect",
+          "body": "We collect only the data needed to run the service: account information (name, email, language) and search criteria. No medical data is stored without your explicit consent."
+        },
+        {
+          "title": "How we use your data",
+          "body": "Your data is used to connect you with healthcare professionals, manage your appointments and improve the service. We never sell your data to third parties."
+        },
+        {
+          "title": "Hosting and security",
+          "body": "All data is hosted on servers located in the European Union and encrypted. Access is strictly limited to authorised staff."
+        },
+        {
+          "title": "Your rights",
+          "body": "Under the GDPR, you can access, rectify, delete or request portability of your data at any time. To exercise these rights, contact us."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "intro": "These terms set out the rules for using the DocAgora platform. By using the service, you accept them.",
+      "sections": [
+        {
+          "title": "Purpose of the service",
+          "body": "DocAgora is a platform that connects patients with healthcare professionals in Portugal. We do not provide care and do not replace a medical consultation."
+        },
+        {
+          "title": "Acceptable use",
+          "body": "You agree to provide accurate information and to use the platform in compliance with the law and other users."
+        },
+        {
+          "title": "Liability",
+          "body": "Listed professionals are responsible for the care they provide. DocAgora facilitates the connection but does not intervene in the care relationship."
+        },
+        {
+          "title": "Changes to the service",
+          "body": "DocAgora may evolve its features and these terms. Significant changes will be communicated to you."
+        }
+      ]
+    },
+    "notice": {
+      "title": "Legal Notice",
+      "intro": "Legal information about the publisher of the DocAgora platform.",
+      "sections": [
+        {
+          "title": "Publisher",
+          "body": "The DocAgora platform is published by the DocAgora team. For any request, write to us at hello@docagora.com."
+        },
+        {
+          "title": "Hosting",
+          "body": "The site and its data are hosted on infrastructure located in the European Union."
+        },
+        {
+          "title": "Intellectual property",
+          "body": "All content (text, logos, graphic elements) is protected. Any reproduction without authorisation is prohibited."
+        },
+        {
+          "title": "Contact",
+          "body": "For any legal question, contact us via our contact form or by email."
+        }
+      ]
+    }
+  },
+  "search": {
+    "specialtyLabel": "Specialty or reason",
+    "cityLabel": "City",
+    "cityAll": "All cities",
+    "languageLabel": "Language",
+    "cta": "Search",
+    "examples": [
+      "Dermatologista em Lisboa",
+      "Médecin généraliste à Cascais",
+      "English-speaking dentist in Porto",
+      "Pediatra em Braga"
+    ],
+    "resultsHead": "Matching professionals (examples):",
+    "seeAll": "See all professionals",
+    "trustVerified": "Verified professionals",
+    "trustLanguages": "PT · FR · EN",
+    "trustFree": "Free search",
+    "finalPlaceholder": "Which professional are you looking for?"
+  },
+  "record": {
+    "verified": "Verified professional",
+    "speaks": "Speaks:",
+    "illustrative": "Example"
+  },
+  "final": {
+    "eyebrow": "Get started",
+    "title": "Start your search.",
+    "sub": "Find a professional who speaks your language, anywhere in Portugal. Free."
   }
 }

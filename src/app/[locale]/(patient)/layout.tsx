@@ -15,13 +15,13 @@ export default async function PatientLayout({
   setRequestLocale(locale);
 
   return (
-    <>
+    <div className="da-patient">
       <header className="header header-layout1">
         <HeaderTopbar />
         <Navbar locale={locale} />
       </header>
       {children}
       <Footer />
-    </>
+    </div>
   );
 }

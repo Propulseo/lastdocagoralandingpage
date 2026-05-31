@@ -25,7 +25,7 @@ export default function FAQHighlights() {
           box-shadow: 0 12px 36px rgba(0,0,0,0.14);
         }
       `}</style>
-      <div className="bg-img"><img src="/assets/images/banners/3.jpg" alt="background" /></div>
+      <div className="bg-img"><img src="/assets/images/banners/3.jpg" alt="" /></div>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
@@ -41,7 +41,7 @@ export default function FAQHighlights() {
               <div className="post-item da-faq-card">
                 <div className="post__img">
                   <a href={faqHref}>
-                    <img src={`/assets/images/blog/grid/${i + 1}.jpg`} alt="FAQ image" loading="lazy" />
+                    <img src={`/assets/images/blog/grid/${i + 1}.jpg`} alt={t(`items.${key}.question`)} loading="lazy" />
                   </a>
                 </div>
                 <div className="post__body">

@@ -36,7 +36,7 @@ export default function Footer() {
                   href="/specialties"
                   className="d-inline-flex align-items-center gap-2"
                   style={{
-                    color: "var(--color-link)",
+                    color: "var(--color-teal)",
                     fontSize: 13,
                     fontWeight: 600,
                     textDecoration: "none",
@@ -48,7 +48,7 @@ export default function Footer() {
                 </Link>
 
                 {/* Social icons */}
-                <div className="d-flex gap-2 mt-4">
+                <div className="footer-social">
                   {[
                     { icon: "fab fa-facebook-f", label: "Facebook" },
                     { icon: "fab fa-instagram", label: "Instagram" },
@@ -59,26 +59,7 @@ export default function Footer() {
                       key={social.icon}
                       type="button"
                       aria-label={social.label}
-                      className="d-flex align-items-center justify-content-center"
-                      style={{
-                        width: 34,
-                        height: 34,
-                        borderRadius: "50%",
-                        background: "rgba(255,255,255,0.08)",
-                        color: "rgba(255,255,255,0.6)",
-                        fontSize: 13,
-                        transition: "all 0.3s",
-                        border: "none",
-                        cursor: "pointer",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "var(--color-accent)"
-                        e.currentTarget.style.color = "#fff"
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "rgba(255,255,255,0.08)"
-                        e.currentTarget.style.color = "rgba(255,255,255,0.6)"
-                      }}
+                      className="footer-social__link"
                     >
                       <i className={social.icon}></i>
                     </button>
@@ -176,30 +157,9 @@ export default function Footer() {
                   </li>
                 </ul>
                 <div className="mt-3" style={{ position: "relative", zIndex: 1 }}>
-                  <Link
-                    href="/contact"
-                    className="d-inline-flex align-items-center gap-2"
-                    style={{
-                      background: "linear-gradient(135deg, var(--color-navy), var(--color-cobalt))",
-                      color: "#fff",
-                      padding: "10px 24px",
-                      borderRadius: 10,
-                      fontSize: 13,
-                      fontWeight: 600,
-                      textDecoration: "none",
-                      transition: "transform 0.2s, box-shadow 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-1px)"
-                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(var(--color-navy-rgb), 0.3)"
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)"
-                      e.currentTarget.style.boxShadow = "none"
-                    }}
-                  >
+                  <Link href="/contact" className="footer-contact-cta">
                     <span>{t("contactUs")}</span>
-                    <i className="icon-arrow-right" style={{ fontSize: 11 }}></i>
+                    <i className="icon-arrow-right"></i>
                   </Link>
                 </div>
               </div>

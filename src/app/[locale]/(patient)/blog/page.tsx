@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BlogGrid from "@/components/blog/BlogGrid";
-import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/shared/Gallery";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
@@ -42,7 +41,7 @@ export default async function BlogPage({
     <>
       <section className="page-title page-title-layout5 bg-overlay">
         <div className="bg-img">
-          <img src="/assets/images/page-titles/8.jpg" alt="background" />
+          <img src="/assets/images/page-titles/8.jpg" alt="" />
         </div>
         <div className="container">
           <div className="row">
@@ -64,9 +63,6 @@ export default async function BlogPage({
       </section>
       <AnimatedSection>
         <BlogGrid />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Testimonials />
       </AnimatedSection>
       <AnimatedSection>
         <Gallery />

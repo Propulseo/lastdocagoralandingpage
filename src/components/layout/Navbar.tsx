@@ -16,14 +16,12 @@ export default function Navbar({ locale }: { locale?: string }) {
           <img
             src="/assets/images/logo/logo-light.png"
             className="logo-light"
-            alt="logo"
-            style={{ transform: "scale(1.4)" }}
+            alt="DocAgora"
           />
           <img
             src="/assets/images/logo/logo-dark.png"
             className="logo-dark"
-            alt="logo"
-            style={{ transform: "scale(1.4)" }}
+            alt="DocAgora"
           />
         </Link>
         <button className="navbar-toggler" type="button">
@@ -60,13 +58,20 @@ export default function Navbar({ locale }: { locale?: string }) {
             </li>
           </ul>
           <div className="d-block d-lg-none py-3 px-3">
+            <Link
+              href="/pro"
+              className="btn btn__primary btn__rounded w-100 justify-content-center mb-3"
+            >
+              <i className="icon-doctor"></i>
+              <span>{t("imAProfessional")}</span>
+            </Link>
             <LanguageSwitcher />
           </div>
           <button className="close-mobile-menu d-block d-lg-none">
             <i className="fas fa-times"></i>
           </button>
         </div>
-        <div className="d-none d-xl-flex align-items-center position-relative ml-30">
+        <div className="d-none d-lg-flex align-items-center position-relative ml-30">
           <LanguageSwitcher />
           <Link
             href="/pro"

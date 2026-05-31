@@ -25,11 +25,11 @@ export default function AnimatedSection({
   children,
   delay = 0,
   duration = 0.8,
-  distance = 60,
+  distance = 40,
   direction = "up",
   className,
   disabled = false,
-  once = false,
+  once = true,
 }: AnimatedSectionProps) {
   const prefersReduced = useReducedMotion();
 

@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DocAgora Pro — La solution tout-en-un pour les professionnels de santé au Portugal</title>
+<meta name="description" content="DocAgora Pro : agenda intelligent, gestion des patients et analyse d'activité pour les professionnels de santé au Portugal. Trilingue PT/FR/EN, conforme RGPD, hébergé au Portugal." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --paper:#FBFAF7;
+    --paper-2:#F4F2EC;
+    --ink:#16213A;
+    --ink-soft:#36405A;
+    --teal:#2FA8A0;
+    --teal-deep:#1E7E78;
+    --teal-tint:#E5F2F1;
+    --grey:#8C8A82;
+    --grey-warm:#B9B5A9;
+    --hair:#E2DED4;
+    --hair-ink:rgba(22,33,58,.12);
+    --white:#FFFFFF;
+
+    --shadow-soft:0 24px 60px -32px rgba(22,33,58,.28);
+    --shadow-card:0 18px 44px -28px rgba(22,33,58,.30);
+
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,sans-serif;
+
+    --maxw:1240px;
+    --gut:clamp(20px,5vw,64px);
+    --r:14px;
+
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    font-weight:400;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  body::before{
+    /* paper grain */
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    opacity:.55;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:600;line-height:1.04;letter-spacing:-.01em;font-optical-sizing:auto;}
+  p{margin:0;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);position:relative;z-index:1;}
+
+  /* kicker / labels */
+  .kicker{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+  }
+  .kicker::before{
+    content:"";
+    width:26px;height:1px;background:var(--teal);
+    display:inline-block;
+  }
+  .num{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    color:var(--grey-warm);
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-weight:600;font-size:15px;
+    padding:14px 24px;border-radius:999px;
+    cursor:pointer;border:1px solid transparent;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s var(--ease), color .3s var(--ease);
+    white-space:nowrap;
+  }
+  .btn svg{width:16px;height:16px;transition:transform .35s var(--ease);}
+  .btn-primary{background:var(--ink);color:var(--paper);box-shadow:0 12px 26px -14px rgba(22,33,58,.6);}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-2px);}
+  .btn-primary:hover svg{transform:translateX(4px);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--hair-ink);}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .btn-teal{background:var(--teal);color:#fff;}
+  .btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);}
+  .btn-teal:hover svg{transform:translateX(4px);}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+    outline:2.5px solid var(--teal);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* ============ HEADER ============ */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,247,.82);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.02em;}
+  .brand .mark{
+    width:30px;height:30px;border-radius:8px;
+    background:var(--ink);color:var(--paper);
+    display:grid;place-items:center;font-size:16px;
+    box-shadow:0 6px 14px -8px rgba(22,33,58,.7);
+  }
+  .brand .pro{
+    font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal-deep);border:1px solid var(--teal);border-radius:999px;
+    padding:3px 8px;align-self:center;
+  }
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:15px;font-weight:500;color:var(--ink-soft);position:relative;transition:color .25s;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1.5px;width:0;background:var(--teal);transition:width .3s var(--ease);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .patient-link{font-size:14px;font-weight:500;color:var(--grey);transition:color .25s;}
+  .patient-link:hover{color:var(--teal-deep);}
+
+  .burger{display:none;background:none;border:1px solid var(--hair-ink);border-radius:10px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center;}
+  .burger span{display:block;width:20px;height:2px;background:var(--ink);position:relative;transition:.3s;}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--ink);transition:.3s;}
+  .burger span::before{top:-6px;}
+  .burger span::after{top:6px;}
+  body.menu-open .burger span{background:transparent;}
+  body.menu-open .burger span::before{top:0;transform:rotate(45deg);}
+  body.menu-open .burger span::after{top:0;transform:rotate(-45deg);}
+
+  .mobile-menu{
+    display:none;
+    border-bottom:1px solid var(--hair);
+    background:var(--paper);
+  }
+  .mobile-menu .wrap{padding-block:18px 26px;display:flex;flex-direction:column;gap:4px;}
+  .mobile-menu a{padding:12px 4px;font-size:18px;font-weight:500;border-bottom:1px solid var(--hair);font-family:var(--serif);}
+  .mobile-menu .btn{margin-top:14px;justify-content:center;}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;padding-block:clamp(48px,7vw,96px) clamp(40px,6vw,80px);overflow:hidden;}
+  .hero::before{
+    /* big teal arc, top right */
+    content:"";position:absolute;top:-220px;right:-180px;width:680px;height:680px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(47,168,160,.16), rgba(47,168,160,0) 62%);
+    z-index:0;pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:clamp(32px,5vw,72px);
+    align-items:center;
+  }
+  .hero-kicker-row{display:flex;align-items:center;gap:18px;margin-bottom:26px;}
+  .hero h1{
+    font-size:clamp(40px,6.4vw,80px);
+    letter-spacing:-.025em;
+    line-height:.98;
+    margin-bottom:24px;
+  }
+  .hero h1 em{
+    font-style:italic;font-weight:400;color:var(--teal-deep);
+    /* very large optical size for display */
+    font-optical-sizing:auto;
+  }
+  .hero .lede{
+    font-size:clamp(17px,2vw,20px);
+    color:var(--ink-soft);
+    max-width:34ch;
+    line-height:1.5;
+    margin-bottom:28px;
+  }
+  .trust{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .trust li{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--ink-soft);
+    background:var(--white);border:1px solid var(--hair);
+    padding:8px 14px;border-radius:999px;
+  }
+  .trust li svg{width:14px;height:14px;color:var(--teal-deep);}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+
+  /* hero mock card */
+  .hero-card{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--hair);
+    border-radius:18px;
+    box-shadow:var(--shadow-soft);
+    padding:22px;
+    transform:rotate(-1.4deg);
+  }
+  .hero-card::after{
+    content:"";position:absolute;inset:-1px;border-radius:18px;
+    border:1px solid rgba(47,168,160,.22);pointer-events:none;
+    transform:translate(14px,16px);z-index:-1;
+  }
+  .hc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .hc-dots{display:flex;gap:6px;}
+  .hc-dots i{width:9px;height:9px;border-radius:50%;background:var(--hair);display:block;}
+  .hc-dots i:first-child{background:var(--teal);}
+  .hc-title{font-family:var(--serif);font-size:15px;font-weight:600;}
+  .hc-week{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px;}
+  .hc-week span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);text-align:center;}
+  .hc-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
+  .hc-col{background:var(--paper-2);border-radius:9px;padding:7px;min-height:150px;display:flex;flex-direction:column;gap:6px;}
+  .appt{border-radius:7px;padding:7px 8px;font-size:10.5px;font-weight:600;line-height:1.25;color:#fff;box-shadow:0 4px 10px -6px rgba(22,33,58,.4);}
+  .appt small{display:block;font-weight:500;opacity:.85;font-size:9px;}
+  .a-teal{background:var(--teal);}
+  .a-ink{background:var(--ink);}
+  .a-amber{background:#C98A3B;}
+  .a-rose{background:#B05A6A;}
+  .hc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--hair);}
+  .hc-foot .live{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--teal-deep);}
+  .hc-foot .live i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(47,168,160,.6);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,168,160,.5);}70%{box-shadow:0 0 0 8px rgba(47,168,160,0);}100%{box-shadow:0 0 0 0 rgba(47,168,160,0);}}
+  .hc-stat{font-size:11px;color:var(--grey);font-weight:600;}
+
+  /* ============ SECTION HEADERS ============ */
+  section{position:relative;}
+  .sec-pad{padding-block:clamp(64px,9vw,128px);}
+  .sec-head{max-width:62ch;margin-bottom:clamp(40px,5vw,64px);}
+  .sec-head h2{font-size:clamp(30px,4.6vw,52px);margin-top:18px;letter-spacing:-.02em;}
+  .sec-head p{color:var(--ink-soft);font-size:clamp(16px,1.8vw,19px);margin-top:18px;max-width:54ch;}
+
+  .rule{height:1px;background:var(--hair);width:100%;}
+
+  /* ============ PILIERS (3) ============ */
+  .piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--hair);}
+  .pilier{
+    padding:38px 32px 40px;
+    border-left:1px solid var(--hair);
+    position:relative;
+    transition:background .35s var(--ease);
+  }
+  .pilier:first-child{border-left:none;}
+  .pilier:hover{background:var(--white);}
+  .pilier .p-num{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--teal);line-height:1;}
+  .pilier h3{font-size:24px;margin:20px 0 6px;}
+  .pilier .p-tag{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-soft);margin-bottom:18px;font-weight:400;}
+  .pilier ul li{display:flex;gap:11px;align-items:flex-start;font-size:15px;color:var(--ink-soft);padding:8px 0;border-bottom:1px dashed var(--hair);}
+  .pilier ul li:last-child{border-bottom:none;}
+  .pilier ul li svg{width:17px;height:17px;color:var(--teal-deep);flex:0 0 auto;margin-top:3px;}
+
+  /* ============ PRODUIT ============ */
+  .produit{background:var(--paper-2);border-block:1px solid var(--hair);}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--ink);color:var(--paper);padding:7px 15px;border-radius:999px;
+  }
+  .pill i{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  .feat-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center;}
+  .feat-list{display:flex;flex-direction:column;}
+  .feat{
+    padding:26px 0;border-top:1px solid var(--hair-ink);
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;
+    cursor:default;transition:padding-left .35s var(--ease);
+  }
+  .feat:last-child{border-bottom:1px solid var(--hair-ink);}
+  .feat:hover{padding-left:10px;}
+  .feat-ic{
+    width:50px;height:50px;border-radius:12px;
+    background:var(--white);border:1px solid var(--hair);
+    display:grid;place-items:center;color:var(--teal-deep);
+    box-shadow:var(--shadow-card);
+  }
+  .feat-ic svg{width:24px;height:24px;}
+  .feat h3{font-size:22px;margin-bottom:6px;}
+  .feat p{color:var(--ink-soft);font-size:15px;}
+  .feat .f-idx{font-family:var(--serif);font-style:italic;color:var(--grey-warm);font-size:13px;}
+
+  /* dashboard mock */
+  .dash{
+    background:var(--white);border:1px solid var(--hair);border-radius:18px;
+    box-shadow:var(--shadow-soft);overflow:hidden;
+  }
+  .dash-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--hair);}
+  .dash-top .d-title{font-family:var(--serif);font-weight:600;font-size:15px;}
+  .dash-top .d-tabs{display:flex;gap:8px;}
+  .dash-top .d-tabs span{font-size:11px;font-weight:600;color:var(--grey);padding:5px 10px;border-radius:7px;}
+  .dash-top .d-tabs span.on{background:var(--teal-tint);color:var(--teal-deep);}
+  .dash-body{padding:20px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px;}
+  .d-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+  .d-kpi{background:var(--paper);border:1px solid var(--hair);border-radius:11px;padding:13px 14px;}
+  .d-kpi .k-lab{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--grey);}
+  .d-kpi .k-val{font-family:var(--serif);font-size:26px;font-weight:600;margin-top:4px;}
+  .d-kpi .k-val em{font-style:normal;color:var(--teal-deep);font-size:14px;}
+  .d-chart{background:var(--paper);border:1px solid var(--hair);border-radius:11px;padding:15px 14px 12px;}
+  .d-chart .c-lab{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--grey);margin-bottom:14px;}
+  .bars{display:flex;align-items:flex-end;gap:8px;height:96px;}
+  .bars .bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(var(--teal),var(--teal-deep));opacity:.85;}
+  .bars .bar.ink{background:linear-gradient(var(--ink),var(--ink-soft));opacity:.5;}
+  .d-side{display:flex;flex-direction:column;gap:10px;}
+  .d-side .s-lab{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--grey);}
+  .d-row{display:flex;align-items:center;gap:11px;padding:10px;border:1px solid var(--hair);border-radius:10px;background:var(--paper);}
+  .d-row .av{width:30px;height:30px;border-radius:8px;background:var(--teal-tint);color:var(--teal-deep);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:13px;}
+  .d-row .nm{font-size:13px;font-weight:600;}
+  .d-row .mt{font-size:11px;color:var(--grey);}
+  .d-row .tg{margin-left:auto;font-size:10px;font-weight:700;color:var(--teal-deep);background:var(--teal-tint);padding:3px 8px;border-radius:6px;}
+
+  /* ============ POURQUOI (4) ============ */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;background:var(--white);}
+  .why{
+    padding:38px 34px;position:relative;
+    border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+    transition:background .35s var(--ease);
+  }
+  .why:nth-child(2n){border-right:none;}
+  .why:nth-child(n+3){border-bottom:none;}
+  .why:hover{background:var(--paper);}
+  .why .w-head{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;}
+  .why .w-num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--teal-deep);letter-spacing:.02em;}
+  .why h3{font-size:23px;letter-spacing:-.01em;}
+  .why p{color:var(--ink-soft);font-size:15.5px;}
+
+  /* ============ STATS ============ */
+  .stats{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;}
+  .stats::before{content:"";position:absolute;top:-160px;left:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(47,168,160,.22),transparent 65%);}
+  .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);}
+  .stat{padding:14px 8px;text-align:left;border-left:1px solid rgba(251,250,247,.14);padding-left:34px;}
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .s-num{font-family:var(--serif);font-size:clamp(48px,7vw,84px);font-weight:600;line-height:1;letter-spacing:-.02em;}
+  .stat .s-num em{font-style:italic;color:var(--teal);}
+  .stat .s-lab{font-size:14px;color:rgba(251,250,247,.72);margin-top:12px;max-width:24ch;}
+
+  /* ============ AVIS ============ */
+  .avis-grid{columns:3;column-gap:26px;}
+  .avis{
+    break-inside:avoid;margin-bottom:26px;
+    background:var(--white);border:1px solid var(--hair);border-radius:var(--r);
+    padding:28px 26px;position:relative;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .avis:hover{transform:translateY(-4px);box-shadow:var(--shadow-card);}
+  .avis .q{font-family:var(--serif);font-size:30px;color:var(--teal);line-height:.6;display:block;height:18px;}
+  .avis blockquote{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.4;letter-spacing:-.01em;margin:14px 0 18px;color:var(--ink);}
+  .avis .who{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--hair);}
+  .avis .who .av{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px;}
+  .avis .who .nm{font-size:14px;font-weight:700;}
+  .avis .who .ro{font-size:12.5px;color:var(--grey);}
+
+  /* ============ EARLY ACCESS ============ */
+  .early{background:var(--paper-2);border-block:1px solid var(--hair);}
+  .early-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center;}
+  .early h2{font-size:clamp(30px,4.4vw,50px);letter-spacing:-.02em;margin-top:18px;}
+  .early .e-sub{color:var(--ink-soft);font-size:17px;margin-top:20px;max-width:46ch;}
+  .ea-card{background:var(--ink);color:var(--paper);border-radius:18px;padding:38px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden;}
+  .ea-card::before{content:"";position:absolute;bottom:-120px;right:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(47,168,160,.3),transparent 65%);}
+  .ea-card .ea-lab{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);position:relative;}
+  .ea-card ul{margin:24px 0 30px;position:relative;}
+  .ea-card ul li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(251,250,247,.14);font-size:16px;}
+  .ea-card ul li:last-child{border-bottom:none;}
+  .ea-card ul li svg{width:20px;height:20px;color:var(--teal);flex:0 0 auto;margin-top:2px;}
+  .ea-card .ea-h{font-family:var(--serif);font-size:22px;margin-bottom:6px;position:relative;}
+
+  /* ============ FINAL CTA ============ */
+  .final{text-align:center;padding-block:clamp(72px,10vw,140px);position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:760px;height:760px;max-width:120vw;border-radius:50%;background:radial-gradient(circle,rgba(47,168,160,.12),transparent 60%);z-index:0;}
+  .final .wrap{position:relative;}
+  .final h2{font-size:clamp(34px,6vw,68px);letter-spacing:-.025em;max-width:18ch;margin:18px auto 0;}
+  .final h2 em{font-style:italic;color:var(--teal-deep);font-weight:400;}
+  .final p{color:var(--ink-soft);font-size:clamp(16px,2vw,20px);max-width:48ch;margin:22px auto 36px;}
+  .final-actions{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;}
+  .final-actions .ms{font-size:15px;font-weight:600;color:var(--ink-soft);transition:color .25s;}
+  .final-actions .ms:hover{color:var(--teal-deep);}
+
+  /* ============ FOOTER ============ */
+  footer.site{background:var(--ink);color:var(--paper);padding-block:clamp(48px,6vw,72px) 32px;position:relative;}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(251,250,247,.16);}
+  .foot-brand .brand{color:var(--paper);font-size:26px;}
+  .foot-brand .brand .mark{background:var(--paper);color:var(--ink);}
+  .foot-brand p{color:rgba(251,250,247,.66);max-width:40ch;margin-top:18px;font-size:15px;}
+  .foot-rgpd{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:13px;font-weight:600;color:var(--teal);}
+  .foot-rgpd svg{width:15px;height:15px;}
+  .foot-nav{display:flex;flex-direction:column;gap:13px;}
+  .foot-nav .fn-lab{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,250,247,.5);margin-bottom:4px;}
+  .foot-nav a{color:rgba(251,250,247,.82);font-size:15px;transition:color .25s, padding-left .25s;}
+  .foot-nav a:hover{color:var(--teal);padding-left:5px;}
+  .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:26px;flex-wrap:wrap;gap:14px;}
+  .foot-bottom p{font-size:13px;color:rgba(251,250,247,.55);}
+  .foot-bottom a{font-size:13px;color:rgba(251,250,247,.82);}
+  .foot-bottom a:hover{color:var(--teal);}
+
+  /* ============ REVEAL MOTION ============ */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.08s;}
+  .reveal.d2{transition-delay:.16s;}
+  .reveal.d3{transition-delay:.24s;}
+  .reveal.d4{transition-delay:.32s;}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-card{max-width:520px;margin-top:8px;}
+    .feat-layout{grid-template-columns:1fr;}
+    .dash{order:-1;}
+    .early-grid{grid-template-columns:1fr;}
+    .avis-grid{columns:2;}
+    .foot-top{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:760px){
+    .nav-links,.nav-cta .btn,.nav-cta .patient-link{display:none;}
+    .burger{display:inline-flex;}
+    body.menu-open .mobile-menu{display:block;}
+    .piliers{grid-template-columns:1fr;}
+    .pilier{border-left:none;border-top:1px solid var(--hair);}
+    .pilier:first-child{border-top:none;}
+    .why-grid{grid-template-columns:1fr;}
+    .why{border-right:none !important;border-bottom:1px solid var(--hair) !important;}
+    .why:last-child{border-bottom:none !important;}
+    .stats .wrap{grid-template-columns:1fr;gap:6px;}
+    .stat{border-left:none;padding-left:0;border-top:1px solid rgba(251,250,247,.14);padding-top:24px;}
+    .stat:first-child{border-top:none;padding-top:0;}
+    .avis-grid{columns:1;}
+    .dash-body{grid-template-columns:1fr;}
+    .foot-top{grid-template-columns:1fr;}
+    body{font-size:16px;}
+  }
+  @media (max-width:420px){
+    .hero-card{transform:none;}
+    .hc-week,.hc-cols{grid-template-columns:repeat(3,1fr);}
+    .hc-col:nth-child(n+4){display:none;}
+    .hc-week span:nth-child(n+4){display:none;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;scroll-behavior:auto !important;}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+    .btn:hover,.avis:hover,.feat:hover{transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="DocAgora Pro, accueil">
+      <span class="mark" aria-hidden="true">D</span>
+      DocAgora
+      <span class="pro">Pro</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#solution">Solution</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#ressources">Ressources</a>
+      <a href="#apropos">À propos</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="patient-link" href="#">Je suis un patient →</a>
+      <a class="btn btn-primary" href="#early">Commencer
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap">
+      <a href="#solution">Solution</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#ressources">Ressources</a>
+      <a href="#apropos">À propos</a>
+      <a href="#">Je suis un patient →</a>
+      <a class="btn btn-primary" href="#early">Commencer gratuitement</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="hero-kicker-row reveal">
+          <span class="kicker">Plateforme tout-en-un</span>
+          <span class="num">Accès anticipé</span>
+        </div>
+        <h1 id="hero-title" class="reveal d1">La solution tout-en-un qui <em>réinvente</em> votre quotidien professionnel.</h1>
+        <p class="lede reveal d2">Logiciel pour les professionnels de santé au Portugal.</p>
+        <ul class="trust reveal d2" aria-label="Garanties de confiance">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Conforme RGPD</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Données hébergées au Portugal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg> Conçu pour le Portugal</li>
+        </ul>
+        <div class="hero-actions reveal d3">
+          <a class="btn btn-teal" href="#early">Commencer gratuitement
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#solution">En savoir plus</a>
+        </div>
+      </div>
+
+      <!-- HERO MOCK: agenda -->
+      <div class="hero-card reveal d2" role="img" aria-label="Aperçu de l'agenda DocAgora avec rendez-vous colorés sur la semaine.">
+        <div class="hc-top">
+          <span class="hc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="hc-title">Agenda · Semaine</span>
+        </div>
+        <div class="hc-week" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span></div>
+        <div class="hc-cols" aria-hidden="true">
+          <div class="hc-col">
+            <div class="appt a-teal">09:00 — Consultation<small>M. Almeida</small></div>
+            <div class="appt a-ink">11:30 — Suivi<small>S. Costa</small></div>
+          </div>
+          <div class="hc-col">
+            <div class="appt a-amber">08:30 — Bilan<small>J. Ferreira</small></div>
+            <div class="appt a-teal">14:00 — Contrôle<small>A. Lopes</small></div>
+          </div>
+          <div class="hc-col">
+            <div class="appt a-rose">10:00 — 1ère visite<small>T. Marques</small></div>
+          </div>
+          <div class="hc-col">
+            <div class="appt a-teal">09:30 — Consultation<small>R. Silva</small></div>
+            <div class="appt a-ink">12:00 — Suivi<small>L. Pinto</small></div>
+          </div>
+          <div class="hc-col">
+            <div class="appt a-amber">15:00 — Bilan<small>C. Nunes</small></div>
+          </div>
+        </div>
+        <div class="hc-foot">
+          <span class="live"><i aria-hidden="true"></i> Synchro temps réel</span>
+          <span class="hc-stat">Glisser-déposer · RDV colorés</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PILIERS ============ -->
+  <section class="sec-pad" id="solution" aria-labelledby="piliers-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="num">01</span>&nbsp;Comment DocAgora vous aide</span>
+        <h2 id="piliers-title">Trois manières de transformer votre pratique.</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="piliers">
+        <article class="pilier reveal">
+          <span class="p-num">i</span>
+          <h3>Améliorez votre quotidien</h3>
+          <p class="p-tag">Moins d'administratif, plus de sérénité.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Réduisez le temps administratif</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Gestion centralisée des patients</li>
+          </ul>
+        </article>
+        <article class="pilier reveal d1">
+          <span class="p-num">ii</span>
+          <h3>Offrez de meilleurs soins</h3>
+          <p class="p-tag">De nouveaux standards de soins.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Communication patient simplifiée</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Plus de temps de qualité avec les patients</li>
+          </ul>
+        </article>
+        <article class="pilier reveal d2">
+          <span class="p-num">iii</span>
+          <h3>Développez votre cabinet</h3>
+          <p class="p-tag">Développez et optimisez sans effort.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Touchez plus de patients</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Visible sur la plateforme DocAgora</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUIT ============ -->
+  <section class="produit sec-pad" id="produit" aria-labelledby="produit-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="num">02</span>&nbsp;Le produit</span>
+        <span class="pill" style="margin:18px 0 4px;"><i aria-hidden="true"></i> Plateforme professionnelle</span>
+        <h2 id="produit-title">Tout ce qu'il vous faut pour gérer votre cabinet, au même endroit.</h2>
+      </div>
+
+      <div class="feat-layout">
+        <div class="feat-list reveal">
+          <article class="feat">
+            <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/><rect x="6.5" y="12" width="4" height="3" rx="1" fill="currentColor" stroke="none"/><rect x="13" y="12" width="4.5" height="3" rx="1" opacity=".5" fill="currentColor" stroke="none"/></svg></span>
+            <div>
+              <span class="f-idx">a.</span>
+              <h3>Agenda intelligent</h3>
+              <p>Calendrier intuitif, rendez-vous colorés, glisser-déposer et synchronisation en temps réel.</p>
+            </div>
+          </article>
+          <article class="feat">
+            <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.4 3.1-6 7-6s7 2.6 7 6"/></svg></span>
+            <div>
+              <span class="f-idx">b.</span>
+              <h3>Gestion des patients</h3>
+              <p>Dossiers numériques centralisés, recherche instantanée, historique et notes.</p>
+            </div>
+          </article>
+          <article class="feat">
+            <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16l3-4 3 2 4-6"/></svg></span>
+            <div>
+              <span class="f-idx">c.</span>
+              <h3>Analyse d'activité</h3>
+              <p>Visualisez vos rendez-vous et vos tendances d'un seul coup d'œil.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- DASHBOARD MOCK -->
+        <div class="dash reveal d1" role="img" aria-label="Tableau de bord DocAgora montrant des indicateurs d'activité, un graphique de rendez-vous et la liste des prochains patients.">
+          <div class="dash-top">
+            <span class="d-title">Tableau de bord</span>
+            <span class="d-tabs" aria-hidden="true"><span class="on">Activité</span><span>Patients</span><span>Agenda</span></span>
+          </div>
+          <div class="dash-body">
+            <div>
+              <div class="d-kpis">
+                <div class="d-kpi"><div class="k-lab">Cette semaine</div><div class="k-val">38 <em>RDV</em></div></div>
+                <div class="d-kpi"><div class="k-lab">Nouveaux patients</div><div class="k-val">12</div></div>
+              </div>
+              <div class="d-chart">
+                <div class="c-lab">Rendez-vous · 7 jours</div>
+                <div class="bars" aria-hidden="true">
+                  <span class="bar" style="height:55%"></span>
+                  <span class="bar" style="height:78%"></span>
+                  <span class="bar ink" style="height:40%"></span>
+                  <span class="bar" style="height:92%"></span>
+                  <span class="bar" style="height:66%"></span>
+                  <span class="bar ink" style="height:48%"></span>
+                  <span class="bar" style="height:72%"></span>
+                </div>
+              </div>
+            </div>
+            <div class="d-side">
+              <span class="s-lab">Prochains patients</span>
+              <div class="d-row"><span class="av">MA</span><div><div class="nm">M. Almeida</div><div class="mt">09:00 · Consultation</div></div><span class="tg">Confirmé</span></div>
+              <div class="d-row"><span class="av">SC</span><div><div class="nm">S. Costa</div><div class="mt">11:30 · Suivi</div></div><span class="tg">Confirmé</span></div>
+              <div class="d-row"><span class="av">TM</span><div><div class="nm">T. Marques</div><div class="mt">14:00 · 1ère visite</div></div><span class="tg">Nouveau</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POURQUOI ============ -->
+  <section class="sec-pad" id="apropos" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="num">03</span>&nbsp;Pourquoi DocAgora</span>
+        <h2 id="why-title">Ce qui nous différencie.</h2>
+        <p>Nous n'essayons pas d'être tout pour tout le monde. Voici ce qui nous différencie.</p>
+      </div>
+      <div class="why-grid reveal">
+        <article class="why">
+          <div class="w-head"><span class="w-num">01</span><h3>Conçu pour le Portugal, trilingue par défaut</h3></div>
+          <p>PT / FR / EN dès le premier jour, adapté aux pratiques de santé portugaises.</p>
+        </article>
+        <article class="why">
+          <div class="w-head"><span class="w-num">02</span><h3>Stack moderne, zéro legacy</h3></div>
+          <p>Technologies web modernes, mobile-first, rapide et intuitif.</p>
+        </article>
+        <article class="why">
+          <div class="w-head"><span class="w-num">03</span><h3>Transparent par conception</h3></div>
+          <p>Tarifs clairs, pas de frais cachés, roadmap ouverte, conforme RGPD hébergé au Portugal.</p>
+        </article>
+        <article class="why">
+          <div class="w-head"><span class="w-num">04</span><h3>Construit avec les praticiens</h3></div>
+          <p>Chaque fonctionnalité façonnée par les retours de vrais professionnels.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats sec-pad" aria-labelledby="stats-title">
+    <h2 id="stats-title" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">DocAgora en chiffres</h2>
+    <div class="wrap">
+      <div class="stat reveal">
+        <div class="s-num"><em>16</em></div>
+        <div class="s-lab">spécialités médicales prises en charge</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="s-num">3 <em>langues</em></div>
+        <div class="s-lab">PT · FR · EN, trilingue par défaut</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="s-num">RGPD</div>
+        <div class="s-lab">conforme, données hébergées au Portugal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVIS ============ -->
+  <section class="sec-pad" id="ressources" aria-labelledby="avis-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker"><span class="num">04</span>&nbsp;Paroles de praticiens</span>
+        <h2 id="avis-title">Ce qu'en disent les professionnels.</h2>
+        <p>Témoignages illustratifs de personas représentatifs de nos utilisateurs cibles.</p>
+      </div>
+      <div class="avis-grid">
+        <figure class="avis reveal">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>DocAgora améliore ma pratique : moins d'interruptions, plus d'attention aux patients.</blockquote>
+          <figcaption class="who"><span class="av">FD</span><span><span class="nm">Dr. Florian D.</span><br><span class="ro">Ostéopathe · Coimbra</span></span></figcaption>
+        </figure>
+        <figure class="avis reveal d1">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Je gagne au moins cinq minutes par consultation.</blockquote>
+          <figcaption class="who"><span class="av">PM</span><span><span class="nm">Dr. Patrick M.</span><br><span class="ro">Gastro-entérologue · Porto</span></span></figcaption>
+        </figure>
+        <figure class="avis reveal d2">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>DocAgora m'épargne les interruptions téléphoniques et simplifie la prise de rendez-vous à toute heure.</blockquote>
+          <figcaption class="who"><span class="av">EV</span><span><span class="nm">Dr. Elodie V.</span><br><span class="ro">Médecin généraliste · Lisboa</span></span></figcaption>
+        </figure>
+        <figure class="avis reveal">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Avec DocAgora, mon planning est enfin structuré.</blockquote>
+          <figcaption class="who"><span class="av">RS</span><span><span class="nm">Dr. Rémy S.</span><br><span class="ro">Dentiste · Braga</span></span></figcaption>
+        </figure>
+        <figure class="avis reveal d1">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Mes patients me trouvent facilement en ligne ; la prise de rendez-vous multilingue fait toute la différence.</blockquote>
+          <figcaption class="who"><span class="av">SR</span><span><span class="nm">Dr. Sofia R.</span><br><span class="ro">Pédiatre · Aveiro</span></span></figcaption>
+        </figure>
+        <figure class="avis reveal d2">
+          <span class="q" aria-hidden="true">“</span>
+          <blockquote>Installation simple et tarifs clairs : opérationnel en moins d'une journée.</blockquote>
+          <figcaption class="who"><span class="av">JP</span><span><span class="nm">Dr. João P.</span><br><span class="ro">Cardiologue · Faro</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EARLY ACCESS ============ -->
+  <section class="early sec-pad" id="early" aria-labelledby="early-title">
+    <div class="wrap early-grid">
+      <div class="reveal">
+        <span class="kicker"><span class="num">05</span>&nbsp;Accès anticipé</span>
+        <h2 id="early-title">Nous construisons l'avenir de la santé au Portugal, avec vous.</h2>
+        <p class="e-sub">DocAgora est en accès anticipé. Nous travaillons avec un petit groupe de professionnels pour façonner la plateforme. Rejoignez les premiers.</p>
+      </div>
+      <aside class="ea-card reveal d1">
+        <span class="ea-lab">Programme early adopters</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg><span><span class="ea-h">Influencez la feuille de route produit</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg><span><span class="ea-h">Support prioritaire</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg><span><span class="ea-h">Tarifs fondateurs à vie</span></span></li>
+        </ul>
+        <a class="btn btn-teal" href="mailto:hello@docagora.com?subject=Programme%20early%20adopters" style="width:100%;justify-content:center;">Rejoindre le programme early adopters
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final" id="tarifs" aria-labelledby="final-title">
+    <div class="wrap">
+      <span class="kicker reveal" style="justify-content:center;">Commencez aujourd'hui</span>
+      <h2 id="final-title" class="reveal d1">Prêt à <em>transformer</em> votre pratique ?</h2>
+      <p class="reveal d2">Rejoignez DocAgora aujourd'hui et découvrez une manière plus intelligente de gérer votre cabinet.</p>
+      <div class="final-actions reveal d2">
+        <a class="btn btn-primary" href="#early">Commencer gratuitement
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="ms" href="mailto:hello@docagora.com">Contactez-nous</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#" aria-label="DocAgora, accueil">
+          <span class="mark" aria-hidden="true">D</span>
+          DocAgora
+          <span class="pro" style="color:var(--teal);border-color:var(--teal);">Pro</span>
+        </a>
+        <p>La plateforme tout-en-un pour les professionnels de santé au Portugal. Agenda intelligent, gestion des patients et analyse d'activité.</p>
+        <span class="foot-rgpd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Conforme RGPD · Données hébergées au Portugal</span>
+      </div>
+      <nav class="foot-nav" aria-label="Liens de pied de page">
+        <span class="fn-lab">Navigation</span>
+        <a href="#solution">Solution</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#ressources">Ressources</a>
+        <a href="#apropos">À propos</a>
+        <a href="#">Site patient</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>DocAgora · Portugal · 2024 — Tous droits réservés.</p>
+      <a href="mailto:hello@docagora.com">hello@docagora.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    // Mobile menu toggle
+    var burger = document.getElementById('burger');
+    var body = document.body;
+    if(burger){
+      burger.addEventListener('click', function(){
+        var open = body.classList.toggle('menu-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+      document.querySelectorAll('#mobileMenu a').forEach(function(a){
+        a.addEventListener('click', function(){
+          body.classList.remove('menu-open');
+          burger.setAttribute('aria-expanded','false');
+        });
+      });
+    }
+
+    // Scroll reveal
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal');
+    if(reduce || !('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>

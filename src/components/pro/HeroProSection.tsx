@@ -26,7 +26,7 @@ export default function HeroProSection() {
   };
 
   return (
-    <section className="hero-pro">
+    <section className="hero-pro pro-section pro-s-hero">
       <style>{`
         .hero-pro {
           position: relative;
@@ -70,6 +70,46 @@ export default function HeroProSection() {
           border-radius: 50%;
           background: radial-gradient(circle, rgba(var(--color-teal-rgb), 0.06) 0%, transparent 70%);
           pointer-events: none;
+        }
+
+        /* Background video + legibility veil */
+        .hero-pro__bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        .hero-pro__bg video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.5;
+        }
+        .hero-pro__bg::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            105deg,
+            rgba(var(--color-dark-1-rgb), 0.92) 0%,
+            rgba(var(--color-dark-1-rgb), 0.7) 48%,
+            rgba(var(--color-navy-rgb), 0.42) 100%
+          );
+        }
+        @media (max-width: 991px) {
+          .hero-pro__bg::after {
+            background: linear-gradient(
+              180deg,
+              rgba(var(--color-dark-1-rgb), 0.86) 0%,
+              rgba(var(--color-dark-1-rgb), 0.78) 100%
+            );
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-pro__bg video { display: none; }
         }
 
         /* Wave transition at bottom */
@@ -141,6 +181,14 @@ export default function HeroProSection() {
           }
         }
       `}</style>
+
+      {/* Background video */}
+      <div className="hero-pro__bg" aria-hidden="true">
+        <video autoPlay muted loop playsInline preload="metadata">
+          <source src="/assets/video/hero-bg.mp4" type="video/mp4" />
+          <source src="/assets/video/hero-bg.webm" type="video/webm" />
+        </video>
+      </div>
 
       {/* Ambient glows */}
       <div className="hero-pro__glow-1" />

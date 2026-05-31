@@ -40,6 +40,8 @@ export default function ImproveSection() {
 
   return (
     <section
+      id="solutions"
+      className="pro-section pro-s-improve"
       style={{
         background: "var(--color-light-1)",
         padding: "120px 0",

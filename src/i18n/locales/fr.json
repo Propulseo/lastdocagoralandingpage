@@ -42,7 +42,7 @@
     "contact": "Contact",
     "emergencyIcon": "icon-call3",
     "email": "hello@docagora.com",
-    "emergencyNotice": "En cas d'urgence médicale, composez le 112. DocAgora n'est pas un service d'urgence.",
+    "emergencyNotice": "En cas d’urgence médicale, composez le 112. DocAgora n’est pas un service d’urgence.",
     "findProfessional": "Trouver un professionnel",
     "location": "Portugal",
     "available247": "Plateforme disponible 24h/24"
@@ -77,7 +77,7 @@
   },
   "contactInfo": {
     "emergencyTitle": "Urgence",
-    "emergencyDesc": "En cas d'urgence médicale, composez le 112. DocAgora n'est pas un service d'urgence.",
+    "emergencyDesc": "En cas d’urgence médicale, composez le 112. DocAgora n’est pas un service d’urgence.",
     "emergencyNumber": "112",
     "bookingTitle": "Réservez à tout moment",
     "bookingDesc": "Réservez à tout moment depuis votre compte patient. Sans appel téléphonique, sans attente.",
@@ -96,10 +96,10 @@
     "subtitle": "Prenez rendez-vous en présentiel avec des professionnels de santé vérifiés. Rapide, simple et sécurisé.",
     "findProfessional": "Trouver un professionnel",
     "watchVideo": "Regardez notre vidéo !",
-    "paragraph1": "DocAgora est née d'un constat simple : trouver le bon professionnel de santé au Portugal ne devrait pas être un combat. Pour les résidents portugais, les expatriés et les voyageurs, la plateforme rassemble des médecins vérifiés, affiche leur disponibilité en temps réel et vous permet de réserver en quelques clics, dans la langue qui vous convient le mieux.",
-    "paragraph2": "Que vous ayez besoin d'un médecin généraliste, d'un spécialiste ou d'un dentiste, DocAgora vous aide à comparer les professionnels par spécialité, avis, langues parlées, distance et assurances acceptées.",
+    "paragraph1": "DocAgora est née d’un constat simple : trouver le bon professionnel de santé au Portugal ne devrait pas être un combat. Pour les résidents portugais, les expatriés et les voyageurs, la plateforme rassemble des médecins vérifiés, affiche leur disponibilité en temps réel et vous permet de réserver en quelques clics, dans la langue qui vous convient le mieux.",
+    "paragraph2": "Que vous ayez besoin d’un médecin généraliste, d’un spécialiste ou d’un dentiste, DocAgora vous aide à comparer les professionnels par spécialité, avis, langues parlées, distance et assurances acceptées.",
     "list1": "Recherchez par spécialité, ville, langue parlée ou assurance acceptée.",
-    "list2": "Chaque praticien est examiné et approuvé par notre équipe avant d'être référencé.",
+    "list2": "Chaque praticien est examiné et approuvé par notre équipe avant d’être référencé.",
     "list3": "Disponible en portugais, français et anglais. Trouvez des soins dans la langue que vous préférez."
   },
   "specialties": {
@@ -158,7 +158,7 @@
       },
       "ent": {
         "title": "ORL",
-        "desc": "Spécialistes des affections de l'oreille, du nez et de la gorge. Des troubles auditifs aux pathologies sinusales et vocales.",
+        "desc": "Spécialistes des affections de l’oreille, du nez et de la gorge. Des troubles auditifs aux pathologies sinusales et vocales.",
         "cta": "Trouver un ORL"
       },
       "endocrinology": {
@@ -168,7 +168,7 @@
       },
       "gastroenterology": {
         "title": "Gastro-entérologie",
-        "desc": "Spécialistes du système digestif. Diagnostic et traitement des affections de l'estomac, des intestins et du foie.",
+        "desc": "Spécialistes du système digestif. Diagnostic et traitement des affections de l’estomac, des intestins et du foie.",
         "cta": "Trouver un gastro-entérologue"
       },
       "neurology": {
@@ -195,7 +195,7 @@
     "createAccount": "Créer mon compte"
   },
   "features": {
-    "title": "Tout ce qu'il vous faut pour trouver le bon médecin, réserver et être rappelé.",
+    "title": "Tout ce qu’il vous faut pour trouver le bon médecin, réserver et être rappelé.",
     "desc": "DocAgora réunit recherche intelligente, professionnels vérifiés et réservation fluide sur une seule plateforme, disponible en portugais, français et anglais. Voici ce qui la rend simple.",
     "learnMore": "En savoir plus sur DocAgora",
     "item1": "Recherche intelligente par IA",
@@ -217,27 +217,27 @@
       "member1": {
         "name": "Mike Dooley",
         "job": "Spécialiste en cardiologie",
-        "desc": "Dooley a obtenu sa licence en ingénierie biomédicale à l'Université de Tulane avant de fréquenter l'École de médecine de l'Université de St George."
+        "desc": "Dooley a obtenu sa licence en ingénierie biomédicale à l’Université de Tulane avant de fréquenter l’École de médecine de l’Université de St George."
       },
       "member2": {
         "name": "Dermatologists",
         "job": "Spécialiste en cardiologie",
-        "desc": "Brian est spécialiste du traitement de la peau, des cheveux, des ongles et des muqueuses. Il traite également les problèmes esthétiques, aidant à revitaliser l'apparence de la peau."
+        "desc": "Brian est spécialiste du traitement de la peau, des cheveux, des ongles et des muqueuses. Il traite également les problèmes esthétiques, aidant à revitaliser l’apparence de la peau."
       },
       "member3": {
         "name": "Maria Andaloro",
         "job": "Pédiatre",
-        "desc": "Andaloro a obtenu son diplôme de médecine et a effectué 3 ans d'internat en pédiatrie. Elle a réussi les examens rigoureux de l'American Board of Pediatrics."
+        "desc": "Andaloro a obtenu son diplôme de médecine et a effectué 3 ans d’internat en pédiatrie. Elle a réussi les examens rigoureux de l’American Board of Pediatrics."
       },
       "member4": {
         "name": "Dupree Black",
         "job": "Urologue",
-        "desc": "Black diagnostique et traite les maladies des voies urinaires chez les hommes et les femmes. Il diagnostique et traite également tout ce qui concerne l'appareil reproducteur masculin."
+        "desc": "Black diagnostique et traite les maladies des voies urinaires chez les hommes et les femmes. Il diagnostique et traite également tout ce qui concerne l’appareil reproducteur masculin."
       },
       "member5": {
         "name": "Markus skar",
         "job": "Laboratoire",
-        "desc": "Skar joue un rôle très important dans vos soins de santé. Les professionnels de laboratoire clinique sont responsables de la réalisation d'analyses qui fournissent des informations cruciales."
+        "desc": "Skar joue un rôle très important dans vos soins de santé. Les professionnels de laboratoire clinique sont responsables de la réalisation d’analyses qui fournissent des informations cruciales."
       },
       "member6": {
         "name": "Kiano Barker",
@@ -249,7 +249,7 @@
   "process": {
     "subtitle": "Comment fonctionne DocAgora",
     "title": "Trouvez, comparez et réservez votre médecin en quelques clics.",
-    "desc": "Que vous ayez besoin d'un médecin généraliste ou d'un spécialiste, DocAgora vous guide de la recherche au rendez-vous. Sans appels téléphoniques, sans attente. Juste une expérience simple, rapide et multilingue.",
+    "desc": "Que vous ayez besoin d’un médecin généraliste ou d’un spécialiste, DocAgora vous guide de la recherche au rendez-vous. Sans appels téléphoniques, sans attente. Juste une expérience simple, rapide et multilingue.",
     "tags": [
       "Recherche intelligente",
       "Professionnels vérifiés",
@@ -297,17 +297,17 @@
     "title": "Ce que disent nos utilisateurs",
     "items": {
       "item1": {
-        "quote": "DocAgora m'a aidée à trouver un pédiatre francophone à Lisbonne en moins de 5 minutes. Un vrai changement.",
+        "quote": "DocAgora m’a aidée à trouver un pédiatre francophone à Lisbonne en moins de 5 minutes. Un vrai changement.",
         "name": "Sophie M.",
         "location": "Lisbonne"
       },
       "item2": {
-        "quote": "J'ai pris rendez-vous chez le dentiste en 30 secondes, en anglais, sans un seul appel téléphonique.",
+        "quote": "J’ai pris rendez-vous chez le dentiste en 30 secondes, en anglais, sans un seul appel téléphonique.",
         "name": "James W.",
         "location": "Porto"
       },
       "item3": {
-        "quote": "En tant qu'expatrié au Portugal, trouver un médecin était un cauchemar. Ce n'est plus le cas.",
+        "quote": "En tant qu’expatrié au Portugal, trouver un médecin était un cauchemar. Ce n’est plus le cas.",
         "name": "Lukas R.",
         "location": "Cascais"
       }
@@ -344,7 +344,7 @@
     "findProfessional": "Trouver un professionnel",
     "playVideo": "Lire la vidéo",
     "freeText": "DocAgora est gratuit pour les patients. Recherchez, comparez et réservez des professionnels de santé vérifiés dans tout le Portugal, en portugais, français ou anglais.",
-    "teamSignature": "L'équipe DocAgora"
+    "teamSignature": "L’équipe DocAgora"
   },
   "faqHighlights": {
     "subtitle": "Réponses rapides pour bien démarrer",
@@ -354,17 +354,17 @@
       "item1": {
         "category": "Tarifs",
         "question": "DocAgora est-il gratuit pour les patients ?",
-        "answer": "Oui, la création d'un compte et la recherche de professionnels sont entièrement gratuites. Vous payez uniquement votre professionnel de santé directement, comme d'habitude."
+        "answer": "Oui, la création d’un compte et la recherche de professionnels sont entièrement gratuites. Vous payez uniquement votre professionnel de santé directement, comme d’habitude."
       },
       "item2": {
         "category": "Confiance",
         "question": "Les professionnels sont-ils vérifiés ?",
-        "answer": "Chaque professionnel de santé sur DocAgora est examiné et approuvé par notre équipe avant d'être référencé. Nous vérifions ses diplômes et son numéro d'inscription à l'ordre."
+        "answer": "Chaque professionnel de santé sur DocAgora est examiné et approuvé par notre équipe avant d’être référencé. Nous vérifions ses diplômes et son numéro d’inscription à l’ordre."
       },
       "item3": {
         "category": "Langues",
         "question": "Puis-je utiliser DocAgora dans ma langue ?",
-        "answer": "Oui. La plateforme est disponible en portugais, français et anglais, et vous pouvez filtrer les professionnels par la langue qu'ils parlent."
+        "answer": "Oui. La plateforme est disponible en portugais, français et anglais, et vous pouvez filtrer les professionnels par la langue qu’ils parlent."
       }
     }
   },
@@ -376,11 +376,11 @@
     "linkAbout": "À propos",
     "linkLegal": "Mentions légales",
     "linkPrivacy": "Politique de confidentialité",
-    "linkTerms": "Conditions d'utilisation",
+    "linkTerms": "Conditions d’utilisation",
     "linkBlog": "Blog",
     "linkContact": "Contact",
     "contactTitle": "Nous contacter",
-    "contactDesc": "Si vous avez des questions ou besoin d'aide, n'hésitez pas à contacter notre équipe.",
+    "contactDesc": "Si vous avez des questions ou besoin d’aide, n’hésitez pas à contacter notre équipe.",
     "contactEmail": "hello@docagora.com",
     "contactLocation": "Portugal",
     "contactUs": "Contactez-nous",
@@ -388,7 +388,7 @@
     "linkSpecialties": "Spécialités",
     "copyright": "© 2026 DocAgora. Tous droits réservés.",
     "gdprBadge": "Plateforme conforme au RGPD · Données hébergées au Portugal.",
-    "bottomTerms": "Conditions d'utilisation",
+    "bottomTerms": "Conditions d’utilisation",
     "bottomPrivacy": "Politique de confidentialité",
     "bottomGdpr": "RGPD",
     "footerSpecialties": {
@@ -405,9 +405,9 @@
     "pageDesc": "DocAgora vous met en relation avec des professionnels de santé vérifiés dans tout le Portugal. Recherchez par spécialité, langue et localisation.",
     "ctaFindDoctor": "Trouver un professionnel",
     "ctaSpecialties": "Nos spécialités",
-    "aboutTitle": "Améliorer l'accès aux soins au Portugal, pour tous.",
-    "aboutP1": "Notre objectif est de mettre en relation chaque personne au Portugal, résidents, expatriés et voyageurs, avec le bon professionnel de santé. DocAgora est née d'un constat simple : trouver un médecin qui parle votre langue, accepte votre assurance et a des disponibilités ne devrait pas être un combat.",
-    "aboutP2": "Nous travaillons avec des professionnels de santé vérifiés dans toutes les grandes spécialités. Chaque praticien sur la plateforme est examiné et approuvé par notre équipe avant d'être référencé. Nous pensons que l'accès à des soins de qualité commence par une expérience de réservation simple, rapide et multilingue.",
+    "aboutTitle": "Améliorer l’accès aux soins au Portugal, pour tous.",
+    "aboutP1": "Notre objectif est de mettre en relation chaque personne au Portugal, résidents, expatriés et voyageurs, avec le bon professionnel de santé. DocAgora est née d’un constat simple : trouver un médecin qui parle votre langue, accepte votre assurance et a des disponibilités ne devrait pas être un combat.",
+    "aboutP2": "Nous travaillons avec des professionnels de santé vérifiés dans toutes les grandes spécialités. Chaque praticien sur la plateforme est examiné et approuvé par notre équipe avant d’être référencé. Nous pensons que l’accès à des soins de qualité commence par une expérience de réservation simple, rapide et multilingue.",
     "meetProfessionals": "Découvrez nos professionnels",
     "watchVideo": "Regardez notre vidéo !",
     "featuresTitle": "Pourquoi les patients choisissent DocAgora.",
@@ -425,7 +425,7 @@
       "f8": "Rappels automatiques de rendez-vous"
     },
     "featuresBottom": "Nous pensons que des soins de qualité commencent par une expérience de réservation simple.",
-    "featuresBottomCta": "Contactez-nous pour plus d'informations"
+    "featuresBottomCta": "Contactez-nous pour plus d’informations"
   },
   "specialtiesPage": {
     "pageSubheading": "Parcourez 16 spécialités médicales disponibles sur DocAgora.",
@@ -443,7 +443,7 @@
       ],
       "cardiology": [
         "Bilans cardiaques",
-        "Gestion de l'hypertension",
+        "Gestion de l’hypertension",
         "Prévention des maladies cardiaques"
       ],
       "dermatology": [
@@ -512,12 +512,12 @@
         "Traitement des calculs rénaux"
       ],
       "rheumatology": [
-        "Traitement de l'arthrite",
+        "Traitement de l’arthrite",
         "Maladies auto-immunes",
         "Inflammation articulaire"
       ]
     },
-    "featuresTitle": "DocAgora simplifie l'accès aux soins dans tout le Portugal.",
+    "featuresTitle": "DocAgora simplifie l’accès aux soins dans tout le Portugal.",
     "featuresDesc": "Que vous soyez résident portugais, expatrié ou voyageur, DocAgora vous aide à trouver, comparer et réserver des professionnels de santé vérifiés, dans votre langue.",
     "featuresCoreValues": "Nos valeurs fondamentales",
     "features": {
@@ -531,15 +531,15 @@
       "f8": "Rappels automatiques de rendez-vous"
     },
     "featuresBottom": "Nous aspirons à être la plateforme de réservation de soins la plus fiable au Portugal.",
-    "featuresBottomCta": "Contactez-nous pour plus d'informations"
+    "featuresBottomCta": "Contactez-nous pour plus d’informations"
   },
   "faqPage": {
     "pageTitle": "FAQ",
     "breadcrumbHome": "Accueil",
     "breadcrumbAbout": "À propos",
     "breadcrumbFaq": "FAQ",
-    "sidebarEmergencyTitle": "Cas d'urgence",
-    "sidebarEmergencyDesc": "En cas d'urgence médicale, composez le 112. DocAgora n'est pas un service d'urgence.",
+    "sidebarEmergencyTitle": "Cas d’urgence",
+    "sidebarEmergencyDesc": "En cas d’urgence médicale, composez le 112. DocAgora n’est pas un service d’urgence.",
     "sidebarEmergencyPhone": "112",
     "sidebarAvailableTitle": "Disponibilité de la plateforme",
     "sidebarAvailable": "Plateforme",
@@ -552,15 +552,15 @@
     "items": {
       "q1": {
         "question": "DocAgora est-il gratuit pour les patients ?",
-        "answer": "Oui, la création d'un compte, la recherche de professionnels et la prise de rendez-vous sont entièrement gratuites. Vous payez uniquement votre professionnel de santé directement, comme d'habitude."
+        "answer": "Oui, la création d’un compte, la recherche de professionnels et la prise de rendez-vous sont entièrement gratuites. Vous payez uniquement votre professionnel de santé directement, comme d’habitude."
       },
       "q2": {
         "question": "Les professionnels sont-ils vérifiés ?",
-        "answer": "Chaque professionnel de santé sur DocAgora est examiné et approuvé par notre équipe avant d'être référencé. Nous vérifions ses diplômes, son numéro d'inscription à l'ordre et sa situation professionnelle."
+        "answer": "Chaque professionnel de santé sur DocAgora est examiné et approuvé par notre équipe avant d’être référencé. Nous vérifions ses diplômes, son numéro d’inscription à l’ordre et sa situation professionnelle."
       },
       "q3": {
         "question": "En quelles langues DocAgora est-il disponible ?",
-        "answer": "La plateforme est disponible en portugais, français et anglais. Vous pouvez également filtrer les professionnels par les langues qu'ils parlent lors des consultations."
+        "answer": "La plateforme est disponible en portugais, français et anglais. Vous pouvez également filtrer les professionnels par les langues qu’ils parlent lors des consultations."
       },
       "q4": {
         "question": "Comment prendre rendez-vous ?",
@@ -588,7 +588,7 @@
       },
       "q10": {
         "question": "Puis-je filtrer les professionnels par assurance ?",
-        "answer": "Oui, vous pouvez filtrer les professionnels par les régimes d'assurance santé qu'ils acceptent. Cela vous aide à trouver des praticiens conventionnés et à éviter les frais imprévus."
+        "answer": "Oui, vous pouvez filtrer les professionnels par les régimes d’assurance santé qu’ils acceptent. Cela vous aide à trouver des praticiens conventionnés et à éviter les frais imprévus."
       }
     }
   },
@@ -609,16 +609,18 @@
     "submitButton": "Lancer ma recherche",
     "panelTitle": "Contacts rapides",
     "panelDesc": "Vous avez une question sur DocAgora ? Notre équipe est là pour vous aider.",
-    "panelEmergency": "Ligne d'urgence : 112",
+    "panelEmergency": "Ligne d’urgence : 112",
     "panelLocation": "Portugal",
     "panelEmail": "hello@docagora.com",
     "panelAvailable": "Plateforme disponible 24h/24",
     "panelContactUs": "Contactez-nous",
     "faqSubtitle": "Trouvez des réponses aux questions courantes",
-    "faqTitle": "Questions fréquentes"
+    "faqTitle": "Questions fréquentes",
+    "successTitle": "Message bien reçu",
+    "successDesc": "Merci, nous revenons vers vous au plus vite. Vous pouvez aussi nous écrire directement à hello@docagora.com."
   },
   "blogPage": {
-    "pageTitle": "L'essentiel santé",
+    "pageTitle": "L’essentiel santé",
     "breadcrumbHome": "Accueil",
     "breadcrumbBlog": "Blog",
     "readMore": "En savoir plus",
@@ -636,7 +638,7 @@
         "category": "Santé",
         "date": "14 avril 2026",
         "author": "Équipe DocAgora",
-        "title": "Comprendre le système de santé portugais en tant qu'expatrié",
+        "title": "Comprendre le système de santé portugais en tant qu’expatrié",
         "excerpt": "Santé publique vs privée au Portugal : ce que chaque nouvel arrivant doit savoir avant son premier rendez-vous médical."
       },
       "a3": {
@@ -650,15 +652,15 @@
         "category": "Bien-être",
         "date": "18 février 2026",
         "author": "Équipe DocAgora",
-        "title": "À quoi s'attendre lors de votre première consultation au Portugal",
-        "excerpt": "De la paperasse à l'assurance, voici un guide étape par étape pour votre premier rendez-vous médical en tant que résident étranger ou visiteur."
+        "title": "À quoi s’attendre lors de votre première consultation au Portugal",
+        "excerpt": "De la paperasse à l’assurance, voici un guide étape par étape pour votre premier rendez-vous médical en tant que résident étranger ou visiteur."
       },
       "a5": {
         "category": "Perspectives médicales",
         "date": "25 janvier 2026",
         "author": "Équipe DocAgora",
         "title": "Pourquoi la réservation en ligne transforme la santé au Portugal",
-        "excerpt": "Disponibilité en temps réel, moins d'appels téléphoniques, réservations plus rapides : comment les outils numériques transforment la relation patient-médecin."
+        "excerpt": "Disponibilité en temps réel, moins d’appels téléphoniques, réservations plus rapides : comment les outils numériques transforment la relation patient-médecin."
       },
       "a6": {
         "category": "Bien-être",
@@ -672,13 +674,13 @@
   "home": {
     "mobileApp": {
       "title": "Application DocAgora : bientôt disponible",
-      "subtitle": "L'application mobile DocAgora arrive bientôt. Trouvez un professionnel de santé, prenez rendez-vous, recevez des rappels, tout depuis votre téléphone, dans votre langue. Soyez le premier informé de son lancement.",
+      "subtitle": "L’application mobile DocAgora arrive bientôt. Trouvez un professionnel de santé, prenez rendez-vous, recevez des rappels, tout depuis votre téléphone, dans votre langue. Soyez le premier informé de son lancement.",
       "starsLabel": "Bientôt disponible sur iOS et Android",
       "downloadOn": "Télécharger sur l'",
       "appStoreLabel": "App Store",
       "getItOn": "Disponible sur",
       "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "Lancement de l'application bientôt. Inscrivez-vous pour un accès anticipé",
+      "comingSoonTooltip": "Lancement de l’application bientôt. Inscrivez-vous pour un accès anticipé",
       "cta": "Inscrivez-vous sur la plateforme pour être notifié au lancement",
       "phoneSearch": "Trouver un professionnel...",
       "phoneDoc1Spec": "Cardiologue",
@@ -693,7 +695,7 @@
     "freeSearches": "recherches gratuites",
     "placeholder": "Décrivez le professionnel que vous cherchez...",
     "placeholderDisabled": "Créez un compte pour continuer...",
-    "welcome": "Bonjour ! Je suis l'assistant DocAgora. Décrivez le professionnel de santé que vous recherchez et je trouverai les meilleures options pour vous.",
+    "welcome": "Bonjour ! Je suis l’assistant DocAgora. Décrivez le professionnel de santé que vous recherchez et je trouverai les meilleures options pour vous.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
     "viewProfiles": "Créez un compte pour voir les profils complets et prendre rendez-vous",
     "wallTitle": "Vous aimez les résultats ?",
@@ -703,7 +705,7 @@
     "wallBenefit3": "Rappels automatiques",
     "wallBenefit4": "Historique des consultations",
     "wallCreateAccount": "Créer un compte gratuit",
-    "wallLogin": "J'ai déjà un compte",
+    "wallLogin": "J’ai déjà un compte",
     "wallRgpd": "Vos données sont hébergées au Portugal, en conformité avec le RGPD.",
     "suggestion1": "Dentiste à Lisbonne",
     "suggestion2": "Médecin de famille à Porto",
@@ -724,7 +726,7 @@
       "formEmail": "ex. jean@example.com",
       "formSpecialty": "Spécialité",
       "formSubmit": "Envoyer votre demande",
-      "formNote": "Nos conseillers sont là pour vous aider à choisir l'offre la mieux adaptée à votre activité.",
+      "formNote": "Nos conseillers sont là pour vous aider à choisir l’offre la mieux adaptée à votre activité.",
       "formPrivacyLink": "En savoir plus sur nos pratiques de collecte de données",
       "formTrustLine": "Sans engagement · Gratuit pour commencer · Conforme RGPD",
       "formFirstNameLabel": "Prénom",
@@ -742,10 +744,10 @@
       "card1Desc": "Couvrez toutes vos activités quotidiennes en un seul endroit.",
       "card2Title": "Les patients acteurs",
       "card2Desc": "Les patients peuvent vous trouver et prendre rendez-vous en ligne facilement.",
-      "card3Title": "L'IA au cœur de votre pratique",
+      "card3Title": "L’IA au cœur de votre pratique",
       "card3Desc": "Recherche intelligente et mise en relation avec les patients.",
       "card4Title": "Un service à la hauteur de vos exigences",
-      "card4Desc": "Centre d'aide, support dédié et ressources."
+      "card4Desc": "Centre d’aide, support dédié et ressources."
     },
     "stats": {
       "stat1Value": "16",
@@ -754,13 +756,13 @@
       "stat2Label": "PT · FR · EN",
       "stat3Value": "RGPD",
       "stat3Label": "conforme · hébergé au Portugal",
-      "testimonialQuote": "DocAgora a changé la façon dont je gère mon cabinet. Je gagne du temps sur l'administratif et me concentre sur l'essentiel : mes patients.",
+      "testimonialQuote": "DocAgora a changé la façon dont je gère mon cabinet. Je gagne du temps sur l’administratif et me concentre sur l’essentiel : mes patients.",
       "testimonialName": "Dr. [Nom]",
       "testimonialSpecialty": "[Spécialité], Lisbonne"
     },
     "improve": {
       "block1Title": "Améliorez votre quotidien",
-      "block1Subtitle": "Moins d'administratif, plus de sérénité.",
+      "block1Subtitle": "Moins d’administratif, plus de sérénité.",
       "block1Bullet1": "Réduisez le temps administratif",
       "block1Bullet2": "Gestion centralisée des patients",
       "block1Cta": "En savoir plus",
@@ -780,7 +782,7 @@
       "title": "La parole aux professionnels",
       "items": {
         "item1": {
-          "quote": "DocAgora améliore ma pratique : moins d'interruptions, plus d'attention aux patients.",
+          "quote": "DocAgora améliore ma pratique : moins d’interruptions, plus d’attention aux patients.",
           "name": "Dr. Florian D.",
           "specialty": "Ostéopathe"
         },
@@ -790,12 +792,12 @@
           "specialty": "Gastro-entérologue"
         },
         "item3": {
-          "quote": "DocAgora m'épargne les interruptions téléphoniques constantes et simplifie la prise de rendez-vous pour les patients à toute heure.",
+          "quote": "DocAgora m’épargne les interruptions téléphoniques constantes et simplifie la prise de rendez-vous pour les patients à toute heure.",
           "name": "Dr. Elodie V.",
           "specialty": "Médecin généraliste"
         },
         "item4": {
-          "quote": "Quand j'ai commencé, mon cabinet était stressant et désorganisé. Avec DocAgora, mon planning est structuré.",
+          "quote": "Quand j’ai commencé, mon cabinet était stressant et désorganisé. Avec DocAgora, mon planning est structuré.",
           "name": "Dr. Rémy S.",
           "specialty": "Dentiste"
         }
@@ -809,8 +811,8 @@
     },
     "featuresGrid": {
       "pill": "Plateforme professionnelle",
-      "title": "Tout ce qu'il vous faut pour gérer votre cabinet, au même endroit.",
-      "desc": "DocAgora Pro réunit gestion d'agenda, suivi des patients et analyse de votre activité dans une plateforme intégrée, conçue pour les professionnels de santé au Portugal.",
+      "title": "Tout ce qu’il vous faut pour gérer votre cabinet, au même endroit.",
+      "desc": "DocAgora Pro réunit gestion d’agenda, suivi des patients et analyse de votre activité dans une plateforme intégrée, conçue pour les professionnels de santé au Portugal.",
       "cta": "Commencer gratuitement",
       "items": {
         "agenda": {
@@ -967,7 +969,7 @@
     },
     "cta": {
       "title": "Prêt à transformer votre pratique ?",
-      "subtitle": "Rejoignez DocAgora aujourd'hui et découvrez une manière plus intelligente de gérer votre cabinet.",
+      "subtitle": "Rejoignez DocAgora aujourd’hui et découvrez une manière plus intelligente de gérer votre cabinet.",
       "ctaGetStarted": "Commencer gratuitement",
       "trustLine": "Sans carte bancaire · Annulez à tout moment",
       "ctaContactUs": "Contactez-nous"
@@ -992,7 +994,7 @@
       "aboutDesc": "DocAgora est conçu pour simplifier le quotidien des professionnels de santé au Portugal. Découvrez notre vision et notre équipe.",
       "comingSoon": "Bientôt disponible",
       "getStarted": "Commencer maintenant",
-      "backToHome": "← Retour à l'accueil pro"
+      "backToHome": "← Retour à l’accueil pro"
     },
     "earlyAdopters": {
       "title": "Nous construisons l’avenir de la santé au Portugal, avec vous",
@@ -1044,7 +1046,7 @@
       "cta": "Me notifier",
       "mention": "Nous vous enverrons les détails tarifaires en premier, avant tout le monde.",
       "trustLine": "Conforme RGPD · Pas de spam · Désabonnement à tout moment",
-      "ctaBack": "Retour à l'accueil",
+      "ctaBack": "Retour à l’accueil",
       "thankYou": "Merci ! Nous vous notifierons dès que les tarifs seront disponibles."
     }
   }

@@ -10,7 +10,7 @@ export default function AboutSection() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-7 offset-lg-1">
             <div className="heading-layout2">
-              <h3 className="heading__title mb-60">{t("title")} <br /> {t("titleBreak")}</h3>
+              <h2 className="heading__title mb-60">{t("title")} <br /> {t("titleBreak")}</h2>
             </div>
           </div>
         </div>
@@ -27,15 +27,8 @@ export default function AboutSection() {
                 </Link>
               </div>
             </div>
-            <div className="video-banner-layout2 bg-overlay">
-              <img src="/assets/images/about/2.jpg" alt="about" className="w-100" />
-              {/* Video placeholder */}
-              <button type="button" className="video__btn video__btn-white">
-                <div className="video__player">
-                  <i className="fa fa-play"></i>
-                </div>
-                <span className="video__btn-title color-white">{t("watchVideo")}</span>
-              </button>
+            <div className="video-banner-layout2 da-about__media">
+              <img src="/assets/images/about/2.jpg" alt="" className="w-100" />
             </div>
           </div>
           <div className="col-sm-12 col-md-12 col-lg-7">

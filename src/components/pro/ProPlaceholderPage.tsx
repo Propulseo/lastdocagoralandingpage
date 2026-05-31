@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 
 const PLATFORM_URL =
-  process.env.NEXT_PUBLIC_PLATFORM_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.docagora.com";
 
 interface ProPlaceholderPageProps {
   titleKey: string;
