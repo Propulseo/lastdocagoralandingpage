@@ -29,6 +29,27 @@ export const featuresElevatedCss = `
     padding-inline: clamp(16px, 4vw, 24px);
   }
 
+  .hef__head,
+  .hef__tabs,
+  .hef__intro,
+  .hef__stage {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.72s var(--mo-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+      transform 0.72s var(--mo-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .hef__wrap--in .hef__head,
+  .hef__wrap--in .hef__tabs,
+  .hef__wrap--in .hef__intro,
+  .hef__wrap--in .hef__stage {
+    opacity: 1;
+    transform: none;
+  }
+  .hef__wrap--in .hef__tabs { transition-delay: 80ms; }
+  .hef__wrap--in .hef__intro { transition-delay: 150ms; }
+  .hef__wrap--in .hef__stage { transition-delay: 230ms; }
+
   .hef__head { text-align: center; max-width: 60ch; margin-inline: auto; }
   .hef__eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
@@ -131,6 +152,7 @@ export const featuresElevatedCss = `
     border-radius: 999px; padding: 4px 10px; white-space: nowrap;
   }
   .hef__body { padding: 16px; min-height: 296px; }
+  .hef__stage { position: relative; }
 
   @keyframes hef-in {
     from { opacity: 0; transform: translateY(10px); }
@@ -150,6 +172,13 @@ export const featuresElevatedCss = `
     .hef *, .hef__body > div {
       animation: none !important;
       transition: none !important;
+    }
+    .hef__head,
+    .hef__tabs,
+    .hef__intro,
+    .hef__stage {
+      opacity: 1 !important;
+      transform: none !important;
     }
     /* Onglet actif : remplissage teal figé en entier (état sélectionné clair). */
     .hef__tab[aria-selected="true"] .hef__tab-fill { clip-path: inset(0 0 0 0); }

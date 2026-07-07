@@ -10,6 +10,7 @@ import ReservationScreen from "./features/ReservationScreen";
 import DashboardScreen from "./features/DashboardScreen";
 import MultilingueScreen from "./features/MultilingueScreen";
 import RappelsScreen from "./features/RappelsScreen";
+import { useRevealInView } from "@/components/shared/useRevealInView";
 
 /* ============================================================
    FeaturesElevated — section FONCTIONNALITÉS élevée du Pro (dark
@@ -56,6 +57,7 @@ export default function FeaturesElevated() {
   const ActiveScreen = SCREENS[active];
 
   const sectionRef = useRef<HTMLElement | null>(null);
+  const { ref: revealRef, revealed } = useRevealInView<HTMLDivElement>(0.18);
   const reduceRef = useRef(false);
   const [autoplay, setAutoplay] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -124,7 +126,7 @@ export default function FeaturesElevated() {
     >
       <style>{featuresElevatedCss}</style>
 
-      <div className="hef__wrap">
+      <div ref={revealRef} className={`hef__wrap${revealed ? " hef__wrap--in" : ""}`}>
         <div className="hef__head">
           <span className="hef__eyebrow">
             <span className="hef__eyebrow-dot" aria-hidden="true" />

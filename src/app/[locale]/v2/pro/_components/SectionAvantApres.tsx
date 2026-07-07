@@ -317,7 +317,7 @@ export default function SectionAvantApres() {
         className={`v2aa-shell${revealed ? " v2aa-play" : ""}`}
         ref={ref}
       >
-        <div className="v2aa-sechead">
+        <div className="v2aa-sechead v2aa-reveal" style={{ animationDelay: "0ms" }}>
           <span className="v2aa-eyebrow">
             <span aria-hidden="true" />
             {t("avantApres.eyebrow")}
@@ -332,7 +332,7 @@ export default function SectionAvantApres() {
           <div className="v2aa-compare">
             <div
               className="v2aa-col v2aa-col--antes v2aa-reveal"
-              style={{ animationDelay: "0ms" }}
+              style={{ animationDelay: "130ms" }}
             >
               <span className="v2aa-col__tag">{t("avantApres.tagBefore")}</span>
               <h3 className="v2aa-col__title">{t("avantApres.titleBefore")}</h3>
@@ -350,7 +350,7 @@ export default function SectionAvantApres() {
 
             <div
               className="v2aa-col v2aa-col--depois v2aa-reveal"
-              style={{ animationDelay: "120ms" }}
+              style={{ animationDelay: "250ms" }}
             >
               <span className="v2aa-col__tag">{t("avantApres.tagAfter")}</span>
               <h3 className="v2aa-col__title">{t("avantApres.titleAfter")}</h3>

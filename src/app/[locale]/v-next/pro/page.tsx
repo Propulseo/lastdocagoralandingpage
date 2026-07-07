@@ -2,6 +2,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeaderV4 from "@/components/layout/HeaderV4";
 import FooterPro from "@/components/layout/FooterPro";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import RevealCascade from "@/components/shared/RevealCascade";
 
 const metricKeys = ["first", "second", "third"] as const;
 const workflowKeys = ["profile", "agenda", "followup"] as const;
@@ -29,7 +31,7 @@ export default async function VNextProPage({
           </div>
 
           <div className="vpro-shell vpro-hero__grid">
-            <div className="vpro-hero__copy">
+            <AnimatedSection className="vpro-hero__copy" direction="left">
               <p className="vpro-kicker">{t("hero.kicker")}</p>
               <h1 className="vpro-hero__title" id="vpro-title">
                 {t("hero.title")}
@@ -45,77 +47,79 @@ export default async function VNextProPage({
                   {t("hero.secondaryCta")}
                 </a>
               </div>
-            </div>
+            </AnimatedSection>
 
-            <div className="vpro-board" aria-label={t("hero.boardLabel")}>
-              <div className="vpro-board__top">
-                <span>{t("board.title")}</span>
-                <strong>{t("board.status")}</strong>
-              </div>
-              <div className="vpro-board__agenda">
-                <div className="vpro-board__day">
-                  <span>{t("board.today")}</span>
-                  <strong>16</strong>
+            <AnimatedSection className="vpro-board-motion" direction="right" delay={0.12}>
+              <div className="vpro-board mo-premium-card" aria-label={t("hero.boardLabel")}>
+                <div className="vpro-board__top">
+                  <span>{t("board.title")}</span>
+                  <strong>{t("board.status")}</strong>
                 </div>
-                <div className="vpro-board__slots">
-                  <span className="is-filled" />
-                  <span className="is-filled" />
-                  <span />
-                  <span className="is-cobalt" />
-                  <span className="is-filled" />
-                  <span />
+                <div className="vpro-board__agenda">
+                  <div className="vpro-board__day">
+                    <span>{t("board.today")}</span>
+                    <strong>16</strong>
+                  </div>
+                  <div className="vpro-board__slots">
+                    <span className="is-filled" />
+                    <span className="is-filled" />
+                    <span />
+                    <span className="is-cobalt" />
+                    <span className="is-filled" />
+                    <span />
+                  </div>
+                </div>
+                <div className="vpro-board__panel">
+                  <p>{t("board.panelTitle")}</p>
+                  <div className="vpro-board__bars" aria-hidden="true">
+                    <span style={{ height: "42%" }} />
+                    <span style={{ height: "58%" }} />
+                    <span style={{ height: "78%" }} />
+                    <span style={{ height: "64%" }} />
+                    <span style={{ height: "88%" }} />
+                  </div>
+                  <strong>{t("board.panelValue")}</strong>
                 </div>
               </div>
-              <div className="vpro-board__panel">
-                <p>{t("board.panelTitle")}</p>
-                <div className="vpro-board__bars" aria-hidden="true">
-                  <span style={{ height: "42%" }} />
-                  <span style={{ height: "58%" }} />
-                  <span style={{ height: "78%" }} />
-                  <span style={{ height: "64%" }} />
-                  <span style={{ height: "88%" }} />
-                </div>
-                <strong>{t("board.panelValue")}</strong>
-              </div>
-            </div>
+            </AnimatedSection>
           </div>
 
           <div className="vpro-shell">
-            <dl className="vpro-metrics">
+            <RevealCascade as="dl" className="vpro-metrics" baseDelayMs={160} stepMs={80}>
               {metricKeys.map((key) => (
                 <div className="vpro-metric" key={key}>
                   <dt>{t(`metrics.${key}.label`)}</dt>
                   <dd>{t(`metrics.${key}.value`)}</dd>
                 </div>
               ))}
-            </dl>
+            </RevealCascade>
           </div>
         </section>
 
         <section className="vpro-proof" aria-label={t("proof.aria")}>
-          <div className="vpro-shell vpro-proof__grid">
+          <RevealCascade className="vpro-shell vpro-proof__grid" stepMs={70}>
             {proofKeys.map((key) => (
               <div className="vpro-proof__item" key={key}>
                 <span>{t(`proof.${key}.value`)}</span>
                 <p>{t(`proof.${key}.label`)}</p>
               </div>
             ))}
-          </div>
+          </RevealCascade>
         </section>
 
         <section className="vpro-section" id="vpro-system" aria-labelledby="vpro-system-title">
           <div className="vpro-shell vpro-system">
-            <div>
+            <AnimatedSection direction="left">
               <p className="vpro-eyebrow">{t("system.eyebrow")}</p>
               <h2 className="vpro-title" id="vpro-system-title">
                 {t("system.title")}
               </h2>
               <p className="vpro-lede">{t("system.lede")}</p>
-            </div>
+            </AnimatedSection>
 
-            <div className="vpro-feature-grid">
+            <RevealCascade className="vpro-feature-grid" baseDelayMs={110}>
               {featureKeys.map((key) => (
-                <article className="vpro-feature" key={key}>
+                <article className="vpro-feature mo-premium-card" key={key}>
                   <span className="vpro-feature__icon">
                     <i className={t(`features.${key}.icon`)} aria-hidden="true" />
                   </span>
@@ -123,15 +127,15 @@ export default async function VNextProPage({
                   <p>{t(`features.${key}.body`)}</p>
                 </article>
               ))}
-            </div>
+            </RevealCascade>
           </div>
         </section>
 
         <section className="vpro-section vpro-section--split" aria-labelledby="vpro-workflow-title">
           <div className="vpro-shell vpro-split">
-            <div className="vpro-timeline">
+            <RevealCascade className="vpro-timeline" stepMs={85}>
               {workflowKeys.map((key, index) => (
-                <article className="vpro-step" key={key}>
+                <article className="vpro-step mo-premium-card" key={key}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h3>{t(`workflow.${key}.title`)}</h3>
@@ -139,37 +143,39 @@ export default async function VNextProPage({
                   </div>
                 </article>
               ))}
-            </div>
+            </RevealCascade>
 
             <div className="vpro-split__copy">
-              <p className="vpro-eyebrow">{t("workflow.eyebrow")}</p>
-              <h2 className="vpro-title" id="vpro-workflow-title">
-                {t("workflow.title")}
-              </h2>
-              <p className="vpro-lede">{t("workflow.lede")}</p>
+              <AnimatedSection direction="right">
+                <p className="vpro-eyebrow">{t("workflow.eyebrow")}</p>
+                <h2 className="vpro-title" id="vpro-workflow-title">
+                  {t("workflow.title")}
+                </h2>
+                <p className="vpro-lede">{t("workflow.lede")}</p>
+              </AnimatedSection>
             </div>
           </div>
         </section>
 
         <section className="vpro-section" aria-labelledby="vpro-roi-title">
           <div className="vpro-shell vpro-roi">
-            <div className="vpro-roi__copy">
+            <AnimatedSection className="vpro-roi__copy" direction="left">
               <p className="vpro-eyebrow">{t("roi.eyebrow")}</p>
               <h2 className="vpro-title" id="vpro-roi-title">
                 {t("roi.title")}
               </h2>
               <p className="vpro-lede">{t("roi.lede")}</p>
-            </div>
-            <div className="vpro-roi__card">
+            </AnimatedSection>
+            <AnimatedSection className="vpro-roi__card mo-premium-card" direction="right" delay={0.1}>
               <span>{t("roi.cardLabel")}</span>
               <strong>{t("roi.cardValue")}</strong>
               <p>{t("roi.cardBody")}</p>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
         <section className="vpro-final" aria-labelledby="vpro-final-title">
-          <div className="vpro-shell vpro-final__inner">
+          <AnimatedSection className="vpro-shell vpro-final__inner">
             <p className="vpro-eyebrow">{t("final.eyebrow")}</p>
             <h2 className="vpro-title" id="vpro-final-title">
               {t("final.title")}
@@ -179,7 +185,7 @@ export default async function VNextProPage({
               {t("final.cta")}
               <i className="fas fa-arrow-right" aria-hidden="true" />
             </Link>
-          </div>
+          </AnimatedSection>
         </section>
       </main>
       <FooterPro />

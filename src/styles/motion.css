@@ -32,6 +32,60 @@
   transform: none;
 }
 
+/* -- Cascade premium -------------------------------------------------------
+   RevealGroup/RevealCascade pose .mo-cascade sur le conteneur et ajoute
+   .mo-cascade__item + --mo-i sur chaque enfant direct. Cela donne une entree
+   par vagues pour les grilles, timelines, bandes de preuves et bento cards. */
+.mo-cascade > .mo-cascade__item {
+  opacity: 0;
+  transform:
+    translate3d(0, var(--mo-cascade-y, 22px), 0)
+    scale(var(--mo-cascade-scale, 0.985));
+  transition:
+    opacity var(--mo-reveal-dur) var(--mo-ease),
+    transform var(--mo-reveal-dur) var(--mo-ease),
+    box-shadow 0.35s var(--mo-ease),
+    border-color 0.35s var(--mo-ease);
+  transition-delay: var(--mo-delay, var(--mo-base-delay, 0ms));
+  will-change: opacity, transform;
+}
+.mo-cascade.mo-in > .mo-cascade__item {
+  opacity: 1;
+  transform: none;
+}
+.mo-cascade--slow > .mo-cascade__item {
+  transition-duration: 0.86s;
+}
+
+/* Subtle "finished product" layer for cards that already have their own hover
+   state. Use on inner cards, never on layout wrappers that control transform. */
+.mo-premium-card {
+  position: relative;
+  overflow: hidden;
+}
+.mo-premium-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-35%);
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.14) 44%,
+    transparent 58%
+  );
+  transition:
+    opacity 0.35s var(--mo-ease),
+    transform 0.65s var(--mo-ease);
+}
+.mo-premium-card:hover::after,
+.mo-premium-card:focus-within::after {
+  opacity: 1;
+  transform: translateX(35%);
+}
+
 /* ── Micro-interaction : la carte se soulève au survol ──────
    Ne pas cumuler .mo-reveal et .mo-lift sur le MÊME nœud (les deux
    pilotent transform) : reveal sur le conteneur, lift sur la carte. */
@@ -59,11 +113,20 @@
     transition-delay: 0s;
   }
   .mo-lift,
-  .mo-lift-icon {
+  .mo-lift-icon,
+  .mo-cascade > .mo-cascade__item,
+  .mo-premium-card::after {
     transition: none;
+  }
+  .mo-cascade > .mo-cascade__item {
+    opacity: 1;
+    transform: none;
   }
   .mo-lift:hover,
   .mo-lift:hover .mo-lift-icon {
     transform: none;
+  }
+  .mo-premium-card::after {
+    display: none;
   }
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { SPECIALTIES, SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
+import { useRevealInView } from "@/components/shared/useRevealInView";
 
 /** Inline SVG pause icon (two vertical bars). */
 function PauseIcon() {
@@ -41,6 +42,7 @@ function PlayIcon() {
 export default function SpecialtiesCarousel2() {
   const t = useTranslations("specialties");
   const [paused, setPaused] = useState(false);
+  const { ref, revealed } = useRevealInView<HTMLElement>(0.16);
 
   const firstRow = SPECIALTIES.slice(0, 8);
   const secondRow = SPECIALTIES.slice(8, 16);
@@ -82,7 +84,11 @@ export default function SpecialtiesCarousel2() {
   };
 
   return (
-    <section className="vsc2-section" aria-labelledby="vsc2-title">
+    <section
+      ref={ref}
+      className={`vsc2-section${revealed ? " vsc2-play" : ""}`}
+      aria-labelledby="vsc2-title"
+    >
       <style>{`
         .vsc2-section, .vsc2-section * { box-sizing: border-box; }
 
@@ -105,6 +111,21 @@ export default function SpecialtiesCarousel2() {
           margin: 0 auto var(--spacing-2xl);
           text-align: center;
         }
+
+        .vsc2-reveal {
+          opacity: 0;
+          transform: translateY(18px);
+          transition:
+            opacity 0.72s var(--mo-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+            transform 0.72s var(--mo-ease, cubic-bezier(0.22, 1, 0.36, 1));
+        }
+        .vsc2-play .vsc2-reveal {
+          opacity: 1;
+          transform: none;
+        }
+        .vsc2-play .vsc2-d2 { transition-delay: 80ms; }
+        .vsc2-play .vsc2-d3 { transition-delay: 170ms; }
+        .vsc2-play .vsc2-d4 { transition-delay: 250ms; }
 
         .vsc2-eyebrow {
           display: inline-flex;
@@ -347,8 +368,13 @@ export default function SpecialtiesCarousel2() {
           .vsc2-dup {
             display: none;
           }
-          .vsc2-card {
+          .vsc2-card,
+          .vsc2-reveal {
             transition: none;
+          }
+          .vsc2-reveal {
+            opacity: 1;
+            transform: none;
           }
           .vsc2-card:hover,
           .vsc2-card:focus-visible {
@@ -362,7 +388,7 @@ export default function SpecialtiesCarousel2() {
       `}</style>
 
       <div className="vsc2-inner">
-        <header className="vsc2-header">
+        <header className="vsc2-header vsc2-reveal vsc2-d1">
           <span className="vsc2-eyebrow">{t("subtitle")}</span>
           <h2 className="vsc2-title" id="vsc2-title">
             {t("title")}
@@ -370,7 +396,7 @@ export default function SpecialtiesCarousel2() {
         </header>
 
         {/* Accessible play/pause toggle — works on touch (click event) */}
-        <div className="vsc2-controls">
+        <div className="vsc2-controls vsc2-reveal vsc2-d2">
           <button
             type="button"
             className="vsc2-pause-btn"
@@ -385,7 +411,7 @@ export default function SpecialtiesCarousel2() {
       </div>
 
       <div
-        className="vsc2-marquee"
+        className="vsc2-marquee vsc2-reveal vsc2-d3"
         aria-roledescription="carousel"
         aria-label={t("title")}
       >
@@ -405,7 +431,7 @@ export default function SpecialtiesCarousel2() {
       </div>
 
       <div className="vsc2-inner">
-        <div className="vsc2-cta-wrap">
+        <div className="vsc2-cta-wrap vsc2-reveal vsc2-d4">
           <a href={searchLoginUrl({})} className="vsc2-cta">
             <i className="fas fa-search" aria-hidden="true"></i>
             <span>{t("seeAll")}</span>

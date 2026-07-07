@@ -223,6 +223,14 @@
   -webkit-backdrop-filter: blur(16px);
 }
 
+.vpro-board-motion {
+  min-width: 0;
+}
+
+.vpro-board-motion .vpro-board {
+  height: 100%;
+}
+
 .vpro-board::before {
   content: "";
   position: absolute;

@@ -1,6 +1,6 @@
 "use client";
 
-import AnimatedSection from "@/components/shared/AnimatedSection";
+import RevealCascade from "@/components/shared/RevealCascade";
 
 /* NOTE: the live "comment ça marche" section is hardcoded French (no i18n
    keys exist for it). This preview mirrors that. TODO before prod:
@@ -71,23 +71,21 @@ export default function HowItWorks() {
           <h2 className="vnp-title" id="vnhw-title">{COPY.title}</h2>
           <p className="vnp-lede">{COPY.lede}</p>
         </div>
-        <AnimatedSection>
-          <div className="vnhw__rail">
-            {COPY.steps.map((s, i) => (
-              <div className="vnhw__step" key={s.title}>
-                <div className="vnhw__node">
-                  <i className={s.icon} aria-hidden="true" />
-                  <span className="vnhw__num">{i + 1}</span>
-                </div>
-                <h3 className="vnhw__step-title">
-                  {s.title}
-                  {s.soon ? <span className="vnhw__soon">{s.soon}</span> : null}
-                </h3>
-                <p className="vnhw__step-desc">{s.desc}</p>
+        <RevealCascade className="vnhw__rail" stepMs={90}>
+          {COPY.steps.map((s, i) => (
+            <div className="vnhw__step" key={s.title}>
+              <div className="vnhw__node">
+                <i className={s.icon} aria-hidden="true" />
+                <span className="vnhw__num">{i + 1}</span>
               </div>
-            ))}
-          </div>
-        </AnimatedSection>
+              <h3 className="vnhw__step-title">
+                {s.title}
+                {s.soon ? <span className="vnhw__soon">{s.soon}</span> : null}
+              </h3>
+              <p className="vnhw__step-desc">{s.desc}</p>
+            </div>
+          ))}
+        </RevealCascade>
       </div>
     </section>
   );

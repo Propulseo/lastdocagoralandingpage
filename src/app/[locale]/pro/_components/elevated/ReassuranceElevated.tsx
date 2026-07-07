@@ -1,4 +1,4 @@
-import AnimatedSection from "@/components/shared/AnimatedSection";
+import RevealCascade from "@/components/shared/RevealCascade";
 import { useTranslations } from "next-intl";
 
 /* ============================================================
@@ -148,17 +148,15 @@ export default function ReassuranceElevated() {
       `}</style>
 
       <div className="rea__shell">
-        <AnimatedSection>
-          <ul className="rea__row">
-            {ITEMS.map((item) => (
-              <li className="rea__it" key={item.id}>
-                <span className="rea__ic">{item.icon}</span>
-                <span className="rea__label">{t(`${item.id}.label`)}</span>
-                {item.hasSub && <span className="rea__sub">{t(`${item.id}.sub`)}</span>}
-              </li>
-            ))}
-          </ul>
-        </AnimatedSection>
+        <RevealCascade as="ul" className="rea__row" stepMs={70}>
+          {ITEMS.map((item) => (
+            <li className="rea__it" key={item.id}>
+              <span className="rea__ic">{item.icon}</span>
+              <span className="rea__label">{t(`${item.id}.label`)}</span>
+              {item.hasSub && <span className="rea__sub">{t(`${item.id}.sub`)}</span>}
+            </li>
+          ))}
+        </RevealCascade>
       </div>
     </section>
   );

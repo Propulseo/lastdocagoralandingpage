@@ -392,8 +392,11 @@ export default function SectionRoiBento() {
         }
       `}</style>
 
-      <div className="v2roi-shell">
-        <div className="v2roi-sechead">
+      <div
+        className={`v2roi-shell${revealed ? " v2roi-play" : ""}`}
+        ref={ref}
+      >
+        <div className="v2roi-sechead v2roi-reveal" style={{ animationDelay: "0ms" }}>
           <span className="v2roi-eyebrow">
             <span aria-hidden="true" />
             {t("roiBento.eyebrow")}
@@ -405,16 +408,13 @@ export default function SectionRoiBento() {
           <p className="v2roi-secsub">{t("roiBento.subtitle")}</p>
         </div>
 
-        <div
-          className={`v2roi-bento${revealed ? " v2roi-play" : ""}`}
-          ref={ref}
-        >
+        <div className="v2roi-bento">
           {BENTO_METRICS.map((m, i) => (
-            <BentoCell key={m.id} metric={m} delay={i * 80} start={revealed} />
+            <BentoCell key={m.id} metric={m} delay={120 + i * 80} start={revealed} />
           ))}
         </div>
 
-        <p className="v2roi-footnote">
+        <p className="v2roi-footnote v2roi-reveal" style={{ animationDelay: "680ms" }}>
           {t("roiBento.footnoteText")}
         </p>
       </div>

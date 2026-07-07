@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import RevealCascade from "@/components/shared/RevealCascade";
 
 /**
  * Bloc « Accès & disponibilité » (patient) — 3 cartes :
@@ -146,9 +147,9 @@ export default function AccessBlock() {
         }
       `}</style>
 
-      <div className="acc__inner">
+      <RevealCascade className="acc__inner" stepMs={85}>
         {/* Urgence */}
-        <div className="acc-card acc-card--urgent">
+        <div className="acc-card acc-card--urgent mo-premium-card">
           <span className="acc-badge">{t("emergencyBadge")}</span>
           <h3 className="acc-card__title">{t("emergencyTitle")}</h3>
           <p className="acc-card__desc">{t("emergencyDesc")}</p>
@@ -156,7 +157,7 @@ export default function AccessBlock() {
         </div>
 
         {/* Réservez à tout moment */}
-        <div className="acc-card acc-card--book">
+        <div className="acc-card acc-card--book mo-premium-card">
           <h3 className="acc-card__title">{t("bookingTitle")}</h3>
           <p className="acc-card__desc">{t("bookingDesc")}</p>
           <ul className="acc-rows">
@@ -176,7 +177,7 @@ export default function AccessBlock() {
         </div>
 
         {/* Toujours disponible */}
-        <div className="acc-card acc-card--always">
+        <div className="acc-card acc-card--always mo-premium-card">
           <h3 className="acc-card__title">{t("availableTitle")}</h3>
           <p className="acc-card__desc">{t("availableDesc")}</p>
           <ul className="acc-rows">
@@ -194,7 +195,7 @@ export default function AccessBlock() {
             </li>
           </ul>
         </div>
-      </div>
+      </RevealCascade>
     </section>
   );
 }
