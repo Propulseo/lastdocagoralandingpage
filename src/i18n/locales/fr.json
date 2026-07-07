@@ -45,7 +45,17 @@
     "emergencyNotice": "En cas d’urgence médicale, composez le 112. DocAgora n’est pas un service d’urgence.",
     "findProfessional": "Trouver un professionnel",
     "location": "Portugal",
-    "available247": "Plateforme disponible 24h/24"
+    "available247": "Plateforme disponible 24h/24",
+    "proBadge": "Early access Portugal",
+    "proCompliance": "Conforme RGPD",
+    "proHosted": "Données hébergées au Portugal",
+    "proContactLabel": "Contact direct",
+    "proCompact": "Early access Portugal · RGPD · Hébergement Portugal",
+    "patientVerified": "Professionnels vérifiés",
+    "patientLanguages": "PT · FR · EN",
+    "patientFree": "Recherche gratuite",
+    "patientPortugal": "Portugal",
+    "patientCompact": "Professionnels vérifiés · PT FR EN · Recherche gratuite"
   },
   "navbar": {
     "home": "Accueil",

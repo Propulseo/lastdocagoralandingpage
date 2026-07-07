@@ -45,7 +45,17 @@
     "emergencyNotice": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
     "findProfessional": "Find a professional",
     "location": "Portugal",
-    "available247": "Free search"
+    "available247": "Free search",
+    "proBadge": "Portugal early access",
+    "proCompliance": "GDPR compliant",
+    "proHosted": "Data hosted in Portugal",
+    "proContactLabel": "Direct contact",
+    "proCompact": "Portugal early access · GDPR · Portugal hosting",
+    "patientVerified": "Verified professionals",
+    "patientLanguages": "PT · FR · EN",
+    "patientFree": "Free search",
+    "patientPortugal": "Portugal",
+    "patientCompact": "Verified professionals · PT FR EN · Free search"
   },
   "navbar": {
     "home": "Home",

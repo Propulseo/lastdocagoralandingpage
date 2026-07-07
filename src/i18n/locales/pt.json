@@ -45,7 +45,17 @@
     "emergencyNotice": "Em caso de emergência médica, ligue 112. A DocAgora não é um serviço de emergência.",
     "findProfessional": "Encontrar um profissional",
     "location": "Portugal",
-    "available247": "Pesquisa gratuita"
+    "available247": "Pesquisa gratuita",
+    "proBadge": "Early access Portugal",
+    "proCompliance": "Conforme RGPD",
+    "proHosted": "Dados alojados em Portugal",
+    "proContactLabel": "Contacto direto",
+    "proCompact": "Early access Portugal · RGPD · Alojamento em Portugal",
+    "patientVerified": "Profissionais verificados",
+    "patientLanguages": "PT · FR · EN",
+    "patientFree": "Pesquisa gratuita",
+    "patientPortugal": "Portugal",
+    "patientCompact": "Profissionais verificados · PT FR EN · Pesquisa gratuita"
   },
   "navbar": {
     "home": "Início",

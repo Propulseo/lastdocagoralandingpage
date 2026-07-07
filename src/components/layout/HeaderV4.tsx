@@ -8,7 +8,12 @@ import LanguageSwitcher from "./LanguageSwitcher";
 type Variant = "pro" | "patient";
 
 type NavItem = { href: string; label: string; soon?: boolean; active: boolean };
-type UtilItem = { icon: string; text: string; href?: string };
+type UtilItem = {
+  icon: string;
+  text: string;
+  href?: string;
+  tone?: "badge" | "contact";
+};
 
 const TOPBAR_H = 42; // px — hauteur de la barre utilitaire (rangée du haut)
 const NAVBAR_H = 72; // px — hauteur de la navbar (rangée du bas, sticky)
@@ -52,15 +57,23 @@ export default function HeaderV4({
 
   const utility: UtilItem[] = isPro
     ? [
-        { icon: "fas fa-envelope", text: tt("email"), href: `mailto:${tt("email")}` },
-        { icon: "fas fa-shield-alt", text: t("gdpr") },
-        { icon: "fas fa-map-marker-alt", text: t("hosted") },
+        { icon: "fas fa-bolt", text: tt("proBadge"), tone: "badge" },
+        { icon: "fas fa-shield-alt", text: tt("proCompliance") },
+        { icon: "fas fa-server", text: tt("proHosted") },
+        {
+          icon: "fas fa-envelope",
+          text: `${tt("proContactLabel")} : ${tt("email")}`,
+          href: `mailto:${tt("email")}`,
+          tone: "contact",
+        },
       ]
     : [
-        { icon: "fas fa-envelope", text: tt("email"), href: `mailto:${tt("email")}` },
-        { icon: "fas fa-map-marker-alt", text: tt("location") },
-        { icon: "fas fa-clock", text: tt("available247") },
+        { icon: "fas fa-check-circle", text: tt("patientVerified"), tone: "badge" },
+        { icon: "fas fa-language", text: tt("patientLanguages") },
+        { icon: "fas fa-search", text: tt("patientFree") },
+        { icon: "fas fa-map-marker-alt", text: tt("patientPortugal") },
       ];
+  const compactTopbar = isPro ? tt("proCompact") : tt("patientCompact");
 
   const nav: NavItem[] = isPro
     ? [
@@ -95,25 +108,125 @@ export default function HeaderV4({
 
         /* ── Rangée 1 : barre utilitaire ── */
         .hv4-top {
-          display: flex; align-items: center; justify-content: space-between;
-          height: ${TOPBAR_H}px; padding: 0 32px;
+          position: relative;
+          height: ${TOPBAR_H}px;
+          padding: 0 48px;
+          overflow: hidden;
         }
         .hv4--dark .hv4-top {
-          background: #070C16;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          background:
+            radial-gradient(48% 180% at 10% 0%, rgba(103, 203, 199, 0.12), transparent 62%),
+            linear-gradient(90deg, #070C16 0%, #0B1321 54%, #070C16 100%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
           --color-link: rgba(255, 255, 255, 0.82);
         }
         .hv4--light .hv4-top {
-          background: linear-gradient(90deg, #1e3a6e 0%, var(--color-navy) 55%, #21406f 100%);
+          background:
+            radial-gradient(46% 180% at 12% 0%, rgba(var(--color-teal-rgb), 0.16), transparent 62%),
+            linear-gradient(90deg, #173463 0%, var(--color-navy) 58%, #1F4272 100%);
           --color-link: #ffffff;
         }
-        .hv4-util { display: flex; align-items: center; gap: 22px; list-style: none; margin: 0; padding: 0; }
-        .hv4-util li { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; }
-        .hv4-util li > i { color: var(--color-teal); font-size: 13px; }
+        .hv4-top::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.05) 48%, transparent 62%);
+          transform: translateX(-70%);
+          animation: hv4-top-sheen 5.8s ease-in-out 1.2s infinite;
+        }
+        @keyframes hv4-top-sheen {
+          0%, 62% { transform: translateX(-70%); opacity: 0; }
+          72% { opacity: 1; }
+          100% { transform: translateX(70%); opacity: 0; }
+        }
+        .hv4-top__inner {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          width: 100%;
+        }
+        .hv4-util {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          min-width: 0;
+        }
+        .hv4-util__item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 0;
+          height: 100%;
+          padding: 0 28px;
+          color: rgba(255, 255, 255, 0.78);
+          font-size: 12.5px;
+          font-weight: 700;
+          line-height: 1;
+          white-space: nowrap;
+        }
+        .hv4-util__item:first-child { justify-content: flex-start; padding-left: 0; }
+        .hv4-util__item:last-child { justify-content: flex-end; padding-right: 0; }
+        .hv4-util__item:not(:first-child)::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 10px;
+          bottom: 10px;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.16);
+        }
+        .hv4-util__content {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 9px;
+          min-width: 0;
+          max-width: 100%;
+        }
+        .hv4-util__content > i { color: var(--color-teal); font-size: 13px; }
         .hv4-util a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
-        .hv4--dark .hv4-util li { color: rgba(255, 255, 255, 0.7); }
-        .hv4--light .hv4-util li { color: rgba(255, 255, 255, 0.85); }
         .hv4-util a:hover { color: #fff; }
+        .hv4-util__item--badge .hv4-util__content {
+          color: #fff;
+          padding: 8px 14px;
+          border-radius: var(--radius-pill);
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(var(--color-teal-rgb), 0.44);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+        .hv4-util__item--contact .hv4-util__content {
+          padding: 8px 14px;
+          border-radius: var(--radius-pill);
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          color: #fff;
+        }
+        .hv4--light .hv4-util__item { color: rgba(255, 255, 255, 0.84); }
+        .hv4--light .hv4-util__item--badge .hv4-util__content {
+          background: rgba(255, 255, 255, 0.13);
+          border-color: rgba(255, 255, 255, 0.22);
+        }
+        .hv4-top__compact {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-width: 0;
+          color: rgba(255, 255, 255, 0.92);
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
 
         /* ── Rangée 2 : navbar ── */
         .hv4-bar {
@@ -231,8 +344,9 @@ export default function HeaderV4({
         /* ── Responsive ── */
         @media (max-width: 991px) {
           .hv4-top { padding: 0 20px; }
-          .hv4-util { gap: 14px; }
-          .hv4-util li:not(:first-child) { display: none; }
+          .hv4-util__item { padding: 0 14px; font-size: 12px; }
+          .hv4--dark .hv4-util { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+          .hv4-util__item--contact { display: none; }
           .hv4-bar { padding: 0 20px; }
           .hv4-burger { display: inline-flex; }
           .hv4-collapse {
@@ -254,6 +368,12 @@ export default function HeaderV4({
           .hv4-login { width: 100%; justify-content: center; }
         }
 
+        @media (max-width: 680px) {
+          .hv4-top { height: 36px; padding: 0 16px; }
+          .hv4-util { display: none; }
+          .hv4-top__compact { display: inline-flex; }
+        }
+
         /* ── Sélecteur de langue dans la navbar (persistant, les 2 variantes) ── */
         .hv4-lang { display: inline-flex; align-items: center; }
         .hv4--dark .hv4-lang { color: rgba(255, 255, 255, 0.85); }
@@ -261,19 +381,28 @@ export default function HeaderV4({
 
         @media (prefers-reduced-motion: reduce) {
           .hv4-cta, .hv4-nav a, .hv4-patient, .hv4-util a, .hv4-burger span { transition: none; }
+          .hv4-top::after { display: none; animation: none; }
         }
       `}</style>
 
       {/* Rangée 1 — utilitaire */}
       <div className="hv4-top">
-        <ul className="hv4-util">
-          {utility.map((u) => (
-            <li key={u.text}>
-              <i className={u.icon} aria-hidden="true" />
-              {u.href ? <a href={u.href}>{u.text}</a> : u.text}
-            </li>
-          ))}
-        </ul>
+        <div className="hv4-top__inner">
+          <ul className="hv4-util">
+            {utility.map((u) => (
+              <li
+                className={`hv4-util__item${u.tone ? ` hv4-util__item--${u.tone}` : ""}`}
+                key={u.text}
+              >
+                <span className="hv4-util__content">
+                  <i className={u.icon} aria-hidden="true" />
+                  {u.href ? <a href={u.href}>{u.text}</a> : u.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <span className="hv4-top__compact">{compactTopbar}</span>
+        </div>
       </div>
 
       {/* Rangée 2 — navbar */}
