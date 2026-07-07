@@ -2,7 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
-import { SCROLL_REVEAL_FALLBACK_MS } from "@/components/shared/animationConstants";
+import {
+  REVEAL_FALLBACK_VIEWPORT_MARGIN,
+  SCROLL_REVEAL_FALLBACK_MS,
+} from "@/components/shared/animationConstants";
 
 /**
  * Déclencheur de reveal partagé du socle de mouvement.
@@ -33,8 +36,58 @@ export function useRevealInView<T extends HTMLElement = HTMLDivElement>(
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const id = setTimeout(() => setFallback(true), SCROLL_REVEAL_FALLBACK_MS);
-    return () => clearTimeout(id);
+    if (typeof window === "undefined") return;
+
+    let done = false;
+    let raf = 0;
+
+    const removeListeners = () => {
+      window.removeEventListener("scroll", requestCheck);
+      window.removeEventListener("resize", requestCheck);
+      if (raf) {
+        window.cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+
+    const revealIfNearViewport = () => {
+      if (done) return;
+      const node = ref.current;
+      if (!node) return;
+
+      const rect = node.getBoundingClientRect();
+      const margin = window.innerHeight * REVEAL_FALLBACK_VIEWPORT_MARGIN;
+      const nearViewport =
+        rect.top <= window.innerHeight + margin && rect.bottom >= -margin;
+
+      if (nearViewport) {
+        done = true;
+        setFallback(true);
+        removeListeners();
+      }
+    };
+
+    function requestCheck() {
+      if (done || raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        revealIfNearViewport();
+      });
+    }
+
+    const id = window.setTimeout(() => {
+      revealIfNearViewport();
+      if (!done) {
+        window.addEventListener("scroll", requestCheck, { passive: true });
+        window.addEventListener("resize", requestCheck);
+      }
+    }, SCROLL_REVEAL_FALLBACK_MS);
+
+    return () => {
+      done = true;
+      window.clearTimeout(id);
+      removeListeners();
+    };
   }, []);
   // useReducedMotion() vaut null au SSR : n'honorer la préférence qu'après le
   // premier rendu client pour éviter un écart d'hydratation.

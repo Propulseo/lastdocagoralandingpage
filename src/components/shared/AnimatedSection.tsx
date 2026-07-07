@@ -1,13 +1,13 @@
 "use client";
 
-import { type ReactNode, useRef, useState, useEffect } from "react";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { type ReactNode, useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import {
-  SCROLL_REVEAL_FALLBACK_MS,
   REVEAL_DISTANCE,
   REVEAL_DURATION,
   MOTION_EASE,
 } from "@/components/shared/animationConstants";
+import { useRevealInView } from "@/components/shared/useRevealInView";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -35,18 +35,11 @@ export default function AnimatedSection({
   direction = "up",
   className,
   disabled = false,
-  once = true,
 }: AnimatedSectionProps) {
   // Hooks must run before the disabled/reduced-motion early-return (Rules of Hooks).
   const prefersReduced = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once, amount: 0.15 });
-  const [fallback, setFallback] = useState(false);
+  const { ref, revealed } = useRevealInView<HTMLDivElement>(0.15);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    const id = setTimeout(() => setFallback(true), SCROLL_REVEAL_FALLBACK_MS);
-    return () => clearTimeout(id);
-  }, []);
   useEffect(() => { const id = setTimeout(() => setMounted(true), 0); return () => clearTimeout(id); }, []);
 
   // `mounted` guard: useReducedMotion() is null on SSR -> avoid hydration mismatch
@@ -56,7 +49,7 @@ export default function AnimatedSection({
   }
 
   const dir = directionMap[direction];
-  const show = inView || fallback;
+  const show = revealed;
 
   return (
     <motion.div
