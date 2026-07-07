@@ -39,69 +39,69 @@ export default function ProV2Page() {
 
         /* ── DARK (config figée) ── */
         .v2p, .v2p[data-theme="dark"] {
-          --v2-canvas: #0C121E;
+          --v2-canvas: var(--color-dark-1);
           --v2-bg-2: rgba(255,255,255,0.028);
           --v2-surface: rgba(255,255,255,0.05);
           --v2-surface-2: rgba(255,255,255,0.08);
           --v2-panel-bg: #0E1622;
-          --v2-panel-text: #FFFFFF;
-          --v2-panel-muted: rgba(255,255,255,0.55);
+          --v2-panel-text: var(--text-on-dark);
+          --v2-panel-muted: var(--text-on-dark-muted);
           --v2-panel-border: rgba(255,255,255,0.10);
-          --v2-text: #FFFFFF;
+          --v2-text: var(--text-on-dark);
           --v2-text-body: rgba(255,255,255,0.72);
           --v2-text-muted: rgba(255,255,255,0.50);
           --v2-border: rgba(255,255,255,0.10);
-          --v2-accent: #67CBC7;
-          --v2-accent-2: #4A7CC7;
-          --v2-accent-text: #67CBC7;
-          --v2-accent-ink: #0C121E;
-          --v2-eyebrow: #67CBC7;
+          --v2-accent: var(--color-teal);
+          --v2-accent-2: var(--color-cobalt);
+          --v2-accent-text: var(--color-teal);
+          --v2-accent-ink: var(--color-dark-1);
+          --v2-eyebrow: var(--color-teal);
           --v2-mesh-a: transparent;
           --v2-mesh-b: transparent;
           --v2-mesh-c: transparent;
           --v2-grain-opacity: 0.05;
           --v2-shadow: 0 24px 60px -30px rgba(0,0,0,0.80);
           --v2-shadow-lg: 0 40px 90px -30px rgba(0,0,0,0.85);
-          --v2-fx-a: rgba(74,124,199,0.45);
-          --v2-fx-b: rgba(103,203,199,0.30);
-          --v2-fx-c: rgba(90,162,170,0.22);
-          --v2-fx-glow: rgba(103,203,199,0.16);
+          --v2-fx-a: rgba(var(--color-cobalt-rgb), 0.45);
+          --v2-fx-b: rgba(var(--color-teal-rgb), 0.30);
+          --v2-fx-c: rgba(var(--color-mint-rgb), 0.22);
+          --v2-fx-glow: rgba(var(--color-teal-rgb), 0.16);
           --v2-fx-line: rgba(255,255,255,0.06);
           color-scheme: dark;
         }
 
         /* ── LIGHT (conservé, inerte) ── */
         .v2p[data-theme="light"] {
-          --v2-canvas: #FCFEFE; --v2-bg-2: rgba(36,72,130,0.035);
-          --v2-surface: #FFFFFF; --v2-surface-2: #F8FAFD;
-          --v2-panel-bg: #FFFFFF; --v2-panel-text: #0C121E; --v2-panel-muted: #6B7280; --v2-panel-border: #E5E8EA;
-          --v2-text: #0C121E; --v2-text-body: #44505F; --v2-text-muted: #6B7280; --v2-border: #E5E8EA;
-          --v2-accent: #67CBC7; --v2-accent-2: #4A7CC7; --v2-accent-text: #1E6E68; --v2-accent-ink: #0C121E; --v2-eyebrow: #1E6E68;
+          --v2-canvas: var(--color-light-1); --v2-bg-2: rgba(var(--color-navy-rgb), 0.035);
+          --v2-surface: #FFFFFF; --v2-surface-2: var(--color-light-2);
+          --v2-panel-bg: #FFFFFF; --v2-panel-text: var(--color-dark-1); --v2-panel-muted: var(--text-muted); --v2-panel-border: var(--border-default);
+          --v2-text: var(--color-dark-1); --v2-text-body: #44505F; --v2-text-muted: var(--text-muted); --v2-border: var(--border-default);
+          --v2-accent: var(--color-teal); --v2-accent-2: var(--color-cobalt); --v2-accent-text: var(--color-accent-ink); --v2-accent-ink: var(--color-dark-1); --v2-eyebrow: var(--color-accent-ink);
           --v2-grain-opacity: 0.025;
-          --v2-shadow: 0 18px 50px -24px rgba(36,72,130,0.16); --v2-shadow-lg: 0 30px 70px -28px rgba(36,72,130,0.22);
-          --v2-fx-a: rgba(74,124,199,0.16); --v2-fx-b: rgba(103,203,199,0.14); --v2-fx-c: rgba(90,162,170,0.10);
-          --v2-fx-glow: rgba(103,203,199,0.10); --v2-fx-line: rgba(36,72,130,0.06);
+          --v2-shadow: 0 18px 50px -24px rgba(var(--color-navy-rgb), 0.16); --v2-shadow-lg: 0 30px 70px -28px rgba(var(--color-navy-rgb), 0.22);
+          --v2-fx-a: rgba(var(--color-cobalt-rgb), 0.16); --v2-fx-b: rgba(var(--color-teal-rgb), 0.14); --v2-fx-c: rgba(var(--color-mint-rgb), 0.10);
+          --v2-fx-glow: rgba(var(--color-teal-rgb), 0.10); --v2-fx-line: rgba(var(--color-navy-rgb), 0.06);
           color-scheme: light;
         }
 
         /* ── MIXTE (conservé, inerte) ── */
         .v2p[data-theme="mixte"] {
-          --v2-canvas: #FAFCFE; --v2-bg-2: rgba(36,72,130,0.04);
-          --v2-surface: #FFFFFF; --v2-surface-2: #F8FAFD;
-          --v2-panel-bg: #0E1622; --v2-panel-text: #FFFFFF; --v2-panel-muted: rgba(255,255,255,0.58); --v2-panel-border: rgba(255,255,255,0.12);
-          --v2-text: #0C121E; --v2-text-body: #44505F; --v2-text-muted: #6B7280; --v2-border: #E5E8EA;
-          --v2-accent: #67CBC7; --v2-accent-2: #4A7CC7; --v2-accent-text: #1E6E68; --v2-accent-ink: #0C121E; --v2-eyebrow: #1E6E68;
+          --v2-canvas: #FAFCFE; --v2-bg-2: rgba(var(--color-navy-rgb), 0.04);
+          --v2-surface: #FFFFFF; --v2-surface-2: var(--color-light-2);
+          --v2-panel-bg: #0E1622; --v2-panel-text: var(--text-on-dark); --v2-panel-muted: rgba(255,255,255,0.58); --v2-panel-border: rgba(255,255,255,0.12);
+          --v2-text: var(--color-dark-1); --v2-text-body: #44505F; --v2-text-muted: var(--text-muted); --v2-border: var(--border-default);
+          --v2-accent: var(--color-teal); --v2-accent-2: var(--color-cobalt); --v2-accent-text: var(--color-accent-ink); --v2-accent-ink: var(--color-dark-1); --v2-eyebrow: var(--color-accent-ink);
           --v2-grain-opacity: 0.03;
-          --v2-shadow: 0 18px 50px -24px rgba(36,72,130,0.16); --v2-shadow-lg: 0 36px 80px -30px rgba(36,72,130,0.30);
-          --v2-fx-a: rgba(74,124,199,0.16); --v2-fx-b: rgba(103,203,199,0.13); --v2-fx-c: rgba(36,72,130,0.10);
-          --v2-fx-glow: rgba(74,124,199,0.11); --v2-fx-line: rgba(36,72,130,0.06);
+          --v2-shadow: 0 18px 50px -24px rgba(var(--color-navy-rgb), 0.16); --v2-shadow-lg: 0 36px 80px -30px rgba(var(--color-navy-rgb), 0.30);
+          --v2-fx-a: rgba(var(--color-cobalt-rgb), 0.16); --v2-fx-b: rgba(var(--color-teal-rgb), 0.13); --v2-fx-c: rgba(var(--color-navy-rgb), 0.10);
+          --v2-fx-glow: rgba(var(--color-cobalt-rgb), 0.11); --v2-fx-line: rgba(var(--color-navy-rgb), 0.06);
           color-scheme: light;
         }
-        .v2p[data-theme="mixte"][data-contrast="doux"] { --v2-canvas: #F4F7FB; --v2-bg-2: rgba(36,72,130,0.05); --v2-border: #E3E8EF; --v2-panel-bg: #1D2A40; }
-        .v2p[data-theme="mixte"][data-contrast="fort"] { --v2-canvas: #FFFFFF; --v2-border: #DFE4EA; --v2-panel-bg: #070C16; --v2-shadow: 0 22px 56px -26px rgba(36,72,130,0.24); }
+        .v2p[data-theme="mixte"][data-contrast="doux"] { --v2-canvas: #F4F7FB; --v2-bg-2: rgba(var(--color-navy-rgb), 0.05); --v2-border: #E3E8EF; --v2-panel-bg: #1D2A40; }
+        .v2p[data-theme="mixte"][data-contrast="fort"] { --v2-canvas: #FFFFFF; --v2-border: #DFE4EA; --v2-panel-bg: var(--color-dark-2); --v2-shadow: 0 22px 56px -26px rgba(var(--color-navy-rgb), 0.24); }
         .v2p[data-theme="dark"][data-feat="light"],
         .v2p[data-theme="mixte"][data-feat="light"] {
-          --v2-panel-bg: #FFFFFF; --v2-panel-text: #0C121E; --v2-panel-muted: #6B7280; --v2-panel-border: #E5E8EA;
+          --v2-panel-bg: #FFFFFF; --v2-panel-text: var(--color-dark-1); --v2-panel-muted: var(--text-muted); --v2-panel-border: var(--border-default);
         }
 
         /* ============================================================
@@ -154,7 +154,7 @@ export default function ProV2Page() {
         .v2p[data-bg="4"] {
           --v2-fx-pattern: radial-gradient(var(--v2-fx-line) 1.4px, transparent 1.4px);
           --v2-fx-pattern-size: 24px 24px; --v2-fx-pattern-opacity: 1;
-          --v2-fx-line: rgba(103,203,199,0.18);
+          --v2-fx-line: rgba(var(--color-teal-rgb), 0.18);
         }
         .v2p[data-bg="4"] .v2p__bgfx::before { opacity: 0.5; }
 

@@ -297,7 +297,7 @@ $(function () {
     });
 
     /*==========  NiceSelect Plugin  ==========*/
-    $('select').niceSelect();
+    $('select:not(.no-nice)').niceSelect();
 
     /*==========   Range Slider  ==========*/
     var $rangeSlider = $("#rangeSlider"),

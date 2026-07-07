@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 /* ============================================================
    DocAgora, Landing PRO V2 · Section FONCTIONNALITÉS · Variante 2
@@ -287,8 +287,41 @@ const SCREENS: Record<FeatureId, () => React.ReactElement> = {
 
 export default function Features2() {
   const [active, setActive] = useState<FeatureId>("agenda");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const ActiveScreen = SCREENS[active];
   const current = FEATURES.find((f) => f.id === active) ?? FEATURES[0];
+
+  const activateTab = useCallback((index: number) => {
+    const feature = FEATURES[index];
+    if (!feature) return;
+    setActive(feature.id);
+    tabRefs.current[index]?.focus();
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      const currentIndex = FEATURES.findIndex((f) => f.id === active);
+      switch (event.key) {
+        case "ArrowRight":
+          event.preventDefault();
+          activateTab((currentIndex + 1) % FEATURES.length);
+          break;
+        case "ArrowLeft":
+          event.preventDefault();
+          activateTab((currentIndex - 1 + FEATURES.length) % FEATURES.length);
+          break;
+        case "Home":
+          event.preventDefault();
+          activateTab(0);
+          break;
+        case "End":
+          event.preventDefault();
+          activateTab(FEATURES.length - 1);
+          break;
+      }
+    },
+    [active, activateTab],
+  );
 
   return (
     <section className="v2f2-root" aria-labelledby="v2f2-title">
@@ -337,12 +370,12 @@ export default function Features2() {
 
         /* ── Onglets horizontaux = CARTES themeable ── */
         .v2f2-tabs {
-          display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-          margin: 40px 0 24px;
+          display: flex; flex-wrap: wrap; gap: var(--spacing-xs); justify-content: center;
+          margin: 40px 0 var(--spacing-md);
         }
         .v2f2-tab {
           display: inline-flex; align-items: center; gap: 9px;
-          min-height: 44px; padding: 0 16px;
+          min-height: 44px; padding: 0 var(--spacing-sm);
           border-radius: 999px;
           border: 1px solid var(--v2-border);
           background: var(--v2-surface);
@@ -350,15 +383,32 @@ export default function Features2() {
           font-family: var(--font-montserrat), sans-serif;
           font-weight: 600; font-size: 13.5px;
           cursor: pointer;
-          transition: transform .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease;
+          transition:
+            transform .18s ease,
+            border-color .18s ease,
+            background-color .18s ease,
+            color .18s ease,
+            box-shadow .18s ease;
         }
-        .v2f2-tab:hover { color: var(--v2-text); background: var(--v2-surface-2); }
-        .v2f2-tab:focus-visible { outline: 2px solid var(--v2-accent); outline-offset: 2px; }
+        .v2f2-tab:hover {
+          color: var(--v2-text);
+          background: var(--v2-surface-2);
+          border-color: color-mix(in srgb, var(--v2-accent) 40%, var(--v2-border));
+          transform: translateY(-1px);
+        }
+        .v2f2-tab:focus-visible {
+          outline: 2px solid var(--v2-accent);
+          outline-offset: 3px;
+        }
         .v2f2-tab[aria-selected="true"] {
           color: var(--v2-accent-ink);
           background: var(--v2-accent);
           border-color: transparent;
           box-shadow: var(--v2-shadow);
+          transform: translateY(-1px);
+        }
+        .v2f2-tab[aria-selected="true"]:hover {
+          background: color-mix(in srgb, var(--v2-accent) 90%, var(--v2-accent-ink) 10%);
         }
         .v2f2-tab i { font-size: 13px; }
         .v2f2-tab__soon {
@@ -373,8 +423,9 @@ export default function Features2() {
         }
 
         .v2f2-caption {
-          text-align: center; margin: 0 auto 24px; max-width: 52ch;
-          font-size: 14.5px; color: var(--v2-text-body);
+          text-align: center; margin: 0 auto var(--spacing-md); max-width: 52ch;
+          font-size: clamp(13px, 1.4vw, 15px); color: var(--v2-text-body);
+          min-height: 2.4em;
         }
         .v2f2-caption strong { color: var(--v2-accent-text); font-weight: 700; }
 
@@ -600,21 +651,28 @@ export default function Features2() {
           </p>
         </div>
 
-        <div className="v2f2-tabs" role="tablist" aria-label="Fonctionnalités DocAgora">
-          {FEATURES.map((f) => (
+        <div
+          className="v2f2-tabs"
+          role="tablist"
+          aria-label="Fonctionnalités DocAgora"
+          onKeyDown={handleKeyDown}
+        >
+          {FEATURES.map((f, index) => (
             <button
               key={f.id}
+              ref={(el) => { tabRefs.current[index] = el; }}
               type="button"
               role="tab"
               id={`v2f2-tab-${f.id}`}
               aria-selected={active === f.id}
               aria-controls="v2f2-panel"
+              tabIndex={active === f.id ? 0 : -1}
               className="v2f2-tab"
               onClick={() => setActive(f.id)}
             >
               <i className={`fa ${f.icon}`} aria-hidden="true" />
               {f.short}
-              {f.soon ? <span className="v2f2-tab__soon">bientôt</span> : null}
+              {f.soon ? <span className="v2f2-tab__soon">{"bientôt"}</span> : null}
             </button>
           ))}
         </div>

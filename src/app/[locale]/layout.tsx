@@ -5,6 +5,7 @@ import { Montserrat, Fraunces } from "next/font/google";
 import "@/app/globals.css";
 import "@/styles/tokens.css";
 import "@/styles/polish.css";
+import "@/styles/motion.css";
 import "@/styles/redesign.css";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
@@ -70,7 +71,7 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="wrapper" style={{ overflowX: "hidden" }}>
+          <div className="wrapper" style={{ overflowX: "clip" }}>
             <Preloader />
             {children}
             <ScrollToTop />

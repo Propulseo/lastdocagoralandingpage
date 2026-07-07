@@ -1,9 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { setRequestLocale } from "next-intl/server";
-import NavbarPro from "@/components/layout/NavbarPro";
-import FooterPro from "@/components/layout/FooterPro";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import ProChrome from "./_ui/ProChrome";
 
 export async function generateMetadata({
   params,
@@ -27,14 +25,5 @@ export default async function ProLayout({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-
-  return (
-    <>
-      <header className="header header-layout1">
-        <NavbarPro locale={locale} />
-      </header>
-      {children}
-      <FooterPro />
-    </>
-  );
+  return <ProChrome>{children}</ProChrome>;
 }

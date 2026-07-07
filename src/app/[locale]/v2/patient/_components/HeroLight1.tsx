@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type CSSProperties, type FormEvent } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useTypewriter } from "@/lib/useTypewriter";
 import { SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
@@ -35,34 +35,19 @@ export default function HeroLight1() {
   const [specialty, setSpecialty] = useState("");
   const [city, setCity] = useState("");
   const [lang, setLang] = useState<Lang>(defaultLang);
-  const [searched, setSearched] = useState(false);
+  const [emptyError, setEmptyError] = useState(false);
 
   const meta = EXAMPLE_META[index % EXAMPLE_META.length];
   const placeholder = typed || examples[0] || "";
+  const activeLangIndex = LANGS.indexOf(lang);
 
-  // Carte « vivante » (avant recherche) synchronisée sur le cycle de frappe.
+  // Carte "vivante" (avant recherche) synchronisée sur le cycle de frappe.
   const exampleCard = {
     icon: SPECIALTY_ICON[meta.specialtyKey] ?? "icon-doctor",
     specialty: tspec(`items.${meta.specialtyKey}.title`),
     city: cities[meta.cityIdx] ?? cities[0],
     languages: meta.langs,
   };
-
-  // Résultats illustratifs après recherche : 2 cartes dans la ville + langue choisies.
-  const results = useMemo(() => {
-    const cityLabel = city || cities[0];
-    const picks = [EXAMPLE_META[0], EXAMPLE_META[2]];
-    return picks.map((m) => {
-      const langs = m.langs.includes(lang) ? m.langs : [lang, ...m.langs].slice(0, 2);
-      return {
-        icon: SPECIALTY_ICON[m.specialtyKey] ?? "icon-doctor",
-        specialty: tspec(`items.${m.specialtyKey}.title`),
-        city: cityLabel,
-        languages: langs as Lang[],
-      };
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [city, lang, searched]);
 
   const seeAllHref = searchLoginUrl({
     q: specialty || undefined,
@@ -72,7 +57,24 @@ export default function HeroLight1() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSearched(true);
+
+    // Empty state: show inline hint, do NOT redirect on an empty query.
+    if (!specialty.trim()) {
+      setEmptyError(true);
+      return;
+    }
+
+    // Redirect to the app (login) with the chosen criteria — no inline results.
+    setEmptyError(false);
+    window.location.href = seeAllHref;
+  }
+
+  // Clear empty error as soon as user types something
+  function handleSpecialtyChange(value: string) {
+    setSpecialty(value);
+    if (emptyError && value.trim()) {
+      setEmptyError(false);
+    }
   }
 
   return (
@@ -84,12 +86,20 @@ export default function HeroLight1() {
           background: transparent;
           font-family: var(--font-montserrat), "Montserrat", sans-serif;
           color: var(--color-dark-1);
-          /* Plein écran à l’arrivée : hauteur visible moins le header sticky. */
+          /* Plein écran à l'arrivée : hauteur visible moins le header sticky. */
           min-height: calc(100svh - var(--v2pat-header-h, 56px));
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          padding: clamp(32px, 5vh, 72px) clamp(20px, 5vw, 64px);
+          /* Contenu calé en haut (sous le header) plutôt que centré : tout le
+             hero « remonte » et tient dans l'écran sur la home prod (header
+             120px), carte comprise. Le bas est comblé par la zone de fondu. */
+          justify-content: flex-start;
+          padding: clamp(8px, 1.5vh, 20px) clamp(20px, 5vw, 48px);
+          /* Respiration en bas (desktop) : le contenu centré remonte au-dessus
+             de la zone de fondu → la carte quitte la couture. Réduit pour que
+             tout le hero tienne dans un écran sur la home prod (header 120px).
+             Réinitialisé sous 980px (compo mobile). */
+          padding-bottom: clamp(56px, 8vh, 112px);
           overflow: hidden;
         }
         /* ── Voile clair MODÉRÉ full-bleed ──
@@ -106,14 +116,30 @@ export default function HeroLight1() {
             radial-gradient(60% 55% at 92% 96%, rgba(var(--color-cobalt-rgb), 0.10), transparent 62%),
             linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.62) 55%, rgba(255, 255, 255, 0.60) 100%);
         }
+        /* Fondu du BAS du hero vers un light-1 PROPRE, posé AU-DESSUS du voile
+           (::before, z0) et de la vidéo, mais SOUS le contenu (__inner, z1) :
+           le dernier ~22vh passe de transparent → light-1. La section 2 démarre
+           aussi en light-1 → vrai fondu light-1 → light-1, sans arête ni step de
+           brillance (le voile ne repeint plus par-dessus). */
+        .vphl1-hero::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: clamp(72px, 11vh, 150px);
+          z-index: 0;
+          pointer-events: none;
+          background: linear-gradient(180deg, transparent, var(--color-light-1));
+        }
         .vphl1-hero__inner {
           position: relative;
           z-index: 1;
           width: 100%;
-          max-width: 1240px;
+          max-width: 1340px;
           margin-inline: auto;
           display: grid;
-          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           gap: clamp(32px, 5vw, 72px);
           align-items: center;
         }
@@ -150,7 +176,7 @@ export default function HeroLight1() {
           font-size: clamp(2.55rem, min(5.6vw, 7.4vh), 4.4rem);
           line-height: 1.04;
           letter-spacing: -0.015em;
-          margin: clamp(18px, 2.4vw, 30px) 0 clamp(14px, 1.8vw, 22px);
+          margin: clamp(8px, 1.4vw, 16px) 0 clamp(8px, 1.2vw, 14px);
           color: var(--color-navy);
           text-wrap: balance;
         }
@@ -158,7 +184,9 @@ export default function HeroLight1() {
           color: ${TEAL_INK};
           font-style: italic;
           position: relative;
-          white-space: nowrap;
+          /* Pas de nowrap : la portion en italique doit pouvoir revenir à la
+             ligne dans sa colonne au lieu de déborder sur la console à droite
+             (surtout en EN, plus long que le FR/PT). */
         }
         .vphl1-hero__em::after {
           content: "";
@@ -178,7 +206,7 @@ export default function HeroLight1() {
           line-height: 1.6;
           color: rgba(var(--color-navy-rgb), 0.86);
           max-width: 36em;
-          margin: 0 0 clamp(26px, 3vw, 38px);
+          margin: 0 0 clamp(14px, 2vw, 22px);
         }
 
         /* ── Console de recherche (glass CLAIR) ── */
@@ -186,14 +214,43 @@ export default function HeroLight1() {
           position: relative;
           padding: clamp(18px, 2.2vw, 26px);
           border-radius: 22px;
-          background: rgba(255, 255, 255, 0.78);
-          border: 1px solid rgba(var(--color-navy-rgb), 0.12);
-          backdrop-filter: blur(16px) saturate(1.2);
-          -webkit-backdrop-filter: blur(16px) saturate(1.2);
+          /* B — glass profond : fond plus transparent, flou/saturation poussés. */
+          background: rgba(255, 255, 255, 0.62);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          backdrop-filter: blur(22px) saturate(1.5);
+          -webkit-backdrop-filter: blur(22px) saturate(1.5);
           box-shadow:
-            0 30px 70px -28px rgba(var(--color-navy-rgb), 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            0 40px 90px -30px rgba(var(--color-mint-rgb), 0.5),
+            0 0 60px -20px rgba(var(--color-teal-rgb), 0.42),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95);
         }
+        /* Liseré dégradé teal→cobalt (anneau 1.5px via masque). */
+        .vphl1-search::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          padding: 1.5px;
+          pointer-events: none;
+          z-index: 0;
+          background: linear-gradient(135deg, rgba(var(--color-teal-rgb), 0.9), rgba(var(--color-cobalt-rgb), 0.55) 55%, rgba(255, 255, 255, 0.25));
+          -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+        /* Sheen : reflet clair sur le haut de la carte. */
+        .vphl1-search::after {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 44%;
+          border-radius: 22px 22px 0 0;
+          pointer-events: none;
+          z-index: 0;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent);
+        }
+        /* Contenu du formulaire au-dessus des reflets décoratifs. */
+        .vphl1-search > * { position: relative; z-index: 1; }
         .vphl1-search__field-label {
           display: block;
           font-size: 11.5px;
@@ -204,13 +261,13 @@ export default function HeroLight1() {
           margin-bottom: 8px;
         }
         .vphl1-search__main {
-          position: relative;
           margin-bottom: 16px;
         }
+        .vphl1-search__inputwrap { position: relative; }
         .vphl1-search__icon {
           position: absolute;
           left: 18px;
-          top: calc(50% + 13px);
+          top: 50%;
           transform: translateY(-50%);
           color: ${TEAL_INK};
           font-size: 15px;
@@ -222,11 +279,16 @@ export default function HeroLight1() {
           padding: 0 18px 0 46px;
           border-radius: 14px;
           border: 1.5px solid rgba(var(--color-navy-rgb), 0.16);
-          background: rgba(255, 255, 255, 0.92);
+          background: rgba(255, 255, 255, 0.72);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -2px 6px -3px rgba(var(--color-navy-rgb), 0.16);
           color: var(--color-dark-1);
           font-family: inherit;
           font-size: 16px;
           transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+        .vphl1-search__input.has-error {
+          border-color: #c0392b;
+          box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.18);
         }
         .vphl1-search__input::placeholder { color: rgba(var(--color-navy-rgb), 0.5); }
         .vphl1-search__input:focus {
@@ -237,19 +299,43 @@ export default function HeroLight1() {
             0 0 0 4px rgba(var(--color-teal-rgb), 0.32),
             0 0 26px rgba(var(--color-teal-rgb), 0.28);
         }
+        .vphl1-search__empty-hint {
+          font-size: 13px;
+          font-weight: 600;
+          color: #c0392b;
+          margin-top: 6px;
+          margin-bottom: 0;
+          padding: 0;
+        }
+        /* Grille 2 rangées : labels alignés sur la 1re ligne, contrôles sur la
+           2de. L'alignement ne dépend plus de la hauteur de chaque contrôle. */
         .vphl1-search__row {
           display: grid;
           grid-template-columns: minmax(0, 1.2fr) auto auto;
-          gap: 14px;
+          grid-template-areas:
+            "lc ll ."
+            "sc sl sb";
+          gap: 8px 12px;
           align-items: end;
         }
+        .vphl1-ga-lc { grid-area: lc; margin-bottom: 0; }
+        .vphl1-ga-ll { grid-area: ll; margin-bottom: 0; }
+        .vphl1-ga-sc { grid-area: sc; }
+        .vphl1-ga-sl { grid-area: sl; }
+        .vphl1-ga-sb { grid-area: sb; }
         .vphl1-search__select {
           width: 100%;
-          height: 50px;
-          padding: 0 14px;
+          height: 52px;
+          padding: 0 40px 0 14px;
           border-radius: 12px;
           border: 1.5px solid rgba(var(--color-navy-rgb), 0.16);
-          background: rgba(255, 255, 255, 0.92);
+          appearance: none;
+          -webkit-appearance: none;
+          background-color: rgba(255, 255, 255, 0.72);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231E6E68' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 14px center;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -2px 6px -3px rgba(var(--color-navy-rgb), 0.16);
           color: var(--color-dark-1);
           font-family: inherit;
           font-size: 14.5px;
@@ -263,17 +349,37 @@ export default function HeroLight1() {
           box-shadow: 0 0 0 3px rgba(var(--color-teal-rgb), 0.3);
         }
         .vphl1-seg {
-          display: inline-flex;
+          position: relative;
+          display: flex;
           padding: 4px;
-          gap: 2px;
+          gap: 0;
           border-radius: 12px;
           border: 1.5px solid rgba(var(--color-navy-rgb), 0.16);
-          background: rgba(255, 255, 255, 0.92);
-          height: 50px;
+          background: rgba(255, 255, 255, 0.72);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -2px 6px -3px rgba(var(--color-navy-rgb), 0.16);
+          height: 52px;
+        }
+        /* Pastille glissante : indicateur unique animé sous le segment actif.
+           Largeur fixe (54px) → PT/FR/EN réguliers, translation = index * 54px. */
+        .vphl1-seg__pill {
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          width: 54px;
+          height: calc(100% - 8px);
+          border-radius: 8px;
+          background: ${TEAL_INK};
+          box-shadow: 0 6px 16px -4px rgba(var(--color-mint-rgb), 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+          transform: translateX(calc(var(--seg-i, 0) * 54px));
+          transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+          z-index: 0;
         }
         .vphl1-seg__btn {
-          min-width: 44px;
-          padding: 0 12px;
+          position: relative;
+          z-index: 1;
+          width: 54px;
+          padding: 0;
           border: 0;
           border-radius: 8px;
           background: transparent;
@@ -283,24 +389,20 @@ export default function HeroLight1() {
           font-weight: 700;
           letter-spacing: 0.04em;
           cursor: pointer;
-          transition: background 0.22s ease, color 0.22s ease, transform 0.18s ease;
+          transition: color 0.22s ease;
         }
         .vphl1-seg__btn:hover { color: var(--color-navy); }
-        .vphl1-seg__btn.is-active {
-          background: ${TEAL_INK};
-          color: #fff;
-          box-shadow: 0 4px 14px -4px rgba(var(--color-mint-rgb), 0.7);
-        }
+        .vphl1-seg__btn.is-active { color: #fff; }
         .vphl1-search__cta {
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 9px;
-          height: 50px;
+          height: 52px;
           padding: 0 26px;
           border: 0;
-          border-radius: 12px;
-          background: linear-gradient(135deg, ${TEAL_INK}, var(--color-mint));
+          border-radius: var(--radius-pill);
+          background: linear-gradient(135deg, #2AA39C, ${TEAL_INK} 70%);
           color: #fff;
           font-family: inherit;
           font-size: 14.5px;
@@ -308,13 +410,17 @@ export default function HeroLight1() {
           letter-spacing: 0.01em;
           cursor: pointer;
           white-space: nowrap;
-          box-shadow: 0 12px 28px -10px rgba(var(--color-mint-rgb), 0.7);
+          box-shadow: 0 14px 30px -8px rgba(var(--color-mint-rgb), 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.5);
           transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
         .vphl1-search__cta:hover {
           transform: translateY(-2px);
           filter: brightness(1.05);
           box-shadow: 0 16px 34px -10px rgba(var(--color-mint-rgb), 0.8);
+        }
+        .vphl1-search__cta:active {
+          transform: translateY(0);
+          filter: brightness(0.98);
         }
         .vphl1-search__cta svg { width: 16px; height: 16px; }
         .vphl1-search__trust {
@@ -335,15 +441,39 @@ export default function HeroLight1() {
         }
         .vphl1-search__trust svg { width: 14px; height: 14px; color: ${TEAL_INK}; flex-shrink: 0; }
 
-        /* ── Colonne droite : carte / résultats ── */
+        /* ── Loading spinner ── */
+        .vphl1-loading {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 600;
+          color: ${TEAL_INK};
+          padding: 16px 4px;
+        }
+        .vphl1-loading__dot {
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          background: ${TEAL_INK};
+          animation: vphl1-pulse 1.2s ease-in-out infinite;
+        }
+        .vphl1-loading__dot:nth-child(2) { animation-delay: 0.2s; }
+        .vphl1-loading__dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes vphl1-pulse {
+          0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+          40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* ── Carte vitrine « Professionnel vérifié » (sous le texte, à gauche) ── */
         .vphl1-hero__media {
           position: relative;
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
+          margin-top: clamp(8px, 1.2vw, 16px);
         }
         .vphl1-hero__float {
           width: 100%;
-          max-width: clamp(360px, 32vw, 420px);
+          max-width: clamp(320px, 30vw, 400px);
           animation: vphl1-levitate 6.5s ease-in-out infinite;
         }
         @keyframes vphl1-levitate {
@@ -405,9 +535,9 @@ export default function HeroLight1() {
           font-size: 14px;
           font-weight: 700;
           text-decoration: none;
-          transition: gap 0.2s ease, color 0.2s ease;
+          transition: gap 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
-        .vphl1-seeall:hover { gap: 13px; color: var(--color-navy); }
+        .vphl1-seeall:hover { gap: 13px; color: var(--color-navy); transform: translateX(2px); }
         .vphl1-seeall svg { width: 15px; height: 15px; }
 
         /* Carte compacte mobile (avant recherche) */
@@ -471,6 +601,17 @@ export default function HeroLight1() {
           .vphl1-seg__btn { flex: 1; }
         }
 
+        /* Screen-reader-only utility */
+        .vphl1-sr-only {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .vphl1-hero__em::after,
           .vphl1-hero__float,
@@ -479,21 +620,36 @@ export default function HeroLight1() {
             transform: none !important;
             animation: none !important;
           }
+          .vphl1-loading__dot {
+            animation: none !important;
+            opacity: 1 !important;
+          }
+          .vphl1-seg__pill { transition: none !important; }
         }
       `}</style>
 
       <div className="vphl1-hero__inner">
         {/* GAUCHE, copy + console de recherche */}
         <div>
-          <span className="vphl1-hero__eyebrow vphl1-reveal vphl1-d1">PT · FR · EN</span>
+          <span className="vphl1-hero__eyebrow vphl1-reveal vphl1-d1">PT &middot; FR &middot; EN</span>
           <h1 className="vphl1-hero__title vphl1-reveal vphl1-d2">
             {t("titleLead")}{" "}
             <span className="vphl1-hero__em">{t("titleEmphasis")}</span>
           </h1>
           <p className="vphl1-hero__subhead vphl1-reveal vphl1-d3">{t("subhead")}</p>
 
+          {/* Carte vitrine « Professionnel vérifié » — agrandie, sous le texte */}
+          <div className="vphl1-hero__media vphl1-reveal vphl1-d4">
+            <div className="vphl1-hero__float">
+              <VerifiedRecordCard {...exampleCard} illustrative />
+            </div>
+          </div>
+        </div>
+
+        {/* DROITE : console de recherche (la sélection des médecins) */}
+        <div className="vphl1-hero__right vphl1-reveal vphl1-d5">
           <form
-            className="vphl1-search vphl1-reveal vphl1-d4"
+            className="vphl1-search"
             onSubmit={handleSubmit}
             role="search"
           >
@@ -501,53 +657,63 @@ export default function HeroLight1() {
               <label htmlFor="vphl1-specialty" className="vphl1-search__field-label">
                 {ts("specialtyLabel")}
               </label>
-              <i className="fas fa-search vphl1-search__icon" aria-hidden="true"></i>
-              <input
-                id="vphl1-specialty"
-                type="text"
-                className="vphl1-search__input"
-                placeholder={placeholder}
-                value={specialty}
-                onChange={(e) => setSpecialty(e.target.value)}
-                autoComplete="off"
-              />
+              <div className="vphl1-search__inputwrap">
+                <i className="fas fa-search vphl1-search__icon" aria-hidden="true"></i>
+                <input
+                  id="vphl1-specialty"
+                  type="text"
+                  className={`vphl1-search__input${emptyError ? " has-error" : ""}`}
+                  placeholder={placeholder}
+                  value={specialty}
+                  onChange={(e) => handleSpecialtyChange(e.target.value)}
+                  autoComplete="off"
+                  aria-describedby={emptyError ? "vphl1-empty-hint" : undefined}
+                  aria-invalid={emptyError ? true : undefined}
+                />
+              </div>
+              {emptyError && (
+                <p id="vphl1-empty-hint" className="vphl1-search__empty-hint" role="alert">
+                  {ts("emptyHint")}
+                </p>
+              )}
             </div>
             <div className="vphl1-search__row">
-              <div>
-                <label htmlFor="vphl1-city" className="vphl1-search__field-label">
-                  {ts("cityLabel")}
-                </label>
-                <select
-                  id="vphl1-city"
-                  className="vphl1-search__select"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                >
-                  <option value="">{ts("cityAll")}</option>
-                  {cities.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
+              <label htmlFor="vphl1-city" className="vphl1-search__field-label vphl1-ga-lc">
+                {ts("cityLabel")}
+              </label>
+              <span className="vphl1-search__field-label vphl1-ga-ll">{ts("languageLabel")}</span>
+              <select
+                id="vphl1-city"
+                className="vphl1-search__select vphl1-ga-sc no-nice"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              >
+                <option value="">{ts("cityAll")}</option>
+                {cities.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+              <div className="vphl1-seg vphl1-ga-sl" role="group" aria-label={ts("languageLabel")}>
+                <span
+                  className="vphl1-seg__pill"
+                  style={{ "--seg-i": activeLangIndex } as CSSProperties}
+                  aria-hidden="true"
+                />
+                {LANGS.map((l) => (
+                  <button
+                    key={l}
+                    type="button"
+                    className={`vphl1-seg__btn${lang === l ? " is-active" : ""}`}
+                    aria-pressed={lang === l}
+                    onClick={() => setLang(l)}
+                  >
+                    {l}
+                  </button>
+                ))}
               </div>
-              <div>
-                <span className="vphl1-search__field-label">{ts("languageLabel")}</span>
-                <div className="vphl1-seg" role="group" aria-label={ts("languageLabel")}>
-                  {LANGS.map((l) => (
-                    <button
-                      key={l}
-                      type="button"
-                      className={`vphl1-seg__btn${lang === l ? " is-active" : ""}`}
-                      aria-pressed={lang === l}
-                      onClick={() => setLang(l)}
-                    >
-                      {l}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <button type="submit" className="vphl1-search__cta">
+              <button type="submit" className="vphl1-search__cta vphl1-ga-sb">
                 <span>{ts("cta")}</span>
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -606,70 +772,21 @@ export default function HeroLight1() {
             </div>
           </form>
 
-          {/* Mobile : carte compacte ou résultats sous la console */}
-          <div className="vphl1-mobile">
-            {searched ? (
-              <div className="vphl1-results">
-                <p className="vphl1-results__head">{ts("resultsHead")}</p>
-                {results.map((r, i) => (
-                  <VerifiedRecordCard key={`m-${r.specialty}-${i}`} {...r} illustrative />
-                ))}
-                <a className="vphl1-seeall" href={seeAllHref}>
-                  <span>{ts("seeAll")}</span>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M5 12h14M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth={2.4}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+          {/* Mobile : carte compacte décorative sous la console */}
+          <div className="vphl1-mobile" aria-hidden="true">
+            <div className="vphl1-chip">
+              <div className="vphl1-chip__mono">
+                <i className={exampleCard.icon}></i>
               </div>
-            ) : (
-              <div className="vphl1-chip" aria-hidden="true">
-                <div className="vphl1-chip__mono">
-                  <i className={exampleCard.icon}></i>
-                </div>
-                <div>
-                  <p className="vphl1-chip__title">{exampleCard.specialty}</p>
-                  <p className="vphl1-chip__sub">
-                    {exampleCard.city} · {exampleCard.languages.join(" · ")}
-                  </p>
-                </div>
-                <i className="fas fa-check-circle vphl1-chip__check"></i>
+              <div>
+                <p className="vphl1-chip__title">{exampleCard.specialty}</p>
+                <p className="vphl1-chip__sub">
+                  {exampleCard.city} &middot; {exampleCard.languages.join(" · ")}
+                </p>
               </div>
-            )}
+              <i className="fas fa-check-circle vphl1-chip__check"></i>
+            </div>
           </div>
-        </div>
-
-        {/* DROITE, carte profil vérifié / résultats (desktop) */}
-        <div className="vphl1-hero__media vphl1-reveal vphl1-d5" aria-label={ts("resultsHead")}>
-          {searched ? (
-            <div className="vphl1-results">
-              <p className="vphl1-results__head">{ts("resultsHead")}</p>
-              {results.map((r, i) => (
-                <VerifiedRecordCard key={`${r.specialty}-${i}`} {...r} illustrative />
-              ))}
-              <a className="vphl1-seeall" href={seeAllHref}>
-                <span>{ts("seeAll")}</span>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 6l6 6-6 6"
-                    stroke="currentColor"
-                    strokeWidth={2.4}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          ) : (
-            <div className="vphl1-hero__float">
-              <VerifiedRecordCard {...exampleCard} illustrative />
-            </div>
-          )}
         </div>
       </div>
     </section>

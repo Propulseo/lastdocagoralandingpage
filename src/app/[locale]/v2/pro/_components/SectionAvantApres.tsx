@@ -1,34 +1,19 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
+import { useRevealInView } from "@/components/shared/useRevealInView";
+
 /* ============================================================
    SectionAvantApres, V2 PRO « Avant / Après »
    THEMEABLE : toutes les couleurs passent par les tokens --v2-*
    hérités de .v2p (dark/light/mixte + contrast). Aucune couleur
    en dur. Préfixe CSS « v2aa- ».
    Colonne « Avant » discrète (surface) / « Après » accentuée.
-   Section statique, pas de hooks.
+   Reveal en cascade déclenché au scroll (socle : useRevealInView).
    ============================================================ */
 
-type CompareRow = { avant: string; apres: string };
-
-const COMPARE_ROWS: CompareRow[] = [
-  {
-    avant: "Le téléphone sonne sans arrêt pendant la consultation.",
-    apres: "Rendez-vous organisés, reçus tranquillement.",
-  },
-  {
-    avant: "Agenda papier, raturé et difficile à lire.",
-    apres: "Agenda numérique clair, toujours disponible.",
-  },
-  {
-    avant: "Rendez-vous manqués imprévus, sans prévenir.",
-    apres: "Rappels automatiques « bientôt » pour réduire les absences.",
-  },
-  {
-    avant: "Nouveaux patients qui ne vous trouvent pas en ligne.",
-    apres: "Profil vérifié, visible sur 16 spécialités.",
-  },
-];
+const COMPARE_ROW_IDS = ["phone", "agenda", "noshow", "visibility"] as const;
 
 function IconCross() {
   return (
@@ -60,6 +45,8 @@ function IconCheck() {
 }
 
 export default function SectionAvantApres() {
+  const t = useTranslations("pro");
+  const { ref, revealed } = useRevealInView<HTMLDivElement>();
   return (
     <section
       className="v2aa-section"
@@ -71,11 +58,20 @@ export default function SectionAvantApres() {
 
         .v2aa-section {
           --v2aa-shell: 1200px;
-          --v2aa-radius: 18px;
+          --v2aa-radius: var(--radius-lg, 20px);
           --v2aa-mono: ui-monospace, "SF Mono", Menlo, monospace;
           position: relative;
-          padding-block: clamp(72px, 10vh, 120px);
-          background: var(--v2-bg-2);
+          padding-block: clamp(var(--spacing-xl, 48px), 10vh, var(--spacing-section-lg, 120px));
+          /* Fondu des bords : le fond distinct s'estompe vers transparent en
+             haut et en bas → le bloc « émerge » du canvas sans arête franche
+             (cf. skill methodo-peaufinage-propulseo). */
+          background: linear-gradient(
+            180deg,
+            transparent,
+            var(--v2-bg-2) clamp(40px, 6vh, 80px),
+            var(--v2-bg-2) calc(100% - clamp(40px, 6vh, 80px)),
+            transparent
+          );
           color: var(--v2-text-body);
           font-family: var(--font-montserrat), "Montserrat", sans-serif;
           line-height: 1.5;
@@ -97,17 +93,17 @@ export default function SectionAvantApres() {
           width: 100%;
           max-width: var(--v2aa-shell);
           margin-inline: auto;
-          padding-inline: clamp(16px, 4vw, 24px);
+          padding-inline: clamp(var(--spacing-sm, 16px), 4vw, var(--spacing-md, 24px));
         }
 
-        /* ── Reveal cascade ── */
+        /* ── Reveal cascade (déclenché au scroll via .v2aa-play) ── */
         @keyframes v2aa-reveal {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .v2aa-reveal {
-          opacity: 0;
-          animation: v2aa-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        .v2aa-reveal { opacity: 0; }
+        .v2aa-play .v2aa-reveal {
+          animation: v2aa-reveal 0.7s var(--mo-ease) forwards;
         }
 
         /* ── Eyebrow ── */
@@ -130,7 +126,7 @@ export default function SectionAvantApres() {
         }
 
         /* ── Section head ── */
-        .v2aa-sechead { max-width: 640px; margin-bottom: 44px; }
+        .v2aa-sechead { max-width: 640px; margin-bottom: var(--spacing-xl, 48px); }
         .v2aa-sectitle {
           font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
           font-weight: 600;
@@ -138,41 +134,53 @@ export default function SectionAvantApres() {
           line-height: 1.08;
           letter-spacing: -0.02em;
           color: var(--v2-text);
-          margin: 16px 0 0;
+          margin: var(--spacing-sm, 16px) 0 0;
           text-transform: none;
         }
         .v2aa-secsub {
           font-size: 16px;
           line-height: 1.6;
           color: var(--v2-text-muted);
-          margin: 14px 0 0;
+          margin: var(--spacing-sm, 16px) 0 0;
         }
 
-        /* ── AVANT / APRÈS ── */
+        /* ── AVANT / APRES ── */
         .v2aa-compare__wrap { position: relative; }
         .v2aa-compare {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 22px;
+          gap: var(--spacing-md, 24px);
           align-items: stretch;
         }
         .v2aa-col {
           position: relative;
           border-radius: var(--v2aa-radius);
-          padding: 30px;
+          padding: var(--spacing-lg, 32px);
           overflow: hidden;
           background: var(--v2-surface);
           border: 1px solid var(--v2-border);
           box-shadow: var(--v2-shadow);
+          transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .v2aa-col:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--v2-shadow-lg, var(--v2-shadow));
         }
         .v2aa-col--antes {
           opacity: 0.92;
         }
         .v2aa-col--depois {
-          border-color: var(--v2-accent);
+          border-color: var(--color-teal, var(--v2-accent));
           box-shadow:
             var(--v2-shadow),
-            0 0 0 1px var(--v2-accent) inset;
+            0 0 0 1px var(--color-teal, var(--v2-accent)) inset;
+        }
+        .v2aa-col--depois:hover {
+          box-shadow:
+            var(--v2-shadow-lg, var(--v2-shadow)),
+            0 0 0 1px var(--color-teal, var(--v2-accent)) inset,
+            0 0 32px rgba(var(--color-teal-rgb, 103 203 199), 0.18);
         }
         .v2aa-col--depois::before {
           content: "";
@@ -185,13 +193,13 @@ export default function SectionAvantApres() {
           position: relative;
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: var(--spacing-xs, 8px);
           font-family: var(--v2aa-mono);
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          padding: 6px 12px;
+          padding: 6px var(--spacing-sm, 12px);
           border-radius: 999px;
           line-height: 1;
           border: 1px solid var(--v2-border);
@@ -202,15 +210,16 @@ export default function SectionAvantApres() {
         }
         .v2aa-col--depois .v2aa-col__tag {
           color: var(--v2-accent-ink);
-          background: var(--v2-accent);
-          border-color: var(--v2-accent);
+          background: var(--color-teal, var(--v2-accent));
+          border-color: var(--color-teal, var(--v2-accent));
+          box-shadow: 0 0 12px rgba(var(--color-teal-rgb, 103 203 199), 0.35);
         }
         .v2aa-col__title {
           position: relative;
           font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
           font-weight: 600;
           font-size: 26px;
-          margin: 16px 0 22px;
+          margin: var(--spacing-sm, 16px) 0 var(--spacing-md, 22px);
           text-transform: none;
           line-height: 1.1;
         }
@@ -222,12 +231,12 @@ export default function SectionAvantApres() {
           margin: 0;
           padding: 0;
           display: grid;
-          gap: 14px;
+          gap: var(--spacing-sm, 16px);
         }
         .v2aa-col__item {
           display: flex;
           align-items: flex-start;
-          gap: 12px;
+          gap: var(--spacing-sm, 12px);
           font-size: 15px;
           line-height: 1.5;
         }
@@ -235,7 +244,7 @@ export default function SectionAvantApres() {
           flex-shrink: 0;
           width: 26px;
           height: 26px;
-          border-radius: 8px;
+          border-radius: var(--radius-sm, 8px);
           display: grid;
           place-items: center;
           margin-top: 1px;
@@ -250,7 +259,7 @@ export default function SectionAvantApres() {
           font-weight: 500;
         }
         .v2aa-col--depois .v2aa-col__ico {
-          background: var(--v2-accent);
+          background: var(--color-teal, var(--v2-accent));
           color: var(--v2-accent-ink);
         }
 
@@ -266,25 +275,30 @@ export default function SectionAvantApres() {
           border-radius: 50%;
           display: grid;
           place-items: center;
-          background: var(--v2-accent);
+          background: var(--color-teal, var(--v2-accent));
           color: var(--v2-accent-ink);
           font-family: var(--v2aa-mono);
           font-weight: 700;
           font-size: 13px;
           letter-spacing: 0.06em;
-          box-shadow: var(--v2-shadow);
-          border: 3px solid var(--v2-bg-2);
+          box-shadow:
+            var(--v2-shadow),
+            0 0 0 3px var(--v2-canvas, var(--color-dark-1)),
+            0 0 20px rgba(var(--color-teal-rgb, 103 203 199), 0.45);
+          border: 3px solid transparent;
+          outline: 3px solid var(--v2-canvas, var(--color-dark-1));
+          outline-offset: 0;
         }
 
         /* ── Responsive ── */
         @media (max-width: 720px) {
-          .v2aa-compare { grid-template-columns: 1fr; gap: 16px; }
+          .v2aa-compare { grid-template-columns: 1fr; gap: var(--spacing-sm, 16px); }
           .v2aa-compare__vs {
             position: static;
             transform: none;
-            margin: 4px auto;
+            margin: var(--spacing-xs, 4px) auto;
           }
-          .v2aa-col { padding: 24px; }
+          .v2aa-col { padding: var(--spacing-md, 24px); }
         }
 
         /* ── Reduced motion ── */
@@ -299,19 +313,19 @@ export default function SectionAvantApres() {
         }
       `}</style>
 
-      <div className="v2aa-shell">
+      <div
+        className={`v2aa-shell${revealed ? " v2aa-play" : ""}`}
+        ref={ref}
+      >
         <div className="v2aa-sechead">
           <span className="v2aa-eyebrow">
             <span aria-hidden="true" />
-            Avant · Après
+            {t("avantApres.eyebrow")}
           </span>
           <h2 className="v2aa-sectitle" id="v2aa-compare-title">
-            La même journée, vécue autrement.
+            {t("avantApres.title")}
           </h2>
-          <p className="v2aa-secsub">
-            À gauche, le quotidien que vous connaissez. À droite, ce qui change
-            quand votre agenda se met à travailler pour vous.
-          </p>
+          <p className="v2aa-secsub">{t("avantApres.subtitle")}</p>
         </div>
 
         <div className="v2aa-compare__wrap">
@@ -320,15 +334,15 @@ export default function SectionAvantApres() {
               className="v2aa-col v2aa-col--antes v2aa-reveal"
               style={{ animationDelay: "0ms" }}
             >
-              <span className="v2aa-col__tag">Avant</span>
-              <h3 className="v2aa-col__title">Sans DocAgora</h3>
+              <span className="v2aa-col__tag">{t("avantApres.tagBefore")}</span>
+              <h3 className="v2aa-col__title">{t("avantApres.titleBefore")}</h3>
               <ul className="v2aa-col__list">
-                {COMPARE_ROWS.map((row) => (
-                  <li className="v2aa-col__item" key={`avant-${row.avant}`}>
+                {COMPARE_ROW_IDS.map((id) => (
+                  <li className="v2aa-col__item" key={`avant-${id}`}>
                     <span className="v2aa-col__ico">
                       <IconCross />
                     </span>
-                    <span>{row.avant}</span>
+                    <span>{t(`avantApres.rows.${id}.before`)}</span>
                   </li>
                 ))}
               </ul>
@@ -338,15 +352,15 @@ export default function SectionAvantApres() {
               className="v2aa-col v2aa-col--depois v2aa-reveal"
               style={{ animationDelay: "120ms" }}
             >
-              <span className="v2aa-col__tag">Après</span>
-              <h3 className="v2aa-col__title">Avec DocAgora</h3>
+              <span className="v2aa-col__tag">{t("avantApres.tagAfter")}</span>
+              <h3 className="v2aa-col__title">{t("avantApres.titleAfter")}</h3>
               <ul className="v2aa-col__list">
-                {COMPARE_ROWS.map((row) => (
-                  <li className="v2aa-col__item" key={`apres-${row.apres}`}>
+                {COMPARE_ROW_IDS.map((id) => (
+                  <li className="v2aa-col__item" key={`apres-${id}`}>
                     <span className="v2aa-col__ico">
                       <IconCheck />
                     </span>
-                    <span>{row.apres}</span>
+                    <span>{t(`avantApres.rows.${id}.after`)}</span>
                   </li>
                 ))}
               </ul>

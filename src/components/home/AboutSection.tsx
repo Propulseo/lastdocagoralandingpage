@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 export default function AboutSection() {
   const t = useTranslations("about");
   return (
-    <section className="about-layout2 pb-0">
+    <section className="about-layout2">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-7 offset-lg-1">

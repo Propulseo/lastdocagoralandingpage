@@ -92,13 +92,13 @@ a.d-inline-flex:hover .icon-arrow-right {
    ============================================================ */
 .navbar-brand .logo-light,
 .navbar-brand .logo-dark {
-  height: 46px;
+  height: 52px;
   width: auto;
 }
 @media (max-width: 575px) {
   .navbar-brand .logo-light,
   .navbar-brand .logo-dark {
-    height: 38px;
+    height: 40px;
   }
 }
 
@@ -142,8 +142,13 @@ a.d-inline-flex:hover .icon-arrow-right {
 .trust-bar__item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 6px 4px;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background 0.25s var(--ease-out-soft);
+}
+.trust-bar__item:hover {
+  background: rgba(var(--color-teal-rgb), 0.05);
 }
 .trust-bar__item + .trust-bar__item {
   border-left: 1px solid var(--border-default);
@@ -157,23 +162,34 @@ a.d-inline-flex:hover .icon-arrow-right {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: var(--color-primary);
-  background: rgba(var(--color-navy-rgb), 0.07);
+  font-size: var(--fs-md);
+  color: var(--color-accent-ink);
+  background: rgba(var(--color-teal-rgb), 0.10);
+  transition: background 0.25s var(--ease-out-soft), color 0.25s var(--ease-out-soft);
+}
+.trust-bar__item:hover .trust-bar__icon {
+  background: rgba(var(--color-teal-rgb), 0.18);
+  color: var(--color-accent-ink);
 }
 .trust-bar__value {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--color-dark-1);
   line-height: 1.15;
   margin: 0;
 }
 .trust-bar__label {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   margin: 2px 0 0;
   line-height: 1.3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-bar__item,
+  .trust-bar__icon {
+    transition: none;
+  }
 }
 @media (max-width: 991px) {
   .trust-bar__grid {
@@ -182,7 +198,7 @@ a.d-inline-flex:hover .icon-arrow-right {
   }
   .trust-bar__item + .trust-bar__item {
     border-left: none;
-    padding-left: 4px;
+    padding-left: var(--spacing-xs);
   }
   .trust-bar__item:nth-child(odd) {
     border-right: 1px solid var(--border-default);
@@ -365,15 +381,21 @@ a.d-inline-flex:hover .icon-arrow-right {
 
 /* ============================================================
    9. FAQ accordion (React-controlled) — smooth open/close with
-   no jQuery dependency. Re-brands the legacy teal and animates
-   the panel via max-height.
+   no jQuery dependency. Re-brands the legacy teal, animates the
+   panel via max-height, uses semantic DS tokens throughout.
    ============================================================ */
+.faq .accordion-item {
+  border-color: var(--border-default) !important;
+  border-radius: var(--radius-sm);
+}
 .accordion-item .accordion__title {
   width: 100%;
   text-align: left;
   cursor: pointer;
   background: transparent;
   border: 0;
+  color: var(--text-default);
+  padding-block: var(--spacing-xs);
 }
 /* Re-brand legacy #21cdc0 accents to DocAgora palette */
 .accordion-item .accordion__title:hover,
@@ -384,11 +406,16 @@ a.d-inline-flex:hover .icon-arrow-right {
   background-color: var(--color-primary) !important;
 }
 .accordion-item.opened .accordion__header:not(.collapsed) .accordion__title:after {
-  background-color: var(--color-accent) !important;
+  background-color: var(--color-accent-ink) !important;
   color: var(--color-dark-1) !important;
 }
 .accordion-item.opened {
-  border-color: var(--color-accent) !important;
+  border-color: var(--color-accent-ink) !important;
+}
+/* Answer text */
+.faq .accordion__body p {
+  color: var(--text-muted);
+  padding-block: var(--spacing-xs);
 }
 /* Smooth open/close — replaces Bootstrap .collapse (no jQuery) */
 .accordion__panel {
@@ -397,7 +424,13 @@ a.d-inline-flex:hover .icon-arrow-right {
   transition: max-height 0.4s var(--ease-out-soft);
 }
 .accordion-item.opened .accordion__panel {
-  max-height: 480px;
+  max-height: 600px;
+}
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .accordion__panel {
+    transition: none;
+  }
 }
 
 /* ============================================================
@@ -471,4 +504,614 @@ a.d-inline-flex:hover .icon-arrow-right {
   font-size: 16px;
   font-weight: 600;
   color: var(--color-dark-1);
+}
+
+/* ============================================================
+   14. AboutSection (patient) — re-skin to DS
+   Scoped to .about-layout2 only; never touches shared selectors.
+   ============================================================ */
+
+/* Section spacing via semantic tokens */
+.about-layout2 {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  background-color: var(--bg-default);
+}
+
+/* Title — already Fraunces via global h2 override; reinforce sizing */
+.about-layout2 .heading-layout2 .heading__title {
+  color: var(--color-dark-1);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* Body paragraphs */
+.about-layout2 .heading__desc {
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  line-height: 1.75;
+}
+
+/* Bold subtitle (subtitle paragraph) — use accent ink so it reads as
+   a teal label against the light background (AA-safe ~5:1) */
+.about-layout2 .heading__desc.font-weight-bold {
+  color: var(--color-accent-ink);
+  font-size: var(--fs-md);
+}
+
+/* Doctor icon — replace legacy raw #21cdc0 with DS ink token */
+.about-layout2 .text-with-icon .text__icon {
+  color: var(--color-accent-ink) !important;
+  font-size: 48px;
+}
+
+/* CTA button — re-align with DS: teal fill, dark ink text */
+.about-layout2 .btn__secondary.btn__rounded {
+  background-color: var(--color-teal) !important;
+  color: var(--color-dark-1) !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: var(--fw-semibold);
+  padding: 12px 28px;
+  transition: background-color 0.25s var(--ease-out-soft),
+              transform 0.25s var(--ease-out-soft),
+              box-shadow 0.25s var(--ease-out-soft);
+}
+.about-layout2 .btn__secondary.btn__rounded:hover {
+  background-color: var(--color-mint) !important;
+  color: var(--color-dark-1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(var(--color-teal-rgb), 0.35) !important;
+}
+
+/* Checklist bullets — replace raw #21cdc0 with DS ink token */
+.about-layout2 .list-items li {
+  color: var(--text-default);
+  font-size: var(--fs-base);
+}
+.about-layout2 .list-items li::before {
+  color: var(--color-accent-ink) !important;
+}
+
+/* Right-column prose card — DS radius + shadow */
+.about-layout2 .about__text.bg-white {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-default);
+}
+
+/* Stop the legacy equal-height stretch: with a w-100 image (no reserved aspect
+   ratio) the stretched column let the image overflow into the next section.
+   Top-align the columns so each sizes to its own content. */
+.about-layout2 .row {
+  align-items: flex-start;
+}
+
+/* Image — organic shape; bound the media to a definite height so the image
+   cannot balloon past its column and overlap the section below. */
+.about-layout2 .video-banner-layout2.da-about__media {
+  position: relative !important; /* legacy rule made it absolute -> out of flow -> overflowed into next section */
+  border-radius: 28px 28px 28px 80px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  height: 420px;
+}
+.about-layout2 .video-banner-layout2.da-about__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive — tablet */
+@media (max-width: 991px) {
+  .about-layout2 {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+  .about-layout2 .about__text.bg-white {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  .about-layout2 .video-banner-layout2.da-about__media {
+    height: 300px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .about-layout2 .btn__secondary.btn__rounded {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   15. ContactInfoBoxes (patient) — re-skin to DS
+   Scoped to .contact-info .boxes-wrapper only.
+   De-emphasizes the "urgence 112" card (1st) so the booking
+   card (2nd) reads as the primary action.
+   ============================================================ */
+
+/* Reset the legacy negative margin-top that ties this to an old
+   section overlay; the --rhythm modifier provides real spacing. */
+.contact-info .boxes-wrapper {
+  margin-top: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── All cards: shared DS baseline ── */
+.contact-info .contact-box {
+  padding: var(--spacing-lg) var(--spacing-md);
+  height: 100%;
+  transition: transform 0.4s var(--ease-out-soft),
+              box-shadow 0.4s var(--ease-out-soft);
+}
+
+.contact-info .contact-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* ── Card 1: urgence 112 — DE-EMPHASIZED (neutral/muted) ── */
+/* Replaces legacy #21cdc0 with a neutral light-section tone.
+   Dark text ensures AA contrast; icon uses --color-accent-ink
+   (teal-ink ~5:1 on this bg). */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box {
+  background-color: var(--bg-section) !important;
+  border-right: 1px solid var(--border-default);
+}
+
+/* Text on the neutral card needs to be dark (not white) */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .contact__title,
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .contact__desc {
+  color: var(--text-default) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .contact__icon i {
+  color: var(--color-accent-ink) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .phone__number {
+  color: var(--color-accent-ink) !important;
+  font-size: var(--fs-lg);
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .phone__number .icon-phone {
+  background-color: rgba(var(--color-teal-rgb), 0.15) !important;
+  color: var(--color-accent-ink) !important;
+}
+
+/* Reduce title weight on the 112 card to soften it further */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box .contact__title {
+  font-size: var(--fs-base) !important;
+  font-weight: var(--fw-semibold) !important;
+  color: var(--text-muted) !important;
+}
+
+/* ── Card 2: réservation — PRIMARY action (teal-dominant) ── */
+/* Replaces legacy #3851a2 with DS navy for main action. */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box {
+  background: linear-gradient(145deg, var(--color-navy), var(--color-cobalt)) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .contact__icon i {
+  color: var(--color-teal) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .contact__title {
+  font-size: var(--fs-md) !important;
+  font-weight: var(--fw-bold) !important;
+  color: #ffffff !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .contact__desc {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+/* CTA button on primary card */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .btn__white.btn__outlined {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill) !important;
+  transition: background-color 0.25s var(--ease-out-soft),
+              border-color 0.25s var(--ease-out-soft),
+              transform 0.25s var(--ease-out-soft);
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .btn__white.btn__outlined:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+/* ── Card 3: disponibilité — SECONDARY (supporting dark) ── */
+/* Replaces legacy #2d4990 with DS dark-1 for a clean supporting slot. */
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(3) .contact-box {
+  background-color: var(--bg-dark) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(3) .contact-box .contact__icon i {
+  color: var(--color-teal) !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(3) .contact-box .contact__title {
+  font-size: var(--fs-md) !important;
+  font-weight: var(--fw-bold) !important;
+  color: #ffffff !important;
+}
+.contact-info .boxes-wrapper > [class*=col-]:nth-of-type(3) .contact-box .time__list li {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── Responsive: tablet/mobile stacking ── */
+@media (max-width: 767px) {
+  .contact-info .boxes-wrapper {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  .contact-info .contact-box {
+    padding: var(--spacing-sm) var(--spacing-sm) !important;
+  }
+  /* Remove right border on mobile (stacked) */
+  .contact-info .boxes-wrapper > [class*=col-]:nth-of-type(1) .contact-box {
+    border-right: none;
+    border-bottom: 1px solid var(--border-default);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .contact-info .contact-box {
+    transition: none !important;
+  }
+  .contact-info .contact-box:hover {
+    transform: none !important;
+  }
+  .contact-info .boxes-wrapper > [class*=col-]:nth-of-type(2) .contact-box .btn__white.btn__outlined {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   17. Footer credit — Propul'SEO signature (both footers)
+   Bottom bar becomes a 3-zone flex: copyright | credit | legal links.
+   ============================================================ */
+.footer-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm) var(--spacing-md);
+  flex-wrap: wrap;
+}
+.footer-bottom__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.footer-bottom__right {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+.footer-bottom__credit {
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+/* Desktop: pin the credit to the true centre of the footer width,
+   independent of the (unequal) left/right widths. */
+@media (min-width: 992px) {
+  .footer-bottom__credit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+}
+.footer-bottom__credit a {
+  color: var(--color-teal);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-out-soft);
+}
+.footer-bottom__credit a:hover {
+  color: var(--color-mint);
+}
+@media (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-bottom__left { align-items: center; }
+}
+
+/* ============================================================
+   19. Footer « variant 2 » (CTA-forward) — patient + pro
+   Structure unique (.ft2), thème piloté par les variables --ft2-*.
+   Remplace l'ancien footer patient, qui n'est plus rendu par
+   le composant Footer.
+   ============================================================ */
+.ft2 {
+  box-sizing: border-box;
+  background: var(--ft2-bg);
+  color: var(--ft2-text-soft);
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.ft2 *, .ft2 *::before, .ft2 *::after { box-sizing: border-box; }
+
+.ft2--patient {
+  --ft2-bg: #1d2a4d;
+  --ft2-panel-border: rgba(var(--color-teal-rgb), 0.22);
+  --ft2-text: #eaf0f4;
+  --ft2-text-soft: rgba(234, 240, 244, 0.62);
+  --ft2-text-dim: rgba(234, 240, 244, 0.42);
+  --ft2-hair: rgba(234, 240, 244, 0.12);
+  --ft2-btn-ink: #0e2320;
+}
+.ft2--pro {
+  --ft2-bg: var(--color-dark-2);
+  --ft2-panel-border: rgba(var(--color-cobalt-rgb), 0.30);
+  --ft2-text: #ffffff;
+  --ft2-text-soft: rgba(255, 255, 255, 0.60);
+  --ft2-text-dim: rgba(255, 255, 255, 0.40);
+  --ft2-hair: rgba(255, 255, 255, 0.10);
+  --ft2-btn-ink: #0b1220;
+}
+
+.ft2__in {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: clamp(20px, 3vw, 32px) clamp(20px, 5vw, 48px) 6px;
+}
+
+/* Bande CTA */
+.ft2__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: clamp(14px, 2.2vw, 26px) 0;
+  padding: clamp(18px, 2.4vw, 26px) clamp(20px, 3vw, 30px);
+  border-radius: 14px;
+  background: linear-gradient(120deg, rgba(var(--color-cobalt-rgb), 0.16), rgba(var(--color-teal-rgb), 0.14));
+  border: 1px solid var(--ft2-panel-border);
+}
+.ft2__cta-title {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  color: var(--ft2-text);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.ft2__cta-sub {
+  margin: 6px 0 0;
+  color: var(--ft2-text-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+  max-width: 48ch;
+}
+.ft2__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  background: var(--color-teal);
+  color: var(--ft2-btn-ink);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 12px 26px -12px rgba(var(--color-teal-rgb), 0.6);
+}
+.ft2__cta-btn:hover { transform: translateY(-2px); background: var(--color-mint); }
+.ft2__arrow { width: 15px; height: 15px; }
+
+/* Grille */
+.ft2__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
+  gap: clamp(24px, 4vw, 48px);
+  padding-bottom: clamp(24px, 3vw, 34px);
+}
+.ft2__logo { display: block; max-height: 54px; width: auto; }
+.ft2__rule {
+  display: block;
+  width: 54px;
+  height: 3px;
+  border-radius: 2px;
+  margin: 14px 0;
+  background: linear-gradient(90deg, var(--color-teal), var(--color-cobalt));
+}
+.ft2__lead { margin: 0; color: var(--ft2-text-dim); font-size: 13px; line-height: 1.7; max-width: 34ch; }
+.ft2__col-title { margin: 0 0 14px; color: var(--ft2-text); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+.ft2__links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.ft2__links a { color: var(--ft2-text-soft); text-decoration: none; font-size: 14px; transition: color 0.18s ease; }
+.ft2__links a:hover { color: var(--color-teal); }
+.ft2__contact { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.ft2__mail { display: inline-flex; align-items: center; gap: 8px; color: var(--color-teal); font-weight: 600; font-size: 14px; text-decoration: none; transition: color 0.18s ease; }
+.ft2__mail:hover { color: var(--color-mint); }
+.ft2__mail i, .ft2__loc i { color: var(--color-teal); font-size: 14px; }
+.ft2__loc { display: inline-flex; align-items: center; gap: 8px; color: var(--ft2-text-dim); font-size: 14px; }
+
+/* Barre du bas */
+.ft2__bottom {
+  border-top: 1px solid var(--ft2-hair);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding: 14px 0 6px;
+  font-size: 12.5px;
+  color: var(--ft2-text-dim);
+}
+.ft2__credit a { color: var(--color-teal); font-weight: 600; text-decoration: none; transition: color 0.18s ease; }
+.ft2__credit a:hover { color: var(--color-mint); }
+
+@media (max-width: 860px) {
+  .ft2__grid { grid-template-columns: 1fr 1fr; }
+  .ft2__bottom { justify-content: center; text-align: center; }
+}
+@media (max-width: 480px) {
+  .ft2__grid { grid-template-columns: 1fr; }
+  .ft2__cta { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ft2__cta-btn, .ft2__links a, .ft2__mail { transition: none; }
+}
+
+/* ============================================================
+   18. Header topbar (patient) — brand-refined blue bar
+   Off-brand #283b6a -> navy gradient; teal icon accents;
+   refined glass social chips (teal on hover).
+   ============================================================ */
+.header-topbar {
+  background: linear-gradient(90deg, #1e3a6e 0%, var(--color-navy) 55%, #21406f 100%) !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.07);
+  font-family: var(--font-body);
+}
+.header-topbar .contact__list li {
+  font-size: var(--fs-sm);
+  margin-right: var(--spacing-md);
+}
+.header-topbar .contact__list li > i {
+  color: var(--color-teal) !important;
+  font-size: 15px;
+  margin-right: 6px;
+}
+.header-topbar .contact__list li a:not(.btn),
+.header-topbar .contact__list li span,
+.header-topbar .contact__list li > button {
+  color: rgba(255, 255, 255, 0.82) !important;
+  transition: color 0.2s var(--ease-out-soft);
+}
+.header-topbar .contact__list li a:not(.btn):hover,
+.header-topbar .contact__list li > button:hover {
+  color: #ffffff !important;
+}
+/* Social chips — refined glass, teal on hover */
+.header-topbar .social-icons li { margin-right: 8px; }
+.header-topbar .social-icons li button,
+.header-topbar .social-icons li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: background-color 0.2s var(--ease-out-soft),
+              color 0.2s var(--ease-out-soft),
+              transform 0.2s var(--ease-out-soft);
+}
+.header-topbar .social-icons li button:hover,
+.header-topbar .social-icons li a:hover {
+  background: var(--color-teal) !important;
+  color: var(--color-dark-1) !important;
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-bottom__credit a,
+  .header-topbar .contact__list li a:not(.btn),
+  .header-topbar .social-icons li button,
+  .header-topbar .social-icons li a {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   19. Navbar (patient) — V1 "Classique raffiné" alignment
+   Match the validated header concept: muted teal-ink active
+   tab with a 3px rounded brand-teal underline, lighter nav
+   weight, and a sentence-case pro CTA (no capitalize, no
+   trailing arrow — arrow removed from the i18n strings).
+   Scoped to .header-layout1 so the pro navbar and every other
+   button stay untouched.
+   ============================================================ */
+.header-layout1 .navbar .nav__item .nav__item-link {
+  font-weight: 600;
+}
+/* Active / hover label — deep teal-ink (concept), not bright cyan */
+.header-layout1 .navbar .nav__item .nav__item-link.active,
+.header-layout1 .navbar .nav__item .nav__item-link:hover {
+  color: var(--color-teal-ink);
+}
+/* Underline — bottom only, 3px rounded brand teal */
+.header-layout1 .navbar .nav__item .nav__item-link::after {
+  background-color: var(--color-teal) !important;
+  height: 3px;
+  border-radius: 3px;
+}
+/* Hide the legacy top line so only the bottom underline shows */
+.header-layout1 .navbar .nav__item .nav__item-link::before {
+  background-color: transparent !important;
+}
+
+/* Pro CTA — concept slim pill: sentence case, 14px / 600, padding-based
+   height (~43px) instead of the legacy fixed 60px chunky button. */
+.header-layout1 .navbar .btn__primary {
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 600;
+  height: auto;
+  padding: 13px 24px;
+  gap: 9px;
+  line-height: 1;
+  border-radius: var(--radius-pill);
+}
+.header-layout1 .navbar .btn__primary i {
+  margin-right: 0;
+}
+
+/* Topbar search — concept "pill": rounded glass, magnifier on the left
+   (legacy was a transparent input with a left divider + icon on the right). */
+.header-topbar .header-topbar__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+}
+.header-layout1 .header-topbar .header-topbar__search .header-topbar__search-btn {
+  order: 1;
+  position: static;
+  transform: none;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1;
+}
+.header-topbar .header-topbar__search .form-control {
+  order: 2;
+  height: auto;
+  width: 130px;
+  padding: 0;
+  border: 0 !important;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+}
+
+/* Header height — trim to the concept proportions.
+   Legacy: topbar 60px + navbar 100px = 160px. Concept: 46 + ~75. */
+.header-layout1 .header-topbar {
+  height: 48px;
+}
+.header-layout1 .navbar {
+  height: 74px;
+  max-height: 74px;
+}
+.header-layout1 .navbar .navbar-brand {
+  line-height: 74px;
+}
+.header-layout1 .navbar .nav__item .nav__item-link {
+  line-height: 74px;
 }

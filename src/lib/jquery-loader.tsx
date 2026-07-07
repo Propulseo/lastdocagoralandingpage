@@ -121,10 +121,11 @@ function reinitWidgets() {
     });
   }
 
-  // 5. NiceSelect for dropdowns
+  // 5. NiceSelect for dropdowns — sauf ceux marqués .no-nice (selects natifs
+  //    stylés par du CSS moderne, ex. la console de recherche du hero patient).
   if ($.fn.niceSelect) {
-    $("select").niceSelect("destroy");
-    $("select").niceSelect();
+    $("select:not(.no-nice)").niceSelect("destroy");
+    $("select:not(.no-nice)").niceSelect();
   }
 }
 

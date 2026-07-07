@@ -13,7 +13,7 @@ export default function TrustBar() {
 
   return (
     <section className="trust-bar da-topo" aria-label={t("ariaLabel")}>
-      <div className="container">
+      <div className="da-shell">
         <div className="trust-bar__grid">
           {ITEMS.map((item) => (
             <div key={item.value} className="trust-bar__item">

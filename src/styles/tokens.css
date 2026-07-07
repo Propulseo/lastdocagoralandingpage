@@ -14,6 +14,7 @@
   --color-dark-2: #070C16;
   --color-light-1: #FCFEFE;
   --color-light-2: #F8FAFD;
+  --color-light-3: #F1F5FA;
 
   /* ── RGB channels (for rgba() usage) ── */
   --color-navy-rgb: 36, 72, 130;
@@ -46,6 +47,8 @@
   --color-accent: var(--color-teal);
   --color-accent-rgb: var(--color-teal-rgb);
   --color-accent-hover: var(--color-mint);
+  /* Teal lisible (AA) sur fond clair — texte/lien teal */
+  --color-accent-ink: #1E6E68;
 
   /* Links */
   --color-link: var(--color-navy);
@@ -253,10 +256,14 @@ a:hover {
   background-color: var(--color-dark-1) !important;
 }
 
-/* ── Headings ── */
+/* ── Headings : display de marque (Fraunces) ── */
 h1, h2, h3, h4, h5, h6,
 .heading__title,
-.slide__title,
+.slide__title {
+  font-family: var(--font-display) !important;
+  text-transform: none !important;
+}
+/* Sous-titres / eyebrows restent en corps (Montserrat) */
 .heading__subtitle {
   font-family: var(--font-body) !important;
   text-transform: none !important;
@@ -323,12 +330,22 @@ h1, h2, h3, h4, h5, h6,
   color: rgba(255, 255, 255, 0.35) !important;
 }
 
+.footer-pro .footer-bottom__credit {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .footer-pro .footer-bottom__right a {
   color: rgba(255, 255, 255, 0.35) !important;
 }
 
 .footer-pro .footer-bottom__right a:hover {
   color: var(--color-teal) !important;
+}
+
+/* Badge RGPD déplacé du bas-gauche vers le bas-droite (texte, pas un lien). */
+.footer-pro .footer-bottom__right span {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
 }
 
 /* ── Footer Pro: Get in touch card ── */
@@ -557,7 +574,7 @@ textarea:focus-visible,
    Landing Pro — Unified container (1200px max-width)
    ============================================================ */
 .container-landing {
-  max-width: 1200px;
+  max-width: 1340px;
   margin-inline: auto;
   padding-inline: 24px;
 }
@@ -566,4 +583,17 @@ textarea:focus-visible,
   .container-landing {
     padding-inline: 16px;
   }
+}
+
+/* ============================================================
+   .da-shell — enveloppe de contenu canonique (home patient).
+   Largeur unique 1340px + gouttière fluide, partagée par toutes
+   les sections pour aligner les bords gauche/droite d'un bout
+   à l'autre de la page (fin des largeurs 1200/1280/1340 mixtes).
+   ============================================================ */
+.da-shell {
+  width: 100%;
+  max-width: 1340px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 48px);
 }

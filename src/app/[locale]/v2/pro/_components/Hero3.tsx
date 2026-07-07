@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const CTA_HREF = "/contact";
+
 /* ============================================================
    Hero3, V2 PRO « Retorno » (asymétrique)
    Structure d’origine restaurée. La section remplit TOUJOURS
@@ -78,13 +80,21 @@ function useCountUp(
   start: boolean,
   durationMs = 1400,
 ): string {
-  const [value, setValue] = useState<number>(() =>
-    prefersReducedMotion() ? to : 0,
-  );
+  // Always initialise to the final value so server and first client render match.
+  const [value, setValue] = useState<number>(to);
+  // mounted flag: animation only starts after hydration is complete.
+  const [mounted, setMounted] = useState(false);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!start || prefersReducedMotion()) return;
+    const id = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !start || prefersReducedMotion()) return;
+    // Animate from 0 to `to`; first rAF frame renders 0, keeping the state
+    // update inside the rAF callback avoids synchronous setState-in-effect.
     const startTime = performance.now();
     const tick = (now: number) => {
       const progress = Math.min((now - startTime) / durationMs, 1);
@@ -96,7 +106,7 @@ function useCountUp(
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [to, durationMs, start]);
+  }, [to, durationMs, start, mounted]);
 
   return value.toFixed(decimals);
 }
@@ -106,11 +116,15 @@ function useInView<T extends HTMLElement>(): {
   inView: boolean;
 } {
   const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState<boolean>(() => prefersReducedMotion());
+  // Always start false to match SSR; reduced-motion will be handled via CSS.
+  const [inView, setInView] = useState<boolean>(false);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || prefersReducedMotion()) return;
+    if (!node || prefersReducedMotion()) {
+      setInView(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -458,6 +472,23 @@ export default function Hero3() {
           color: var(--v2-panel-muted);
           font-family: var(--v2h3-mono);
         }
+        .v2h3-curve__badge {
+          position: absolute;
+          top: 6px;
+          right: 12px;
+          z-index: 2;
+          font-family: var(--v2h3-mono);
+          font-size: clamp(13px, 1.1vw, 15px);
+          font-weight: 700;
+          color: var(--v2-accent-text);
+          background: var(--v2-panel-bg);
+          border: 1px solid var(--v2-panel-border);
+          border-radius: 8px;
+          padding: 4px 10px;
+          line-height: 1.4;
+          letter-spacing: 0.04em;
+          pointer-events: none;
+        }
 
         /* ── Barre de métriques pleine largeur (fond de section) ──
            margin-top:auto la cale TOUJOURS en bas du hero. Le
@@ -572,18 +603,18 @@ export default function Hero3() {
               style={{ animationDelay: "150ms" }}
             >
               Moins de temps au téléphone, un agenda plus clair et de nouveaux
-              patients qui vous trouvent. DocAgora illustre l’impact d’un
+              patients qui vous trouvent. DocAgora illustre l&apos;impact d&apos;un
               cabinet mieux organisé, en chiffres.
             </p>
             <div
               className="v2h3-cta v2h3-reveal"
               style={{ animationDelay: "230ms" }}
             >
-              <a className="v2h3-btn v2h3-btn--primary" href="#">
-                Demander l’accès anticipé
+              <a className="v2h3-btn v2h3-btn--primary" href={CTA_HREF}>
+                Demander l&apos;accès anticipé
                 <i className="fas fa-arrow-right" aria-hidden="true" />
               </a>
-              <a className="v2h3-btn v2h3-btn--ghost" href="#">
+              <a className="v2h3-btn v2h3-btn--ghost" href={CTA_HREF}>
                 Parler à un conseiller
               </a>
             </div>
@@ -611,6 +642,7 @@ export default function Hero3() {
             </div>
             <div className="v2h3-panel__curve">
               <ReturnCurve />
+              <span className="v2h3-curve__badge" aria-hidden="true">+30 %*</span>
             </div>
             <p className="v2h3-panel__foot">*illustratif, non garanti</p>
           </aside>

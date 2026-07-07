@@ -1,0 +1,276 @@
+/* ============================================================
+   DocAgora — Patient v-next "Elevation" layer
+   Scoped ENTIRELY under .vnp (v-next patient). Builds on
+   tokens.css + polish.css. Zero impact on /, /pro or /v2 —
+   nothing here leaks outside the .vnp wrapper.
+
+   Direction: "elevate the brand" (preserve). Light theme locked,
+   single accent = teal-ink (#1E6E68, AA on light). Brand fonts
+   kept on purpose (Fraunces display + Montserrat body).
+   ============================================================ */
+
+.vnp {
+  /* ── Local elevation tokens ── */
+  --vnp-accent: var(--color-accent-ink);          /* #1E6E68 — locked page accent */
+  --vnp-accent-soft: rgba(var(--color-teal-rgb), 0.14);
+  --vnp-ink: var(--color-navy);                   /* headings */
+  --vnp-body: rgba(var(--color-navy-rgb), 0.82);  /* body text */
+  --vnp-muted: rgba(var(--color-navy-rgb), 0.6);  /* meta / muted */
+  --vnp-line: rgba(var(--color-navy-rgb), 0.12);  /* hairlines */
+  --vnp-card: #ffffff;
+  --vnp-shell: 1340px;
+
+  /* Generous, regular vertical rhythm (airier than prod) */
+  --vnp-section-y: clamp(72px, 8vw, 120px);
+  --vnp-gap: clamp(28px, 4vw, 64px);
+  --vnp-radius: 20px;
+  --vnp-radius-lg: 28px;
+  --vnp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  color: var(--vnp-body);
+  background: var(--color-light-1);
+  -webkit-font-smoothing: antialiased;
+}
+.vnp *,
+.vnp *::before,
+.vnp *::after { box-sizing: border-box; }
+
+/* ── Shell / container ── */
+.vnp-shell {
+  width: 100%;
+  max-width: var(--vnp-shell);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 48px);
+}
+
+/* ── Section primitives ── */
+.vnp-section {
+  position: relative;
+  padding-block: var(--vnp-section-y);
+}
+.vnp-section--tint { background: var(--color-light-3); }
+.vnp-section--ink {
+  background: linear-gradient(160deg, var(--color-navy) 0%, var(--color-dark-1) 100%);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* ── Section header (eyebrow used sparingly: max 3 on the page) ── */
+.vnp-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 60px); }
+.vnp-head--center { margin-inline: auto; text-align: center; }
+
+.vnp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--vnp-accent);
+  margin-bottom: 18px;
+}
+.vnp-eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+.vnp-head--center .vnp-eyebrow::before { display: none; }
+
+.vnp-title {
+  font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  color: var(--vnp-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.vnp-title em {
+  font-style: italic;
+  color: var(--vnp-accent);
+}
+.vnp-lede {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.62;
+  color: var(--vnp-body);
+  margin: 18px 0 0;
+  max-width: 56ch;
+}
+.vnp-head--center .vnp-lede { margin-inline: auto; }
+
+/* ── Buttons (one shape system: pill primary, pill ghost, text link) ── */
+.vnp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 15px 28px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s var(--vnp-ease), box-shadow 0.25s var(--vnp-ease),
+    background 0.25s var(--vnp-ease), color 0.2s var(--vnp-ease), gap 0.2s var(--vnp-ease);
+}
+.vnp-btn i, .vnp-btn svg { font-size: 14px; }
+.vnp-btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--vnp-accent), #2E8C86);
+  box-shadow: 0 14px 30px -12px rgba(var(--color-mint-rgb), 0.75);
+}
+.vnp-btn--primary:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  gap: 13px;
+  box-shadow: 0 20px 40px -12px rgba(var(--color-mint-rgb), 0.85);
+}
+.vnp-btn--primary:active { transform: translateY(0); }
+.vnp-btn--ghost {
+  color: var(--vnp-ink);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: var(--vnp-line);
+}
+.vnp-btn--ghost:hover {
+  color: var(--vnp-ink);
+  transform: translateY(-2px);
+  border-color: rgba(var(--color-navy-rgb), 0.28);
+  background: #fff;
+}
+.vnp-section--ink .vnp-btn--ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.vnp-section--ink .vnp-btn--ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+.vnp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--vnp-accent);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: gap 0.2s var(--vnp-ease), color 0.2s var(--vnp-ease);
+}
+.vnp-link:hover { color: var(--vnp-ink); gap: 12px; }
+.vnp-link i, .vnp-link svg { transition: transform 0.2s var(--vnp-ease); }
+
+/* ── Card system (one radius, navy-tinted elevation) ── */
+.vnp-card {
+  background: var(--vnp-card);
+  border: 1px solid var(--vnp-line);
+  border-radius: var(--vnp-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--vnp-ease), box-shadow 0.4s var(--vnp-ease);
+}
+.vnp-card--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Small chip */
+.vnp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vnp-muted);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--vnp-line);
+}
+.vnp-chip i { color: var(--vnp-accent); font-size: 11px; }
+
+/* ── Load-in reveal (used by client sections via AnimatedSection;
+   this is the reduced-motion + base fallback) ── */
+@media (prefers-reduced-motion: reduce) {
+  .vnp *,
+  .vnp *::before,
+  .vnp *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── Responsive baseline ── */
+@media (max-width: 768px) {
+  .vnp { --vnp-section-y: clamp(56px, 11vw, 84px); }
+  .vnp-btn { width: 100%; }
+  .vnp-btn--inline { width: auto; }
+}
+
+/* ============================================================
+   BACKGROUND-PREVIEW MODE (.vnp-bg / .vnp-bgroot)
+   Reveals a fixed decorative canvas behind a translucent
+   composition. Scoped to the /v-next/patient/bg/* routes only.
+   ============================================================ */
+
+/* Layering: decorative canvas (z0) < composition (z1) < header (z2) */
+.vnp-bgroot { position: relative; }
+.vnp-bgroot > .header-patient { position: relative; z-index: 2; }
+.vnp-bgroot > .vnp-bg { position: relative; z-index: 1; }
+.vnp-bgroot > footer { position: relative; z-index: 1; }
+
+/* The fixed full-viewport decorative layer (variant fills it absolutely) */
+.vnp-bgfx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vnp-bgfx > * { position: absolute; inset: 0; }
+
+/* The page canvas itself is transparent so the decor shows */
+.vnp-bg { background: transparent; }
+
+/* New sections: drop the tint fills */
+.vnp-bg .vnp-section--tint { background: transparent; }
+/* The closing CTA keeps its own dark band on purpose (color block). */
+
+/* Old reused sections: neutralise their opaque backgrounds */
+.vnp-bg .vphw-section { background: transparent !important; }
+.vnp-bg .acc { background: transparent !important; }
+
+/* Hero keeps the live background video; HeroLight1's native veil reads over it
+   exactly like the production hero. The opaque herozone hides the decorative
+   canvas in the hero zone only (the canvas shows in the sections below). */
+.vnp-bg .vnp-herozone {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-light-1);
+  /* Soft transition into S2: the hero's bottom edge dissolves so the
+     decorative canvas emerges gradually (no hard white/colour seam).
+     Only the bottom ~14% fades — well below the hero content. */
+  -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+}
+.vnp-bg .vnp-herovideo { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.vnp-bg .vnp-herovideo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vnp-bg .vnp-herocontent { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .vnp-bg .vnp-herovideo video { display: none; }
+}
+
+/* Give plain-text sections a faint reading scrim so they stay legible
+   over bolder canvases (subtle, blends on light decor). */
+.vnp-bg .vnab__grid,
+.vnp-bg .vnsm__head,
+.vnp-bg .vnhw__rail,
+.vnp-bg .vphw-section .container,
+.vnp-bg .vphw-section [class*="vphw-"] { position: relative; }

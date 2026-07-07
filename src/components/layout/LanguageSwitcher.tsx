@@ -36,7 +36,7 @@ export default function LanguageSwitcher() {
           border: "none",
           padding: "2px 6px",
           cursor: "pointer",
-          color: "var(--color-link)",
+          color: "inherit",
           fontWeight: 700,
           fontSize: 13,
           fontFamily: "inherit",

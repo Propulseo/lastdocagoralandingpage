@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -36,7 +37,7 @@ function PhoneMockup({ t }: { t: (key: string) => string }) {
               <div className="ma-phone__card-info">
                 <strong>{doc.name}</strong>
                 <span>
-                  {t(doc.specKey)} · {doc.langs}
+                  {t(doc.specKey)} &middot; {doc.langs}
                 </span>
               </div>
             </div>
@@ -70,14 +71,33 @@ export default function MobileAppSection() {
   const t = useTranslations("home.mobileApp");
   const prefersReduced = useReducedMotion();
 
+  /**
+   * SSR-safety guard: useReducedMotion() returns null on server + first
+   * client render, then true/false after hydration. Without this guard the
+   * server renders <PhoneMockup> directly while the client re-renders it
+   * inside <motion.div>, producing a hydration mismatch warning.
+   *
+   * Strategy: always render the animated variant on both server and first
+   * client paint (mounted=false), then switch to the reduced-motion variant
+   * only after the client has confirmed prefers-reduced-motion === true.
+   * This keeps server === first-client render, eliminating the mismatch.
+   */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const id = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(id);
+  }, []);
+
+  const showReduced = mounted && !!prefersReduced;
+
   return (
     <section className="ma-section">
       <style>{`
         /* ===== SECTION ===== */
         .ma-section {
           position: relative;
-          padding: 100px 0;
-          background: #F8FAFD;
+          padding: var(--spacing-section) 0;
+          background: var(--bg-section);
           overflow: hidden;
         }
 
@@ -92,7 +112,7 @@ export default function MobileAppSection() {
         .ma-blob--1 {
           width: 320px;
           height: 320px;
-          background: rgba(103, 203, 199, 0.18);
+          background: rgba(var(--color-teal-rgb), 0.18);
           top: -40px;
           right: 5%;
           animation: maBlobFloat1 12s ease-in-out infinite;
@@ -100,7 +120,7 @@ export default function MobileAppSection() {
         .ma-blob--2 {
           width: 220px;
           height: 220px;
-          background: rgba(74, 124, 199, 0.12);
+          background: rgba(var(--color-cobalt-rgb), 0.12);
           bottom: -30px;
           right: 15%;
           border-radius: 45% 55% 40% 60%;
@@ -138,45 +158,49 @@ export default function MobileAppSection() {
           height: 100%;
         }
         .ma-title {
-          font-size: 36px;
-          font-weight: 700;
-          color: #0C121E;
+          font-family: var(--font-display);
+          font-size: var(--fs-2xl);
+          font-weight: var(--fw-bold);
+          color: var(--text-default);
           line-height: 1.2;
-          margin-bottom: 20px;
+          margin-bottom: var(--spacing-sm);
         }
         .ma-subtitle {
-          font-size: 17px;
+          font-size: var(--fs-md);
           line-height: 1.75;
-          color: #5a6a85;
-          margin-bottom: 28px;
+          color: var(--text-muted);
+          margin-bottom: var(--spacing-md);
           max-width: 520px;
         }
 
-        /* ===== STARS LINE ===== */
-        .ma-stars-line {
-          display: flex;
+        /* ===== STORE BADGE (replaces empty stars) ===== */
+        .ma-store-badge {
+          display: inline-flex;
           align-items: center;
-          gap: 8px;
-          margin-bottom: 32px;
+          gap: var(--spacing-xs);
+          background: rgba(var(--color-teal-rgb), 0.10);
+          border: 1px solid rgba(var(--color-teal-rgb), 0.25);
+          border-radius: var(--radius-pill);
+          padding: 6px var(--spacing-sm);
+          margin-bottom: var(--spacing-md);
+          font-size: var(--fs-sm);
+          font-weight: var(--fw-semibold);
+          color: var(--color-accent-ink);
+          letter-spacing: 0.2px;
         }
-        .ma-stars {
-          display: flex;
-          gap: 3px;
-          color: #c4cad4;
-          font-size: 18px;
-          letter-spacing: 2px;
-        }
-        .ma-stars-label {
-          font-size: 14px;
-          color: #8a96a8;
-          font-weight: 500;
+        .ma-store-badge__dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--color-teal);
+          flex-shrink: 0;
         }
 
         /* ===== STORE BUTTONS ===== */
         .ma-store-buttons {
           display: flex;
-          gap: 14px;
-          margin-bottom: 28px;
+          gap: var(--spacing-sm);
+          margin-bottom: var(--spacing-md);
           flex-wrap: wrap;
         }
         .ma-store-btn {
@@ -184,22 +208,28 @@ export default function MobileAppSection() {
           display: inline-flex;
           align-items: center;
           gap: 12px;
-          background: #111;
-          color: #fff;
+          background: var(--color-dark-1);
+          color: var(--text-on-dark);
           border: none;
-          border-radius: 12px;
-          padding: 12px 24px;
+          border-radius: var(--radius-md);
+          padding: 12px var(--spacing-md);
           text-decoration: none;
-          opacity: 0.55;
+          opacity: 0.45;
           cursor: not-allowed;
-          transition: transform 0.2s, opacity 0.2s;
+          pointer-events: auto;
+          transition: opacity 0.2s var(--ease-out-soft);
           flex-shrink: 0;
+          /* Visually communicate disabled without transform on hover */
         }
         .ma-store-btn:hover {
-          transform: scale(1.02);
-          opacity: 0.65;
-          color: #fff;
+          opacity: 0.55;
+          color: var(--text-on-dark);
           text-decoration: none;
+          transform: none;
+        }
+        .ma-store-btn:focus-visible {
+          outline: 2px solid var(--color-cobalt);
+          outline-offset: 2px;
         }
         .ma-store-btn__text {
           display: flex;
@@ -207,13 +237,13 @@ export default function MobileAppSection() {
           line-height: 1.2;
         }
         .ma-store-btn__small {
-          font-size: 10px;
-          font-weight: 400;
-          opacity: 0.8;
+          font-size: var(--fs-xs);
+          font-weight: var(--fw-regular);
+          opacity: 0.7;
         }
         .ma-store-btn__big {
-          font-size: 15px;
-          font-weight: 600;
+          font-size: var(--fs-base);
+          font-weight: var(--fw-semibold);
         }
 
         /* Tooltip */
@@ -223,36 +253,37 @@ export default function MobileAppSection() {
           bottom: calc(100% + 10px);
           left: 50%;
           transform: translateX(-50%) scale(0.95);
-          background: #0C121E;
-          color: #fff;
-          font-size: 12px;
-          font-weight: 500;
+          background: var(--color-dark-1);
+          color: var(--text-on-dark);
+          font-size: var(--fs-xs);
+          font-weight: var(--fw-medium);
           padding: 8px 14px;
-          border-radius: 8px;
+          border-radius: var(--radius-sm);
           white-space: nowrap;
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.2s, transform 0.2s;
           z-index: 10;
+          box-shadow: var(--shadow-sm);
         }
         .ma-store-btn:hover::after {
           opacity: 1;
           transform: translateX(-50%) scale(1);
         }
 
-        /* Coming soon badge */
+        /* Coming soon badge on button */
         .ma-coming-badge {
           position: absolute;
           top: -8px;
           right: -8px;
-          background: #67CBC7;
-          color: #fff;
+          background: var(--color-teal);
+          color: var(--color-dark-1);
           font-size: 9px;
-          font-weight: 700;
+          font-weight: var(--fw-extrabold);
           text-transform: uppercase;
           letter-spacing: 0.5px;
           padding: 3px 8px;
-          border-radius: 6px;
+          border-radius: var(--radius-sm);
           line-height: 1.2;
         }
 
@@ -260,10 +291,10 @@ export default function MobileAppSection() {
         .ma-cta {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: var(--spacing-xs);
           color: var(--color-link);
-          font-size: 15px;
-          font-weight: 600;
+          font-size: var(--fs-base);
+          font-weight: var(--fw-semibold);
           text-decoration: none;
           transition: gap 0.2s, color 0.2s;
         }
@@ -285,12 +316,11 @@ export default function MobileAppSection() {
           position: relative;
           width: 260px;
           height: 520px;
-          background: #0C121E;
+          background: var(--color-dark-1);
           border-radius: 36px;
           padding: 12px;
-          box-shadow:
-            0 24px 60px rgba(14, 31, 61, 0.3),
-            0 8px 24px rgba(0, 0, 0, 0.15),
+          box-shadow: var(--shadow-lg),
+            0 8px 24px rgba(var(--color-dark-1-rgb), 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
           overflow: hidden;
         }
@@ -313,7 +343,7 @@ export default function MobileAppSection() {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #0C121E;
+          background: var(--color-dark-1);
         }
         .ma-phone__screen {
           width: 100%;
@@ -325,33 +355,33 @@ export default function MobileAppSection() {
           flex-direction: column;
         }
         .ma-phone__header {
-          background: linear-gradient(135deg, #67CBC7, #244882);
+          background: linear-gradient(135deg, var(--color-teal), var(--color-navy));
           padding: 38px 16px 14px;
           text-align: center;
         }
         .ma-phone__logo {
           color: #fff;
           font-size: 16px;
-          font-weight: 700;
+          font-weight: var(--fw-bold);
           letter-spacing: 0.5px;
         }
         .ma-phone__search {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: var(--spacing-xs);
           margin: 12px 12px 8px;
           padding: 9px 12px;
-          background: #F8FAFD;
-          border-radius: 10px;
-          font-size: 11px;
-          color: #8a96a8;
+          background: var(--bg-section);
+          border-radius: var(--radius-sm);
+          font-size: var(--fs-xs);
+          color: var(--text-muted);
         }
         .ma-phone__cards {
           flex: 1;
           padding: 4px 12px 12px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: var(--spacing-xs);
           overflow: hidden;
         }
         .ma-phone__card {
@@ -359,21 +389,21 @@ export default function MobileAppSection() {
           align-items: center;
           gap: 10px;
           padding: 10px;
-          background: #F8FAFD;
-          border-radius: 10px;
-          border: 1px solid #eef0f4;
+          background: var(--bg-section);
+          border-radius: var(--radius-sm);
+          border: 1px solid var(--border-default);
         }
         .ma-phone__avatar {
           width: 34px;
           height: 34px;
-          border-radius: 10px;
-          background: linear-gradient(135deg, #67CBC7, #244882);
+          border-radius: var(--radius-sm);
+          background: linear-gradient(135deg, var(--color-teal), var(--color-navy));
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
-          font-size: 11px;
-          font-weight: 700;
+          font-size: var(--fs-xs);
+          font-weight: var(--fw-bold);
           flex-shrink: 0;
         }
         .ma-phone__card-info {
@@ -384,29 +414,29 @@ export default function MobileAppSection() {
         }
         .ma-phone__card-info strong {
           font-size: 12px;
-          color: #0C121E;
+          color: var(--text-default);
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
         .ma-phone__card-info span {
-          font-size: 10px;
-          color: #8a96a8;
+          font-size: var(--fs-xs);
+          color: var(--text-muted);
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
-          .ma-section { padding: 70px 0; }
-          .ma-title { font-size: 30px; }
-          .ma-phone-wrap { margin-bottom: 40px; }
+          .ma-section { padding: var(--spacing-xl) 0; }
+          .ma-title { font-size: var(--fs-xl); }
+          .ma-phone-wrap { margin-bottom: var(--spacing-lg); }
           .ma-blob--1 { width: 220px; height: 220px; }
           .ma-blob--2 { width: 160px; height: 160px; }
           .ma-blob--3 { width: 110px; height: 110px; }
         }
         @media (max-width: 575px) {
-          .ma-section { padding: 56px 0; }
-          .ma-title { font-size: 26px; }
-          .ma-subtitle { font-size: 15px; }
+          .ma-section { padding: var(--spacing-lg) 0; }
+          .ma-title { font-size: var(--fs-xl); }
+          .ma-subtitle { font-size: var(--fs-base); }
           .ma-store-buttons { flex-direction: column; gap: 12px; }
           .ma-store-btn { width: 100%; justify-content: center; }
           .ma-phone { width: 220px; height: 440px; }
@@ -414,6 +444,8 @@ export default function MobileAppSection() {
 
         @media (prefers-reduced-motion: reduce) {
           .ma-blob { animation: none !important; }
+          .ma-store-btn,
+          .ma-cta { transition: none !important; }
         }
       `}</style>
 
@@ -427,7 +459,7 @@ export default function MobileAppSection() {
           {/* Phone mockup — shown first on mobile (order-1), second on desktop (order-lg-2) */}
           <div className="col-lg-5 order-1 order-lg-2">
             <div className="ma-phone-wrap">
-              {prefersReduced ? (
+              {showReduced ? (
                 <PhoneMockup t={t} />
               ) : (
                 <motion.div
@@ -450,12 +482,10 @@ export default function MobileAppSection() {
               <h2 className="ma-title">{t("title")}</h2>
               <p className="ma-subtitle">{t("subtitle")}</p>
 
-              {/* Stars placeholder */}
-              <div className="ma-stars-line">
-                <span className="ma-stars" aria-hidden="true">
-                  ☆☆☆☆☆
-                </span>
-                <span className="ma-stars-label">{t("starsLabel")}</span>
+              {/* Store badge — replaces empty 5-star placeholder */}
+              <div className="ma-store-badge" aria-label={t("starsLabel")}>
+                <span className="ma-store-badge__dot" aria-hidden="true" />
+                {t("starsLabel")}
               </div>
 
               {/* Store buttons */}

@@ -726,29 +726,81 @@
 }
 
 /* Final CTA band */
-.da-final { padding: clamp(56px, 8vh, 104px) 0; }
+.da-final { padding: clamp(56px, 8vh, 104px) 0; background: var(--color-light-3); }
 .da-final__inner { max-width: 820px; margin-inline: auto; text-align: center; }
+/* Card variant — contained CTA panel on the light section */
+.da-final--card .da-final__inner {
+  max-width: 760px;
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-2xl) var(--spacing-xl);
+}
 .da-final__eyebrow {
   display: inline-block;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--color-teal);
+  color: var(--color-accent-ink);
   margin-bottom: 12px;
 }
 .da-final__title {
   font-size: clamp(28px, 3.6vw, 44px);
-  color: #fff;
+  color: var(--color-dark-1);
   margin: 0 0 14px;
   line-height: 1.12;
 }
 .da-final__sub {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-muted);
   margin: 0 0 var(--spacing-lg);
 }
-.da-final .da-search { text-align: left; }
+/* Closing CTA button — primary navy pill, teal accent on hover */
+.da-final__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 15px 28px;
+  background: linear-gradient(135deg, var(--color-accent-ink), #2E8C86);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  transition: filter 0.25s var(--ease-out-soft),
+    gap 0.25s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft),
+    transform 0.25s var(--ease-out-soft);
+}
+.da-final__cta:hover {
+  color: #ffffff;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+.da-final__cta-arrow {
+  transition: transform 0.25s var(--ease-out-soft);
+}
+.da-final__cta:hover .da-final__cta-arrow {
+  transform: translateX(4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .da-final__cta,
+  .da-final__cta-arrow {
+    transition: none;
+  }
+  .da-final__cta:hover {
+    transform: none;
+  }
+  .da-final__cta:hover .da-final__cta-arrow {
+    transform: none;
+  }
+}
 
 /* About media — organic rounded frame replacing the fake video banner */
 .da-about__media {

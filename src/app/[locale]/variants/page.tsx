@@ -16,54 +16,6 @@ type Variant = {
   mood: "light" | "dark";
 };
 
-const PATIENT: Variant[] = [
-  {
-    n: 1,
-    name: "Clínica Clara",
-    tag: "Premium clinique",
-    desc: "Lumineux, aéré, glass cards. Confiance médicale à la Doctolib / Alan.",
-    accent: "--color-teal",
-    href: "/variants/patient/1",
-    mood: "light",
-  },
-  {
-    n: 2,
-    name: "Histórias de Saúde",
-    tag: "Éditorial humain",
-    desc: "Fraunces XXL, photographie, narration. Magazine de santé chaleureux.",
-    accent: "--color-navy",
-    href: "/variants/patient/2",
-    mood: "light",
-  },
-  {
-    n: 3,
-    name: "Sinal Vital",
-    tag: "Immersif · dark",
-    desc: "Mesh animé, grain, parallax, tracé ECG. Cinématographique.",
-    accent: "--color-teal",
-    href: "/variants/patient/3",
-    mood: "dark",
-  },
-  {
-    n: 4,
-    name: "Bento Saúde",
-    tag: "Modulaire · data",
-    desc: "Grille bento, grands chiffres, carte du Portugal. Apple / Family.",
-    accent: "--color-cobalt",
-    href: "/variants/patient/4",
-    mood: "light",
-  },
-  {
-    n: 5,
-    name: "Pesquisa Viva",
-    tag: "Product-led",
-    desc: "La recherche interactive EST le héros. Chips, typeahead, cartes en direct.",
-    accent: "--color-mint",
-    href: "/variants/patient/5",
-    mood: "light",
-  },
-];
-
 const PRO: Variant[] = [
   {
     n: 1,
@@ -293,28 +245,15 @@ export default function VariantsHub() {
             DocAgora · Design Studio
           </p>
           <h1 className="vh__title">
-            10 directions de landing. <em>Choisissez l&apos;effet&nbsp;wow.</em>
+            5 directions de landing. <em>Choisissez l&apos;effet&nbsp;wow.</em>
           </h1>
           <p className="vh__lead">
-            Cinq variantes pour les patients, cinq pour les professionnels. Chacune est une
+            Cinq variantes pour les professionnels. Chacune est une
             page réelle, navigable et responsive, construite sur la stack DocAgora, sans toucher au site
             en production. Cliquez, comparez, choisissez la gagnante.
           </p>
           <p className="vh__meta">PT · FR · EN ready · Bootstrap + tokens · Next.js 16</p>
         </header>
-
-        <section className="vh__group" aria-labelledby="vh-patient">
-          <div className="vh__group-head">
-            <h2 className="vh__group-title" id="vh-patient">Patients</h2>
-            <span className="vh__group-sub">B2C · confiance, chaleur, multilingue</span>
-            <span className="vh__group-count">05 variantes</span>
-          </div>
-          <div className="vh__grid">
-            {PATIENT.map((v) => (
-              <VariantCard key={v.href} v={v} prefix="P" />
-            ))}
-          </div>
-        </section>
 
         <section className="vh__group" aria-labelledby="vh-pro">
           <div className="vh__group-head">

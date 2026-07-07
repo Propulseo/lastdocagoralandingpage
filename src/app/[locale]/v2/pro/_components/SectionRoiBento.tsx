@@ -1,21 +1,32 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
+import { useRevealInView } from "@/components/shared/useRevealInView";
+
 /* ============================================================
-   SectionRoiBento, V2 PRO « Le retour, en grand »
+   SectionRoiBento, V2 PRO "Le retour, en grand"
    THEMEABLE : toutes les couleurs passent par les tokens --v2-*
-   hérités de .v2p (dark/light/mixte + contrast). Aucune couleur
-   en dur. Préfixe CSS « v2roi- ».
-   Compteurs animés conservés (useCountUp + useInView, SSR-safe,
+   herites de .v2p (dark/light/mixte + contrast). Aucune couleur
+   en dur. Prefixe CSS "v2roi-".
+   Compteurs animes conserves (useCountUp + useInView, SSR-safe,
    cleanup RAF / IntersectionObserver). Chiffres ILLUSTRATIFS.
+
+   SSR-SAFETY : valeur initiale = valeur finale (aucun ecart
+   serveur/client). L'animation ne demarre qu'apres hydratation
+   (mounted flag, setTimeout 0ms). prefersReducedMotion() n'est
+   jamais appele pendant le rendu — uniquement dans les effets.
    ============================================================ */
 
-/* ── Helper : mouvement réduit (SSR-safe) ── */
-function prefersReducedMotion(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
+/* NOTE dedup vs Hero3 :
+   Hero3 affiche la barre de metriques avec des etiquettes
+   courtes ("-40 % de rendez-vous manques", "8 h gagnees /
+   semaine", "+30 % de nouveaux patients"). Ce bento approfondit
+   chaque chiffre avec un contexte metier detaille et ajoute
+   trois indicateurs supplementaires (specialites, langues, cout).
+   Les descriptions (.sub) ne reproduisent pas les labels
+   concis du hero. */
 
 type BentoAccent = "teal" | "cobalt" | "neutral";
 
@@ -25,8 +36,6 @@ type BentoMetric = {
   to: number;
   suffix: string;
   decimals: number;
-  title: string;
-  sub: string;
   span: "wide" | "normal";
   accent: BentoAccent;
 };
@@ -38,8 +47,6 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 40,
     suffix: "%",
     decimals: 0,
-    title: "de rendez-vous manqués",
-    sub: "Rappels « bientôt » qui avertissent le patient avant la consultation.",
     span: "wide",
     accent: "teal",
   },
@@ -49,8 +56,6 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 8,
     suffix: "h",
     decimals: 0,
-    title: "économisées par semaine",
-    sub: "Moins d’appels, plus de temps clinique.",
     span: "normal",
     accent: "cobalt",
   },
@@ -60,8 +65,6 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 30,
     suffix: "%",
     decimals: 0,
-    title: "de patients supplémentaires",
-    sub: "Visible dans la recherche gratuite.",
     span: "normal",
     accent: "neutral",
   },
@@ -71,8 +74,6 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 16,
     suffix: "",
     decimals: 0,
-    title: "spécialités",
-    sub: "De la médecine générale à la kinésithérapie, toutes vérifiées.",
     span: "normal",
     accent: "cobalt",
   },
@@ -82,8 +83,6 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 3,
     suffix: "",
     decimals: 0,
-    title: "langues",
-    sub: "Português, Français, English, sans barrières.",
     span: "normal",
     accent: "teal",
   },
@@ -93,27 +92,41 @@ const BENTO_METRICS: BentoMetric[] = [
     to: 0,
     suffix: "€",
     decimals: 0,
-    title: "pour commencer",
-    sub: "Recherche gratuite. Sans carte, sans engagement.",
     span: "wide",
     accent: "teal",
   },
 ];
 
-/* ── Hook : compteur animé déclenché à l’entrée dans le viewport ── */
+/* ── Hook : compteur anime declenche a l'entree dans le viewport ── */
 function useCountUp(
   to: number,
   decimals: number,
   start: boolean,
   durationMs = 1400,
 ): string {
-  const [value, setValue] = useState<number>(() =>
-    prefersReducedMotion() ? to : 0,
-  );
+  /* Initialise TOUJOURS a la valeur finale : le serveur et le premier
+     rendu client affichent la meme chose => zero avertissement
+     d'hydratation. */
+  const [value, setValue] = useState<number>(to);
+  /* mounted : l'animation ne demarre qu'apres l'hydratation. */
+  const [mounted, setMounted] = useState(false);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!start || prefersReducedMotion()) return;
+    const id = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
+    /* prefersReducedMotion() est lu ici (dans un effet), jamais pendant
+       le rendu => pas de lecture de window au SSR. */
+    if (
+      !mounted ||
+      !start ||
+      (typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    )
+      return;
 
     const startTime = performance.now();
     const tick = (now: number) => {
@@ -129,51 +142,26 @@ function useCountUp(
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [to, durationMs, start]);
+  }, [to, durationMs, start, mounted]);
 
   return value.toFixed(decimals);
 }
 
-/* ── Hook : observe l’entrée d’un élément dans le viewport ── */
-function useInView<T extends HTMLElement>(): {
-  ref: React.RefObject<T | null>;
-  inView: boolean;
-} {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState<boolean>(() => prefersReducedMotion());
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node || prefersReducedMotion()) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setInView(true);
-            observer.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold: 0.3 },
-    );
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, inView };
-}
-
-/* ── Sous-composant : cellule bento avec compteur animé ── */
-function BentoCell({ metric, delay }: { metric: BentoMetric; delay: number }) {
-  const { ref, inView } = useInView<HTMLDivElement>();
-  const display = useCountUp(metric.to, metric.decimals, inView);
+/* ── Sous-composant : cellule bento avec compteur anime ── */
+function BentoCell({
+  metric,
+  delay,
+  start,
+}: {
+  metric: BentoMetric;
+  delay: number;
+  start: boolean;
+}) {
+  const t = useTranslations("pro");
+  const display = useCountUp(metric.to, metric.decimals, start);
 
   return (
     <div
-      ref={ref}
       className={`v2roi-cell v2roi-cell--${metric.span} v2roi-cell--${metric.accent} v2roi-reveal`}
       style={{ animationDelay: `${delay}ms` }}
     >
@@ -185,13 +173,17 @@ function BentoCell({ metric, delay }: { metric: BentoMetric; delay: number }) {
           *
         </span>
       </div>
-      <div className="v2roi-cell__title">{metric.title}</div>
-      <p className="v2roi-cell__sub">{metric.sub}</p>
+      <div className="v2roi-cell__title">
+        {t(`roiBento.metrics.${metric.id}.title`)}
+      </div>
+      <p className="v2roi-cell__sub">{t(`roiBento.metrics.${metric.id}.sub`)}</p>
     </div>
   );
 }
 
 export default function SectionRoiBento() {
+  const t = useTranslations("pro");
+  const { ref, revealed } = useRevealInView<HTMLDivElement>();
   return (
     <section
       className="v2roi-section"
@@ -203,10 +195,9 @@ export default function SectionRoiBento() {
 
         .v2roi-section {
           --v2roi-shell: 1200px;
-          --v2roi-radius: 18px;
           --v2roi-mono: ui-monospace, "SF Mono", Menlo, monospace;
           position: relative;
-          padding-block: clamp(72px, 10vh, 120px);
+          padding-block: clamp(var(--spacing-xl), 10vh, var(--spacing-section-lg));
           background: var(--v2-bg);
           color: var(--v2-text-body);
           font-family: var(--font-montserrat), "Montserrat", sans-serif;
@@ -229,17 +220,17 @@ export default function SectionRoiBento() {
           width: 100%;
           max-width: var(--v2roi-shell);
           margin-inline: auto;
-          padding-inline: clamp(16px, 4vw, 24px);
+          padding-inline: clamp(var(--spacing-sm), 4vw, var(--spacing-md));
         }
 
-        /* ── Reveal cascade ── */
+        /* ── Reveal cascade (déclenché au scroll via .v2roi-play) ── */
         @keyframes v2roi-reveal {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .v2roi-reveal {
-          opacity: 0;
-          animation: v2roi-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        .v2roi-reveal { opacity: 0; }
+        .v2roi-play .v2roi-reveal {
+          animation: v2roi-reveal 0.7s var(--mo-ease) forwards;
         }
 
         /* ── Eyebrow ── */
@@ -267,7 +258,7 @@ export default function SectionRoiBento() {
         /* ── Section head ── */
         .v2roi-sechead {
           max-width: 640px;
-          margin: 0 auto 44px;
+          margin: 0 auto var(--spacing-xl);
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -280,31 +271,32 @@ export default function SectionRoiBento() {
           line-height: 1.08;
           letter-spacing: -0.02em;
           color: var(--v2-text);
-          margin: 16px 0 0;
+          margin: var(--spacing-sm) 0 0;
           text-transform: none;
         }
         .v2roi-secsub {
           font-size: 16px;
           line-height: 1.6;
           color: var(--v2-text-muted);
-          margin: 14px 0 0;
+          margin: var(--spacing-xs) 0 0;
         }
 
         /* ── BENTO ── */
         .v2roi-bento {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 18px;
+          gap: var(--spacing-sm);
         }
         .v2roi-cell {
           position: relative;
-          border-radius: var(--v2roi-radius);
-          padding: 28px;
+          border-radius: var(--radius-lg);
+          padding: var(--spacing-md);
           background: var(--v2-surface);
           border: 1px solid var(--v2-border);
           box-shadow: var(--v2-shadow);
           overflow: hidden;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s var(--ease-out-soft, ease),
+                      box-shadow 0.3s var(--ease-out-soft, ease);
           grid-column: span 1;
         }
         .v2roi-cell:hover {
@@ -352,7 +344,7 @@ export default function SectionRoiBento() {
         }
         .v2roi-cell__title {
           position: relative;
-          margin-top: 8px;
+          margin-top: var(--spacing-xs);
           font-size: 16px;
           font-weight: 700;
           color: var(--v2-text);
@@ -360,7 +352,7 @@ export default function SectionRoiBento() {
         }
         .v2roi-cell__sub {
           position: relative;
-          margin: 8px 0 0;
+          margin: var(--spacing-xs) 0 0;
           font-size: 14px;
           line-height: 1.5;
           color: var(--v2-text-muted);
@@ -368,13 +360,12 @@ export default function SectionRoiBento() {
 
         /* ── Footnote ── */
         .v2roi-footnote {
-          margin-top: 28px;
+          margin-top: var(--spacing-md);
           font-size: 12px;
           line-height: 1.5;
           color: var(--v2-text-muted);
           max-width: 760px;
         }
-        .v2roi-footnote b { color: var(--v2-text-body); font-weight: 600; }
 
         /* ── Responsive ── */
         @media (max-width: 980px) {
@@ -382,7 +373,7 @@ export default function SectionRoiBento() {
           .v2roi-cell--wide { grid-column: span 2; }
         }
         @media (max-width: 720px) {
-          .v2roi-cell { padding: 24px; }
+          .v2roi-cell { padding: var(--spacing-sm); }
         }
         @media (max-width: 460px) {
           .v2roi-bento { grid-template-columns: 1fr; }
@@ -405,30 +396,26 @@ export default function SectionRoiBento() {
         <div className="v2roi-sechead">
           <span className="v2roi-eyebrow">
             <span aria-hidden="true" />
-            Des chiffres qui parlent
+            {t("roiBento.eyebrow")}
             <span aria-hidden="true" />
           </span>
           <h2 className="v2roi-sectitle" id="v2roi-numbers-title">
-            Le retour, en grand.
+            {t("roiBento.title")}
           </h2>
-          <p className="v2roi-secsub">
-            Estimations illustratives de ce qu’un agenda organisé peut changer
-            dans votre cabinet.
-          </p>
+          <p className="v2roi-secsub">{t("roiBento.subtitle")}</p>
         </div>
 
-        <div className="v2roi-bento">
+        <div
+          className={`v2roi-bento${revealed ? " v2roi-play" : ""}`}
+          ref={ref}
+        >
           {BENTO_METRICS.map((m, i) => (
-            <BentoCell key={m.id} metric={m} delay={i * 80} />
+            <BentoCell key={m.id} metric={m} delay={i * 80} start={revealed} />
           ))}
         </div>
 
         <p className="v2roi-footnote">
-          <b>*illustratif.</b> Les valeurs présentées sont des exemples purement
-          démonstratifs pour illustrer le potentiel de la plateforme. Elles ne
-          constituent en aucun cas une garantie de résultat. La prise de
-          rendez-vous en ligne et les rappels automatiques sont en cours de
-          développement (« bientôt »).
+          {t("roiBento.footnoteText")}
         </p>
       </div>
     </section>

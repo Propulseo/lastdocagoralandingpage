@@ -1,0 +1,69 @@
+/* ============================================================
+   motion.css — Socle de mouvement partagé (chargé après polish.css).
+   Un seul langage de mouvement pour /pro et patient : reveals au
+   scroll, cascade, micro-interactions au survol. Les mêmes valeurs
+   existent côté TS dans src/components/shared/animationConstants.ts
+   (AnimatedSection, hook useRevealInView) — garder les deux en phase.
+   Tout est neutralisé sous prefers-reduced-motion (bas de fichier).
+   Classes préfixées « mo- » pour éviter toute collision.
+   ============================================================ */
+
+:root {
+  --mo-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mo-reveal-y: 26px;
+  --mo-reveal-dur: 0.7s;
+  --mo-stagger: 90ms;
+}
+
+/* ── Reveal au scroll ───────────────────────────────────────
+   État de départ (fondu + léger glissé). Le JS pose « mo-in »
+   quand l'élément entre dans le viewport. Cascade : poser
+   style={{ "--i": index }} sur chaque enfant pour l'échelonner. */
+.mo-reveal {
+  opacity: 0;
+  transform: translateY(var(--mo-reveal-y));
+  transition:
+    opacity var(--mo-reveal-dur) var(--mo-ease),
+    transform var(--mo-reveal-dur) var(--mo-ease);
+  transition-delay: calc(var(--i, 0) * var(--mo-stagger));
+}
+.mo-reveal.mo-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Micro-interaction : la carte se soulève au survol ──────
+   Ne pas cumuler .mo-reveal et .mo-lift sur le MÊME nœud (les deux
+   pilotent transform) : reveal sur le conteneur, lift sur la carte. */
+.mo-lift {
+  transition:
+    transform 0.3s var(--mo-ease),
+    box-shadow 0.3s var(--mo-ease);
+}
+.mo-lift:hover {
+  transform: translateY(-6px);
+}
+.mo-lift-icon {
+  transition: transform 0.3s var(--mo-ease);
+}
+.mo-lift:hover .mo-lift-icon {
+  transform: scale(1.08);
+}
+
+/* ── Accessibilité : couper tout mouvement ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .mo-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0s;
+  }
+  .mo-lift,
+  .mo-lift-icon {
+    transition: none;
+  }
+  .mo-lift:hover,
+  .mo-lift:hover .mo-lift-icon {
+    transform: none;
+  }
+}

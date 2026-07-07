@@ -1,6 +1,7 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useState, useEffect } from "react";
 
 export type Lang = "PT" | "FR" | "EN";
 const ALL_LANGS: Lang[] = ["PT", "FR", "EN"];
@@ -43,7 +44,30 @@ export default function VerifiedRecordCard({
   illustrative?: boolean;
 }) {
   const t = useTranslations("record");
-  const prefersReduced = useReducedMotion();
+
+  /**
+   * SSR-safe guard: do NOT read window/matchMedia during render.
+   * On the server and on the first client render the component outputs
+   * the fully-drawn (final) state so there is no hydration mismatch.
+   * After mount we check the user preference and enable the animation
+   * only when (a) the component has mounted client-side AND (b) the
+   * user has not requested reduced motion.
+   */
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const id = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(id);
+  }, []);
+
+  // Before mount: no animation (server + first client render = same output)
+  // After mount: animate unless the user prefers reduced motion
+  const prefersReduced =
+    mounted && typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
+
+  const shouldAnimate = mounted && !prefersReduced;
 
   return (
     <div className="da-record">
@@ -54,7 +78,7 @@ export default function VerifiedRecordCard({
         </div>
         <div>
           <span className="da-record__verified">
-            <VerifiedCheck animate={!prefersReduced} />
+            <VerifiedCheck animate={shouldAnimate} />
             {t("verified")}
           </span>
           <p className="da-record__name">{specialty}</p>

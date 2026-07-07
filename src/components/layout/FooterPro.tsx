@@ -199,6 +199,12 @@ export default function FooterPro() {
             <div className="footer-bottom__left" style={{ color: "rgba(255,255,255,0.35)" }}>
               {t("copyright")} {t("gdprBadge")}
             </div>
+            <div className="footer-bottom__credit" style={{ color: "rgba(255,255,255,0.45)" }}>
+              {t("madeBy")}{" "}
+              <a href="https://propulseo-site.com" target="_blank" rel="noopener noreferrer">
+                Propul’SEO
+              </a>
+            </div>
             <div className="footer-bottom__right">
               <Link href="/terms-of-use">{t("bottomTerms")}</Link>
               <Link href="/privacy-policy">{t("bottomPrivacy")}</Link>

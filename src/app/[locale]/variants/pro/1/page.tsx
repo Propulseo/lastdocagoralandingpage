@@ -239,7 +239,7 @@ const REASONS = [
   {
     n: "02",
     title: "Données au Portugal",
-    body: "Les données sont hébergées sur des serveurs dans l’Union européenne, en conformité RGPD.",
+    body: "Les données sont hébergées sur des serveurs au Portugal, en conformité RGPD.",
   },
   {
     n: "03",

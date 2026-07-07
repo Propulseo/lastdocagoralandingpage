@@ -55,7 +55,13 @@
     "blog": "Blog",
     "contact": "Contact",
     "findProfessional": "Trouver un professionnel",
-    "imAProfessional": "Je suis un professionnel →"
+    "imAProfessional": "Je suis un professionnel",
+    "login": "Connexion",
+    "audienceLabel": "Choisir votre espace",
+    "audiencePatient": "Patient",
+    "audiencePro": "Pro",
+    "navAria": "Navigation",
+    "menuAria": "Menu"
   },
   "navbarPro": {
     "solution": "Solution",
@@ -63,8 +69,17 @@
     "resources": "Ressources",
     "about": "À propos",
     "getStarted": "Commencer",
-    "imAPatient": "Je suis un patient →",
-    "soon": "Bientôt"
+    "imAPatient": "Je suis un patient",
+    "soon": "Bientôt",
+    "gdpr": "Conforme RGPD",
+    "hosted": "Hébergé au Portugal",
+    "requestAccess": "Demander l’accès",
+    "audienceLabel": "Choisir votre espace",
+    "audiencePatient": "Patient",
+    "audiencePro": "Professionnel",
+    "login": "Connexion",
+    "navAria": "Navigation Pro",
+    "menuAria": "Menu"
   },
   "hero": {
     "slide1Title": "Trouvez un médecin qui vous comprend, au Portugal",
@@ -193,7 +208,9 @@
         "cta": "Trouver un rhumatologue"
       }
     },
-    "seeAll": "Voir toutes les spécialités"
+    "seeAll": "Voir toutes les spécialités",
+    "pauseLabel": "Mettre en pause le défilement",
+    "playLabel": "Reprendre le défilement"
   },
   "notes": {
     "text": "Votre parcours de santé commence ici.",
@@ -250,6 +267,61 @@
         "name": "Kiano Barker",
         "job": "Pathologiste",
         "desc": "Barker contribue chaque jour aux soins des patients en fournissant aux médecins les informations nécessaires pour garantir un traitement approprié."
+      }
+    }
+  },
+  "howItWorks": {
+    "kicker": "Comment ça marche",
+    "title": "De la recherche au bon professionnel, <em>en trois temps</em>.",
+    "sub": "Tout ce qu'il vous faut pour trouver et réserver un professionnel vérifié, clair, rapide et gratuit.",
+    "stepsAria": "Étapes de la recherche",
+    "stepAria": "Étape {num} : {title}",
+    "previewAria": "Aperçu, étape {index} sur {total}",
+    "example": "Exemple",
+    "steps": {
+      "search": {
+        "title": "Décrivez votre besoin",
+        "desc": "Filtrez gratuitement par spécialité, ville et langue. Les résultats se précisent au fil de vos choix."
+      },
+      "compare": {
+        "title": "Comparez les profils",
+        "desc": "Spécialité, zone d'exercice et langues parlées (PT · FR · EN), chaque professionnel est vérifié par notre équipe."
+      },
+      "slot": {
+        "title": "Choisissez votre créneau",
+        "desc": "Réservez en ligne en temps réel : choisissez un créneau et confirmez en quelques secondes."
+      }
+    },
+    "screen": {
+      "search": {
+        "title": "Trouver un professionnel",
+        "tag": "Recherche gratuite",
+        "query": "Cardiologue · Lisbonne",
+        "chipSpecialty": "Spécialité",
+        "chipCity": "Ville",
+        "chipLang": "Langue",
+        "found": "<b>34</b> spécialistes trouvés",
+        "hint": "Les résultats <b>s'affinent en direct</b>."
+      },
+      "compare": {
+        "title": "Comparez les profils vérifiés",
+        "verified": "Vérifié",
+        "specialty": "Cardiologie",
+        "cityLisbon": "Lisbonne",
+        "cityCascais": "Cascais",
+        "see": "Voir",
+        "hint": "Chaque profil est <b>vérifié par notre équipe</b> avant publication."
+      },
+      "slot": {
+        "title": "Choisir un créneau",
+        "tag": "Temps réel",
+        "dayMon": "Lun",
+        "dayTue": "Mar",
+        "dayWed": "Mer",
+        "dayThu": "Jeu",
+        "dayFri": "Ven",
+        "cta": "Réserver ce créneau",
+        "reassure": "Confirmation immédiate · sans appel"
       }
     }
   },
@@ -380,6 +452,8 @@
   "footer": {
     "aboutText": "DocAgora vous met en relation avec des professionnels de santé vérifiés au Portugal. Recherchez par spécialité, langue et localisation. Réservez en quelques clics.",
     "findProfessional": "Trouver un professionnel",
+    "ctaTitle": "Trouvez le bon professionnel, gratuitement.",
+    "ctaSub": "Recherche par spécialité, ville et langue. Sans compte.",
     "specialtiesTitle": "Spécialités",
     "linksTitle": "Liens",
     "linkAbout": "À propos",
@@ -400,6 +474,7 @@
     "bottomTerms": "Conditions d’utilisation",
     "bottomPrivacy": "Politique de confidentialité",
     "bottomGdpr": "RGPD",
+    "madeBy": "Fait avec passion par",
     "footerSpecialties": {
       "generalPractice": "Médecine générale",
       "cardiology": "Cardiologie",
@@ -558,6 +633,11 @@
     "sidebarReminders": "Rappels",
     "sidebarRemindersValue": "Automatiques",
     "sidebarCta": "Trouver un professionnel",
+    "cat": {
+      "platform": "La plateforme",
+      "appointments": "Rendez-vous",
+      "account": "Compte & données"
+    },
     "items": {
       "q1": {
         "question": "DocAgora est-il gratuit pour les patients ?",
@@ -723,6 +803,161 @@
     "suggestion4": "Psychologue abordable"
   },
   "pro": {
+    "appScreens": {
+      "previewPill": "Aperçu",
+      "status": {
+        "confirmed": "Confirmé",
+        "waiting": "En attente",
+        "done": "Terminé",
+        "absent": "Absent"
+      },
+      "agenda": {
+        "viewDay": "Jour",
+        "viewWeek": "Semaine",
+        "viewMonth": "Mois",
+        "weekOf": "Semaine du 3 juillet"
+      },
+      "patients": {
+        "statTotal": "Total",
+        "statNew": "Nouveaux (30j)",
+        "statActive": "Actifs",
+        "statRetention": "Rétention",
+        "statAttendance": "Présence",
+        "statRating": "Note",
+        "search": "Rechercher par nom",
+        "filterAll": "Tous",
+        "listTitle": "Liste des patients",
+        "colPatient": "Patient",
+        "colEmail": "Email",
+        "colLastVisit": "Dernière consultation",
+        "colVisits": "Consultations",
+        "colStatus": "Statut",
+        "rowActive": "Actif"
+      },
+      "dashboard": {
+        "statRdv": "RDV aujourd’hui",
+        "statPatients": "Patients",
+        "statPresence": "Taux présence",
+        "today": "Aujourd’hui",
+        "apptCount": "12 RDV",
+        "weekActivity": "Activité de la semaine",
+        "nextSlot": "Prochain créneau libre",
+        "remindersToSend": "Rappels à envoyer",
+        "allConfirmed": "Tous les RDV confirmés",
+        "recentPatients": "Patients récents",
+        "noShowMonth": "No-show ce mois"
+      },
+      "reservation": {
+        "title": "Réservation patient",
+        "pill": "24h/24",
+        "chooseSlot": "Choisissez un créneau",
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "recapSub": "Consultation générale · 30 min",
+        "status": "Demande reçue",
+        "benefit": "Vos patients réservent en ligne, vous confirmez d’un clic."
+      },
+      "rappels": {
+        "title": "Rappels automatiques",
+        "sub": "SMS & e-mail",
+        "enabled": "Activé",
+        "detail24h": "24 h avant",
+        "detailConfirmation": "Confirmation de RDV",
+        "detail2h": "2 h avant",
+        "detailFollowUp": "Rappel de suivi",
+        "sent": "Envoyé",
+        "scheduled": "Programmé"
+      },
+      "multilingue": {
+        "benefit": "Vos patients vous trouvent et réservent dans leur langue."
+      }
+    },
+    "avantApres": {
+      "eyebrow": "Avant · Après",
+      "title": "La même journée, vécue autrement.",
+      "subtitle": "À gauche, le quotidien que vous connaissez. À droite, ce qui change quand votre agenda se met à travailler pour vous.",
+      "tagBefore": "Avant",
+      "tagAfter": "Après",
+      "titleBefore": "Sans DocAgora",
+      "titleAfter": "Avec DocAgora",
+      "rows": {
+        "phone": {
+          "before": "Le téléphone sonne sans arrêt pendant la consultation.",
+          "after": "Rendez-vous organisés, reçus tranquillement."
+        },
+        "agenda": {
+          "before": "Agenda papier, raturé et difficile à lire.",
+          "after": "Agenda numérique clair, toujours disponible."
+        },
+        "noshow": {
+          "before": "Rendez-vous manqués imprévus, sans prévenir.",
+          "after": "Rappels automatiques « bientôt » pour réduire les absences."
+        },
+        "visibility": {
+          "before": "Nouveaux patients qui ne vous trouvent pas en ligne.",
+          "after": "Profil vérifié, visible sur 16 spécialités."
+        }
+      }
+    },
+    "roiBento": {
+      "eyebrow": "Des chiffres qui parlent",
+      "title": "Le retour, en grand.",
+      "subtitle": "Estimations de ce qu’un agenda organisé peut changer dans votre cabinet.",
+      "footnoteText": "Les valeurs présentées sont des exemples purement démonstratifs pour illustrer le potentiel de la plateforme. Elles ne constituent en aucun cas une garantie de résultat. La prise de rendez-vous en ligne et les rappels automatiques sont en cours de développement (« bientôt »).",
+      "metrics": {
+        "b-faltas": {
+          "title": "de rendez-vous manqués",
+          "sub": "Rappels automatiques envoyés 24 h et 2 h avant la consultation, réduisant les no-shows sans appel téléphonique."
+        },
+        "b-horas": {
+          "title": "économisées par semaine",
+          "sub": "Moins de rappels manuels et de gestion d’agenda téléphonique, davantage de temps clinique effectif."
+        },
+        "b-pacientes": {
+          "title": "de patients supplémentaires",
+          "sub": "Fiche praticien référencée dans la recherche gratuite, sans abonnement requis."
+        },
+        "b-especialidades": {
+          "title": "spécialités couvertes",
+          "sub": "Médecine générale, kinésithérapie, dentisterie et plus encore, toutes vérifiées par notre équipe."
+        },
+        "b-idiomas": {
+          "title": "langues d’interface",
+          "sub": "Português, Français, English : vos patients vous trouvent dans leur langue."
+        },
+        "b-custo": {
+          "title": "pour commencer",
+          "sub": "Accès gratuit à la recherche et à la fiche praticien. Sans carte bancaire, sans engagement."
+        }
+      }
+    },
+    "earlyAccess": {
+      "route": "Portugal",
+      "title": "Nous construisons l’avenir de la santé au Portugal, avec vous",
+      "sub": "DocAgora est actuellement en accès anticipé. Nous travaillons étroitement avec un petit groupe de professionnels de santé pour façonner la plateforme. Rejoignez les premiers.",
+      "cta": "Rejoindre le programme early adopters",
+      "fields": {
+        "01": {
+          "title": "Influencez la feuille de route produit",
+          "desc": "Vos retours façonnent ce que nous construisons ensuite."
+        },
+        "02": {
+          "title": "Support prioritaire",
+          "desc": "Accès direct à notre équipe pour toute question."
+        },
+        "03": {
+          "title": "Tarifs fondateurs",
+          "desc": "Bloquez les tarifs early adopter à vie."
+        }
+      }
+    },
+    "reassurance": {
+      "aria": "Engagements DocAgora",
+      "earlyAccess": { "label": "Accès anticipé", "sub": "places limitées" },
+      "rgpd": { "label": "Conforme RGPD", "sub": "données protégées" },
+      "portugal": { "label": "Hébergé au Portugal" },
+      "support": { "label": "Support prioritaire", "sub": "accès direct" }
+    },
     "hero": {
       "title": "La solution tout-en-un qui réinvente votre quotidien professionnel.",
       "subtitle": "Logiciel pour les professionnels de santé au Portugal.",
@@ -746,7 +981,75 @@
       "formConfirmation": "Nous créerons votre compte et vous contacterons rapidement.",
       "formSpecialtyGP": "Médecine générale",
       "formSpecialtySpecialist": "Spécialiste",
-      "formSpecialtyOther": "Autre"
+      "formSpecialtyOther": "Autre",
+      "eyebrow": "Plateforme professionnelle",
+      "titleLead": "Votre temps a de la valeur.",
+      "titleAccent": "Mesurez le retour.",
+      "lead": "Moins de temps au téléphone, un agenda plus clair et de nouveaux patients qui vous trouvent. DocAgora illustre l’impact d’un cabinet mieux organisé, en chiffres.",
+      "ctaPrimary": "Demander l’accès anticipé",
+      "ctaSecondary": "Parler à un conseiller",
+      "badgeRgpd": "RGPD",
+      "badgePortugal": "Données hébergées au Portugal",
+      "badgeLangs": "PT · FR · EN",
+      "metricsAria": "Métriques illustratives",
+      "metrics": {
+        "noshow": { "label": "de rendez-vous manqués" },
+        "hours": { "label": "gagnées par semaine" },
+        "patients": { "label": "de nouveaux patients" }
+      },
+      "board": {
+        "title": "Tableau de bord",
+        "pill": "Aperçu",
+        "greeting": "Bonjour, Dr. Maria",
+        "date": "Vendredi 3 juillet",
+        "statRdv": "RDV aujourd’hui",
+        "statPresence": "Taux présence",
+        "statPatients": "Patients",
+        "today": "Aujourd’hui",
+        "appointmentCount": "8 RDV",
+        "apptType1": "Consultation générale",
+        "apptType2": "Suivi",
+        "confirmed": "Confirmé",
+        "activity": "Activité de la semaine"
+      }
+    },
+    "features": {
+      "eyebrow": "Fonctionnalités",
+      "title": "Votre cabinet, écran par écran",
+      "subtitle": "Six aperçus fidèles de l’application DocAgora : cliquez sur un onglet pour explorer chaque écran.",
+      "tabsAriaLabel": "Fonctionnalités DocAgora",
+      "tabs": {
+        "agenda": "Agenda",
+        "patients": "Patients",
+        "reservation": "Réservation",
+        "dashboard": "Tableau de bord",
+        "multilingue": "Multilingue",
+        "rappels": "Rappels"
+      },
+      "agenda": {
+        "title": "Toute votre semaine, en un coup d’œil",
+        "benefit": "Les rendez-vous du jour, colorés par statut : vous savez toujours qui vient, et quand."
+      },
+      "patients": {
+        "title": "Une fiche claire pour chaque patient",
+        "benefit": "Recherche instantanée, historique des consultations et taux de présence, réunis au même endroit."
+      },
+      "reservation": {
+        "title": "La réservation en ligne, jour et nuit",
+        "benefit": "Vos patients réservent en ligne, vous confirmez d’un clic."
+      },
+      "dashboard": {
+        "title": "Le pouls du cabinet, dès l’ouverture",
+        "benefit": "Rendez-vous du jour, patients actifs et taux de présence : tout est là, sans effort."
+      },
+      "multilingue": {
+        "title": "Une interface qui parle vos langues",
+        "benefit": "Portugais, français et anglais disponibles pour vos patients, sans réglage compliqué."
+      },
+      "rappels": {
+        "title": "Des rappels automatiques, sans effort",
+        "benefit": "SMS et e-mail envoyés au bon moment, pour réduire les absences aux rendez-vous."
+      }
     },
     "video": {
       "placeholder": "DocAgora (Bientôt disponible)",
@@ -1024,7 +1327,7 @@
       "backToHome": "← Retour à l’accueil pro"
     },
     "earlyAdopters": {
-      "title": "Nous construisons l’avenir de la santé au Portugal, avec vous",
+      "title": "Nous construisons, avec vous, l’avenir de la santé au Portugal",
       "subtitle": "DocAgora est actuellement en accès anticipé. Nous travaillons étroitement avec un petit groupe de professionnels de santé pour façonner la plateforme. Rejoignez les premiers.",
       "bullet1Title": "Influencez la feuille de route produit",
       "bullet1Desc": "Vos retours façonnent ce que nous construisons ensuite.",
@@ -1086,7 +1389,7 @@
     "verifiedValue": "Vérifiés",
     "verifiedLabel": "Professionnels de santé validés",
     "gdprValue": "RGPD",
-    "gdprLabel": "Données hébergées en Europe"
+    "gdprLabel": "Données hébergées au Portugal"
   },
   "legal": {
     "lastUpdated": "Dernière mise à jour : mai 2026",
@@ -1106,7 +1409,7 @@
         },
         {
           "title": "Hébergement et sécurité",
-          "body": "Toutes les données sont hébergées sur des serveurs situés dans l’Union européenne et chiffrées. L’accès est strictement limité au personnel autorisé."
+          "body": "Toutes les données sont hébergées sur des serveurs situés au Portugal et chiffrées. L’accès est strictement limité au personnel autorisé."
         },
         {
           "title": "Vos droits",
@@ -1146,7 +1449,7 @@
         },
         {
           "title": "Hébergement",
-          "body": "Le site et ses données sont hébergés sur une infrastructure située dans l’Union européenne."
+          "body": "Le site et ses données sont hébergés sur une infrastructure située au Portugal."
         },
         {
           "title": "Propriété intellectuelle",
@@ -1176,7 +1479,11 @@
     "trustVerified": "Professionnels vérifiés",
     "trustLanguages": "PT · FR · EN",
     "trustFree": "Recherche gratuite",
-    "finalPlaceholder": "Quel professionnel cherchez-vous ?"
+    "finalPlaceholder": "Quel professionnel cherchez-vous ?",
+    "emptyHint": "Indiquez une spécialité ou un motif.",
+    "searching": "Recherche en cours...",
+    "resultsCount": "{count} professionnel(s) trouvé(s) pour \"{specialty}\"",
+    "resultsForSpecialty": "Professionnels correspondants pour \"{specialty}\" (exemples) :"
   },
   "record": {
     "verified": "Professionnel vérifié",
@@ -1186,6 +1493,143 @@
   "final": {
     "eyebrow": "Commencez maintenant",
     "title": "Commencez votre recherche.",
-    "sub": "Trouvez un professionnel qui parle votre langue, partout au Portugal. Gratuit."
+    "sub": "Trouvez un professionnel qui parle votre langue, partout au Portugal. Gratuit.",
+    "cta": "Trouver un praticien",
+    "ctaLabel": "Trouver un praticien - retour en haut de page"
+  },
+  "patientReassurance": {
+    "ariaLabel": "Garanties de la plateforme",
+    "item1Label": "Praticiens vérifiés",
+    "item1Sub": "Profils et numéros d'inscription contrôlés.",
+    "item2Label": "Multilingue PT · FR · EN",
+    "item2Sub": "Trouvez un praticien qui parle votre langue.",
+    "item3Label": "Gratuit & confidentiel",
+    "item3Sub": "Recherche gratuite, conforme au RGPD, données au Portugal."
+  },
+  "accessBlock": {
+    "ariaLabel": "Accès et disponibilité",
+    "emergencyBadge": "Urgence",
+    "emergencyTitle": "En cas d’urgence vitale",
+    "emergencyDesc": "Composez le 112. DocAgora n’est pas un service d’urgence et ne remplace jamais les secours.",
+    "emergencyNumber": "112",
+    "bookingTitle": "Réservez à tout moment",
+    "bookingDesc": "Réservez à tout moment depuis votre canapé, sans appel téléphonique ni attente.",
+    "bookingRow1": "Recherche & comparaison",
+    "bookingRow1Value": "Disponible",
+    "bookingRow2": "Réservation en ligne",
+    "bookingRow2Value": "Bientôt",
+    "bookingCta": "Lancer ma recherche",
+    "availableTitle": "Toujours disponible",
+    "availableDesc": "La plateforme reste accessible 24h/24, où que vous soyez au Portugal.",
+    "availableRow1": "Plateforme",
+    "availableRow1Value": "24h / 24",
+    "availableRow2": "Recherche",
+    "availableRow2Value": "À tout moment",
+    "availableRow3": "Rappels automatiques",
+    "availableRow3Value": "Bientôt"
+  },
+  "proVNext": {
+    "hero": {
+      "kicker": "DocAgora Pro · preview v-next",
+      "title": "Un cabinet plus lisible, moins interrompu.",
+      "lede": "Centralisez visibilité, agenda et suivi patient dans une expérience claire, pensée pour les professionnels de santé au Portugal.",
+      "actionsLabel": "Actions principales de la landing Pro v-next",
+      "primaryCta": "Demander l’accès",
+      "secondaryCta": "Voir le système",
+      "boardLabel": "Aperçu illustratif du tableau de bord DocAgora Pro"
+    },
+    "board": {
+      "title": "Agenda cabinet",
+      "status": "Synchronisé",
+      "today": "Aujourd’hui",
+      "panelTitle": "Créneaux récupérés",
+      "panelValue": "+8 h / mois"
+    },
+    "metrics": {
+      "first": {
+        "label": "Temps administratif",
+        "value": "-40 %"
+      },
+      "second": {
+        "label": "Gestion agenda",
+        "value": "8 h"
+      },
+      "third": {
+        "label": "Visibilité locale",
+        "value": "+30 %"
+      }
+    },
+    "proof": {
+      "aria": "Garanties de la solution Pro",
+      "one": {
+        "value": "RGPD",
+        "label": "Données hébergées au Portugal"
+      },
+      "two": {
+        "value": "PT · FR · EN",
+        "label": "Présence multilingue pour les patients"
+      },
+      "three": {
+        "value": "Profil vérifié",
+        "label": "Confiance renforcée avant le rendez-vous"
+      },
+      "four": {
+        "value": "Preview",
+        "label": "Réservation et rappels en déploiement progressif"
+      }
+    },
+    "system": {
+      "eyebrow": "Système cabinet",
+      "title": "Tout ce qui aide un patient à choisir, réserver et revenir.",
+      "lede": "La version Pro v-next met le cabinet au centre : identité médicale, disponibilité réelle, signaux de confiance et pilotage simple."
+    },
+    "features": {
+      "visibility": {
+        "icon": "fas fa-id-badge",
+        "title": "Profil professionnel maîtrisé",
+        "body": "Spécialités, langues, villes, informations pratiques et signaux de vérification réunis dans une présence cohérente."
+      },
+      "booking": {
+        "icon": "fas fa-calendar-check",
+        "title": "Agenda plus fluide",
+        "body": "Des disponibilités lisibles et des demandes mieux qualifiées pour réduire les appels répétitifs."
+      },
+      "insights": {
+        "icon": "fas fa-chart-line",
+        "title": "Pilotage utile",
+        "body": "Suivez les demandes, les créneaux et les motifs de consultation sans transformer le cabinet en tableau de bord complexe."
+      }
+    },
+    "workflow": {
+      "eyebrow": "Parcours pro",
+      "title": "Une mise en place progressive, sans changer vos habitudes du jour au lendemain.",
+      "lede": "DocAgora peut commencer comme vitrine fiable, puis intégrer l’agenda et les rappels au rythme de chaque cabinet.",
+      "profile": {
+        "title": "Clarifier la présence",
+        "body": "Le patient comprend vite qui vous êtes, où vous consultez et dans quelles langues vous pouvez l’accueillir."
+      },
+      "agenda": {
+        "title": "Qualifier les demandes",
+        "body": "Les informations essentielles arrivent avant le contact, ce qui limite les échanges inutiles."
+      },
+      "followup": {
+        "title": "Préparer le suivi",
+        "body": "Rappels et prochaines étapes restent visibles, avec un cadre simple et conforme."
+      }
+    },
+    "roi": {
+      "eyebrow": "Retour concret",
+      "title": "La valeur n’est pas seulement le volume, c’est le temps récupéré.",
+      "lede": "La page Pro insiste sur la qualité de la demande, la réduction des interruptions et une meilleure lisibilité du cabinet.",
+      "cardLabel": "Estimation illustrée",
+      "cardValue": "8 h",
+      "cardBody": "de temps administratif récupérable chaque mois grâce à des demandes mieux cadrées."
+    },
+    "final": {
+      "eyebrow": "Accès anticipé",
+      "title": "Comparez cette direction avec la version Sites, puis on fige la meilleure.",
+      "lede": "Cette route Next est prête pour une itération visuelle dans le vrai contexte DocAgora.",
+      "cta": "Demander l’accès"
+    }
   }
 }

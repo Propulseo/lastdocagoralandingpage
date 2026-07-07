@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { setRequestLocale } from "next-intl/server";
-import HeaderTopbar from "@/components/layout/HeaderTopbar";
-import Navbar from "@/components/layout/Navbar";
+import HeaderV4 from "@/components/layout/HeaderV4";
 import Footer from "@/components/layout/Footer";
+import "@/styles/vnext-patient.css";
 
 export default async function PatientLayout({
   children,
@@ -16,9 +16,8 @@ export default async function PatientLayout({
 
   return (
     <div className="da-patient">
-      <header className="header header-layout1">
-        <HeaderTopbar />
-        <Navbar locale={locale} />
+      <header className="header-patient">
+        <HeaderV4 variant="patient" />
       </header>
       {children}
       <Footer />

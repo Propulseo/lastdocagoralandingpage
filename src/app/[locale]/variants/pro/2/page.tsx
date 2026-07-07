@@ -62,9 +62,9 @@ const CONFORMIDADE: { title: string; body: string }[] = [
       'Minimisation des données, base légale explicite et droit d’accès. La confidentialité est une exigence d’architecture, pas une note de bas de page.',
   },
   {
-    title: 'Données hébergées dans l’UE',
+    title: 'Données hébergées au Portugal',
     body:
-      'Les informations résident sur une infrastructure au sein de l’Union européenne, sous juridiction européenne. Sans transferts opaques hors de l’espace RGPD.',
+      'Les informations résident sur une infrastructure au Portugal, sous juridiction européenne. Sans transferts opaques hors de l’espace RGPD.',
   },
   {
     title: 'Accès contrôlé',

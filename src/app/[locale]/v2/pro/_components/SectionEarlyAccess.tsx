@@ -1,37 +1,25 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
+import { useRevealInView } from "@/components/shared/useRevealInView";
+
 /* ============================================================
    SectionEarlyAccess, V2 PRO « Billet Early Access »
    Concept « ticket » : STUB gauche (dégradé navy de marque,
    EXCEPTION unique autorisée) + CORPS droit themeable --v2-*.
    THEMEABLE : hors stub, toutes les couleurs passent par les
    tokens --v2-* hérités de .v2p (dark/light/mixte + contrast).
-   Préfixe CSS « v2ea- ». Section statique, pas de hooks.
+   Préfixe CSS « v2ea- ». Reveal déclenché au scroll (socle : useRevealInView).
    ============================================================ */
 
-const REGISTER_HREF = "#";
+const REGISTER_HREF = "/contact";
 
-type EaField = { code: string; title: string; desc: string };
-
-const EA_FIELDS: EaField[] = [
-  {
-    code: "01",
-    title: "Influencez la feuille de route produit",
-    desc: "Vos retours façonnent ce que nous construisons ensuite.",
-  },
-  {
-    code: "02",
-    title: "Support prioritaire",
-    desc: "Accès direct à notre équipe pour toute question.",
-  },
-  {
-    code: "03",
-    title: "Tarifs fondateurs",
-    desc: "Bloquez les tarifs early adopter à vie.",
-  },
-];
+const EA_FIELD_CODES = ["01", "02", "03"] as const;
 
 export default function SectionEarlyAccess() {
+  const t = useTranslations("pro");
+  const { ref, revealed } = useRevealInView<HTMLDivElement>();
   return (
     <section
       className="v2ea-section"
@@ -43,10 +31,10 @@ export default function SectionEarlyAccess() {
 
         .v2ea-section {
           --v2ea-shell: 1200px;
-          --v2ea-radius: 18px;
+          --v2ea-radius: var(--radius-lg);
           --v2ea-mono: ui-monospace, "SF Mono", Menlo, monospace;
           position: relative;
-          padding-block: clamp(72px, 10vh, 120px);
+          padding-block: clamp(var(--spacing-2xl), 10vh, var(--spacing-section-lg));
           background: var(--v2-bg);
           color: var(--v2-text-body);
           font-family: var(--font-montserrat), "Montserrat", sans-serif;
@@ -69,7 +57,7 @@ export default function SectionEarlyAccess() {
           width: 100%;
           max-width: var(--v2ea-shell);
           margin-inline: auto;
-          padding-inline: clamp(16px, 4vw, 24px);
+          padding-inline: clamp(var(--spacing-sm), 4vw, var(--spacing-md));
         }
 
         /* ── Eyebrow ── */
@@ -77,14 +65,16 @@ export default function SectionEarlyAccess() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 12px;
-          margin-bottom: 34px;
+          gap: var(--spacing-xs);
+          margin-bottom: var(--spacing-md);
           font-family: var(--v2ea-mono);
-          font-size: 12px;
+          font-size: var(--fs-xs);
           letter-spacing: 0.22em;
           text-transform: uppercase;
           color: var(--v2-eyebrow);
           opacity: 0;
+        }
+        .v2ea-play .v2ea-eyebrow {
           animation: v2ea-fade 0.7s ease forwards 0.05s;
         }
         .v2ea-eyebrow span {
@@ -103,19 +93,21 @@ export default function SectionEarlyAccess() {
           grid-template-columns: 168px 1px 1fr;
           background: var(--v2-surface);
           border: 1px solid var(--v2-border);
-          border-radius: 22px;
+          border-radius: var(--radius-lg);
           box-shadow: var(--v2-shadow-lg);
           transform-origin: top center;
           opacity: 0;
-          animation: v2ea-tear 0.9s cubic-bezier(0.18, 0.74, 0.2, 1) forwards 0.18s;
           overflow: hidden;
+        }
+        .v2ea-play .v2ea-ticket {
+          animation: v2ea-tear 0.9s cubic-bezier(0.18, 0.74, 0.2, 1) forwards 0.18s;
         }
 
         /* ── LEFT STUB (exception : dégradé navy de marque) ── */
         .v2ea-stub {
           position: relative;
-          border-radius: 22px 0 0 22px;
-          padding: 30px 18px;
+          border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+          padding: var(--spacing-md) var(--spacing-sm);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -128,8 +120,8 @@ export default function SectionEarlyAccess() {
         }
         .v2ea-stubmark {
           font-family: var(--font-fraunces), Georgia, serif;
-          font-size: 15px;
-          font-weight: 600;
+          font-size: var(--fs-base);
+          font-weight: var(--fw-semibold);
           letter-spacing: 0.02em;
           color: var(--v2-accent);
         }
@@ -137,17 +129,17 @@ export default function SectionEarlyAccess() {
           writing-mode: vertical-rl;
           transform: rotate(180deg);
           font-family: var(--v2ea-mono);
-          font-size: 14px;
-          font-weight: 700;
+          font-size: var(--fs-sm);
+          font-weight: var(--fw-bold);
           letter-spacing: 0.42em;
           text-transform: uppercase;
           color: var(--color-light-1);
-          padding: 6px 0;
+          padding: var(--spacing-xs) 0;
         }
         .v2ea-barcode {
           width: 100%;
           height: 56px;
-          border-radius: 4px;
+          border-radius: var(--radius-sm);
           background-image: repeating-linear-gradient(
             90deg,
             var(--color-light-1) 0 2px,
@@ -166,7 +158,7 @@ export default function SectionEarlyAccess() {
           font-family: var(--v2ea-mono);
           font-size: 10px;
           letter-spacing: 0.22em;
-          color: rgba(255,255,255,0.5);
+          color: var(--text-on-dark-muted);
         }
 
         /* ── PERFORATION ── */
@@ -193,16 +185,16 @@ export default function SectionEarlyAccess() {
         /* ── RIGHT BODY ── */
         .v2ea-body {
           position: relative;
-          padding: 44px 48px 46px;
-          border-radius: 0 22px 22px 0;
+          padding: var(--spacing-xl) var(--spacing-2xl) calc(var(--spacing-xl) + var(--spacing-xs));
+          border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
         }
         .v2ea-route {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-bottom: 18px;
+          gap: var(--spacing-xs);
+          margin-bottom: var(--spacing-sm);
           font-family: var(--v2ea-mono);
-          font-size: 11px;
+          font-size: var(--fs-xs);
           letter-spacing: 0.24em;
           text-transform: uppercase;
           color: var(--v2-accent-2);
@@ -212,9 +204,9 @@ export default function SectionEarlyAccess() {
           display: inline-flex;
         }
         .v2ea-title {
-          margin: 0 0 14px;
+          margin: 0 0 var(--spacing-xs);
           font-family: var(--font-fraunces), Georgia, serif;
-          font-weight: 600;
+          font-weight: var(--fw-semibold);
           font-size: clamp(28px, 3.4vw, 40px);
           line-height: 1.08;
           letter-spacing: -0.01em;
@@ -223,8 +215,8 @@ export default function SectionEarlyAccess() {
           text-transform: none;
         }
         .v2ea-sub {
-          margin: 0 0 34px;
-          font-size: 15.5px;
+          margin: 0 0 var(--spacing-md);
+          font-size: var(--fs-base);
           line-height: 1.62;
           color: var(--v2-text-body);
           max-width: 56ch;
@@ -236,32 +228,34 @@ export default function SectionEarlyAccess() {
           gap: 0;
           border-top: 1px dashed var(--v2-border);
           border-bottom: 1px dashed var(--v2-border);
-          margin-bottom: 34px;
+          margin-bottom: var(--spacing-md);
         }
         .v2ea-field {
-          padding: 20px 22px 20px 0;
+          padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 0;
           opacity: 0;
+        }
+        .v2ea-play .v2ea-field {
           animation: v2ea-rise 0.6s ease forwards;
         }
         .v2ea-field:not(:last-child) {
           border-right: 1px dashed var(--v2-border);
-          padding-right: 24px;
+          padding-right: var(--spacing-md);
         }
-        .v2ea-field:not(:first-child) { padding-left: 24px; }
-        .v2ea-field:nth-child(1) { animation-delay: 0.5s; }
-        .v2ea-field:nth-child(2) { animation-delay: 0.62s; }
-        .v2ea-field:nth-child(3) { animation-delay: 0.74s; }
+        .v2ea-field:not(:first-child) { padding-left: var(--spacing-md); }
+        .v2ea-play .v2ea-field:nth-child(1) { animation-delay: 0.5s; }
+        .v2ea-play .v2ea-field:nth-child(2) { animation-delay: 0.62s; }
+        .v2ea-play .v2ea-field:nth-child(3) { animation-delay: 0.74s; }
         .v2ea-fcode {
           font-family: var(--v2ea-mono);
-          font-size: 11px;
+          font-size: var(--fs-xs);
           color: var(--v2-accent-text);
           letter-spacing: 0.1em;
         }
         .v2ea-flabel {
-          margin: 8px 0 7px;
+          margin: var(--spacing-xs) 0 calc(var(--spacing-xs) - 1px);
           font-family: var(--v2ea-mono);
-          font-size: 11px;
-          font-weight: 700;
+          font-size: var(--fs-xs);
+          font-weight: var(--fw-bold);
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: var(--v2-text);
@@ -269,7 +263,7 @@ export default function SectionEarlyAccess() {
         }
         .v2ea-fdesc {
           margin: 0;
-          font-size: 13.5px;
+          font-size: var(--fs-sm);
           line-height: 1.55;
           color: var(--v2-text-muted);
         }
@@ -278,12 +272,12 @@ export default function SectionEarlyAccess() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 20px;
+          gap: var(--spacing-sm);
           flex-wrap: wrap;
         }
         .v2ea-seat {
           font-family: var(--v2ea-mono);
-          font-size: 11px;
+          font-size: var(--fs-xs);
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--v2-text-muted);
@@ -293,24 +287,26 @@ export default function SectionEarlyAccess() {
           position: relative;
           display: inline-flex;
           align-items: center;
-          gap: 12px;
-          padding: 16px 26px;
-          border-radius: 14px;
+          gap: var(--spacing-xs);
+          padding: var(--spacing-sm) var(--spacing-md);
+          border-radius: var(--radius-md);
           font-family: var(--font-montserrat), system-ui, sans-serif;
-          font-size: 15px;
-          font-weight: 600;
+          font-size: var(--fs-base);
+          font-weight: var(--fw-semibold);
           letter-spacing: 0.01em;
           color: var(--v2-accent-ink);
           text-decoration: none;
           background: var(--v2-accent);
           box-shadow: var(--v2-shadow);
-          transition: transform 0.25s ease, box-shadow 0.25s ease,
-            background 0.25s ease, gap 0.25s ease;
+          transition: transform 0.25s var(--ease-out-soft, ease),
+            box-shadow 0.25s var(--ease-out-soft, ease),
+            background 0.25s var(--ease-out-soft, ease),
+            gap 0.25s var(--ease-out-soft, ease);
           overflow: hidden;
         }
         .v2ea-cta:hover {
-          transform: translateY(-3px);
-          gap: 16px;
+          transform: translateY(-2px);
+          gap: var(--spacing-sm);
           box-shadow: var(--v2-shadow-lg);
           background: var(--v2-accent-2);
         }
@@ -318,7 +314,13 @@ export default function SectionEarlyAccess() {
           outline: 3px solid var(--v2-accent);
           outline-offset: 3px;
         }
-        .v2ea-cta__arrow { display: inline-flex; }
+        .v2ea-cta__arrow {
+          display: inline-flex;
+          transition: transform 0.25s var(--ease-out-soft, ease);
+        }
+        .v2ea-cta:hover .v2ea-cta__arrow {
+          transform: translateX(3px);
+        }
 
         @keyframes v2ea-fade { to { opacity: 1; } }
         @keyframes v2ea-tear {
@@ -339,14 +341,14 @@ export default function SectionEarlyAccess() {
           .v2ea-stub {
             flex-direction: row;
             align-items: center;
-            border-radius: 22px 22px 0 0;
-            padding: 22px 24px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            padding: var(--spacing-sm) var(--spacing-md);
           }
           .v2ea-vert {
             writing-mode: horizontal-tb;
             transform: none;
             letter-spacing: 0.3em;
-            font-size: 13px;
+            font-size: var(--fs-sm);
           }
           .v2ea-barcode { width: 120px; height: 40px; flex: 0 0 auto; }
           .v2ea-perf {
@@ -358,11 +360,14 @@ export default function SectionEarlyAccess() {
           .v2ea-notch { top: 50%; transform: translateY(-50%); left: auto; }
           .v2ea-notch.top { left: -13px; top: 50%; }
           .v2ea-notch.bottom { right: -13px; bottom: auto; left: auto; }
-          .v2ea-body { padding: 32px 24px 34px; border-radius: 0 0 22px 22px; }
+          .v2ea-body {
+            padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + var(--spacing-xs));
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+          }
           .v2ea-title { font-size: 27px; }
           .v2ea-fields { grid-template-columns: 1fr; }
           .v2ea-field {
-            padding: 18px 0;
+            padding: var(--spacing-sm) 0;
             border-right: none !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
@@ -386,7 +391,10 @@ export default function SectionEarlyAccess() {
         }
       `}</style>
 
-      <div className="v2ea-shell">
+      <div
+        className={`v2ea-shell${revealed ? " v2ea-play" : ""}`}
+        ref={ref}
+      >
         <p className="v2ea-eyebrow">
           <span aria-hidden="true" />
           EARLY ACCESS · PORTUGAL
@@ -424,24 +432,24 @@ export default function SectionEarlyAccess() {
                   />
                 </svg>
               </span>
-              <span>Portugal</span>
+              <span>{t("earlyAccess.route")}</span>
             </div>
 
             <h2 id="v2ea-title" className="v2ea-title">
-              Nous construisons l’avenir de la santé au Portugal, avec vous
+              {t("earlyAccess.title")}
             </h2>
-            <p className="v2ea-sub">
-              DocAgora est actuellement en accès anticipé. Nous travaillons
-              étroitement avec un petit groupe de professionnels de santé pour
-              façonner la plateforme. Rejoignez les premiers.
-            </p>
+            <p className="v2ea-sub">{t("earlyAccess.sub")}</p>
 
             <div className="v2ea-fields">
-              {EA_FIELDS.map((f) => (
-                <div key={f.code} className="v2ea-field">
-                  <span className="v2ea-fcode">{f.code}</span>
-                  <p className="v2ea-flabel">{f.title}</p>
-                  <p className="v2ea-fdesc">{f.desc}</p>
+              {EA_FIELD_CODES.map((code) => (
+                <div key={code} className="v2ea-field">
+                  <span className="v2ea-fcode">{code}</span>
+                  <p className="v2ea-flabel">
+                    {t(`earlyAccess.fields.${code}.title`)}
+                  </p>
+                  <p className="v2ea-fdesc">
+                    {t(`earlyAccess.fields.${code}.desc`)}
+                  </p>
                 </div>
               ))}
             </div>
@@ -451,7 +459,7 @@ export default function SectionEarlyAccess() {
                 SEAT <b>00-01</b> · FOUNDING
               </span>
               <a className="v2ea-cta" href={REGISTER_HREF}>
-                Rejoindre le programme early adopters
+                {t("earlyAccess.cta")}
                 <span className="v2ea-cta__arrow" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="16" height="16">
                     <path

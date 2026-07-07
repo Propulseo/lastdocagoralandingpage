@@ -1,7 +1,8 @@
 "use client";
 
-import { type ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { type ReactNode, useRef, useState, useEffect } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
+import { SCROLL_REVEAL_FALLBACK_MS } from "@/components/shared/animationConstants";
 
 interface AnimatedCardsProps {
   children: ReactNode;
@@ -35,19 +36,33 @@ export function AnimatedCardsContainer({
   stagger = 0.1,
   className,
 }: AnimatedCardsProps) {
+  // Hooks must run before the disabled/reduced-motion early-return (Rules of Hooks).
   const prefersReduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const [fallback, setFallback] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const id = setTimeout(() => setFallback(true), SCROLL_REVEAL_FALLBACK_MS);
+    return () => clearTimeout(id);
+  }, []);
+  useEffect(() => { const id = setTimeout(() => setMounted(true), 0); return () => clearTimeout(id); }, []);
 
-  if (prefersReduced) {
+  // `mounted` guard: useReducedMotion() is null on SSR -> avoid hydration mismatch
+  // by only honoring reduced-motion AFTER the first client render.
+  if (mounted && prefersReduced) {
     return className ? <div className={className}>{children}</div> : <>{children}</>;
   }
 
+  const show = inView || fallback;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       variants={containerVariants(stagger)}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      animate={show ? "visible" : "hidden"}
     >
       {children}
     </motion.div>
@@ -66,8 +81,12 @@ export function AnimatedCard({
   className?: string;
 }) {
   const prefersReduced = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { const id = setTimeout(() => setMounted(true), 0); return () => clearTimeout(id); }, []);
 
-  if (prefersReduced) {
+  // `mounted` guard: useReducedMotion() is null on SSR -> avoid hydration mismatch
+  // by only honoring reduced-motion AFTER the first client render.
+  if (mounted && prefersReduced) {
     return className ? <div className={className}>{children}</div> : <>{children}</>;
   }
 

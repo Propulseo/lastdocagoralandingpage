@@ -55,7 +55,13 @@
     "blog": "Blog",
     "contact": "Contact",
     "findProfessional": "Find a professional",
-    "imAProfessional": "I'm a professional →"
+    "imAProfessional": "I'm a professional",
+    "login": "Log in",
+    "audienceLabel": "Choose your space",
+    "audiencePatient": "Patient",
+    "audiencePro": "Pro",
+    "navAria": "Navigation",
+    "menuAria": "Menu"
   },
   "navbarPro": {
     "solution": "Solution",
@@ -63,8 +69,17 @@
     "resources": "Resources",
     "about": "About",
     "getStarted": "Get started",
-    "imAPatient": "I'm a patient →",
-    "soon": "Soon"
+    "imAPatient": "I'm a patient",
+    "soon": "Soon",
+    "gdpr": "GDPR compliant",
+    "hosted": "Hosted in Portugal",
+    "requestAccess": "Request access",
+    "audienceLabel": "Choose your space",
+    "audiencePatient": "Patient",
+    "audiencePro": "Professional",
+    "login": "Log in",
+    "navAria": "Pro navigation",
+    "menuAria": "Menu"
   },
   "hero": {
     "slide1Title": "Find a doctor who understands you, in Portugal",
@@ -193,7 +208,64 @@
         "cta": "Find a rheumatologist"
       }
     },
-    "seeAll": "See all specialties"
+    "seeAll": "See all specialties",
+    "pauseLabel": "Pause scrolling",
+    "playLabel": "Resume scrolling"
+  },
+  "howItWorks": {
+    "kicker": "How it works",
+    "title": "From search to the right professional, <em>in three steps</em>.",
+    "sub": "Everything you need to find and book a verified professional — clear, fast and free.",
+    "stepsAria": "Search steps",
+    "stepAria": "Step {num}: {title}",
+    "previewAria": "Preview, step {index} of {total}",
+    "example": "Example",
+    "steps": {
+      "search": {
+        "title": "Describe your need",
+        "desc": "Filter for free by specialty, city and language. Results narrow down as you choose."
+      },
+      "compare": {
+        "title": "Compare profiles",
+        "desc": "Specialty, practice area and languages spoken (PT · FR · EN) — every professional is verified by our team."
+      },
+      "slot": {
+        "title": "Choose your slot",
+        "desc": "Book online in real time — pick a slot and confirm in seconds."
+      }
+    },
+    "screen": {
+      "search": {
+        "title": "Find a professional",
+        "tag": "Free search",
+        "query": "Cardiologist · Lisbon",
+        "chipSpecialty": "Specialty",
+        "chipCity": "City",
+        "chipLang": "Language",
+        "found": "<b>34</b> specialists found",
+        "hint": "Results <b>narrow down in real time</b>."
+      },
+      "compare": {
+        "title": "Compare verified profiles",
+        "verified": "Verified",
+        "specialty": "Cardiology",
+        "cityLisbon": "Lisbon",
+        "cityCascais": "Cascais",
+        "see": "View",
+        "hint": "Every profile is <b>verified by our team</b> before publication."
+      },
+      "slot": {
+        "title": "Choose a slot",
+        "tag": "Real time",
+        "dayMon": "Mon",
+        "dayTue": "Tue",
+        "dayWed": "Wed",
+        "dayThu": "Thu",
+        "dayFri": "Fri",
+        "cta": "Book this slot",
+        "reassure": "Instant confirmation · no phone call"
+      }
+    }
   },
   "process": {
     "subtitle": "How DocAgora works",
@@ -281,6 +353,8 @@
   "footer": {
     "aboutText": "DocAgora connects you with verified healthcare professionals in Portugal. Search by specialty, language and location. Book in just a few clicks.",
     "findProfessional": "Find a professional",
+    "ctaTitle": "Find the right professional, for free.",
+    "ctaSub": "Search by specialty, city and language. No account needed.",
     "specialtiesTitle": "Specialties",
     "linksTitle": "Links",
     "linkAbout": "About",
@@ -301,6 +375,7 @@
     "bottomTerms": "Terms of use",
     "bottomPrivacy": "Privacy policy",
     "bottomGdpr": "GDPR",
+    "madeBy": "Made with passion by",
     "footerSpecialties": {
       "generalPractice": "General Practice",
       "cardiology": "Cardiology",
@@ -459,6 +534,11 @@
     "sidebarReminders": "Reminders",
     "sidebarRemindersValue": "Automatic",
     "sidebarCta": "Find a professional",
+    "cat": {
+      "platform": "The platform",
+      "appointments": "Appointments",
+      "account": "Account & data"
+    },
     "items": {
       "q1": {
         "question": "Is DocAgora free for patients?",
@@ -624,6 +704,161 @@
     "suggestion4": "Affordable psychologist"
   },
   "pro": {
+    "appScreens": {
+      "previewPill": "Preview",
+      "status": {
+        "confirmed": "Confirmed",
+        "waiting": "Waiting",
+        "done": "Done",
+        "absent": "Absent"
+      },
+      "agenda": {
+        "viewDay": "Day",
+        "viewWeek": "Week",
+        "viewMonth": "Month",
+        "weekOf": "Week of July 3"
+      },
+      "patients": {
+        "statTotal": "Total",
+        "statNew": "New (30d)",
+        "statActive": "Active",
+        "statRetention": "Retention",
+        "statAttendance": "Attendance",
+        "statRating": "Rating",
+        "search": "Search by name",
+        "filterAll": "All",
+        "listTitle": "Patient list",
+        "colPatient": "Patient",
+        "colEmail": "Email",
+        "colLastVisit": "Last visit",
+        "colVisits": "Visits",
+        "colStatus": "Status",
+        "rowActive": "Active"
+      },
+      "dashboard": {
+        "statRdv": "Appointments today",
+        "statPatients": "Patients",
+        "statPresence": "Attendance rate",
+        "today": "Today",
+        "apptCount": "12 appointments",
+        "weekActivity": "Weekly activity",
+        "nextSlot": "Next free slot",
+        "remindersToSend": "Reminders to send",
+        "allConfirmed": "All appointments confirmed",
+        "recentPatients": "Recent patients",
+        "noShowMonth": "No-shows this month"
+      },
+      "reservation": {
+        "title": "Patient booking",
+        "pill": "24/7",
+        "chooseSlot": "Choose a time slot",
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "recapSub": "General consultation · 30 min",
+        "status": "Request received",
+        "benefit": "Your patients book online, you confirm in one click."
+      },
+      "rappels": {
+        "title": "Automatic reminders",
+        "sub": "SMS & email",
+        "enabled": "Enabled",
+        "detail24h": "24 h before",
+        "detailConfirmation": "Appointment confirmation",
+        "detail2h": "2 h before",
+        "detailFollowUp": "Follow-up reminder",
+        "sent": "Sent",
+        "scheduled": "Scheduled"
+      },
+      "multilingue": {
+        "benefit": "Your patients find you and book in their language."
+      }
+    },
+    "avantApres": {
+      "eyebrow": "Before · After",
+      "title": "The same day, lived differently.",
+      "subtitle": "On the left, the routine you know. On the right, what changes when your schedule starts working for you.",
+      "tagBefore": "Before",
+      "tagAfter": "After",
+      "titleBefore": "Without DocAgora",
+      "titleAfter": "With DocAgora",
+      "rows": {
+        "phone": {
+          "before": "The phone rings non-stop during the consultation.",
+          "after": "Appointments organised, received calmly."
+        },
+        "agenda": {
+          "before": "Paper diary, scribbled over and hard to read.",
+          "after": "A clear digital schedule, always available."
+        },
+        "noshow": {
+          "before": "Unexpected missed appointments, with no warning.",
+          "after": "Automatic “soon” reminders to reduce no-shows."
+        },
+        "visibility": {
+          "before": "New patients who cannot find you online.",
+          "after": "Verified profile, visible across 16 specialties."
+        }
+      }
+    },
+    "roiBento": {
+      "eyebrow": "Numbers that speak",
+      "title": "The return, at scale.",
+      "subtitle": "Estimates of what an organised schedule can change in your practice.",
+      "footnoteText": "The values shown are purely demonstrative examples to illustrate the platform’s potential. They are in no way a guarantee of results. Online appointment booking and automatic reminders are under development (“soon”).",
+      "metrics": {
+        "b-faltas": {
+          "title": "fewer missed appointments",
+          "sub": "Automatic reminders sent 24 h and 2 h before the consultation, reducing no-shows without a phone call."
+        },
+        "b-horas": {
+          "title": "saved per week",
+          "sub": "Fewer manual reminders and less phone-based scheduling, more effective clinical time."
+        },
+        "b-pacientes": {
+          "title": "more patients",
+          "sub": "Practitioner profile listed in the free search, no subscription required."
+        },
+        "b-especialidades": {
+          "title": "specialties covered",
+          "sub": "General medicine, physiotherapy, dentistry and more, all verified by our team."
+        },
+        "b-idiomas": {
+          "title": "interface languages",
+          "sub": "Português, Français, English: your patients find you in their language."
+        },
+        "b-custo": {
+          "title": "to get started",
+          "sub": "Free access to the search and the practitioner profile. No credit card, no commitment."
+        }
+      }
+    },
+    "earlyAccess": {
+      "route": "Portugal",
+      "title": "Building the future of healthcare in Portugal, with you",
+      "sub": "DocAgora is currently in early access. We work closely with a small group of healthcare professionals to shape the platform. Be among the first to join.",
+      "cta": "Join the early adopters program",
+      "fields": {
+        "01": {
+          "title": "Influence the product roadmap",
+          "desc": "Your feedback shapes what we build next."
+        },
+        "02": {
+          "title": "Priority support",
+          "desc": "Direct access to our team for any question."
+        },
+        "03": {
+          "title": "Founder pricing",
+          "desc": "Lock in early adopter rates for life."
+        }
+      }
+    },
+    "reassurance": {
+      "aria": "DocAgora commitments",
+      "earlyAccess": { "label": "Early access", "sub": "limited spots" },
+      "rgpd": { "label": "GDPR-compliant", "sub": "data protected" },
+      "portugal": { "label": "Hosted in Portugal" },
+      "support": { "label": "Priority support", "sub": "direct access" }
+    },
     "hero": {
       "title": "The all-in-one suite that reinvents your daily practice.",
       "subtitle": "Software for healthcare professionals in Portugal.",
@@ -647,7 +882,75 @@
       "formConfirmation": "We’ll create your account and contact you shortly.",
       "formSpecialtyGP": "General Medicine",
       "formSpecialtySpecialist": "Specialist",
-      "formSpecialtyOther": "Other"
+      "formSpecialtyOther": "Other",
+      "eyebrow": "Professional platform",
+      "titleLead": "Your time has value.",
+      "titleAccent": "Measure the return.",
+      "lead": "Less time on the phone, a clearer schedule and new patients who find you. DocAgora illustrates the impact of a better-organized practice, in numbers.",
+      "ctaPrimary": "Request early access",
+      "ctaSecondary": "Talk to an advisor",
+      "badgeRgpd": "GDPR",
+      "badgePortugal": "Data hosted in Portugal",
+      "badgeLangs": "PT · FR · EN",
+      "metricsAria": "Illustrative metrics",
+      "metrics": {
+        "noshow": { "label": "fewer missed appointments" },
+        "hours": { "label": "saved per week" },
+        "patients": { "label": "more new patients" }
+      },
+      "board": {
+        "title": "Dashboard",
+        "pill": "Preview",
+        "greeting": "Hello, Dr. Maria",
+        "date": "Friday, July 3",
+        "statRdv": "Appointments today",
+        "statPresence": "Attendance rate",
+        "statPatients": "Patients",
+        "today": "Today",
+        "appointmentCount": "8 appts.",
+        "apptType1": "General consultation",
+        "apptType2": "Follow-up",
+        "confirmed": "Confirmed",
+        "activity": "Weekly activity"
+      }
+    },
+    "features": {
+      "eyebrow": "Features",
+      "title": "Your practice, screen by screen",
+      "subtitle": "Six faithful previews of the DocAgora app: click a tab to explore each screen.",
+      "tabsAriaLabel": "DocAgora features",
+      "tabs": {
+        "agenda": "Agenda",
+        "patients": "Patients",
+        "reservation": "Booking",
+        "dashboard": "Dashboard",
+        "multilingue": "Multilingual",
+        "rappels": "Reminders"
+      },
+      "agenda": {
+        "title": "Your whole week, at a glance",
+        "benefit": "Today's appointments, colour-coded by status: you always know who's coming, and when."
+      },
+      "patients": {
+        "title": "A clear file for every patient",
+        "benefit": "Instant search, visit history and attendance rate, all in one place."
+      },
+      "reservation": {
+        "title": "Online booking, day and night",
+        "benefit": "Your patients book online, you confirm with one click."
+      },
+      "dashboard": {
+        "title": "Your practice's pulse, from the moment you open up",
+        "benefit": "Today's appointments, active patients and attendance rate: it's all there, no effort required."
+      },
+      "multilingue": {
+        "title": "An interface that speaks your patients' languages",
+        "benefit": "Portuguese, French and English available for your patients, with no complicated setup."
+      },
+      "rappels": {
+        "title": "Automatic reminders, effortless",
+        "benefit": "SMS and email sent at the right time, to cut down on no-shows."
+      }
     },
     "video": {
       "placeholder": "DocAgora (Coming soon)",
@@ -970,7 +1273,7 @@
     "verifiedValue": "Verified",
     "verifiedLabel": "Vetted healthcare professionals",
     "gdprValue": "GDPR",
-    "gdprLabel": "Data hosted in Europe"
+    "gdprLabel": "Data hosted in Portugal"
   },
   "legal": {
     "lastUpdated": "Last updated: May 2026",
@@ -990,7 +1293,7 @@
         },
         {
           "title": "Hosting and security",
-          "body": "All data is hosted on servers located in the European Union and encrypted. Access is strictly limited to authorised staff."
+          "body": "All data is hosted on servers located in Portugal and encrypted. Access is strictly limited to authorised staff."
         },
         {
           "title": "Your rights",
@@ -1030,7 +1333,7 @@
         },
         {
           "title": "Hosting",
-          "body": "The site and its data are hosted on infrastructure located in the European Union."
+          "body": "The site and its data are hosted on infrastructure located in Portugal."
         },
         {
           "title": "Intellectual property",
@@ -1060,7 +1363,11 @@
     "trustVerified": "Verified professionals",
     "trustLanguages": "PT · FR · EN",
     "trustFree": "Free search",
-    "finalPlaceholder": "Which professional are you looking for?"
+    "finalPlaceholder": "Which professional are you looking for?",
+    "emptyHint": "Please enter a specialty or reason.",
+    "searching": "Searching...",
+    "resultsCount": "{count} professional(s) found for \"{specialty}\"",
+    "resultsForSpecialty": "Matching professionals for \"{specialty}\" (examples):"
   },
   "record": {
     "verified": "Verified professional",
@@ -1070,6 +1377,143 @@
   "final": {
     "eyebrow": "Get started",
     "title": "Start your search.",
-    "sub": "Find a professional who speaks your language, anywhere in Portugal. Free."
+    "sub": "Find a professional who speaks your language, anywhere in Portugal. Free.",
+    "cta": "Find a practitioner",
+    "ctaLabel": "Find a practitioner - scroll back to search"
+  },
+  "patientReassurance": {
+    "ariaLabel": "Platform guarantees",
+    "item1Label": "Verified practitioners",
+    "item1Sub": "Profiles and registration numbers checked.",
+    "item2Label": "Multilingual PT · FR · EN",
+    "item2Sub": "Find a practitioner who speaks your language.",
+    "item3Label": "Free & confidential",
+    "item3Sub": "Free search, GDPR-compliant, data hosted in Portugal."
+  },
+  "accessBlock": {
+    "ariaLabel": "Access and availability",
+    "emergencyBadge": "Emergency",
+    "emergencyTitle": "In a life-threatening emergency",
+    "emergencyDesc": "Call 112. DocAgora is not an emergency service and never replaces emergency responders.",
+    "emergencyNumber": "112",
+    "bookingTitle": "Book anytime",
+    "bookingDesc": "Book anytime from your couch, with no phone calls and no waiting.",
+    "bookingRow1": "Search & compare",
+    "bookingRow1Value": "Available",
+    "bookingRow2": "Online booking",
+    "bookingRow2Value": "Soon",
+    "bookingCta": "Start my search",
+    "availableTitle": "Always available",
+    "availableDesc": "The platform stays accessible 24/7, wherever you are in Portugal.",
+    "availableRow1": "Platform",
+    "availableRow1Value": "24/7",
+    "availableRow2": "Search",
+    "availableRow2Value": "Anytime",
+    "availableRow3": "Automatic reminders",
+    "availableRow3Value": "Soon"
+  },
+  "proVNext": {
+    "hero": {
+      "kicker": "DocAgora Pro · v-next preview",
+      "title": "A clearer practice, with fewer interruptions.",
+      "lede": "Bring visibility, scheduling and patient follow-up into one clear experience for healthcare professionals in Portugal.",
+      "actionsLabel": "Primary actions for the Pro v-next landing",
+      "primaryCta": "Request access",
+      "secondaryCta": "See the system",
+      "boardLabel": "Illustrative preview of the DocAgora Pro dashboard"
+    },
+    "board": {
+      "title": "Practice agenda",
+      "status": "Synced",
+      "today": "Today",
+      "panelTitle": "Recovered slots",
+      "panelValue": "+8 h / month"
+    },
+    "metrics": {
+      "first": {
+        "label": "Admin time",
+        "value": "-40%"
+      },
+      "second": {
+        "label": "Agenda handling",
+        "value": "8 h"
+      },
+      "third": {
+        "label": "Local visibility",
+        "value": "+30%"
+      }
+    },
+    "proof": {
+      "aria": "Pro solution guarantees",
+      "one": {
+        "value": "GDPR",
+        "label": "Data hosted in Portugal"
+      },
+      "two": {
+        "value": "PT · FR · EN",
+        "label": "Multilingual presence for patients"
+      },
+      "three": {
+        "value": "Verified profile",
+        "label": "Stronger trust before the appointment"
+      },
+      "four": {
+        "value": "Preview",
+        "label": "Booking and reminders rolling out progressively"
+      }
+    },
+    "system": {
+      "eyebrow": "Practice system",
+      "title": "Everything that helps a patient choose, book and return.",
+      "lede": "The Pro v-next version places the practice at the center: medical identity, real availability, trust signals and simple monitoring."
+    },
+    "features": {
+      "visibility": {
+        "icon": "fas fa-id-badge",
+        "title": "Controlled professional profile",
+        "body": "Specialties, languages, cities, practical information and verification signals gathered into one coherent presence."
+      },
+      "booking": {
+        "icon": "fas fa-calendar-check",
+        "title": "Smoother scheduling",
+        "body": "Readable availability and better qualified requests to reduce repetitive calls."
+      },
+      "insights": {
+        "icon": "fas fa-chart-line",
+        "title": "Useful monitoring",
+        "body": "Track requests, slots and consultation reasons without turning the practice into a complex dashboard."
+      }
+    },
+    "workflow": {
+      "eyebrow": "Pro journey",
+      "title": "A progressive setup, without changing daily habits overnight.",
+      "lede": "DocAgora can start as a reliable presence, then integrate agenda and reminders at each practice’s rhythm.",
+      "profile": {
+        "title": "Clarify the presence",
+        "body": "Patients quickly understand who you are, where you consult and which languages you can welcome them in."
+      },
+      "agenda": {
+        "title": "Qualify requests",
+        "body": "Essential information arrives before contact, limiting unnecessary back-and-forth."
+      },
+      "followup": {
+        "title": "Prepare follow-up",
+        "body": "Reminders and next steps stay visible within a simple, compliant frame."
+      }
+    },
+    "roi": {
+      "eyebrow": "Concrete return",
+      "title": "Value is not only volume. It is recovered time.",
+      "lede": "The Pro page emphasizes request quality, fewer interruptions and a clearer practice presence.",
+      "cardLabel": "Illustrative estimate",
+      "cardValue": "8 h",
+      "cardBody": "of administrative time that can be recovered each month through better framed requests."
+    },
+    "final": {
+      "eyebrow": "Early access",
+      "title": "Compare this direction with the Sites version, then we lock the strongest one.",
+      "lede": "This Next route is ready for visual iteration inside the real DocAgora context.",
+      "cta": "Request access"
+    }
   }
 }
