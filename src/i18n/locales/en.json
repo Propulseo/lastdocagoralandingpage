@@ -108,15 +108,15 @@
     "imageAlt": "Patient connecting with a healthcare professional in Portugal through DocAgora",
     "titleLead": "Find a doctor who",
     "titleEmphasis": "actually speaks your language",
-    "subhead": "Verified healthcare professionals across Portugal, in Portuguese, French and English. Free search, booking coming soon.",
+    "subhead": "Verified healthcare professionals across Portugal, in Portuguese, French and English. Free search, online booking.",
     "langAria": "Choose the site language"
   },
   "contactInfo": {
     "emergencyTitle": "Emergency",
     "emergencyDesc": "For medical emergencies, dial 112. DocAgora is not an emergency service.",
     "emergencyNumber": "112",
-    "bookingTitle": "Booking coming soon",
-    "bookingDesc": "Search verified professionals for free. Online booking is on the way.",
+    "bookingTitle": "Book anytime",
+    "bookingDesc": "Book at any time from your patient account. No phone call, no waiting.",
     "bookingCta": "Start my search",
     "availableTitle": "Available today",
     "platformAvailable": "Search",
@@ -124,7 +124,7 @@
     "searchBook": "Professionals",
     "searchBookValue": "Verified",
     "reminders": "Reminders",
-    "remindersValue": "Coming soon"
+    "remindersValue": "Automatic"
   },
   "about": {
     "title": "Find your doctor",
@@ -348,12 +348,12 @@
   },
   "process": {
     "subtitle": "How DocAgora works",
-    "title": "Find, compare and (soon) book your doctor in a few clicks.",
+    "title": "Find, compare and book your doctor in a few clicks.",
     "desc": "Whether you need a GP or a specialist, DocAgora guides you from search to the right professional, in your language. A simple, fast, multilingual experience.",
     "tags": [
       "Smart search",
       "Verified professionals",
-      "Booking coming soon",
+      "Real-time availability",
       "Multilingual support",
       "Automatic reminders"
     ],
@@ -373,12 +373,12 @@
       "step3": {
         "number": "03",
         "title": "Choose your slot",
-        "desc": "See real-time availability, no phone call needed (booking coming soon).",
+        "desc": "Real-time availability, no phone call needed.",
         "cta": "Find a professional"
       },
       "step4": {
         "number": "04",
-        "title": "Book in one click (coming soon)",
+        "title": "Confirm in one click",
         "desc": "When booking launches, reserve in one click with instant email confirmation, no waiting.",
         "cta": "Create my account"
       },
@@ -390,7 +390,7 @@
       }
     },
     "ctaTitle": "Your health journey, simplified.",
-    "ctaDesc": "Find the right professional in your language, for free. Online booking is on the way.",
+    "ctaDesc": "Find the right professional, book in your language and get reminded automatically. All for free.",
     "ctaButton": "Create my account"
   },
   "cities": {
@@ -481,12 +481,12 @@
     "features": {
       "f1": "Smart search by specialty, city or language",
       "f2": "Verified and approved professionals",
-      "f3": "Online booking (coming soon)",
+      "f3": "Platform available 24/7",
       "f4": "Multilingual support (PT/FR/EN)",
       "f5": "Free for all patients",
-      "f6": "Real-time availability (coming soon)",
+      "f6": "Real-time appointment availability",
       "f7": "Transparent, detailed profiles",
-      "f8": "Appointment reminders (coming soon)"
+      "f8": "Automatic appointment reminders"
     },
     "featuresBottom": "We believe quality healthcare starts with a simple booking experience.",
     "featuresBottomCta": "Contact us for more information"
@@ -587,12 +587,12 @@
     "features": {
       "f1": "Smart search by specialty, city or language",
       "f2": "Verified and approved professionals",
-      "f3": "Online booking (coming soon)",
+      "f3": "Platform available 24/7",
       "f4": "Multilingual support (PT/FR/EN)",
       "f5": "Free for all patients",
-      "f6": "Real-time availability (coming soon)",
+      "f6": "Real-time appointment availability",
       "f7": "Transparent, detailed profiles",
-      "f8": "Appointment reminders (coming soon)"
+      "f8": "Automatic appointment reminders"
     },
     "featuresBottom": "We strive to be the most trusted healthcare booking platform in Portugal.",
     "featuresBottomCta": "Contact us for more information"
@@ -653,7 +653,7 @@
       },
       "q9": {
         "question": "How do I contact support?",
-        "answer": "You can reach our team at hello@docagora.com. We aim to respond within 24 hours. Searching verified professionals is free; online booking is on the way."
+        "answer": "You can reach our team at hello@docagora.com. We aim to respond within 24 hours. The platform is available 24/7 for search and booking."
       },
       "q10": {
         "question": "Can I filter professionals by insurance?",
@@ -871,7 +871,7 @@
         },
         "noshow": {
           "before": "Unexpected missed appointments, with no warning.",
-          "after": "Automatic “soon” reminders to reduce no-shows."
+          "after": "Automatic reminders to reduce no-shows."
         },
         "visibility": {
           "before": "New patients who cannot find you online.",
@@ -883,7 +883,7 @@
       "eyebrow": "Numbers that speak",
       "title": "The return, at scale.",
       "subtitle": "Estimates of what an organised schedule can change in your practice.",
-      "footnoteText": "The values shown are purely demonstrative examples to illustrate the platform’s potential. They are in no way a guarantee of results. Online appointment booking and automatic reminders are under development (“soon”).",
+      "footnoteText": "The values shown are purely demonstrative examples to illustrate the platform’s potential. They are in no way a guarantee of results.",
       "metrics": {
         "b-faltas": {
           "title": "fewer missed appointments",
@@ -1292,7 +1292,7 @@
       "pricingDesc": "We are currently preparing competitive pricing plans tailored to healthcare professionals in Portugal. Get started for free and explore our platform.",
       "resourcesTitle": "Resources",
       "resourcesSubtitle": "Resources for healthcare professionals.",
-      "resourcesDesc": "Guides, tutorials, and documentation to help you get the most out of DocAgora. Coming soon.",
+      "resourcesDesc": "Guides, tutorials, and documentation to help you get the most out of DocAgora.",
       "aboutTitle": "About DocAgora Pro",
       "aboutSubtitle": "Our mission for healthcare professionals.",
       "aboutDesc": "DocAgora is built to simplify the daily life of healthcare professionals in Portugal. Learn more about our vision and team.",
@@ -1325,7 +1325,7 @@
       "cta": "Get started for free"
     },
     "pricingPage": {
-      "title": "Pricing (coming soon)",
+      "title": "Pricing",
       "subtitle": "We’re finalizing our pricing model to ensure it works for healthcare professionals at every scale. Get notified when it’s available.",
       "card1Title": "Transparent pricing",
       "card1Desc": "No hidden fees, no surprise charges. We’ll publish our complete pricing publicly.",
@@ -1480,7 +1480,7 @@
     "bookingRow1": "Search & compare",
     "bookingRow1Value": "Available",
     "bookingRow2": "Online booking",
-    "bookingRow2Value": "Soon",
+    "bookingRow2Value": "Available",
     "bookingCta": "Start my search",
     "availableTitle": "Always available",
     "availableDesc": "The platform stays accessible 24/7, wherever you are in Portugal.",
@@ -1489,7 +1489,7 @@
     "availableRow2": "Search",
     "availableRow2Value": "Anytime",
     "availableRow3": "Automatic reminders",
-    "availableRow3Value": "Soon"
+    "availableRow3Value": "Available"
   },
   "proVNext": {
     "hero": {

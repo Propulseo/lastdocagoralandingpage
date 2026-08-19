@@ -108,15 +108,15 @@
     "imageAlt": "Paciente em contacto com um profissional de saúde em Portugal através da DocAgora",
     "titleLead": "Encontre um médico que",
     "titleEmphasis": "fala a sua língua",
-    "subhead": "Profissionais de saúde verificados em todo Portugal, em português, francês e inglês. Pesquisa gratuita, marcação em breve.",
+    "subhead": "Profissionais de saúde verificados em todo Portugal, em português, francês e inglês. Pesquisa gratuita, marcação online.",
     "langAria": "Escolher o idioma do site"
   },
   "contactInfo": {
     "emergencyTitle": "Emergência",
     "emergencyDesc": "Em caso de emergência médica, ligue 112. A DocAgora não é um serviço de emergência.",
     "emergencyNumber": "112",
-    "bookingTitle": "Marcação em breve",
-    "bookingDesc": "Pesquise profissionais verificados gratuitamente. A marcação online está a caminho.",
+    "bookingTitle": "Marque a qualquer momento",
+    "bookingDesc": "Marque a qualquer momento a partir da sua conta de paciente. Sem telefonemas, sem esperas.",
     "bookingCta": "Começar a minha pesquisa",
     "availableTitle": "Disponível hoje",
     "platformAvailable": "Pesquisa",
@@ -124,7 +124,7 @@
     "searchBook": "Profissionais",
     "searchBookValue": "Verificados",
     "reminders": "Lembretes",
-    "remindersValue": "Em breve"
+    "remindersValue": "Automáticos"
   },
   "about": {
     "title": "Encontre o seu médico",
@@ -348,12 +348,12 @@
   },
   "process": {
     "subtitle": "Como funciona a DocAgora",
-    "title": "Encontre, compare e (em breve) marque o seu médico em poucos cliques.",
+    "title": "Encontre, compare e marque o seu médico em poucos cliques.",
     "desc": "Quer precise de um médico de família ou de um especialista, a DocAgora guia-o da pesquisa até ao profissional certo, na sua língua. Uma experiência simples, rápida e multilingue.",
     "tags": [
       "Pesquisa inteligente",
       "Profissionais verificados",
-      "Marcação em breve",
+      "Disponibilidade em tempo real",
       "Apoio multilingue",
       "Lembretes automáticos"
     ],
@@ -373,12 +373,12 @@
       "step3": {
         "number": "03",
         "title": "Escolha o seu horário",
-        "desc": "Veja a disponibilidade em tempo real, sem telefonemas (marcação em breve).",
+        "desc": "Disponibilidade em tempo real, sem telefonemas.",
         "cta": "Encontrar um profissional"
       },
       "step4": {
         "number": "04",
-        "title": "Marque num clique (em breve)",
+        "title": "Confirme num clique",
         "desc": "Quando a marcação estiver disponível, marque num clique com confirmação imediata por e-mail, sem esperas.",
         "cta": "Criar a minha conta"
       },
@@ -390,7 +390,7 @@
       }
     },
     "ctaTitle": "O seu percurso de saúde, simplificado.",
-    "ctaDesc": "Encontre o profissional certo na sua língua, gratuitamente. A marcação online está a caminho.",
+    "ctaDesc": "Encontre o profissional certo, marque na sua língua e receba lembretes automáticos. Tudo gratuitamente.",
     "ctaButton": "Criar a minha conta"
   },
   "cities": {
@@ -481,12 +481,12 @@
     "features": {
       "f1": "Pesquisa inteligente por especialidade, cidade ou idioma",
       "f2": "Profissionais verificados e aprovados",
-      "f3": "Marcação online (em breve)",
+      "f3": "Plataforma disponível 24 horas por dia",
       "f4": "Apoio multilingue (PT/FR/EN)",
       "f5": "Gratuito para todos os pacientes",
-      "f6": "Disponibilidade em tempo real (em breve)",
+      "f6": "Disponibilidade de consultas em tempo real",
       "f7": "Perfis transparentes e detalhados",
-      "f8": "Lembretes de consulta (em breve)"
+      "f8": "Lembretes automáticos de consulta"
     },
     "featuresBottom": "Acreditamos que cuidados de saúde de qualidade começam com uma experiência de marcação simples.",
     "featuresBottomCta": "Contacte-nos para mais informações"
@@ -587,12 +587,12 @@
     "features": {
       "f1": "Pesquisa inteligente por especialidade, cidade ou idioma",
       "f2": "Profissionais verificados e aprovados",
-      "f3": "Marcação online (em breve)",
+      "f3": "Plataforma disponível 24 horas por dia",
       "f4": "Apoio multilingue (PT/FR/EN)",
       "f5": "Gratuito para todos os pacientes",
-      "f6": "Disponibilidade em tempo real (em breve)",
+      "f6": "Disponibilidade de consultas em tempo real",
       "f7": "Perfis transparentes e detalhados",
-      "f8": "Lembretes de consulta (em breve)"
+      "f8": "Lembretes automáticos de consulta"
     },
     "featuresBottom": "Ambicionamos ser a plataforma de marcação de consultas mais fiável em Portugal.",
     "featuresBottomCta": "Contacte-nos para mais informações"
@@ -653,7 +653,7 @@
       },
       "q9": {
         "question": "Como contacto o suporte?",
-        "answer": "Pode contactar a nossa equipa em hello@docagora.com. Procuramos responder no prazo de 24 horas. A pesquisa de profissionais verificados é gratuita; a marcação online está a caminho."
+        "answer": "Pode contactar a nossa equipa em hello@docagora.com. Procuramos responder no prazo de 24 horas. A plataforma está disponível 24 horas por dia para pesquisa e marcação."
       },
       "q10": {
         "question": "Posso filtrar profissionais por seguro?",
@@ -871,7 +871,7 @@
         },
         "noshow": {
           "before": "Faltas inesperadas, sem qualquer aviso.",
-          "after": "Lembretes automáticos «em breve» para reduzir as faltas."
+          "after": "Lembretes automáticos para reduzir as faltas."
         },
         "visibility": {
           "before": "Novos pacientes que não o encontram online.",
@@ -883,7 +883,7 @@
       "eyebrow": "Números que falam",
       "title": "O retorno, em grande.",
       "subtitle": "Estimativas do que uma agenda organizada pode mudar no seu consultório.",
-      "footnoteText": "Os valores apresentados são exemplos meramente demonstrativos para ilustrar o potencial da plataforma. Não constituem, de forma alguma, uma garantia de resultados. A marcação de consultas online e os lembretes automáticos estão em desenvolvimento («em breve»).",
+      "footnoteText": "Os valores apresentados são exemplos meramente demonstrativos para ilustrar o potencial da plataforma. Não constituem, de forma alguma, uma garantia de resultados.",
       "metrics": {
         "b-faltas": {
           "title": "de faltas às consultas",
@@ -1292,7 +1292,7 @@
       "pricingDesc": "Estamos a preparar preços competitivos adaptados aos profissionais de saúde em Portugal. Comece gratuitamente e explore a nossa plataforma.",
       "resourcesTitle": "Recursos",
       "resourcesSubtitle": "Recursos para profissionais de saúde.",
-      "resourcesDesc": "Guias, tutoriais e documentação para tirar o máximo partido da DocAgora. Em breve.",
+      "resourcesDesc": "Guias, tutoriais e documentação para tirar o máximo partido da DocAgora.",
       "aboutTitle": "Sobre a DocAgora Pro",
       "aboutSubtitle": "A nossa missão para os profissionais de saúde.",
       "aboutDesc": "A DocAgora foi construída para simplificar o dia a dia dos profissionais de saúde em Portugal. Saiba mais sobre a nossa visão e equipa.",
@@ -1325,7 +1325,7 @@
       "cta": "Começar gratuitamente"
     },
     "pricingPage": {
-      "title": "Preços (em breve)",
+      "title": "Preços",
       "subtitle": "Estamos a finalizar o nosso modelo de preços para garantir que funciona para profissionais de saúde de todas as dimensões. Seja notificado quando estiver disponível.",
       "card1Title": "Preços transparentes",
       "card1Desc": "Sem taxas ocultas, sem surpresas. Publicaremos os nossos preços completos publicamente.",
@@ -1480,7 +1480,7 @@
     "bookingRow1": "Pesquisa e comparação",
     "bookingRow1Value": "Disponível",
     "bookingRow2": "Marcação online",
-    "bookingRow2Value": "Em breve",
+    "bookingRow2Value": "Disponível",
     "bookingCta": "Iniciar a minha pesquisa",
     "availableTitle": "Sempre disponível",
     "availableDesc": "A plataforma permanece acessível 24h/24, onde quer que esteja em Portugal.",
@@ -1489,7 +1489,7 @@
     "availableRow2": "Pesquisa",
     "availableRow2Value": "A qualquer momento",
     "availableRow3": "Lembretes automáticos",
-    "availableRow3Value": "Em breve"
+    "availableRow3Value": "Disponível"
   },
   "proVNext": {
     "hero": {

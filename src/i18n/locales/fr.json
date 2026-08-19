@@ -108,7 +108,7 @@
     "imageAlt": "Patient en contact avec un professionnel de santé au Portugal via DocAgora",
     "titleLead": "Trouvez un médecin qui",
     "titleEmphasis": "parle votre langue",
-    "subhead": "Des professionnels de santé vérifiés dans tout le Portugal, en portugais, français et anglais. Recherche gratuite, réservation bientôt disponible.",
+    "subhead": "Des professionnels de santé vérifiés dans tout le Portugal, en portugais, français et anglais. Recherche gratuite, réservation en ligne.",
     "langAria": "Choisir la langue du site"
   },
   "contactInfo": {
@@ -970,7 +970,7 @@
         },
         "noshow": {
           "before": "Rendez-vous manqués imprévus, sans prévenir.",
-          "after": "Rappels automatiques « bientôt » pour réduire les absences."
+          "after": "Rappels automatiques pour réduire les absences."
         },
         "visibility": {
           "before": "Nouveaux patients qui ne vous trouvent pas en ligne.",
@@ -982,7 +982,7 @@
       "eyebrow": "Des chiffres qui parlent",
       "title": "Le retour, en grand.",
       "subtitle": "Estimations de ce qu’un agenda organisé peut changer dans votre cabinet.",
-      "footnoteText": "Les valeurs présentées sont des exemples purement démonstratifs pour illustrer le potentiel de la plateforme. Elles ne constituent en aucun cas une garantie de résultat. La prise de rendez-vous en ligne et les rappels automatiques sont en cours de développement (« bientôt »).",
+      "footnoteText": "Les valeurs présentées sont des exemples purement démonstratifs pour illustrer le potentiel de la plateforme. Elles ne constituent en aucun cas une garantie de résultat.",
       "metrics": {
         "b-faltas": {
           "title": "de rendez-vous manqués",
@@ -1397,7 +1397,7 @@
       "pricingDesc": "Nous préparons actuellement des tarifs compétitifs adaptés aux professionnels de santé au Portugal. Commencez gratuitement et explorez notre plateforme.",
       "resourcesTitle": "Ressources",
       "resourcesSubtitle": "Ressources pour les professionnels de santé.",
-      "resourcesDesc": "Guides, tutoriels et documentation pour tirer le meilleur parti de DocAgora. Bientôt disponible.",
+      "resourcesDesc": "Guides, tutoriels et documentation pour tirer le meilleur parti de DocAgora.",
       "aboutTitle": "À propos de DocAgora Pro",
       "aboutSubtitle": "Notre mission pour les professionnels de santé.",
       "aboutDesc": "DocAgora est conçu pour simplifier le quotidien des professionnels de santé au Portugal. Découvrez notre vision et notre équipe.",
@@ -1441,7 +1441,7 @@
       "bullet3Desc": "Chaque ligne de code reflète les retours de vrais professionnels de santé."
     },
     "pricingPage": {
-      "title": "Tarifs (bientôt disponibles)",
+      "title": "Tarifs",
       "subtitle": "Nous finalisons notre modèle tarifaire pour qu’il convienne aux professionnels de santé de toutes tailles. Soyez notifié quand il sera disponible.",
       "card1Title": "Tarifs transparents",
       "card1Desc": "Pas de frais cachés, pas de surprises. Nous publierons nos tarifs complets publiquement.",
@@ -1596,7 +1596,7 @@
     "bookingRow1": "Recherche & comparaison",
     "bookingRow1Value": "Disponible",
     "bookingRow2": "Réservation en ligne",
-    "bookingRow2Value": "Bientôt",
+    "bookingRow2Value": "Disponible",
     "bookingCta": "Lancer ma recherche",
     "availableTitle": "Toujours disponible",
     "availableDesc": "La plateforme reste accessible 24h/24, où que vous soyez au Portugal.",
@@ -1605,7 +1605,7 @@
     "availableRow2": "Recherche",
     "availableRow2Value": "À tout moment",
     "availableRow3": "Rappels automatiques",
-    "availableRow3Value": "Bientôt"
+    "availableRow3Value": "Disponible"
   },
   "proVNext": {
     "hero": {
