@@ -246,14 +246,11 @@ export default function SectionRoiBento() {
           color: var(--v2-eyebrow);
           line-height: 1;
         }
-        .v2roi-eyebrow span {
-          height: 1px;
-          width: 38px;
-          background: linear-gradient(90deg, transparent, var(--v2-accent));
-        }
-        .v2roi-eyebrow span:last-child {
-          background: linear-gradient(90deg, var(--v2-accent), transparent);
-        }
+        /* Les filets décoratifs qui encadraient le surtitre ont été retirés :
+           ils n'existaient pas sur la page patient, et pas non plus de la même
+           façon d'une section pro à l'autre (2 filets ici, 1 sur Avant/Après).
+           Retour client : « Not sure you need these… are they on the patient
+           page? » */
 
         /* ── Section head ── */
         .v2roi-sechead {
@@ -398,9 +395,7 @@ export default function SectionRoiBento() {
       >
         <div className="v2roi-sechead v2roi-reveal" style={{ animationDelay: "0ms" }}>
           <span className="v2roi-eyebrow">
-            <span aria-hidden="true" />
             {t("roiBento.eyebrow")}
-            <span aria-hidden="true" />
           </span>
           <h2 className="v2roi-sectitle" id="v2roi-numbers-title">
             {t("roiBento.title")}

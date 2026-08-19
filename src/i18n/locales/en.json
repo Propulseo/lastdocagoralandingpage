@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "aria": "Loading DocAgora"
+  },
   "metadata": {
     "home": {
       "title": "DocAgora | Find your doctor in Portugal",
@@ -53,6 +56,7 @@
     "proCompact": "Portugal early access · GDPR · Portugal hosting",
     "patientVerified": "Verified professionals",
     "patientLanguages": "PT · FR · EN",
+    "langAria": "Choose the site language",
     "patientFree": "Free search",
     "patientPortugal": "Portugal",
     "patientCompact": "Verified professionals · PT FR EN · Free search"
@@ -104,7 +108,8 @@
     "imageAlt": "Patient connecting with a healthcare professional in Portugal through DocAgora",
     "titleLead": "Find a doctor who",
     "titleEmphasis": "actually speaks your language",
-    "subhead": "Verified healthcare professionals across Portugal, in Portuguese, French and English. Free search, booking coming soon."
+    "subhead": "Verified healthcare professionals across Portugal, in Portuguese, French and English. Free search, booking coming soon.",
+    "langAria": "Choose the site language"
   },
   "contactInfo": {
     "emergencyTitle": "Emergency",
@@ -132,6 +137,70 @@
     "list1": "Search by specialty, city, spoken language or accepted insurance.",
     "list2": "Every practitioner is reviewed and approved by our team before going live.",
     "list3": "Available in Portuguese, French and English. Find care in the language you prefer."
+  },
+  "aboutVisualPreview": {
+    "eyebrow": "Patient section visual preview",
+    "title": "Replace the blurred image with a real",
+    "titleEmphasis": "DocAgora signal",
+    "lede": "Three directions for the \"Find your doctor in Portugal\" section. The goal is to show the product promise without relying on generic photography.",
+    "options": {
+      "product": {
+        "eyebrow": "Option 1",
+        "title": "Search mockup + verified profiles",
+        "body": "The most conversion-focused direction: patients immediately understand they can search by specialty, city and language, then compare verified profiles."
+      },
+      "map": {
+        "eyebrow": "Option 2",
+        "title": "Portugal map + care network",
+        "body": "More editorial and location-led: it anchors DocAgora in Portugal with cities, presence points and strong trust signals."
+      },
+      "profiles": {
+        "eyebrow": "Option 3",
+        "title": "Professional profile stack",
+        "body": "More human and reassuring: the section highlights practitioner comparison, spoken languages and verified profiles."
+      }
+    },
+    "visual": {
+      "common": {
+        "verified": "Verified",
+        "free": "Free search",
+        "multilingual": "PT · FR · EN"
+      },
+      "search": {
+        "query": "Cardiologist",
+        "specialty": "Specialty",
+        "city": "Lisbon",
+        "language": "French",
+        "resultCount": "34 profiles found",
+        "profileOneName": "Dr. Maria Silva",
+        "profileOneMeta": "Cardiology · Lisbon",
+        "profileTwoName": "Dr. Andre Costa",
+        "profileTwoMeta": "General practice · Cascais",
+        "mapLabel": "Near you",
+        "slot": "Slots soon"
+      },
+      "map": {
+        "coverage": "Portugal",
+        "lisbon": "Lisbon",
+        "porto": "Porto",
+        "cascais": "Cascais",
+        "braga": "Braga",
+        "specialties": "16 specialties"
+      },
+      "profiles": {
+        "title": "Verified profiles",
+        "profileOneName": "Dr. Maria Silva",
+        "profileOneMeta": "Cardiology · Lisbon",
+        "profileTwoName": "Dr. Rui Costa",
+        "profileTwoMeta": "Dentist · Porto",
+        "profileThreeName": "Dr. Ana Fernandes",
+        "profileThreeMeta": "Pediatrics · Cascais",
+        "compare": "Compare",
+        "filterOne": "Specialty",
+        "filterTwo": "Language",
+        "filterThree": "City"
+      }
+    }
   },
   "specialties": {
     "subtitle": "Browse 16 medical specialties available on DocAgora",

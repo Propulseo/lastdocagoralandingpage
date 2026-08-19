@@ -7,16 +7,23 @@ export interface Specialty {
   flagship?: boolean;
 }
 
+/**
+ * `flagship` distingue les six specialites mises en avant sur /specialties :
+ * elles sont presentees en cartes detaillees, les dix autres defilent en
+ * bandeau. Choix fonde sur les motifs de consultation les plus courants pour un
+ * public de residents, d'expatries et de voyageurs — a ajuster des qu'on aura
+ * les statistiques de recherche reelles de la plateforme.
+ */
 export const SPECIALTIES: Specialty[] = [
   { key: "generalPractice", icon: "icon-doctor", slug: "general-practice", flagship: true },
   { key: "cardiology", icon: "icon-heart", slug: "cardiology" },
-  { key: "dermatology", icon: "icon-microscope", slug: "dermatology" },
-  { key: "pediatrics", icon: "icon-heart3", slug: "pediatrics" },
-  { key: "gynecology", icon: "icon-heart2", slug: "gynecology" },
+  { key: "dermatology", icon: "icon-microscope", slug: "dermatology", flagship: true },
+  { key: "pediatrics", icon: "icon-heart3", slug: "pediatrics", flagship: true },
+  { key: "gynecology", icon: "icon-heart2", slug: "gynecology", flagship: true },
   { key: "ophthalmology", icon: "icon-first-aid-kit", slug: "ophthalmology" },
   { key: "orthopedics", icon: "icon-bandage", slug: "orthopedics" },
-  { key: "psychology", icon: "icon-head", slug: "psychology" },
-  { key: "dentistry", icon: "icon-medicine", slug: "dentistry" },
+  { key: "psychology", icon: "icon-head", slug: "psychology", flagship: true },
+  { key: "dentistry", icon: "icon-medicine", slug: "dentistry", flagship: true },
   { key: "physiotherapy", icon: "icon-stethoscope", slug: "physiotherapy" },
   { key: "ent", icon: "icon-hospital", slug: "ent" },
   { key: "endocrinology", icon: "icon-dropper", slug: "endocrinology" },

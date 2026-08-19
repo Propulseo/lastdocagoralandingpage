@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Fragment, useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Wordmark from "./Wordmark";
+import { useAudienceWash } from "./AudienceWash";
 
 type Variant = "pro" | "patient";
 
@@ -13,7 +15,12 @@ type UtilItem = {
   text: string;
   href?: string;
   tone?: "badge" | "contact";
+  /** Rend le libellé sous forme de sélecteur de langue cliquable. */
+  langs?: boolean;
 };
+
+/* Ordre d'affichage figé (PT en tête : locale de référence du site). */
+const TOPBAR_LOCALES = ["pt", "fr", "en"] as const;
 
 const TOPBAR_H = 42; // px — hauteur de la barre utilitaire (rangée du haut)
 const NAVBAR_H = 72; // px — hauteur de la navbar (rangée du bas, sticky)
@@ -40,6 +47,11 @@ export default function HeaderV4({
   const t = useTranslations(isPro ? "navbarPro" : "navbar");
   const tt = useTranslations("topbar");
   const pathname = usePathname();
+  const locale = useLocale();
+  const router = useRouter();
+  /* Bascule Patient ⇄ Pro : le voile part du bouton cliqué. `null` hors du
+     provider — on retombe alors sur une navigation normale. */
+  const wash = useAudienceWash();
   const [open, setOpen] = useState(false);
   const [stuck, setStuck] = useState(false);
 
@@ -51,10 +63,6 @@ export default function HeaderV4({
   }, []);
 
   const homeHref = isPro ? "/pro" : "/";
-  const logoSrc = isPro
-    ? "/assets/images/logo/logo-light.png"
-    : "/assets/images/logo/logo-dark.png";
-
   const utility: UtilItem[] = isPro
     ? [
         { icon: "fas fa-bolt", text: tt("proBadge"), tone: "badge" },
@@ -69,7 +77,7 @@ export default function HeaderV4({
       ]
     : [
         { icon: "fas fa-check-circle", text: tt("patientVerified"), tone: "badge" },
-        { icon: "fas fa-language", text: tt("patientLanguages") },
+        { icon: "fas fa-language", text: tt("patientLanguages"), langs: true },
         { icon: "fas fa-search", text: tt("patientFree") },
         { icon: "fas fa-map-marker-alt", text: tt("patientPortugal") },
       ];
@@ -78,9 +86,11 @@ export default function HeaderV4({
   const nav: NavItem[] = isPro
     ? [
         { href: "/pro#solutions", label: t("solution"), active: pathname === "/pro" },
-        { href: "/pro/pricing", label: t("pricing"), soon: true, active: pathname === "/pro/pricing" },
-        { href: "/pro/resources", label: t("resources"), soon: true, active: pathname === "/pro/resources" },
-        { href: "/pro/about", label: t("about"), soon: true, active: pathname === "/pro/about" },
+        // Les trois pages existent désormais : la pastille « bientôt » annonçait
+        // le contraire de ce que le visiteur avait sous les yeux en cliquant.
+        { href: "/pro/pricing", label: t("pricing"), active: pathname === "/pro/pricing" },
+        { href: "/pro/resources", label: t("resources"), active: pathname === "/pro/resources" },
+        { href: "/pro/about", label: t("about"), active: pathname === "/pro/about" },
       ]
     : [
         { href: "/", label: t("home"), active: pathname === "/" },
@@ -193,6 +203,32 @@ export default function HeaderV4({
         .hv4-util__content > i { color: var(--color-teal); font-size: 13px; }
         .hv4-util a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
         .hv4-util a:hover { color: #fff; }
+        /* Sélecteur de langue du bandeau : les trois codes sont cliquables.
+           Même grammaire que la pastille du hero — la langue active est pleine,
+           les autres s'allument au survol, rien ne bouge.
+
+           Nom "langbtn" et non "lang" : .hv4-lang habille déjà le
+           LanguageSwitcher de la navbar, plus bas dans cette feuille, où
+           .hv4--dark .hv4-lang et .hv4--light .hv4-lang fixent une couleur.
+           À nom égal, ces deux règles — même spécificité mais postérieures —
+           écrasaient le survol et l'état actif d'ici. */
+        .hv4-langbtn {
+          font: inherit;
+          background: none;
+          border: 0;
+          padding: 2px 1px;
+          cursor: pointer;
+          color: rgba(255, 255, 255, 0.62);
+          transition: color 0.16s cubic-bezier(0.3, 0, 0.2, 1);
+        }
+        .hv4-langbtn:hover { color: #fff; }
+        .hv4-langbtn.is-active { color: #fff; cursor: default; }
+        .hv4-langbtn:focus-visible {
+          outline: 2px solid var(--color-teal);
+          outline-offset: 2px;
+          border-radius: 4px;
+        }
+        .hv4-langbtn__sep { color: rgba(255, 255, 255, 0.38); margin: 0 3px; }
         .hv4-util__item--badge .hv4-util__content {
           color: #fff;
           padding: 8px 14px;
@@ -249,8 +285,13 @@ export default function HeaderV4({
         }
         .hv4-spacer { height: ${NAVBAR_H}px; }
 
-        .hv4-brand { display: inline-flex; align-items: center; flex-shrink: 0; }
-        .hv4-brand img { height: 44px; width: auto; display: block; }
+        /* Logo texte : il peut enfin grandir (c'était l'argument de la cliente
+           pour passer du fichier image au mot composé). */
+        .hv4-brand {
+          display: inline-flex; align-items: center; flex-shrink: 0;
+          font-size: 27px; text-decoration: none;
+        }
+        @media (max-width: 980px) { .hv4-brand { font-size: 24px; } }
 
         .hv4-collapse { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex: 1; }
         .hv4-nav { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
@@ -280,12 +321,23 @@ export default function HeaderV4({
         .hv4-cta {
           display: inline-flex; align-items: center; gap: 9px; border-radius: var(--radius-pill);
           padding: 12px 22px; font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap;
-          transition: transform 0.2s ease, filter 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .hv4-cta i { font-size: 13px; }
-        .hv4-cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
-        .hv4--dark .hv4-cta { background: var(--color-teal); color: var(--color-dark-1); }
-        .hv4--light .hv4-cta { background: var(--color-navy); color: #fff; }
+        /* Survol unifié : élévation 2px + ombre. Pas de filter: brightness(),
+           qui éclaircit/assombrit AUSSI le libellé (retours client R1→R4). */
+        .hv4-cta:hover {
+          transform: translateY(-1px);
+          box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1), var(--hv4-cta-shadow);
+        }
+        .hv4--dark .hv4-cta {
+          background: var(--color-teal); color: var(--color-dark-1);
+          --hv4-cta-shadow: 0 12px 26px -12px rgba(var(--color-teal-rgb), 0.75);
+        }
+        .hv4--light .hv4-cta {
+          background: var(--color-navy); color: #fff;
+          --hv4-cta-shadow: 0 12px 26px -12px rgba(var(--color-navy-rgb), 0.55);
+        }
 
         /* ── Toggle d'audience Patient | Pro (variante patient) ── */
         .hv4-toggle {
@@ -320,17 +372,24 @@ export default function HeaderV4({
           display: inline-flex; align-items: center; gap: 8px; border-radius: var(--radius-pill);
           padding: 12px 22px; font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap;
           background: var(--color-navy); color: #fff;
-          transition: transform 0.2s ease, filter 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
         .hv4-login i { font-size: 13px; }
-        .hv4-login:hover { transform: translateY(-1px); filter: brightness(1.06); }
+        .hv4-login:hover {
+          transform: translateY(-1px);
+          box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1),
+            0 12px 26px -12px rgba(var(--color-navy-rgb), 0.5);
+        }
         /* Login sous le header pro : chip translucide (le CTA teal reste l'accent principal). */
         .hv4--dark .hv4-login {
           background: rgba(255, 255, 255, 0.08);
           color: #fff;
           border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .hv4--dark .hv4-login:hover { background: rgba(255, 255, 255, 0.14); }
+        .hv4--dark .hv4-login:hover { background: rgba(255, 255, 255, 0.14); box-shadow: none; }
+        @media (prefers-reduced-motion: reduce) {
+          .hv4-cta:hover, .hv4-login:hover { transform: none; }
+        }
 
         /* ── Burger (mobile) ── */
         .hv4-burger {
@@ -396,7 +455,31 @@ export default function HeaderV4({
               >
                 <span className="hv4-util__content">
                   <i className={u.icon} aria-hidden="true" />
-                  {u.href ? <a href={u.href}>{u.text}</a> : u.text}
+                  {u.langs ? (
+                    <span role="group" aria-label={tt("langAria")}>
+                      {TOPBAR_LOCALES.map((l, i) => (
+                        <Fragment key={l}>
+                          {i > 0 && (
+                            <span className="hv4-langbtn__sep" aria-hidden="true">
+                              &middot;
+                            </span>
+                          )}
+                          <button
+                            type="button"
+                            className={`hv4-langbtn${l === locale ? " is-active" : ""}`}
+                            onClick={() => router.replace(pathname, { locale: l })}
+                            aria-current={l === locale ? "true" : undefined}
+                          >
+                            {l.toUpperCase()}
+                          </button>
+                        </Fragment>
+                      ))}
+                    </span>
+                  ) : u.href ? (
+                    <a href={u.href}>{u.text}</a>
+                  ) : (
+                    u.text
+                  )}
                 </span>
               </li>
             ))}
@@ -407,9 +490,13 @@ export default function HeaderV4({
 
       {/* Rangée 2 — navbar */}
       <nav className={`hv4-bar${stuck ? " is-stuck" : ""}`} aria-label={t("navAria")}>
-        <Link href={homeHref} className="hv4-brand" onClick={() => setOpen(false)}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logoSrc} alt="DocAgora" />
+        <Link
+          href={homeHref}
+          className="hv4-brand"
+          onClick={() => setOpen(false)}
+          aria-label="DocAgora"
+        >
+          <Wordmark tone={isPro ? "light" : "ink"} />
         </Link>
 
         <button
@@ -443,7 +530,18 @@ export default function HeaderV4({
             {isPro && showAudienceSwitch ? (
               <>
                 <div className="hv4-toggle" role="group" aria-label={t("audienceLabel")}>
-                  <Link href="/" className="hv4-toggle__opt" onClick={() => setOpen(false)}>
+                  <Link
+                    href="/"
+                    className="hv4-toggle__opt"
+                    /* Le menu mobile est masqué : Next ne le précharge pas tout
+                       seul. On amorce nous-mêmes dès l'intention de clic. */
+                    onPointerEnter={() => router.prefetch("/")}
+                    onFocus={() => router.prefetch("/")}
+                    onClick={(e) => {
+                      setOpen(false);
+                      wash?.("/", e);
+                    }}
+                  >
                     {t("audiencePatient")}
                   </Link>
                   <span className="hv4-toggle__opt is-active" aria-current="page">
@@ -473,7 +571,17 @@ export default function HeaderV4({
                   <span className="hv4-toggle__opt is-active" aria-current="page">
                     {t("audiencePatient")}
                   </span>
-                  <Link href="/pro" className="hv4-toggle__opt" onClick={() => setOpen(false)}>
+                  <Link
+                    href="/pro"
+                    className="hv4-toggle__opt"
+                    /* Idem côté patient : on précharge dès l'intention de clic. */
+                    onPointerEnter={() => router.prefetch("/pro")}
+                    onFocus={() => router.prefetch("/pro")}
+                    onClick={(e) => {
+                      setOpen(false);
+                      wash?.("/pro", e);
+                    }}
+                  >
                     {t("audiencePro")}
                   </Link>
                 </div>

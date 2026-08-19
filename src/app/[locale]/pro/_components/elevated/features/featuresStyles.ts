@@ -51,14 +51,17 @@ export const featuresElevatedCss = `
   .hef__wrap--in .hef__stage { transition-delay: 230ms; }
 
   .hef__head { text-align: center; max-width: 60ch; margin-inline: auto; }
+  /* Surtitre « filet + capitales » (choix A) — même traitement que le hero,
+     sinon la home aurait deux langages de surtitre. Tête de section centrée
+     (.hef__head), donc filet centré. */
   .hef__eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--v2-eyebrow);
+    display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--v2-text-muted);
   }
   .hef__eyebrow-dot {
-    width: 7px; height: 7px; border-radius: 999px; background: var(--v2-accent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--v2-accent) 18%, transparent);
+    width: 46px; height: 2px; border-radius: 2px; box-shadow: none;
+    background: linear-gradient(90deg, var(--v2-accent), var(--v2-accent-2));
   }
   .hef__title {
     font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
@@ -85,8 +88,9 @@ export const featuresElevatedCss = `
   }
   .hef__tab-txt { position: relative; z-index: 1; }
   .hef__tab:hover {
-    color: var(--v2-text); background: var(--v2-surface-2);
-    border-color: color-mix(in srgb, var(--v2-accent) 40%, var(--v2-border));
+    color: var(--v2-text);
+    background: color-mix(in srgb, var(--v2-accent) 8%, var(--v2-surface));
+    border-color: color-mix(in srgb, var(--v2-accent) 55%, var(--v2-border));
     transform: translateY(-1px);
   }
   .hef__tab:focus-visible { outline: 2px solid var(--v2-accent); outline-offset: 3px; }

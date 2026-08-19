@@ -131,9 +131,10 @@
 }
 .vnp-btn--primary:hover {
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   gap: 13px;
-  box-shadow: 0 20px 40px -12px rgba(var(--color-mint-rgb), 0.85);
+  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1),
+    0 20px 40px -12px rgba(var(--color-mint-rgb), 0.85);
 }
 .vnp-btn--primary:active { transform: translateY(0); }
 .vnp-btn--ghost {
@@ -141,11 +142,13 @@
   background: rgba(255, 255, 255, 0.7);
   border-color: var(--vnp-line);
 }
+/* Bouton contour : bordure teintée accent au survol (même grammaire que le
+   ghost pro et les onglets), texte inchangé. */
 .vnp-btn--ghost:hover {
   color: var(--vnp-ink);
-  transform: translateY(-2px);
-  border-color: rgba(var(--color-navy-rgb), 0.28);
-  background: #fff;
+  transform: translateY(-1px);
+  border-color: rgba(var(--color-teal-rgb), 0.55);
+  background: rgba(var(--color-teal-rgb), 0.07);
 }
 .vnp-section--ink .vnp-btn--ghost {
   color: #fff;
@@ -164,8 +167,11 @@
   text-decoration: none;
   transition: gap 0.2s var(--vnp-ease), color 0.2s var(--vnp-ease);
 }
-.vnp-link:hover { color: var(--vnp-ink); gap: 12px; }
+/* Survol : on reste dans la famille verte (teal → teal foncé). Passer à l'encre
+   navy assombrissait le libellé et cassait la lecture (retour client R1/R4). */
+.vnp-link:hover { color: var(--color-teal-ink); gap: 12px; }
 .vnp-link i, .vnp-link svg { transition: transform 0.2s var(--vnp-ease); }
+.vnp-link:hover i, .vnp-link:hover svg { transform: translateX(3px); }
 
 /* ── Card system (one radius, navy-tinted elevation) ── */
 .vnp-card {

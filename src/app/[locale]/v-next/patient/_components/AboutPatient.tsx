@@ -19,11 +19,13 @@ export default function AboutPatient() {
         .vnab__media { position: relative; }
         .vnab__media img {
           display: block; width: 100%; height: clamp(380px, 46vw, 540px);
-          object-fit: cover; border-radius: 32px 32px 32px 96px;
+          object-fit: cover; border-radius: 32px;
           box-shadow: var(--shadow-lg);
         }
+        /* Débord symétrique gauche/droite : la carte débordait de 18px à gauche
+           et venait butter contre le bord droit de l'image (retour client). */
         .vnab__badge {
-          position: absolute; left: -18px; bottom: 34px;
+          position: absolute; left: -18px; right: -18px; bottom: 34px;
           display: flex; align-items: center; gap: 13px;
           padding: 16px 20px; border-radius: 20px;
           background: rgba(255,255,255,0.92); border: 1px solid var(--vnp-line);
@@ -48,7 +50,10 @@ export default function AboutPatient() {
         .vnab__cta { margin-top: 28px; }
         @media (max-width: 880px) {
           .vnab__grid { grid-template-columns: 1fr; gap: 36px; }
-          .vnab__media img { height: clamp(280px, 60vw, 420px); border-radius: 24px 24px 24px 64px; }
+          .vnab__media img { height: clamp(280px, 60vw, 420px); border-radius: 24px; }
+          /* Sur mobile, pas de débord : la carte s'aligne sur l'image pour ne
+             pas toucher le bord de l'écran. */
+          .vnab__badge { left: 0; right: 0; }
         }
       `}</style>
       <div className="vnp-shell">
@@ -83,7 +88,7 @@ export default function AboutPatient() {
                 ))}
               </ul>
               <div className="vnab__cta">
-                <a className="vnp-link" href="#vnp-hero">
+                <a className="vnp-btn vnp-btn--primary" href="#vnp-hero">
                   {t("findProfessional")}
                   <i className="fas fa-arrow-right" aria-hidden="true" />
                 </a>

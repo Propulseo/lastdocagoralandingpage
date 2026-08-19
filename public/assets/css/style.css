@@ -3762,12 +3762,12 @@ input[type=radio] {
   font-size: 18px;
   border-radius: 50%;
   color: #ffffff;
-  background-color: #21cdc0;
+  background-color: #244882;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 #scrollTopBtn:hover {
-  background-color: #222222;
+  background-color: #1a3660;
 }
 #scrollTopBtn.actived {
   right: 30px;

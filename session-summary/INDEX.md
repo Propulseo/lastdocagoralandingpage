@@ -1,3 +1,4 @@
+[2026-07-07 13:20] about-visual-previews — Ajout d'une route preview pour remplacer l'image floue de la section patient avec 3 directions : mockup recherche, carte Portugal, profils vérifiés ; build OK → [voir details](./2026-07-07-1320-about-visual-previews.md)
 [2026-07-07 12:30] header-topbars — Refonte des deux sur-headers DocAgora : Patient (professionnels vérifiés, langues, recherche gratuite) + Pro (early access, RGPD, hébergement Portugal, contact direct), répartition pleine largeur, build OK → [voir details](./2026-07-07-1230-header-topbars.md)
 [2026-07-07 12:00] scroll-reveal-wow — Animations premium au scroll sur LP patient/pro principales et previews, build OK → [voir details](./2026-07-07-1200-scroll-reveal-wow.md)
 [2026-06-04 20:34] pro-vnext-next-sites — Deux directions comparables LP Pro v-next : route Next intégrée `/v-next/pro` + prototype Sites autonome vinext, validations ciblées OK → [voir détails](./2026-06-04-2034-pro-vnext-next-sites.md)

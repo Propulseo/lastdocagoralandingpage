@@ -24,7 +24,9 @@ export type HeroMetric = {
   label: string;
 };
 
-function useCountUp(
+/** Exporté pour la barre de métriques de /pro/about, qui a le même besoin :
+ *  un seul compteur pour tout le site plutôt qu'une deuxième implémentation. */
+export function useCountUp(
   to: number,
   decimals: number,
   start: boolean,

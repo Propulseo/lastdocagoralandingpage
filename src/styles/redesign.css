@@ -771,17 +771,17 @@
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-md);
   text-decoration: none;
-  transition: filter 0.25s var(--ease-out-soft),
-    gap 0.25s var(--ease-out-soft),
+  transition: gap 0.25s var(--ease-out-soft),
     box-shadow 0.25s var(--ease-out-soft),
     transform 0.25s var(--ease-out-soft);
 }
+/* Survol : élévation + ombre uniquement (pas de brightness, qui éclaircissait
+   aussi le libellé — retours client R1→R4). */
 .da-final__cta:hover {
   color: #ffffff;
   gap: var(--spacing-sm);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  filter: brightness(1.06);
+  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1), var(--shadow-lg);
+  transform: translateY(-1px);
 }
 .da-final__cta-arrow {
   transition: transform 0.25s var(--ease-out-soft);

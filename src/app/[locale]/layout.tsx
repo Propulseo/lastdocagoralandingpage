@@ -12,7 +12,8 @@ import { setRequestLocale } from "next-intl/server";
 import { locales } from "@/i18n/config";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import JQueryLoader from "@/lib/jquery-loader";
-import Preloader from "@/components/shared/Preloader";
+import SiteLoader from "@/components/shared/SiteLoader";
+import { AudienceWashProvider } from "@/components/layout/AudienceWash";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -68,14 +69,32 @@ export default async function LocaleLayout({
         <link rel="stylesheet" href="/assets/css/libraries.css" />
         <link rel="stylesheet" href="/assets/css/style.css" />
         <style>{`* { -webkit-user-select: text !important; -moz-user-select: text !important; user-select: text !important; } html, body { overscroll-behavior: none; }`}</style>
+        {/* L'écran d'ouverture est dans le HTML servi, sinon il apparaîtrait
+            APRÈS la page. Mais il ne doit se montrer qu'une fois par session :
+            sans ce marqueur posé avant la première peinture, un rechargement
+            en cours de visite ferait clignoter le voile le temps que React
+            lise sessionStorage. Trois lignes, exécutées avant le rendu.
+
+            Le script est une chaîne LITTÉRALE, sans interpolation : aucune
+            donnée extérieure n'y entre, et il ne faut jamais y en faire
+            entrer. */}
+        <style>{`html.doca-seen .sl { display: none; }`}</style>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('doca-loaded')==='1')document.documentElement.classList.add('doca-seen')}catch(e){}",
+          }}
+        />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="wrapper" style={{ overflowX: "clip" }}>
-            <Preloader />
-            {children}
-            <ScrollToTop />
-          </div>
+          <AudienceWashProvider>
+            <div className="wrapper" style={{ overflowX: "clip" }}>
+              <SiteLoader />
+              {children}
+              <ScrollToTop />
+            </div>
+          </AudienceWashProvider>
           <JQueryLoader />
         </NextIntlClientProvider>
       </body>

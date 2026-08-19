@@ -132,9 +132,18 @@ export default function AccessBlock() {
           font-weight: 700;
           font-size: 14px;
           text-decoration: none;
-          transition: transform 0.2s ease, filter 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .acc-cta:hover { transform: translateY(-1px); filter: brightness(0.97); }
+        /* Le bouton blanc s'élève ; il s'assombrissait (brightness .97) alors
+           que tous les autres CTA s'éclaircissent — retour client R3. */
+        /* Bouton BLANC : « s'éclaircir » n'est pas possible, le voile est donc
+           un gris très léger — il ne touche que le fond, jamais le libellé. */
+        .acc-cta:hover {
+          color: #1E6E68;
+          transform: translateY(-1px);
+          box-shadow: inset 0 0 0 999px rgba(12, 18, 30, 0.05),
+            0 12px 26px -12px rgba(0, 0, 0, 0.45);
+        }
         .acc-cta i { font-size: 12px; }
 
         @media (max-width: 860px) {

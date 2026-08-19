@@ -119,14 +119,15 @@ export default function SectionAvantApres() {
           color: var(--v2-eyebrow);
           line-height: 1;
         }
-        .v2aa-eyebrow span {
-          height: 1px;
-          width: 38px;
-          background: linear-gradient(90deg, transparent, var(--v2-accent));
-        }
+        /* Filet décoratif retiré — voir SectionRoiBento : le device n'existait
+           pas sur la page patient et variait d'une section pro à l'autre. */
 
         /* ── Section head ── */
-        .v2aa-sechead { max-width: 640px; margin-bottom: var(--spacing-xl, 48px); }
+        /* Largeur calée sur la langue la PLUS LONGUE (PT, 35 caractères), pas
+           sur l'anglais : à 44px le titre y fait ~755px. En dessous, le PT
+           passait à la ligne alors que l'EN tenait — le rendu n'était pas le
+           même selon la langue. */
+        .v2aa-sechead { max-width: 860px; margin-bottom: var(--spacing-xl, 48px); }
         .v2aa-sectitle {
           font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
           font-weight: 600;
@@ -136,12 +137,19 @@ export default function SectionAvantApres() {
           color: var(--v2-text);
           margin: var(--spacing-sm, 16px) 0 0;
           text-transform: none;
+          /* Équilibre les deux lignes au lieu de laisser un mot orphelin
+             (« differently. » seul) — marche dans les 3 langues, contrairement
+             à une césure en dur. Retour client, capture 3. */
+          text-wrap: balance;
         }
         .v2aa-secsub {
           font-size: 16px;
           line-height: 1.6;
           color: var(--v2-text-muted);
           margin: var(--spacing-sm, 16px) 0 0;
+          /* Le bloc s'élargit pour le titre, pas pour le texte courant :
+             le sous-titre garde une longueur de ligne lisible. */
+          max-width: 60ch;
         }
 
         /* ── AVANT / APRES ── */
@@ -167,8 +175,14 @@ export default function SectionAvantApres() {
           transform: translateY(-2px);
           box-shadow: var(--v2-shadow-lg, var(--v2-shadow));
         }
+        /* Colonne « avant » : volontairement plus terne que « après », mais
+           lisible. Elle était à 0.92 d'opacité AVEC du texte à 50 % de blanc,
+           ce qui tombait sous le seuil de lecture confortable (retour client :
+           « the left hand side is difficult to read »). Le contraste avec la
+           colonne de droite est désormais porté par le teal, pas par la
+           pénombre. */
         .v2aa-col--antes {
-          opacity: 0.92;
+          opacity: 0.96;
         }
         .v2aa-col--depois {
           border-color: var(--color-teal, var(--v2-accent));
@@ -223,7 +237,7 @@ export default function SectionAvantApres() {
           text-transform: none;
           line-height: 1.1;
         }
-        .v2aa-col--antes .v2aa-col__title { color: var(--v2-text-muted); }
+        .v2aa-col--antes .v2aa-col__title { color: color-mix(in srgb, var(--v2-text) 82%, transparent); }
         .v2aa-col--depois .v2aa-col__title { color: var(--v2-text); }
         .v2aa-col__list {
           position: relative;
@@ -249,13 +263,16 @@ export default function SectionAvantApres() {
           place-items: center;
           margin-top: 1px;
         }
-        .v2aa-col--antes .v2aa-col__item { color: var(--v2-text-muted); }
+        .v2aa-col--antes .v2aa-col__item { color: color-mix(in srgb, var(--v2-text) 78%, transparent); }
         .v2aa-col--antes .v2aa-col__ico {
           background: var(--v2-surface-2);
-          color: var(--v2-text-muted);
+          color: color-mix(in srgb, var(--v2-text) 78%, transparent);
         }
+        /* La colonne « après » doit rester la plus lumineuse des deux : le token
+           de corps de texte vaut 72 %, soit MOINS que les 78 % de la colonne
+           « avant ». Sans ce relèvement, la hiérarchie avant/après s'inverse. */
         .v2aa-col--depois .v2aa-col__item {
-          color: var(--v2-text-body);
+          color: color-mix(in srgb, var(--v2-text) 92%, transparent);
           font-weight: 500;
         }
         .v2aa-col--depois .v2aa-col__ico {
@@ -319,7 +336,6 @@ export default function SectionAvantApres() {
       >
         <div className="v2aa-sechead v2aa-reveal" style={{ animationDelay: "0ms" }}>
           <span className="v2aa-eyebrow">
-            <span aria-hidden="true" />
             {t("avantApres.eyebrow")}
           </span>
           <h2 className="v2aa-sectitle" id="v2aa-compare-title">

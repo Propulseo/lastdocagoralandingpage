@@ -122,7 +122,13 @@ a {
   color: var(--color-link);
 }
 
-a:hover {
+/* Survol des liens — SAUF les boutons. Un bouton porte sa propre couleur de
+   texte via une classe (spécificité 0,1,0), alors que `a:hover` vaut 0,1,1 :
+   la règle globale gagnait et repeignait le libellé en cobalt au survol
+   (« le texte devient bleu/foncé » des retours client). Le `:where()` est
+   volontaire : il exclut les boutons SANS changer la spécificité, donc aucun
+   survol de lien existant n'est modifié. */
+a:hover:where(:not([class*="btn"], [class*="cta"])) {
   color: var(--color-link-hover);
 }
 

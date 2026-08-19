@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import BlogGrid from "@/components/blog/BlogGrid";
-import Gallery from "@/components/shared/Gallery";
+
+import "@/styles/medically.css";
+import "@/styles/medically-overrides.css";
+
+import BlogHero from "@/components/patient-heroes/BlogHero";
+import PatientClosingCta from "@/components/patient-heroes/PatientClosingCta";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import MedBlogList from "@/app/[locale]/(patient)/blog/_medically/MedBlogList";
+import { getCategories, searchBlogPosts } from "@/lib/blog";
+import { getBlogStrings } from "@/lib/blogStrings";
 
 export async function generateMetadata({
   params,
@@ -28,45 +35,68 @@ export async function generateMetadata({
   };
 }
 
+/**
+ * Portage de main-component/BlogPageLeft/BlogPageLeft.jsx.
+ *
+ * Sequence du template : bandeau de titre, puis la liste d'articles avec sa
+ * sidebar placee a GAUCHE (`order-lg-1` / `order-lg-2`). Le Navbar et le Footer
+ * du template sont ecartes : le landing fournit les siens via le layout patient.
+ *
+ * La classe `.med` est indispensable — `medically.css` est generee avec chaque
+ * selecteur prefixe par elle.
+ */
 export default async function BlogPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string | string[] }>;
 }) {
   const { locale } = await params;
+  const { q: qRaw } = await searchParams;
+  // ?q=a&q=b -> Next fournit un tableau ; on ne garde que la première valeur
+  // pour ne pas casser query.trim() plus bas.
+  const q = Array.isArray(qRaw) ? qRaw[0] : qRaw;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "blogPage" });
+  const t = getBlogStrings(locale);
+
+  // La « une » du masthead et la liste doivent parler du MÊME jeu filtré :
+  // on résout les articles ici, et la liste reprend au deuxième.
+  const posts = searchBlogPosts(locale, q ?? "");
 
   return (
-    <>
-      <section className="page-title page-title-layout5 bg-overlay">
-        <div className="bg-img">
-          <img src="/assets/images/page-titles/8.jpg" alt="" />
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h1 className="pagetitle__heading">{t("pageTitle")}</h1>
-              <nav>
-                <ol className="breadcrumb mb-0">
-                  <li className="breadcrumb-item">
-                    <a href={`/${locale}`}>{t("breadcrumbHome")}</a>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    {t("breadcrumbBlog")}
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="pat-aurora">
+      <BlogHero
+        title={t.pageTitle}
+        subtitle={t.heroSubtitle}
+        homeLabel={t.homeLabel}
+        crumb={t.crumb}
+        locale={locale}
+        categories={getCategories(locale)}
+        activeCategory={q}
+        allCategoriesLabel={t.allCategories}
+        featured={posts[0]}
+        featuredLabel={t.featuredLabel}
+        readMore={t.readMore}
+      />
+      <div className="med">
+        <MedBlogList
+          blLeft="order-lg-1"
+          blRight="order-lg-2"
+          locale={locale}
+          query={q}
+          featuredInHero
+        />
+      </div>
+      {/* La page se terminait sur la pagination inactive, sans appel à l'action. */}
       <AnimatedSection>
-        <BlogGrid />
+        <PatientClosingCta
+          eyebrow={t.closing.eyebrow}
+          title={t.closing.title}
+          sub={t.closing.sub}
+          cta={t.closing.cta}
+        />
       </AnimatedSection>
-      <AnimatedSection>
-        <Gallery />
-      </AnimatedSection>
-    </>
+    </div>
   );
 }

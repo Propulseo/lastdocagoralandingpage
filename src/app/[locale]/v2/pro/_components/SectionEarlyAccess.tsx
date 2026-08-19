@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 
 import { useRevealInView } from "@/components/shared/useRevealInView";
+import Wordmark from "@/components/layout/Wordmark";
 
 /* ============================================================
    SectionEarlyAccess, V2 PRO « Billet Early Access »
@@ -60,31 +61,10 @@ export default function SectionEarlyAccess() {
           padding-inline: clamp(var(--spacing-sm), 4vw, var(--spacing-md));
         }
 
-        /* ── Eyebrow ── */
-        .v2ea-eyebrow {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: var(--spacing-xs);
-          margin-bottom: var(--spacing-md);
-          font-family: var(--v2ea-mono);
-          font-size: var(--fs-xs);
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: var(--v2-eyebrow);
-          opacity: 0;
-        }
-        .v2ea-play .v2ea-eyebrow {
-          animation: v2ea-fade 0.7s ease forwards 0.05s;
-        }
-        .v2ea-eyebrow span {
-          height: 1px;
-          width: 46px;
-          background: linear-gradient(90deg, transparent, var(--v2-accent));
-        }
-        .v2ea-eyebrow span:last-child {
-          background: linear-gradient(90deg, var(--v2-accent), transparent);
-        }
+        /* Surtitre de section retiré : il annonçait « EARLY ACCESS · PORTUGAL »
+           juste au-dessus d'une souche qui dit déjà « EARLY ACCESS » et d'une
+           route qui dit déjà « DocAgora → Portugal ». Trois fois la même
+           information avant la première ligne utile. */
 
         /* ── Ticket ── */
         .v2ea-ticket {
@@ -118,11 +98,12 @@ export default function SectionEarlyAccess() {
           color: var(--color-light-1);
           overflow: hidden;
         }
+        /* Le logo de la souche est désormais le MÊME composant que celui du
+           header et du footer (retour client : « Not your logo, need to make
+           sure this is consistent across all assets »). Monochrome ici, la
+           souche étant déjà très colorée. */
         .v2ea-stubmark {
-          font-family: var(--font-fraunces), Georgia, serif;
           font-size: var(--fs-base);
-          font-weight: var(--fw-semibold);
-          letter-spacing: 0.02em;
           color: var(--v2-accent);
         }
         .v2ea-vert {
@@ -136,24 +117,9 @@ export default function SectionEarlyAccess() {
           color: var(--color-light-1);
           padding: var(--spacing-xs) 0;
         }
-        .v2ea-barcode {
-          width: 100%;
-          height: 56px;
-          border-radius: var(--radius-sm);
-          background-image: repeating-linear-gradient(
-            90deg,
-            var(--color-light-1) 0 2px,
-            transparent 2px 4px,
-            var(--color-light-1) 4px 9px,
-            transparent 9px 12px,
-            var(--color-light-1) 12px 13px,
-            transparent 13px 17px,
-            var(--color-light-1) 17px 22px,
-            transparent 22px 24px
-          );
-          background-size: 24px 100%;
-          opacity: 0.9;
-        }
+        /* Code-barres retiré : la souche portait DEUX signaux « objet de
+           collection » (code-barres + numéro de série) pour la même idée. On
+           garde le numéro, qui dit quelque chose de vrai. */
         .v2ea-stubid {
           font-family: var(--v2ea-mono);
           font-size: 10px;
@@ -222,50 +188,62 @@ export default function SectionEarlyAccess() {
           max-width: 56ch;
         }
 
+        /* ── LES TROIS AVANTAGES — « deux voix » (direction validée 2026-07-28)
+           ------------------------------------------------------------------
+           Le billet reste le CADRE, mais son contenu quitte la voix mono
+           majuscules qu'il partageait avec le décor (souche, n° de série,
+           siège). Deux voix distinctes au lieu d'une : l'ornement reste en
+           mono, l'information redevient du texte à lire.
+
+           C'est la cause du retour client « these look same size or smaller
+           than the small print above » — ce n'était pas un problème de taille
+           mais de voix : rien ne distinguait l'information du décor.
+           Effet de bord bienvenu : hors du mono à fort interlettrage, le
+           libellé FR (38 caractères contre 29 en EN) tient sans forcer. */
         .v2ea-fields {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 0;
-          border-top: 1px dashed var(--v2-border);
-          border-bottom: 1px dashed var(--v2-border);
+          gap: var(--spacing-lg, 26px);
           margin-bottom: var(--spacing-md);
         }
         .v2ea-field {
-          padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 0;
           opacity: 0;
         }
         .v2ea-play .v2ea-field {
           animation: v2ea-rise 0.6s ease forwards;
         }
-        .v2ea-field:not(:last-child) {
-          border-right: 1px dashed var(--v2-border);
-          padding-right: var(--spacing-md);
-        }
-        .v2ea-field:not(:first-child) { padding-left: var(--spacing-md); }
         .v2ea-play .v2ea-field:nth-child(1) { animation-delay: 0.5s; }
         .v2ea-play .v2ea-field:nth-child(2) { animation-delay: 0.62s; }
         .v2ea-play .v2ea-field:nth-child(3) { animation-delay: 0.74s; }
-        .v2ea-fcode {
-          font-family: var(--v2ea-mono);
-          font-size: var(--fs-xs);
-          color: var(--v2-accent-text);
-          letter-spacing: 0.1em;
-        }
         .v2ea-flabel {
-          margin: var(--spacing-xs) 0 calc(var(--spacing-xs) - 1px);
-          font-family: var(--v2ea-mono);
-          font-size: var(--fs-xs);
+          display: flex;
+          align-items: baseline;
+          gap: 9px;
+          margin: 0 0 6px;
+          font-family: inherit;
+          font-size: 17px;
           font-weight: var(--fw-bold);
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
+          letter-spacing: -0.005em;
           color: var(--v2-text);
           line-height: 1.3;
         }
+        /* Filet teal en repère, à la place du numéro 01/02/03 : il marque
+           l'entrée de liste sans promettre un ordre qui n'existe pas. */
+        .v2ea-flabel::before {
+          content: "";
+          flex: none;
+          width: 14px;
+          height: 2px;
+          border-radius: 2px;
+          background: var(--v2-accent);
+          transform: translateY(-4px);
+        }
         .v2ea-fdesc {
           margin: 0;
-          font-size: var(--fs-sm);
+          padding-left: 23px;
+          font-size: 15px;
           line-height: 1.55;
-          color: var(--v2-text-muted);
+          color: var(--v2-text-body);
         }
 
         .v2ea-foot {
@@ -304,11 +282,14 @@ export default function SectionEarlyAccess() {
             gap 0.25s var(--ease-out-soft, ease);
           overflow: hidden;
         }
+        /* Survol : élévation + ombre, le fond RESTE teal. Il basculait en
+           cobalt (--v2-accent-2) alors que le libellé garde l'encre sombre :
+           contraste ~4,2:1, sous le seuil AA (retour client R2/R4). */
         .v2ea-cta:hover {
-          transform: translateY(-2px);
+          color: var(--v2-accent-ink);
+          transform: translateY(-1px);
           gap: var(--spacing-sm);
-          box-shadow: var(--v2-shadow-lg);
-          background: var(--v2-accent-2);
+          box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.12), var(--v2-shadow-lg);
         }
         .v2ea-cta:focus-visible {
           outline: 3px solid var(--v2-accent);
@@ -350,7 +331,6 @@ export default function SectionEarlyAccess() {
             letter-spacing: 0.3em;
             font-size: var(--fs-sm);
           }
-          .v2ea-barcode { width: 120px; height: 40px; flex: 0 0 auto; }
           .v2ea-perf {
             background-image: linear-gradient(90deg, var(--v2-border) 50%, transparent 50%);
             background-size: 12px 2px;
@@ -365,15 +345,11 @@ export default function SectionEarlyAccess() {
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
           }
           .v2ea-title { font-size: 27px; }
-          .v2ea-fields { grid-template-columns: 1fr; }
-          .v2ea-field {
-            padding: var(--spacing-sm) 0;
-            border-right: none !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
-          .v2ea-field:not(:last-child) {
-            border-bottom: 1px dashed var(--v2-border);
+          /* Une colonne : l'écart de grille suffit à séparer les trois blocs,
+             plus besoin des filets pointillés d'origine. */
+          .v2ea-fields {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md, 22px);
           }
           .v2ea-foot { flex-direction: column; align-items: stretch; }
           .v2ea-cta { justify-content: center; }
@@ -381,7 +357,6 @@ export default function SectionEarlyAccess() {
 
         /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
-          .v2ea-eyebrow,
           .v2ea-ticket,
           .v2ea-field {
             animation: none !important;
@@ -395,18 +370,13 @@ export default function SectionEarlyAccess() {
         className={`v2ea-shell${revealed ? " v2ea-play" : ""}`}
         ref={ref}
       >
-        <p className="v2ea-eyebrow">
-          <span aria-hidden="true" />
-          EARLY ACCESS · PORTUGAL
-          <span aria-hidden="true" />
-        </p>
-
         <article className="v2ea-ticket">
           {/* ── LEFT STUB ── */}
           <div className="v2ea-stub">
-            <span className="v2ea-stubmark">DocAgora</span>
+            <span className="v2ea-stubmark">
+              <Wordmark tone="accent" />
+            </span>
             <span className="v2ea-vert">EARLY ACCESS</span>
-            <div className="v2ea-barcode" aria-hidden="true" />
             <span className="v2ea-stubid">N° EA-2026</span>
           </div>
 
@@ -443,7 +413,6 @@ export default function SectionEarlyAccess() {
             <div className="v2ea-fields">
               {EA_FIELD_CODES.map((code) => (
                 <div key={code} className="v2ea-field">
-                  <span className="v2ea-fcode">{code}</span>
                   <p className="v2ea-flabel">
                     {t(`earlyAccess.fields.${code}.title`)}
                   </p>

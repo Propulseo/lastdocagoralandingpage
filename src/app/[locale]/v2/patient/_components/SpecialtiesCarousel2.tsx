@@ -322,10 +322,15 @@ export default function SpecialtiesCarousel2() {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* color est re-déclaré ici exprès : les deux règles globales a:hover
+           (style.css du template + tokens.css) pèsent plus lourd qu'une classe
+           seule et repeignaient le libellé en bleu. */
         .vsc2-cta:hover,
         .vsc2-cta:focus-visible {
-          transform: translateY(-3px);
-          box-shadow: 0 20px 40px -14px rgba(var(--color-teal-rgb), 0.85);
+          color: #ffffff;
+          transform: translateY(-1px);
+          box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1),
+            0 20px 40px -14px rgba(var(--color-teal-rgb), 0.85);
         }
 
         .vsc2-cta:focus-visible {

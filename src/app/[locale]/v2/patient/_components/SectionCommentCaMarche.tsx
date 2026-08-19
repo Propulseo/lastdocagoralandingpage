@@ -31,7 +31,6 @@ export default function SectionCommentCaMarche() {
   const [active, setActive] = useState<StepId>("search");
   const [paused, setPaused] = useState(false);
   const [scrub, setScrub] = useState(false);
-  const [barP, setBarP] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const { ref, revealed } = useRevealInView<HTMLDivElement>();
 
@@ -70,7 +69,6 @@ export default function SectionCommentCaMarche() {
         const p = Math.min(Math.max(-rect.top / total, 0), 1);
         const idx = Math.min(STEPS.length - 1, Math.floor(p * STEPS.length));
         setActive(STEPS[idx].id);
-        setBarP(Math.min(Math.max(p * STEPS.length - idx, 0), 1));
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -274,17 +272,6 @@ export default function SectionCommentCaMarche() {
           line-height: 1.55;
           color: var(--text-muted);
         }
-        .vphw-step-bar {
-          position: absolute;
-          left: 0; bottom: 0;
-          height: 3px;
-          width: 0;
-          border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-          background: linear-gradient(90deg, var(--color-cobalt), var(--color-teal));
-        }
-        .vphw-step.is-active .vphw-step-bar { animation: vphw-progress var(--vphw-ms, 4200ms) linear forwards; }
-        /* Scrub : la barre suit le scroll (width inline), pas l'horloge. */
-        .vphw-section.is-scrub .vphw-step.is-active .vphw-step-bar { animation: none; }
         .vphw-section.is-scrub .vphw-step { cursor: default; }
 
         /* ── Pin (scrollytelling) : la piste donne la distance de scroll ; le
@@ -626,7 +613,6 @@ export default function SectionCommentCaMarche() {
 
         @keyframes vphw-reveal { to { opacity: 1; transform: translateY(0); } }
         @keyframes vphw-enter { from { opacity: 0; transform: translateY(10px) scale(0.99); } to { opacity: 1; transform: none; } }
-        @keyframes vphw-progress { from { width: 0; } to { width: 100%; } }
         @keyframes vphw-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 
         /* ── Responsive ── */
@@ -643,7 +629,7 @@ export default function SectionCommentCaMarche() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .vphw-reveal, .vphw-panel, .vphw-step-bar, .vphw-caret, .vphw-section *,
+          .vphw-reveal, .vphw-panel, .vphw-caret, .vphw-section *,
           .vphw-step-badge, .vphw-step {
             opacity: 1 !important;
             transform: none !important;
@@ -684,18 +670,12 @@ export default function SectionCommentCaMarche() {
                     onClick={() => setActive(step.id)}
                     onMouseEnter={scrub ? undefined : () => setActive(step.id)}
                     onFocus={scrub ? undefined : () => setActive(step.id)}
-                    style={{ ["--vphw-ms" as string]: `${AUTOPLAY_MS}ms` }}
                   >
                     <span className="vphw-step-badge" aria-hidden="true">{step.num}</span>
                     <span className="vphw-step-copy">
                       <span className="vphw-step-title">{title}</span>
                       <span className="vphw-step-desc">{t(`steps.${step.id}.desc`)}</span>
                     </span>
-                    <span
-                      className="vphw-step-bar"
-                      aria-hidden="true"
-                      style={scrub && isActive ? { width: `${barP * 100}%` } : undefined}
-                    />
                   </button>
                 </li>
               );

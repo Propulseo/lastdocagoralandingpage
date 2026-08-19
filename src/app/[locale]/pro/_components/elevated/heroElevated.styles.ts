@@ -16,7 +16,10 @@ export const heroElevatedCss = `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-block: clamp(10px, 1.6vh, 22px);
+    /* Plus d'air sous le header, des DEUX côtés de la grille (surtitre à
+       gauche, panneau Dashboard à droite) — c'est le trait du haut de la
+       capture client. Repris sur le bas pour ne pas allonger le hero. */
+    padding-block: clamp(18px, 2.6vh, 34px) clamp(8px, 1.2vh, 16px);
     font-family: var(--font-montserrat), "Montserrat", sans-serif;
     color: var(--v2-text-body);
     line-height: 1.5;
@@ -49,27 +52,34 @@ export const heroElevatedCss = `
     animation: hepro-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
+  /* Surtitre « filet + capitales » (choix A, 2026-07-30). La pilule à pastille
+     qui était ici est le motif le plus reconnaissable du design générique ; on
+     la remplace par un court filet teal→cobalt posé au-dessus d'un libellé en
+     gris clair. Même traitement sur les trois sous-pages pro, pour que le site
+     n'ait qu'un seul langage de surtitre. Balisage inchangé : l'ex-pastille
+     (.hepro__eyebrow-dot) devient le filet. */
   .hepro__eyebrow {
     display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-size: clamp(12px, 0.95vw, 13px);
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    font-size: clamp(12px, 0.95vw, 12.5px);
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--v2-eyebrow);
-    padding: 8px 15px;
-    border-radius: 999px;
-    background: var(--v2-surface);
-    border: 1px solid var(--v2-border);
+    color: var(--v2-text-muted);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
     line-height: 1;
   }
   .hepro__eyebrow-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--v2-accent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--v2-accent) 18%, transparent);
+    width: 46px;
+    height: 2px;
+    border-radius: 2px;
+    box-shadow: none;
+    background: linear-gradient(90deg, var(--v2-accent), var(--v2-accent-2));
   }
   .hepro__title {
     font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
@@ -77,7 +87,7 @@ export const heroElevatedCss = `
     font-size: clamp(31px, 3.9vw, 50px);
     line-height: 1.03;
     letter-spacing: -0.02em;
-    margin: clamp(9px, 1.1vh, 15px) 0 0;
+    margin: clamp(16px, 2vh, 24px) 0 0;
     max-width: 18ch;
     color: var(--v2-text);
   }
@@ -85,7 +95,7 @@ export const heroElevatedCss = `
   .hepro__lead {
     font-size: clamp(16px, 1.45vw, 19px);
     line-height: 1.5;
-    margin: clamp(8px, 1.1vh, 13px) 0 0;
+    margin: clamp(14px, 1.8vh, 20px) 0 0;
     max-width: 46ch;
     color: var(--v2-text-body);
   }
@@ -93,7 +103,7 @@ export const heroElevatedCss = `
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: clamp(12px, 1.7vh, 20px);
+    margin-top: clamp(20px, 2.6vh, 30px);
   }
   .hepro__btn {
     display: inline-flex;
@@ -110,7 +120,8 @@ export const heroElevatedCss = `
     border: 1px solid transparent;
     cursor: pointer;
     line-height: 1;
-    transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease,
+      border-color 0.25s ease;
   }
   .hepro__btn:focus-visible { outline: 3px solid var(--v2-accent); outline-offset: 3px; }
   .hepro__arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
@@ -120,16 +131,27 @@ export const heroElevatedCss = `
     background: var(--v2-accent);
     box-shadow: var(--v2-shadow);
   }
-  .hepro__btn--primary:hover { transform: translateY(-2px); box-shadow: var(--v2-shadow-lg); }
+  .hepro__btn--primary:hover {
+    color: var(--v2-accent-ink);
+    transform: translateY(-1px);
+    box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.12), var(--v2-shadow-lg);
+  }
   .hepro__btn--primary:hover .hepro__arrow { transform: translateX(3px); }
   .hepro__btn--ghost { color: var(--v2-text); background: transparent; border-color: var(--v2-border); }
-  .hepro__btn--ghost:hover { transform: translateY(-2px); background: var(--v2-surface); }
+  /* Bouton contour : même grammaire que les onglets Fonctionnalités
+     (élévation 2px + fond de surface + bordure teintée accent). */
+  .hepro__btn--ghost:hover {
+    color: var(--v2-text);
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--v2-accent) 8%, transparent);
+    border-color: color-mix(in srgb, var(--v2-accent) 55%, var(--v2-border));
+  }
 
   .hepro__badges {
     display: flex;
     flex-wrap: wrap;
     gap: 9px;
-    margin: clamp(16px, 2vh, 22px) 0 0;
+    margin: clamp(20px, 2.6vh, 28px) 0 0;
     padding: 0;
     list-style: none;
   }
@@ -148,7 +170,7 @@ export const heroElevatedCss = `
   }
 
   .hepro__bar {
-    margin-top: clamp(18px, 2.4vh, 28px);
+    margin-top: clamp(24px, 3.2vh, 36px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border: 1px solid var(--v2-border);
@@ -160,7 +182,7 @@ export const heroElevatedCss = `
     display: flex;
     flex-direction: column;
     gap: clamp(6px, 0.9vh, 9px);
-    padding: clamp(11px, 1.5vh, 16px) clamp(16px, 2.2vw, 26px);
+    padding: clamp(14px, 1.9vh, 20px) clamp(16px, 2.2vw, 26px);
     min-width: 0;
   }
   .hepro__metric + .hepro__metric { border-left: 1px solid var(--v2-border); }

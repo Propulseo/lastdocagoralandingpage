@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Wordmark from "./Wordmark";
 
 const specialties = [
   { key: "generalPractice", slug: "general-practice" },
@@ -63,8 +64,7 @@ export default function Footer({ variant = "patient" }: { variant?: FooterVarian
         <div className="ft2__grid">
           {/* Marque */}
           <div className="ft2__brand">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/images/logo/logo-light.png" alt="DocAgora" className="ft2__logo" />
+            <span className="ft2__logo"><Wordmark tone="light" /></span>
             <span className="ft2__rule" aria-hidden="true" />
             <p className="ft2__lead">{t("aboutText")}</p>
           </div>

@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "aria": "A carregar a DocAgora"
+  },
   "metadata": {
     "home": {
       "title": "DocAgora | Encontre o seu médico em Portugal",
@@ -53,6 +56,7 @@
     "proCompact": "Early access Portugal · RGPD · Alojamento em Portugal",
     "patientVerified": "Profissionais verificados",
     "patientLanguages": "PT · FR · EN",
+    "langAria": "Escolher o idioma do site",
     "patientFree": "Pesquisa gratuita",
     "patientPortugal": "Portugal",
     "patientCompact": "Profissionais verificados · PT FR EN · Pesquisa gratuita"
@@ -104,7 +108,8 @@
     "imageAlt": "Paciente em contacto com um profissional de saúde em Portugal através da DocAgora",
     "titleLead": "Encontre um médico que",
     "titleEmphasis": "fala a sua língua",
-    "subhead": "Profissionais de saúde verificados em todo Portugal, em português, francês e inglês. Pesquisa gratuita, marcação em breve."
+    "subhead": "Profissionais de saúde verificados em todo Portugal, em português, francês e inglês. Pesquisa gratuita, marcação em breve.",
+    "langAria": "Escolher o idioma do site"
   },
   "contactInfo": {
     "emergencyTitle": "Emergência",
@@ -132,6 +137,70 @@
     "list1": "Pesquise por especialidade, cidade, idioma falado ou seguro aceite.",
     "list2": "Cada profissional é analisado e aprovado pela nossa equipa antes de ficar disponível.",
     "list3": "Disponível em português, francês e inglês. Encontre cuidados na língua que prefere."
+  },
+  "aboutVisualPreview": {
+    "eyebrow": "Preview visual da secção paciente",
+    "title": "Substituir a imagem desfocada por um sinal",
+    "titleEmphasis": "DocAgora",
+    "lede": "Três direções para a secção \"Encontre o seu médico em Portugal\". O objetivo é mostrar a promessa do produto sem depender de uma fotografia genérica.",
+    "options": {
+      "product": {
+        "eyebrow": "Opção 1",
+        "title": "Mockup de pesquisa + perfis verificados",
+        "body": "A direção mais orientada para conversão: o paciente percebe de imediato que pode pesquisar por especialidade, cidade e idioma, e comparar perfis verificados."
+      },
+      "map": {
+        "eyebrow": "Opção 2",
+        "title": "Mapa de Portugal + rede de cuidados",
+        "body": "Mais editorial e territorial: posiciona a DocAgora em Portugal com cidades, pontos de presença e sinais fortes de confiança."
+      },
+      "profiles": {
+        "eyebrow": "Opção 3",
+        "title": "Stack de perfis profissionais",
+        "body": "Mais humana e tranquilizadora: a secção destaca a comparação de profissionais, os idiomas falados e a verificação dos perfis."
+      }
+    },
+    "visual": {
+      "common": {
+        "verified": "Verificado",
+        "free": "Pesquisa gratuita",
+        "multilingual": "PT · FR · EN"
+      },
+      "search": {
+        "query": "Cardiologista",
+        "specialty": "Especialidade",
+        "city": "Lisboa",
+        "language": "Francês",
+        "resultCount": "34 perfis encontrados",
+        "profileOneName": "Dra. Maria Silva",
+        "profileOneMeta": "Cardiologia · Lisboa",
+        "profileTwoName": "Dr. André Costa",
+        "profileTwoMeta": "Clínica geral · Cascais",
+        "mapLabel": "Perto de si",
+        "slot": "Horários em breve"
+      },
+      "map": {
+        "coverage": "Portugal",
+        "lisbon": "Lisboa",
+        "porto": "Porto",
+        "cascais": "Cascais",
+        "braga": "Braga",
+        "specialties": "16 especialidades"
+      },
+      "profiles": {
+        "title": "Perfis verificados",
+        "profileOneName": "Dra. Maria Silva",
+        "profileOneMeta": "Cardiologia · Lisboa",
+        "profileTwoName": "Dr. Rui Costa",
+        "profileTwoMeta": "Dentista · Porto",
+        "profileThreeName": "Dra. Ana Fernandes",
+        "profileThreeMeta": "Pediatria · Cascais",
+        "compare": "Comparar",
+        "filterOne": "Especialidade",
+        "filterTwo": "Idioma",
+        "filterThree": "Cidade"
+      }
+    }
   },
   "specialties": {
     "subtitle": "Explore 16 especialidades médicas disponíveis na DocAgora",

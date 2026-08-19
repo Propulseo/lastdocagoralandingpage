@@ -1,0 +1,1185 @@
+/* Retouches `.med` appliquees SANS regenerer medically.css.
+ *
+ * medically.css est genere par scripts/build-medically-css.cjs a partir de la
+ * source du template (absente du depot : medically-downloadable/ est gitignore).
+ * Tant qu'on ne re-porte pas le template, les ajustements qui devraient vivre
+ * dans SCOPING_FIXES du script atterrissent ici — importee APRES medically.css,
+ * donc prioritaire a specificite egale.
+ *
+ * A REPLIER dans build-medically-css.cjs > SCOPING_FIXES lors du prochain
+ * re-port du template, puis vider ce fichier.
+ */
+
+/* ── Échelle : ramener le template au standard des homes ─────────────────────
+   Le template Medically est calibré une bonne demi-taille au-dessus de nos deux
+   pages d'accueil : texte courant à 18px là où la home tient en 15-17, titres de
+   carte à 25-35 contre 18-22, libellés à 15-16 contre 13-14, et surtout des
+   tailles FIGÉES en px quand la home est fluide (`clamp`). Sur grand écran rien
+   ne se resserre : d'où la sensation d'interface zoomée, et la rupture de niveau
+   entre l'accueil et le reste du site.
+
+   Le contre-intuitif : ce ne sont pas les grands titres qui posaient problème —
+   les heroes maison sont plus généreux encore. C'est que le template gonfle les
+   PETITS éléments. Une interface soignée fait respirer le grand et resserre le
+   petit ; celle-ci faisait l'inverse.
+
+   Deux règles de méthode ici :
+   1. On reprend les sélecteurs du template À L'IDENTIQUE. À spécificité égale,
+      ce fichier étant importé après medically.css, l'échelle s'applique — mais
+      toute retouche maison plus bas dans CE fichier garde le dernier mot. Nos
+      blocs déjà re-dessinés (barre latérale du blog, fil de la recherche…) ne
+      sont donc pas écrasés.
+   2. Rien ici ne touche les heroes ni la clôture : ils vivent HORS de `.med`,
+      sont déjà au standard de la home, et doivent le rester.
+
+   Périmètre : les familles réellement montées par les 4 sous-pages patient
+   (about_section, work_section_s2, funfact_section, service_content,
+   wpo-blog-*, wpo-contact-*, blog-sidebar) — pas les 15 000 lignes du template,
+   dont l'essentiel (boutique, panier, commande) n'est jamais rendu. */
+
+/* Marges latérales : le conteneur du template suivait les paliers Bootstrap
+   (1140px, puis 1320px au-delà de 1400). On sort de ces paliers pour une seule
+   valeur, calée sur ce que font DÉJÀ les sous-pages pro — 1180px pour /pro/about,
+   1240 pour /pro/pricing, 1140 pour /pro/resources.
+
+   Volontairement plus étroit que la home (1340px) : une home est une vitrine,
+   qu'on veut large ; une sous-page est une page de lecture. À 15-16px de texte,
+   1340px donnent des lignes de ~120 signes, bien au-delà de ce qui se lit
+   confortablement. Les marges latérales ne sont pas du vide perdu, elles
+   tiennent le regard dans la colonne. */
+.med .container {
+  max-width: 1180px;
+  padding-inline: clamp(18px, 4vw, 28px);
+}
+
+/* Rythme vertical : 120px figés (90 puis 80 en dessous de 991px) → une seule
+   respiration fluide, dans l'esprit des sections de la home.
+
+   Attention au cumul : deux sections voisines additionnent leur retrait bas et
+   le retrait haut de la suivante. 62px de chaque côté font déjà 124px de vide
+   entre deux blocs — c'est la bonne échelle pour une page de lecture, et c'est
+   pour ça que la valeur paraît basse prise isolément. */
+.med .section-padding {
+  padding: clamp(38px, 4vw, 62px) 0;
+}
+
+/* Le titre de section, primitive partagée par TOUTES les sections (`.section_title`
+   de MedPrimitives) : c'est le bloc qui pesait le plus lourd et il avait échappé
+   à la passe d'échelle. 70px de police sur 100px de hauteur de ligne, plus 60px
+   de retrait sous le bloc — à lui seul il posait un demi-écran de vide entre le
+   titre et le contenu qu'il annonce. */
+.med .section_title {
+  margin-bottom: clamp(24px, 2.6vw, 36px);
+}
+.med .section_title h3 {
+  font-size: clamp(30px, 4.2vw, 58px);
+  line-height: 1.12;
+}
+.med .section_title h2 {
+  font-size: 14px; /* la pastille de sur-titre, 18px */
+  padding: 4px 16px;
+}
+
+/* Texte courant : 16px / 1.8em → l'échelle de la home. L'interlignage à 1,8
+   étirait chaque paragraphe sur une hauteur de brochure. */
+.med p {
+  font-size: clamp(15px, 1.1vw, 16px);
+  line-height: 1.62;
+}
+
+/* — /about ------------------------------------------------------------------ */
+.med .about_section .content h2,
+.med .about_section_s2 .content h2 {
+  font-size: 14px; /* sur-titre : 18 → registre « libellé » de la home */
+}
+.med .about_section .content h3,
+.med .about_section_s2 .content h3 {
+  font-size: clamp(30px, 4.2vw, 58px); /* 70px figés → titre de section de la home */
+}
+.med .about_section .content p,
+.med .about_section_s2 .content p {
+  font-size: clamp(15px, 1.2vw, 17px);
+}
+.med .about_section .content .ceo h4,
+.med .about_section_s2 .content .ceo h4 {
+  font-size: 22px;
+}
+.med .about_section .content .ceo span,
+.med .about_section_s2 .content .ceo span {
+  font-size: 14px;
+}
+.med .about_section .about_left .award .text h2,
+.med .about_section_s2 .about_left .award .text h2,
+.med .about_section .about_left .award .text h2 span,
+.med .about_section_s2 .about_left .award .text h2 span {
+  font-size: clamp(38px, 4.4vw, 58px); /* 88px */
+}
+.med .about_section .about_left .award .text p,
+.med .about_section_s2 .about_left .award .text p {
+  font-size: 14px;
+}
+.med .about_section .about_left .award .icon i,
+.med .about_section_s2 .about_left .award .icon i {
+  font-size: 22px;
+}
+.med .about_section .about_left .doctors h4,
+.med .about_section_s2 .about_left .doctors h4 {
+  font-size: 20px;
+}
+.med .about_section .about_left .doctors ul li span,
+.med .about_section_s2 .about_left .doctors ul li span {
+  font-size: 14px;
+}
+
+/* — /about : bande de preuve (le bandeau bleu) ------------------------------ */
+/* C'est le bloc qui criait le plus fort : chiffres à 70px, pictos à 60px.
+   Sa hauteur, elle, se règle plus bas — la bande a déjà sa règle maison, et
+   deux `padding` concurrents sur le même sélecteur ne feraient qu'un piège. */
+/* Le template alignait les quatre faits à gauche (centrés seulement sous 575px),
+   ce qui les faisait flotter dans des colonnes séparées par des filets centrés :
+   chaque bloc tirait vers son filet de gauche. Centrés, les quatre lisent comme
+   une rangée. */
+.med .funfact_section .item {
+  text-align: center;
+}
+.med .funfact_section .item h3 span {
+  font-size: clamp(32px, 3.6vw, 50px); /* le chiffre, 70px */
+}
+.med .funfact_section .item h3 {
+  font-size: clamp(22px, 2.2vw, 30px); /* l'unité collée au chiffre : %, €, 35px */
+}
+/* Un fait sans compteur (« 24/7 ») n'a pas de span : sa valeur est le texte nu
+   du h3, au même endroit que les unités. Sans ça il tomberait à la taille d'un
+   « % » et le quatrième bloc cesserait de lire comme les trois autres. */
+.med .funfact_section .item h3:not(:has(span)) {
+  font-size: clamp(32px, 3.6vw, 50px);
+}
+.med .funfact_section .item i {
+  font-size: 34px; /* 60px */
+}
+.med .funfact_section .item p {
+  font-size: 15px; /* 20px */
+}
+
+/* — /specialties ------------------------------------------------------------ */
+.med .service_content h2 {
+  font-size: clamp(30px, 4.2vw, 54px); /* 62px */
+}
+.med .service_content h3 {
+  font-size: clamp(26px, 3vw, 40px); /* 53px */
+}
+.med .service_content p,
+.med .service_content ul li {
+  font-size: clamp(15px, 1.2vw, 17px); /* 18px */
+}
+/* 40px sous chaque paragraphe, 60px sous chaque bloc : le texte se lisait en
+   paragraphes détachés au lieu d'un fil continu. */
+.med .service_content p {
+  margin-bottom: 22px;
+}
+.med .service_content .other-service {
+  margin-bottom: clamp(26px, 3vw, 40px);
+}
+.med .service_content .service_card .content h2 {
+  font-size: clamp(19px, 1.9vw, 23px); /* 35px : titre de carte */
+}
+.med .service_content .service_card .content p {
+  font-size: 15px; /* 17px */
+}
+.med .service_content .service_card .icon i {
+  font-size: 24px; /* 33px */
+}
+
+/* — /blog ------------------------------------------------------------------- */
+/* 70px entre deux articles de la liste : à la nouvelle échelle, la liste se
+   lisait comme des blocs isolés plutôt que comme une suite. */
+.med .wpo-blog-pg-section .wpo-blog-content .post {
+  margin-bottom: clamp(28px, 3vw, 44px);
+}
+.med .wpo-blog-pg-section .post h3 {
+  font-size: clamp(24px, 2.6vw, 34px); /* 53px */
+}
+.med .wpo-blog-pg-section .post a.read-more {
+  font-size: 15px; /* 18px */
+}
+.med .wpo-blog-pg-section .format-standard:before {
+  font-size: clamp(44px, 5vw, 64px); /* guillemet décoratif, 90px */
+}
+.med .wpo-blog-single-section .tag-share .tag > span {
+  font-size: 16px; /* 25px */
+}
+.med .wpo-blog-single-section .comment-respond form input {
+  font-size: 15px; /* 18px */
+}
+.med .blog-sidebar .category-widget ul li,
+.med .blog-sidebar .category-widget ul a,
+.med .blog-sidebar .category-widget ul a span,
+.med .blog-sidebar .recent-post-widget .post h4,
+.med .blog-sidebar .wpo-contact-widget p,
+.med .blog-sidebar .wpo-contact-widget a,
+.med .blog-sidebar .wpo-contact-widget a::before {
+  font-size: 15px; /* 18-19px */
+}
+.med .blog-sidebar .wpo-contact-widget h2 {
+  font-size: 20px; /* 32px */
+}
+.med .blog-sidebar .search-widget form button {
+  font-size: 16px; /* 20px */
+}
+
+/* — /contact ---------------------------------------------------------------- */
+/* 100px sous les coordonnées, alors que la section elle-même finit déjà à 0 pour
+   laisser la carte suivre : c'était le seul vide vraiment perdu de la page. */
+.med .wpo-contact-pg-section .office-info {
+  padding-bottom: clamp(28px, 3.2vw, 48px);
+}
+.med .wpo-contact-pg-section form input,
+.med .wpo-contact-pg-section form select {
+  font-size: 15px; /* 20px */
+}
+.med .wpo-contact-pg-section .office-info .office-info-item .office-info-text h2 {
+  font-size: clamp(18px, 1.8vw, 22px); /* 44px */
+}
+.med .wpo-contact-pg-section .office-info .office-info-item .office-info-icon .icon .fi:before {
+  font-size: 26px; /* 35px */
+}
+
+/* ── Aurora de page (sous-pages patient) ─────────────────────────────────────
+   Sous `.pat-aurora` (posée par /about, /specialties, /blog et /contact autour
+   du hero ET du corps), la nappe fixe est portée par la page entière — heroes
+   compris (classe définie dans polish.css, mêmes valeurs que .v2pat). On
+   remplace donc celle que medically.css pose sur `.med` (doublon : les teintes
+   fixes se cumuleraient) par un fondu de couture : light-1 (= le dernier pixel
+   des heroes pah/psh/pbh/pch) → transparent, l'aurora réémerge sans arête.
+   Même logique que la home (.v2pat, traitement (b) des coutures). */
+.pat-aurora .med {
+  background: linear-gradient(
+    180deg,
+    var(--color-light-1),
+    transparent clamp(72px, 10vh, 140px)
+  );
+}
+
+/* ── Imagerie du template : duotone de marque ────────────────────────────────
+   Les photos livrées avec Medically sont du stock générique, et c'est ce qui
+   « crie template » face à la DA maison. Faute de photothèque DocAgora, on ne
+   les remplace pas une par une : on les fait toutes passer par le même filtre
+   duotone navy→teal, de sorte qu'elles deviennent une matière graphique
+   cohérente plutôt qu'un patchwork de banque d'images.
+
+   Un seul réglage à tourner (--med-duo-*) pour toute la refonte. Traitement
+   volontairement modéré : les visages restent lisibles. À remplacer par de
+   vraies photos dès qu'on en aura — ce filtre est une passerelle, pas une
+   destination.
+
+   Portée : uniquement les PHOTOS de contenu. Les pictos, SVG et logos ne sont
+   jamais touchés (ils sont déjà aux couleurs de la marque). */
+.med {
+  --med-duo-hue: 158deg;
+  --med-duo-sat: 1.05;
+  --med-duo-strength: 0.26;
+}
+.med .about_left .image > img,
+.med .work_card .image img,
+.med .team_card .image > img,
+.med .doctors ul li img,
+.med .entry-media img,
+.med .blog-mini__media img,
+.med .blog_card .image img,
+.med .blog-sidebar .recent-post-widget .img-holder img {
+  filter: grayscale(1) sepia(var(--med-duo-strength))
+    hue-rotate(var(--med-duo-hue)) saturate(var(--med-duo-sat)) contrast(1.04);
+}
+
+/* ── /about — parcours vivant (« Comment ça marche ») ────────────────────────
+   Le filet se trace quand la section entre dans le viewport, les quatre jalons
+   s'allument l'un après l'autre, et chaque carte reçoit au même rythme un bref
+   halo teal. Aucun mécanisme nouveau : RevealCascade pose déjà `.mo-in` sur le
+   conteneur et un `--mo-delay` par enfant — on ne fait que s'y brancher.
+   Le rail est en 4 colonnes égales dans le même `.container` que la grille :
+   au-delà de 1200px (col-xl-3) les jalons tombent pile sur l'axe des cartes. */
+.med .work_wrapper .mp-railwrap {
+  margin-bottom: clamp(24px, 3vw, 38px);
+}
+/* La courbe pointillée du template reliait déjà les étapes : deux filets pour
+   le même rôle, c'était redondant. Le nôtre se trace au scroll, il reste. */
+.med .work_wrapper .shape {
+  display: none;
+}
+.med .work_wrapper .mp-rail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  height: 16px;
+}
+.med .work_wrapper .mp-rail::before,
+.med .work_wrapper .mp-rail::after {
+  content: "";
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  border-radius: 2px;
+}
+.med .work_wrapper .mp-rail::before {
+  background: rgba(36, 72, 130, 0.12);
+}
+.med .work_wrapper .mp-rail::after {
+  background: linear-gradient(90deg, var(--color-cobalt, #4a7cc7), var(--color-teal, #67cbc7));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.5s var(--mo-ease, ease) 0.15s;
+}
+.med .work_wrapper .mp-rail.mo-in::after {
+  transform: scaleX(1);
+}
+/* Le jalon (span) porte la cascade du socle ; le disque (i) porte le « pop » —
+   deux nœuds distincts, sinon les deux transform se marcheraient dessus. */
+.med .work_wrapper .mp-rail__dot {
+  justify-self: center;
+}
+.med .work_wrapper .mp-rail__dot > i {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-light-1, #fcfefe);
+  border: 2px solid rgba(36, 72, 130, 0.2);
+  box-shadow: 0 0 0 4px var(--color-light-1, #fcfefe);
+}
+.med .work_wrapper .mp-rail.mo-in .mp-rail__dot > i {
+  animation: mp-dot 0.55s var(--mo-ease, ease) both;
+  animation-delay: calc(var(--mo-delay, 0ms) + 360ms);
+}
+@keyframes mp-dot {
+  0% { transform: scale(1); }
+  45% {
+    transform: scale(1.5);
+    background: var(--color-teal, #67cbc7);
+    border-color: var(--color-teal, #67cbc7);
+  }
+  100% {
+    transform: scale(1);
+    background: var(--color-teal, #67cbc7);
+    border-color: var(--color-teal, #67cbc7);
+  }
+}
+/* L'étape est surlignée au moment où son jalon s'allume, puis retombe. */
+.med .work_wrapper .mo-cascade.mo-in > .mo-cascade__item .work_card {
+  animation: mp-lit 1.4s var(--mo-ease, ease) both;
+  animation-delay: calc(var(--mo-delay, 0ms) + 300ms);
+}
+@keyframes mp-lit {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(103, 203, 199, 0); }
+  38% { box-shadow: 0 0 0 7px rgba(103, 203, 199, 0.22); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .med .work_wrapper .mp-rail::after { transition: none; transform: scaleX(1); }
+  .med .work_wrapper .mp-rail.mo-in .mp-rail__dot > i,
+  .med .work_wrapper .mo-cascade.mo-in > .mo-cascade__item .work_card {
+    animation: none;
+  }
+  .med .work_wrapper .mp-rail__dot > i {
+    background: var(--color-teal, #67cbc7);
+    border-color: var(--color-teal, #67cbc7);
+  }
+}
+
+/* ── /about — bande de preuve aux couleurs maison ────────────────────────────
+   Le template posait une texture stock (funfut-shape.png) par-dessus un dégradé
+   aux stops aberrants (-1077 % … 1196 %), qui n'en laissait voir qu'une tranche.
+   On garde la bande mais on la repeint au dégradé de marque navy → teal, sans
+   image : c'est la seule bande colorée des sous-pages patient, elle doit lire
+   comme DocAgora et non comme le template. */
+.med .funfact_section {
+  background:
+    radial-gradient(58% 120% at 88% 0%, rgba(255, 255, 255, 0.16), transparent 62%),
+    linear-gradient(
+      114deg,
+      var(--color-navy, #244882) 0%,
+      #2c5794 30%,
+      var(--color-cobalt, #4a7cc7) 56%,
+      #5aa2aa 80%,
+      var(--color-teal, #67cbc7) 100%
+    );
+  /* Hauteur revue avec la passe d'échelle : les chiffres ayant fondu, la bande
+     n'a plus besoin d'autant de fond pour tenir — elle lit comme un liseré de
+     preuve, plus comme un panneau. Retrait ramené au tiers du template
+     (70/40px), le reste de la hauteur se gagne sur les gouttières internes
+     juste en dessous. */
+  padding: clamp(15px, 2vw, 24px) 0 clamp(6px, 1vw, 12px);
+}
+
+/* Le template réservait à chaque chiffre une gouttière de panneau : 50px de
+   hauteur de ligne pour le nombre, 30px sous chaque item, 30px sous le libellé.
+   À la nouvelle échelle c'est autant de vide qui épaissit la bande sans rien
+   porter. On resserre au texte lui-même. */
+.med .funfact_section .item {
+  margin-bottom: 8px;
+}
+.med .funfact_section .item h3,
+.med .funfact_section .item h3 span {
+  line-height: 1.05;
+}
+.med .funfact_section .item h3 {
+  margin-bottom: 4px;
+}
+.med .funfact_section .item p {
+  line-height: 1.4;
+}
+.med .funfact_section::before {
+  display: none;
+}
+
+/* ── Cartes « Conseils santé » (/about) de hauteur égale ──────────────────────
+   Les titres font trois ou quatre lignes selon l'article, ce qui donnait des
+   cartes en escalier et des flèches désalignées. Même patron que les cartes de
+   spécialités (.other-service) : la colonne devient une boîte flexible, la carte
+   la remplit, et la flèche est poussée en bas — les flèches s'alignent d'une
+   carte à l'autre quelle que soit la longueur du titre. */
+.med .blog_section .row { align-items: stretch; }
+.med .blog_section [class*="col-"] { display: flex; }
+.med .blog_section .blog_card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.med .blog_section .blog_card .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.med .blog_section .blog_card .content a { margin-top: auto; }
+
+/* ── Cartes coordonnées (/contact) de hauteur égale ───────────────────────────
+   Les trois encadrés « Où nous sommes / Nous écrire / Tout se fait en ligne »
+   ont un nombre de lignes différent (1 à 3), ce qui donnait des cartes de
+   hauteurs inégales. La colonne devient une boîte flexible et la carte la
+   remplit → toutes les cartes s'alignent sur la plus haute. */
+.med .office-info .row { align-items: stretch; }
+.med .office-info [class*="col-"] { display: flex; }
+.med .office-info-item { width: 100%; height: 100%; }
+
+/* ── Blog : filtre actif (rubrique / mot-clé sélectionné) ─────────────────────
+   Le filtre courant reste « allumé » dans la sidebar ; un nouveau clic dessus le
+   désactive (toggle géré dans MedBlogSidebar). */
+.med .blog-sidebar .category-widget li a.is-active,
+.med .blog-sidebar .tag-widget li a.is-active {
+  color: #fff;
+  background: var(--color-navy, #244882);
+  border-color: transparent;
+}
+.med .blog-sidebar .category-widget li a.is-active span {
+  color: #fff;
+}
+
+/* Bandeau du filtre actif au-dessus de la liste, avec « voir tous les articles ». */
+.med .blog-active-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-bottom: 34px;
+  padding: 14px 22px;
+  border: 1px solid var(--border-default, #e5e8ea);
+  border-radius: 14px;
+  background: rgba(var(--color-teal-rgb), 0.07);
+  color: #244882;
+}
+.med .blog-active-filter__label { font-size: 16px; }
+.med .blog-active-filter__clear {
+  font-weight: 600;
+  color: var(--color-accent-ink, #244882);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* ── Blog : « vedette + cartes » ─────────────────────────────────────────────
+   Le premier article garde le grand format (.post) ; les suivants passent en
+   cartes compactes, côte à côte, sous un filet. */
+.med .blog-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 2.5vw, 30px);
+  margin-top: clamp(28px, 4vw, 48px);
+  padding-top: clamp(28px, 4vw, 44px);
+  border-top: 1px solid var(--border-default, #e5e8ea);
+}
+.med .blog-mini__media {
+  display: block;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.med .blog-mini__media img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.med .blog-mini__media:hover img {
+  transform: scale(1.04);
+}
+.med .blog-mini__cat {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-navy, #244882), var(--color-teal, #5aa2aa));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.med .blog-mini__title {
+  margin: 0 0 10px;
+  font-size: clamp(19px, 2vw, 23px);
+  line-height: 1.2;
+}
+.med .blog-mini__title a { color: var(--color-navy, #244882); }
+.med .blog-mini__title a:hover { color: var(--color-cobalt, #4a7cc7); }
+.med .blog-mini__date {
+  color: rgba(36, 72, 130, 0.7);
+  font-size: 13px;
+  font-weight: 600;
+}
+/* La « une » vit désormais dans le masthead : quand la grille ouvre la colonne,
+   elle n'a plus de vedette au-dessus à séparer — on retire le filet et le
+   décalage qui n'auraient rien à séparer. */
+.med .blog-mini-grid--lead {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+@media (max-width: 575px) {
+  .med .blog-mini-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Blog : barre latérale dé-templatée ──────────────────────────────────────
+   Les encadrés du template étaient des blocs gris empilés. Ils passent en
+   cartes maison (même vocabulaire que les autres panneaux du site : blanc
+   translucide, filet fin, coins 18px, ombre basse). Le widget « à propos »,
+   qui n'apportait qu'une photo stock, a été retiré du composant. */
+.med .blog-sidebar .widget {
+  padding: clamp(18px, 2vw, 26px);
+  border-radius: 18px;
+  border: 1px solid rgba(36, 72, 130, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 22px 50px -34px rgba(36, 72, 130, 0.4);
+}
+.med .blog-sidebar .widget + .widget {
+  margin-top: clamp(18px, 2.2vw, 26px);
+}
+.med .blog-sidebar .widget h3 {
+  position: relative;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  font-size: 19px;
+  color: var(--color-navy, #244882);
+}
+.med .blog-sidebar .widget h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-cobalt, #4a7cc7), var(--color-teal, #67cbc7));
+}
+/* Micro-lien éditorial : le titre d'un article lié avance vers son article,
+   il ne vire pas au navy au survol (règle maison, retours client R1→R4). */
+.med .blog-sidebar .recent-post-widget .details h4 a {
+  transition: color 0.22s ease;
+}
+.med .blog-sidebar .recent-post-widget .details h4 a:hover {
+  color: var(--color-cobalt, #4a7cc7);
+}
+
+/* ── Page spécialités : bandeau « Et aussi » ─────────────────────────────────
+   1) Pictos alignés sur les cartes vedettes « Les spécialités les plus
+      recherchées » : icône blanche sur la pastille dégradée navy→teal (au lieu
+      du rond teal clair du bandeau). Même dégradé que .service_card .icon.
+   2) De l'air vertical dans le viewport pour que le léger soulèvement au survol
+      (translateY) ne soit plus rogné par le masque/overflow du bandeau. */
+/* 3) Fondu aux deux bords : le bandeau ne « commence » ni ne « finit » plus net,
+      il émerge et se dissout. Masque horizontal seulement (le survol soulève les
+      pastilles : un masque vertical les rognerait). */
+.med .med-marquee__viewport {
+  padding-block: 10px;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 clamp(24px, 5vw, 80px),
+    #000 calc(100% - clamp(24px, 5vw, 80px)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 clamp(24px, 5vw, 80px),
+    #000 calc(100% - clamp(24px, 5vw, 80px)),
+    transparent
+  );
+}
+.med .med-marquee__icon {
+  background: linear-gradient(358deg, #244882 -1077.15%, #33639E -690.64%, #4A7CC7 -213.19%, #5AA2AA 218.79%, #67CBC7 764.46%, #8ADAD6 1196.44%);
+  color: #fff;
+}
+
+/* ── Page spécialités : « le fil de la recherche » ───────────────────────────
+   Seul visuel du corps de page, et il est fait maison. Il remplace le trio de
+   photos stock du template (dont une déjà vue sur /about), puis le panneau des
+   cinq critères qui l'avait remplacé : celui-ci énumérait des arguments là où
+   la section doit APPRENDRE la méthode — croiser spécialité, ville et langue,
+   à quelqu'un qui découvre le système de santé portugais.
+
+   Un fil teal→cobalt se trace de gauche à droite, trois stations s'allument en
+   accumulant leurs pastilles, et le fil aboutit sur la fiche vérifiée du site.
+   Toute la grammaire est empruntée : le filet qui se trace vient du parcours de
+   /about, le dégradé des liserés de heroes, la fiche et sa lévitation du hero
+   /about.
+
+   Aucun ul/li ici, volontairement : le template habille tout li de
+   .service_content (pastille en ::before, padding-left 40px, font-size 18px) et
+   a déjà gagné une fois en spécificité sur ce bloc. Des div, et le problème
+   n'existe plus.
+
+   Mouvement : la mise en page par défaut est l'état FINAL ; les keyframes ne
+   s'appliquent que sous .play, posée à l'entrée dans le champ. Sans JavaScript,
+   rien n'est caché — leçon MedCountUp. */
+.med .spec-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 360px);
+  gap: clamp(26px, 3.6vw, 58px);
+  align-items: center;
+  margin: 26px 0 0;
+}
+
+/* Le fil déborde de la colonne des étapes pour traverser la gouttière et
+   toucher la fiche : il relie vraiment le parcours à son résultat. */
+.med .spec-journey__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 clamp(16px, 2vw, 28px);
+  padding-top: 36px;
+}
+.med .spec-journey__steps::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: calc(-1 * clamp(26px, 3.6vw, 58px));
+  top: 11px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-teal), #4a7cc7);
+  transform-origin: left;
+}
+.med .spec-journey.play .spec-journey__steps::before {
+  animation: spec-journey-thread 0.9s cubic-bezier(0.3, 0, 0.2, 1) both;
+}
+@keyframes spec-journey-thread {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.med .spec-journey__step { position: relative; }
+/* La station : le point qui s'allume quand son étape arrive. */
+.med .spec-journey__step::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: -30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  box-shadow: 0 0 0 5px rgba(var(--color-teal-rgb), 0.16);
+}
+.med .spec-journey.play .spec-journey__step::before {
+  animation: spec-journey-dot 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+}
+@keyframes spec-journey-dot {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.med .spec-journey__num {
+  display: block;
+  margin: 0 0 8px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(var(--color-navy-rgb), 0.42);
+}
+
+/* La pile : les choix déjà faits restent en retrait, celui de l'étape arrive
+   plein. Le croisement des filtres EST cette accumulation. */
+.med .spec-journey__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 9px;
+}
+.med .spec-journey__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+  border: 1px solid rgba(36, 72, 130, 0.13);
+  background: rgba(255, 255, 255, 0.66);
+  color: rgba(36, 72, 130, 0.62);
+}
+.med .spec-journey__chip.is-new {
+  border-color: rgba(var(--color-teal-rgb), 0.55);
+  background: rgba(var(--color-teal-rgb), 0.14);
+  color: var(--color-accent-ink, #1e6e68);
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 14px 30px -20px rgba(var(--color-teal-rgb), 0.9);
+}
+.med .spec-journey.play .spec-journey__chip {
+  animation: spec-journey-pop 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+@keyframes spec-journey-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+.med .spec-journey__cap {
+  margin: 0;
+  max-width: 44ch;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(36, 72, 130, 0.74);
+}
+
+/* Cadence de la séquence : le fil, puis les stations, puis la fiche. */
+.med .spec-journey.play .spec-journey__step:nth-child(1)::before,
+.med .spec-journey.play .spec-journey__step:nth-child(1) .spec-journey__chip { animation-delay: 0.2s; }
+.med .spec-journey.play .spec-journey__step:nth-child(2)::before,
+.med .spec-journey.play .spec-journey__step:nth-child(2) .spec-journey__chip { animation-delay: 0.5s; }
+.med .spec-journey.play .spec-journey__step:nth-child(3)::before,
+.med .spec-journey.play .spec-journey__step:nth-child(3) .spec-journey__chip { animation-delay: 0.8s; }
+
+/* ── La destination : la fiche vérifiée du site, sous son halo ───────────── */
+.med .spec-journey__dest {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.med .spec-journey__card {
+  position: relative;
+  width: min(100%, 372px);
+  animation: spec-journey-levitate 6.5s ease-in-out infinite;
+}
+.med .spec-journey.play .spec-journey__card {
+  animation:
+    spec-journey-arrive 0.7s cubic-bezier(0.2, 0.8, 0.3, 1) 1.1s both,
+    spec-journey-levitate 6.5s ease-in-out 1.8s infinite;
+}
+/* La fiche arrive dans le sens du fil : depuis la gauche. */
+@keyframes spec-journey-arrive {
+  from { opacity: 0; transform: translateX(-26px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes spec-journey-levitate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+.med .spec-journey__halo {
+  position: absolute;
+  inset: -9%;
+  border-radius: 32px;
+  background: radial-gradient(
+    60% 60% at 50% 45%,
+    rgba(var(--color-teal-rgb), 0.3),
+    rgba(74, 124, 199, 0.12) 60%,
+    transparent 75%
+  );
+  filter: blur(14px);
+  z-index: 0;
+}
+.med .spec-journey.play .spec-journey__halo {
+  animation: spec-journey-bloom 1s ease 1.2s both;
+}
+@keyframes spec-journey-bloom {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Re-skin clair de la VerifiedRecordCard : même peau que le hero de /about. */
+.med .spec-journey__card .da-record {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(var(--color-navy-rgb), 0.12) !important;
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  box-shadow: 0 36px 80px -30px rgba(var(--color-navy-rgb), 0.45) !important;
+  color: var(--color-dark-1) !important;
+}
+.med .spec-journey__card .da-record__name { color: var(--color-navy) !important; }
+.med .spec-journey__card .da-record__meta,
+.med .spec-journey__card .da-record__langs-label { color: rgba(var(--color-navy-rgb), 0.66) !important; }
+.med .spec-journey__card .da-record__verified { color: var(--color-accent-ink) !important; }
+.med .spec-journey__card .da-record__mono {
+  background: rgba(var(--color-teal-rgb), 0.18) !important;
+  color: var(--color-accent-ink) !important;
+}
+
+.med .spec-journey__destcap {
+  margin: 0;
+  max-width: 40ch;
+  text-align: center;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(36, 72, 130, 0.74);
+}
+.med .spec-journey.play .spec-journey__destcap {
+  animation: spec-journey-pop 0.5s ease 1.35s both;
+}
+
+/* Sous 900 px l'horizontale ne tient pas : le fil redevient vertical et la
+   fiche est la dernière station. Même séquence, autre axe. */
+@media (max-width: 900px) {
+  .med .spec-journey { grid-template-columns: 1fr; gap: 30px; }
+  .med .spec-journey__steps {
+    grid-template-columns: 1fr;
+    gap: 30px 0;
+    padding-top: 0;
+    padding-left: 34px;
+  }
+  .med .spec-journey__steps::before {
+    left: 8px;
+    right: auto;
+    top: 10px;
+    bottom: -20px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--color-teal), #4a7cc7);
+    transform-origin: top;
+  }
+  .med .spec-journey.play .spec-journey__steps::before {
+    animation-name: spec-journey-thread-v;
+  }
+  .med .spec-journey__step::before { left: -30px; top: 7px; }
+  .med .spec-journey__dest { align-items: flex-start; padding-left: 34px; }
+  .med .spec-journey__destcap { text-align: left; }
+}
+@keyframes spec-journey-thread-v {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Préférence de mouvement réduit : tout est en place, rien ne bouge. */
+@media (prefers-reduced-motion: reduce) {
+  .med .spec-journey__card,
+  .med .spec-journey.play .spec-journey__steps::before,
+  .med .spec-journey.play .spec-journey__step::before,
+  .med .spec-journey.play .spec-journey__chip,
+  .med .spec-journey.play .spec-journey__card,
+  .med .spec-journey.play .spec-journey__halo,
+  .med .spec-journey.play .spec-journey__destcap {
+    animation: none !important;
+  }
+}
+
+/* ── Page spécialités : largeur de la page ───────────────────────────────────
+   Cette page reste la plus large des sous-pages : le fil de la recherche est une
+   mise en page horizontale (trois étapes + la fiche d'arrivée) qui a besoin de
+   place pour se déplier. Mais elle rentre dans le rang des marges latérales —
+   1400px la faisaient courir d'un bord à l'autre. On se cale sur le plus large
+   des gabarits pro (/pro/pricing, 1240px) plutôt que sur un cas à part. */
+.med .spec-wide {
+  max-width: min(1240px, 94vw);
+}
+/* Le contenu éditorial remplit désormais toute cette largeur. */
+.med .spec-editorial {
+  max-width: none;
+  margin-inline: 0;
+}
+
+/* ── Page spécialités : bande de conversion (recherche + inscription) ────────
+   Bande unique centrée, pleine largeur maîtrisée : recherche à gauche,
+   inscription à droite, un filet entre les deux. */
+.med .spec_convert {
+  max-width: 1200px;
+  margin: clamp(30px, 4vw, 56px) auto 0;
+  padding: clamp(26px, 3.4vw, 42px);
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: clamp(24px, 4vw, 52px);
+  align-items: center;
+  border: 1px solid var(--border-default, #e5e8ea);
+  border-radius: 22px;
+  background:
+    radial-gradient(60% 110% at 100% 0%, rgba(var(--color-teal-rgb), 0.16), transparent 60%),
+    linear-gradient(160deg, #ffffff, #eef7f9);
+}
+.med .spec_convert__rule {
+  align-self: stretch;
+  background: var(--border-default, #e5e8ea);
+}
+.med .spec_convert__eyebrow {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-ink, #33639e);
+}
+.med .spec_convert__title {
+  margin: 0 0 10px;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.12;
+}
+.med .spec_convert__text {
+  margin: 0 0 20px;
+  color: rgba(36, 72, 130, 0.82);
+}
+.med .spec_convert__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: var(--color-navy, #244882);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: gap 0.2s ease, background 0.2s ease;
+}
+.med .spec_convert__btn:hover {
+  gap: 14px;
+  background: #1a3660;
+}
+@media (max-width: 767px) {
+  .med .spec_convert {
+    grid-template-columns: 1fr;
+  }
+  .med .spec_convert__rule {
+    height: 1px;
+  }
+}
+
+/* ── Contact : ancre du formulaire ───────────────────────────────────────────
+   Le CTA principal du hero (/contact) descend vers #contact-form (posé sur le
+   titre « Une question ? ») ; marge de défilement pour ne pas atterrir sous le
+   header sticky. Le défilement doux vient de tokens.css (scroll-behavior). */
+.med .wpo-contact-title {
+  scroll-margin-top: 120px;
+}
+
+/* ── Contact : panneau de confirmation du formulaire ─────────────────────────
+   Remplace l'ancien message de succès affiché avec la classe .error (rouge) :
+   pastille check teal + texte factuel — la maquette n'envoie rien, on le dit
+   et on donne l'adresse e-mail en solution immédiate. */
+.med .contact-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid rgba(var(--color-teal-rgb), 0.35);
+  border-radius: 14px;
+  background: rgba(var(--color-teal-rgb), 0.08);
+}
+.med .contact-success__tick {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(var(--color-teal-rgb), 0.18);
+  color: var(--color-accent-ink, #1e6e68);
+}
+.med .contact-success__tick svg {
+  width: 18px;
+  height: 18px;
+}
+.med .contact-success__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-navy, #244882);
+}
+.med .contact-success__text {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(36, 72, 130, 0.82);
+}
+.med .contact-success__text a {
+  color: var(--color-accent-ink, #1e6e68);
+  font-weight: 600;
+}
+
+/* ── Contact : le formulaire parle le langage « console » ────────────────────
+   Mêmes ingrédients que la console de recherche (panneau vitré, liseré dégradé
+   masqué, champs 14px de rayon, focus teal, bouton dégradé) — sans toucher à
+   une ligne de la logique du composant : tout est cosmétique. */
+/* Sélecteur à trois classes, comme celui du template
+   (`.med .wpo-contact-pg-section .wpo-contact-form-area`) : à deux classes on
+   perdait la bataille de spécificité et le margin-bottom négatif survivait. */
+.med .wpo-contact-pg-section .wpo-contact-form-area {
+  position: relative;
+  /* Le template tire la section suivante de 125 px vers le haut pour faire
+     passer une carte PLEINE LARGEUR sous le formulaire. La nôtre est un
+     encadré arrondi : ce chevauchement la faisait disparaître derrière le
+     panneau. On rend sa place au flux normal. */
+  margin-bottom: 0;
+  padding: clamp(20px, 2.6vw, 32px);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow:
+    0 40px 90px -40px rgba(36, 72, 130, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.med .wpo-contact-pg-section .wpo-contact-form-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-teal-rgb), 0.75),
+    rgba(var(--color-cobalt-rgb), 0.45) 55%,
+    rgba(255, 255, 255, 0.2)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.med .wpo-contact-pg-section .wpo-contact-form-area form {
+  position: relative;
+  z-index: 1;
+}
+.med .contact-validation-active input,
+.med .contact-validation-active select,
+.med .contact-validation-active textarea {
+  border-radius: 14px;
+  border: 1.5px solid rgba(36, 72, 130, 0.16);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 6px -3px rgba(36, 72, 130, 0.16);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.med .contact-validation-active input:focus,
+.med .contact-validation-active select:focus,
+.med .contact-validation-active textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--color-accent-ink, #1e6e68);
+  box-shadow:
+    0 0 0 4px rgba(var(--color-teal-rgb), 0.28),
+    0 0 24px rgba(var(--color-teal-rgb), 0.24);
+}
+.med .contact-validation-active .theme-btn {
+  border-radius: 999px;
+  border: 0;
+  background: linear-gradient(135deg, #2aa39c, var(--color-accent-ink, #1e6e68) 70%);
+  box-shadow:
+    0 14px 30px -8px rgba(var(--color-mint-rgb), 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.med .contact-validation-active .theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -10px rgba(var(--color-mint-rgb), 0.8);
+}
+
+/* ── Contact : la carte de Lisbonne habillée ─────────────────────────────────
+   L'iframe Google Maps brute, pleine largeur et aux couleurs par défaut,
+   devient une pièce de la page : cadre arrondi, plan désaturé puis reteinté
+   navy→teal, épingle DocAgora. Voile et épingle en `pointer-events: none` —
+   le plan reste manipulable. */
+/* Le template pose `.med .wpo-contact-map-section iframe { height: 100% }`,
+   plus spécifique que `.med .pat-map__iframe` : sans hauteur sur le parent,
+   le 100 % ne se résolvait pas et l'iframe retombait à sa hauteur par défaut
+   (150 px), d'où une bande écrasée qui chevauchait le formulaire. On donne
+   donc sa hauteur au CADRE, et on repasse devant le template en ajoutant la
+   classe de section à nos sélecteurs. */
+.med .wpo-contact-map-section {
+  padding-top: clamp(40px, 6vh, 72px);
+}
+.med .pat-map {
+  margin: 0;
+}
+.med .wpo-contact-map-section .pat-map__frame {
+  position: relative;
+  height: clamp(300px, 42vw, 460px);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(36, 72, 130, 0.12);
+  box-shadow: 0 44px 90px -44px rgba(36, 72, 130, 0.6);
+  isolation: isolate;
+  /* Repli si le plan ne charge pas (blocage RGPD, hors-ligne) : un aplat de
+     marque plutôt qu'un rectangle blanc vide. */
+  background: linear-gradient(150deg, #1c3a68, #24507f 55%, #2f6f84);
+}
+.med .wpo-contact-map-section .pat-map__iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.92) contrast(1.04);
+}
+.med .pat-map__veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  mix-blend-mode: color;
+  background: linear-gradient(
+    132deg,
+    var(--color-navy, #244882) 10%,
+    var(--color-cobalt, #4a7cc7) 56%,
+    var(--color-teal, #67cbc7) 100%
+  );
+}
+.med .pat-map__pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -78%);
+  pointer-events: none;
+  color: var(--color-navy, #244882);
+  filter: drop-shadow(0 10px 18px rgba(11, 26, 51, 0.45));
+}
+.med .pat-map__pin svg {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+.med .pat-map__caption {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(36, 72, 130, 0.66);
+}

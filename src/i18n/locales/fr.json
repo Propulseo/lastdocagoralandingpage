@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "aria": "Chargement de DocAgora"
+  },
   "metadata": {
     "home": {
       "title": "DocAgora | Trouvez votre médecin au Portugal",
@@ -53,6 +56,7 @@
     "proCompact": "Early access Portugal · RGPD · Hébergement Portugal",
     "patientVerified": "Professionnels vérifiés",
     "patientLanguages": "PT · FR · EN",
+    "langAria": "Choisir la langue du site",
     "patientFree": "Recherche gratuite",
     "patientPortugal": "Portugal",
     "patientCompact": "Professionnels vérifiés · PT FR EN · Recherche gratuite"
@@ -104,7 +108,8 @@
     "imageAlt": "Patient en contact avec un professionnel de santé au Portugal via DocAgora",
     "titleLead": "Trouvez un médecin qui",
     "titleEmphasis": "parle votre langue",
-    "subhead": "Des professionnels de santé vérifiés dans tout le Portugal, en portugais, français et anglais. Recherche gratuite, réservation bientôt disponible."
+    "subhead": "Des professionnels de santé vérifiés dans tout le Portugal, en portugais, français et anglais. Recherche gratuite, réservation bientôt disponible.",
+    "langAria": "Choisir la langue du site"
   },
   "contactInfo": {
     "emergencyTitle": "Urgence",
@@ -133,6 +138,70 @@
     "list2": "Chaque praticien est examiné et approuvé par notre équipe avant d’être référencé.",
     "list3": "Disponible en portugais, français et anglais. Trouvez des soins dans la langue que vous préférez."
   },
+  "aboutVisualPreview": {
+    "eyebrow": "Preview visuel section patient",
+    "title": "Remplacer l'image floue par un vrai signal",
+    "titleEmphasis": "DocAgora",
+    "lede": "Trois directions pour la section \"Trouvez votre médecin au Portugal\". L'objectif est de montrer la promesse produit sans tomber dans une photo générique.",
+    "options": {
+      "product": {
+        "eyebrow": "Option 1",
+        "title": "Mockup recherche + profils vérifiés",
+        "body": "La direction la plus conversion : le patient comprend tout de suite qu'il peut chercher par spécialité, ville et langue, puis comparer des profils vérifiés."
+      },
+      "map": {
+        "eyebrow": "Option 2",
+        "title": "Carte Portugal + réseau de soins",
+        "body": "Plus éditorial et territorial : on ancre DocAgora au Portugal avec des villes, des points de présence et les grands signaux de confiance."
+      },
+      "profiles": {
+        "eyebrow": "Option 3",
+        "title": "Stack de profils professionnels",
+        "body": "Plus humain et rassurant : la section met en avant la comparaison de praticiens, les langues parlées et la vérification des profils."
+      }
+    },
+    "visual": {
+      "common": {
+        "verified": "Vérifié",
+        "free": "Recherche gratuite",
+        "multilingual": "PT · FR · EN"
+      },
+      "search": {
+        "query": "Cardiologue",
+        "specialty": "Spécialité",
+        "city": "Lisbonne",
+        "language": "Français",
+        "resultCount": "34 profils trouvés",
+        "profileOneName": "Dra. Maria Silva",
+        "profileOneMeta": "Cardiologie · Lisbonne",
+        "profileTwoName": "Dr. André Costa",
+        "profileTwoMeta": "Médecine générale · Cascais",
+        "mapLabel": "Proches de vous",
+        "slot": "Créneaux bientôt"
+      },
+      "map": {
+        "coverage": "Portugal",
+        "lisbon": "Lisbonne",
+        "porto": "Porto",
+        "cascais": "Cascais",
+        "braga": "Braga",
+        "specialties": "16 spécialités"
+      },
+      "profiles": {
+        "title": "Profils vérifiés",
+        "profileOneName": "Dra. Maria Silva",
+        "profileOneMeta": "Cardiologie · Lisbonne",
+        "profileTwoName": "Dr. Rui Costa",
+        "profileTwoMeta": "Dentiste · Porto",
+        "profileThreeName": "Dra. Ana Fernandes",
+        "profileThreeMeta": "Pédiatrie · Cascais",
+        "compare": "Comparer",
+        "filterOne": "Spécialité",
+        "filterTwo": "Langue",
+        "filterThree": "Ville"
+      }
+    }
+  },
   "specialties": {
     "subtitle": "Parcourez 16 spécialités médicales disponibles sur DocAgora",
     "title": "Trouvez votre spécialiste",
@@ -140,82 +209,82 @@
       "generalPractice": {
         "title": "Médecine générale",
         "desc": "Votre premier point de contact pour les questions de santé quotidiennes. Les médecins généralistes fournissent des soins primaires complets aux patients de tous âges.",
-        "cta": "Trouver un généraliste"
+        "cta": "Trouver un(e) généraliste"
       },
       "cardiology": {
         "title": "Cardiologie",
         "desc": "Spécialistes de la santé cardiaque et cardiovasculaire. Des bilans de routine aux pathologies cardiaques complexes.",
-        "cta": "Trouver un cardiologue"
+        "cta": "Trouver un(e) cardiologue"
       },
       "dermatology": {
         "title": "Dermatologie",
         "desc": "Soins spécialisés pour les affections de la peau, des cheveux et des ongles. De la dermatologie médicale aux préoccupations esthétiques.",
-        "cta": "Trouver un dermatologue"
+        "cta": "Trouver un(e) dermatologue"
       },
       "pediatrics": {
         "title": "Pédiatrie",
         "desc": "Soins de santé dédiés aux nourrissons, enfants et adolescents. Soins préventifs et traitement dans un environnement adapté.",
-        "cta": "Trouver un pédiatre"
+        "cta": "Trouver un(e) pédiatre"
       },
       "gynecology": {
         "title": "Gynécologie",
         "desc": "Services complets de santé féminine. Des examens de routine aux soins reproductifs spécialisés.",
-        "cta": "Trouver un gynécologue"
+        "cta": "Trouver un(e) gynécologue"
       },
       "ophthalmology": {
         "title": "Ophtalmologie",
         "desc": "Soins ophtalmologiques complets, des tests de vision au traitement des maladies et affections oculaires.",
-        "cta": "Trouver un ophtalmologue"
+        "cta": "Trouver un(e) ophtalmologue"
       },
       "orthopedics": {
         "title": "Orthopédie",
         "desc": "Spécialistes des os, articulations, muscles et ligaments. Des blessures sportives aux affections musculo-squelettiques chroniques.",
-        "cta": "Trouver un orthopédiste"
+        "cta": "Trouver un(e) orthopédiste"
       },
       "psychology": {
         "title": "Psychologie",
         "desc": "Soutien professionnel en santé mentale. Thérapie individuelle, évaluations et accompagnement pour tous les âges.",
-        "cta": "Trouver un psychologue"
+        "cta": "Trouver un(e) psychologue"
       },
       "dentistry": {
         "title": "Dentisterie",
         "desc": "Soins dentaires complets, des détartrages de routine à la dentisterie restauratrice et esthétique.",
-        "cta": "Trouver un dentiste"
+        "cta": "Trouver un(e) dentiste"
       },
       "physiotherapy": {
         "title": "Kinésithérapie",
         "desc": "Rééducation et thérapie physique pour restaurer la mobilité, réduire la douleur et prévenir les blessures.",
-        "cta": "Trouver un kinésithérapeute"
+        "cta": "Trouver un(e) kinésithérapeute"
       },
       "ent": {
         "title": "ORL",
         "desc": "Spécialistes des affections de l’oreille, du nez et de la gorge. Des troubles auditifs aux pathologies sinusales et vocales.",
-        "cta": "Trouver un ORL"
+        "cta": "Trouver un(e) ORL"
       },
       "endocrinology": {
         "title": "Endocrinologie",
         "desc": "Soins spécialisés pour les troubles hormonaux et métaboliques, incluant le diabète, les pathologies thyroïdiennes et autres.",
-        "cta": "Trouver un endocrinologue"
+        "cta": "Trouver un(e) endocrinologue"
       },
       "gastroenterology": {
         "title": "Gastro-entérologie",
         "desc": "Spécialistes du système digestif. Diagnostic et traitement des affections de l’estomac, des intestins et du foie.",
-        "cta": "Trouver un gastro-entérologue"
+        "cta": "Trouver un(e) gastro-entérologue"
       },
       "neurology": {
         "title": "Neurologie",
         "desc": "Spécialistes des troubles du cerveau et du système nerveux. Des migraines aux pathologies neurologiques complexes.",
-        "cta": "Trouver un neurologue"
+        "cta": "Trouver un(e) neurologue"
       },
       "urology": {
         "title": "Urologie",
         "desc": "Spécialistes des voies urinaires et de la santé reproductive masculine. Diagnostic et traitement complets.",
-        "cta": "Trouver un urologue"
+        "cta": "Trouver un(e) urologue"
       },
       "rheumatology": {
         "title": "Rhumatologie",
         "desc": "Spécialistes des maladies auto-immunes et inflammatoires affectant les articulations, les muscles et les os.",
-        "cta": "Trouver un rhumatologue"
+        "cta": "Trouver un(e) rhumatologue"
       }
     },
     "seeAll": "Voir toutes les spécialités",
@@ -948,7 +1017,7 @@
       "cta": "Rejoindre le programme early adopters",
       "fields": {
         "01": {
-          "title": "Influencez la feuille de route produit",
+          "title": "Influencez la feuille de route",
           "desc": "Vos retours façonnent ce que nous construisons ensuite."
         },
         "02": {

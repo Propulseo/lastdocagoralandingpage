@@ -1,6 +1,7 @@
 "use client";
 import { useState, type CSSProperties, type FormEvent } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTypewriter } from "@/lib/useTypewriter";
 import { SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
 import VerifiedRecordCard, { type Lang } from "@/components/home/VerifiedRecordCard";
@@ -26,6 +27,12 @@ export default function HeroLight1() {
   const tspec = useTranslations("specialties");
   const tc = useTranslations("cities");
   const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  /* Ordre d'affichage figé (PT en tête : locale de référence du site), et non
+     l'ordre du fichier de config. */
+  const heroLocales = ["pt", "fr", "en"] as const;
 
   const cities = tc.raw("items") as string[];
   const examples = ts.raw("examples") as string[];
@@ -94,12 +101,14 @@ export default function HeroLight1() {
              hero « remonte » et tient dans l'écran sur la home prod (header
              120px), carte comprise. Le bas est comblé par la zone de fondu. */
           justify-content: flex-start;
-          padding: clamp(8px, 1.5vh, 20px) clamp(20px, 5vw, 48px);
+          /* Air sous le header, des deux côtés de la grille (pastille à gauche,
+             cartes de résultats à droite) — même geste que le hero pro. */
+          padding: clamp(16px, 2.4vh, 30px) clamp(20px, 5vw, 48px);
           /* Respiration en bas (desktop) : le contenu centré remonte au-dessus
              de la zone de fondu → la carte quitte la couture. Réduit pour que
              tout le hero tienne dans un écran sur la home prod (header 120px).
              Réinitialisé sous 980px (compo mobile). */
-          padding-bottom: clamp(56px, 8vh, 112px);
+          padding-bottom: clamp(32px, 5vh, 72px);
           overflow: hidden;
         }
         /* ── Voile clair MODÉRÉ full-bleed ──
@@ -148,7 +157,10 @@ export default function HeroLight1() {
         .vphl1-hero__eyebrow {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
+          /* Écart entre les trois groupes « point + langue ». L'écart interne
+             d'un groupe (6px) est plus serré, pour que chaque point se lise
+             comme appartenant à SA langue. */
+          gap: 13px;
           font-size: clamp(11px, 1.1vw, 12.5px);
           font-weight: 700;
           letter-spacing: 0.22em;
@@ -162,13 +174,60 @@ export default function HeroLight1() {
           backdrop-filter: blur(6px);
           -webkit-backdrop-filter: blur(6px);
         }
-        .vphl1-hero__eyebrow::before {
-          content: "";
-          width: 7px; height: 7px;
+        /* Les trois codes deviennent des boutons de langue. Ils héritent de la
+           typo de la pastille ; seule la langue active est pleine, les autres
+           s'allument au survol — même grammaire que le reste du site :
+           la couleur répond, rien ne bouge. */
+        .vphl1-lang {
+          font: inherit;
+          letter-spacing: inherit;
+          text-transform: inherit;
+          background: none;
+          border: 0;
+          padding: 2px 1px;
+          cursor: pointer;
+          color: color-mix(in srgb, ${TEAL_INK} 55%, transparent);
+          transition: color 0.16s cubic-bezier(0.3, 0, 0.2, 1);
+        }
+        .vphl1-lang:hover { color: ${TEAL_INK}; }
+        .vphl1-lang.is-active { color: ${TEAL_INK}; cursor: default; }
+
+        /* Chaque langue porte SON point : celui de la langue active est le gros
+           point à halo, les deux autres sont de simples repères. Le point n'est
+           donc plus un ornement fixe en tête de pastille, c'est l'indicateur de
+           sélection — il se déplace avec la langue choisie. */
+        .vphl1-lang__group {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .vphl1-lang__dot {
+          flex: none;
+          width: 4px;
+          height: 4px;
           border-radius: 50%;
+          background: color-mix(in srgb, ${TEAL_INK} 42%, transparent);
+          transition: width 0.18s cubic-bezier(0.3, 0, 0.2, 1),
+            height 0.18s cubic-bezier(0.3, 0, 0.2, 1),
+            background 0.18s ease, box-shadow 0.18s ease;
+        }
+        .vphl1-lang__dot.is-active {
+          width: 7px;
+          height: 7px;
           background: ${TEAL_INK};
           box-shadow: 0 0 0 4px rgba(var(--color-teal-rgb), 0.22);
         }
+        @media (prefers-reduced-motion: reduce) {
+          .vphl1-lang__dot { transition: none; }
+        }
+        .vphl1-lang:focus-visible {
+          outline: 2px solid ${TEAL_INK};
+          outline-offset: 3px;
+          border-radius: 4px;
+        }
+
+        /* (Le point de tête a été retiré : chaque langue porte désormais le
+           sien, cf. .vphl1-lang__dot.) */
         .vphl1-hero__title {
           font-family: var(--font-fraunces), "Fraunces", Georgia, serif;
           font-weight: 600;
@@ -176,7 +235,11 @@ export default function HeroLight1() {
           font-size: clamp(2.55rem, min(5.6vw, 7.4vh), 4.4rem);
           line-height: 1.04;
           letter-spacing: -0.015em;
-          margin: clamp(8px, 1.4vw, 16px) 0 clamp(8px, 1.2vw, 14px);
+          /* Respiration du bloc de tête (retour client) : les écarts
+             pastille → titre → sous-titre → console étaient trop serrés pour
+             un titre de cette taille. Bornés en vh pour se resserrer d'eux-mêmes
+             sur un écran court, où le hero doit tenir en entier. */
+          margin: clamp(14px, 2vh, 24px) 0 clamp(14px, 1.9vh, 22px);
           color: var(--color-navy);
           text-wrap: balance;
         }
@@ -206,13 +269,15 @@ export default function HeroLight1() {
           line-height: 1.6;
           color: rgba(var(--color-navy-rgb), 0.86);
           max-width: 36em;
-          margin: 0 0 clamp(14px, 2vw, 22px);
+          margin: 0 0 clamp(20px, 2.6vh, 30px);
         }
 
         /* ── Console de recherche (glass CLAIR) ── */
         .vphl1-search {
           position: relative;
-          padding: clamp(18px, 2.2vw, 26px);
+          /* Vertical borné en vh, horizontal en vw : sur un écran court la
+             console se resserre en hauteur sans écraser ses marges latérales. */
+          padding: clamp(18px, 2.4vh, 30px) clamp(20px, 2.4vw, 30px);
           border-radius: 22px;
           /* B — glass profond : fond plus transparent, flou/saturation poussés. */
           background: rgba(255, 255, 255, 0.62);
@@ -258,10 +323,10 @@ export default function HeroLight1() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: rgba(var(--color-navy-rgb), 0.66);
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
         .vphl1-search__main {
-          margin-bottom: 16px;
+          margin-bottom: 22px;
         }
         .vphl1-search__inputwrap { position: relative; }
         .vphl1-search__icon {
@@ -315,7 +380,7 @@ export default function HeroLight1() {
           grid-template-areas:
             "lc ll ."
             "sc sl sb";
-          gap: 8px 12px;
+          gap: 12px 14px;
           align-items: end;
         }
         .vphl1-ga-lc { grid-area: lc; margin-bottom: 0; }
@@ -411,24 +476,23 @@ export default function HeroLight1() {
           cursor: pointer;
           white-space: nowrap;
           box-shadow: 0 14px 30px -8px rgba(var(--color-mint-rgb), 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-          transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .vphl1-search__cta:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.05);
-          box-shadow: 0 16px 34px -10px rgba(var(--color-mint-rgb), 0.8);
+          transform: translateY(-1px);
+          box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1),
+            0 16px 34px -10px rgba(var(--color-mint-rgb), 0.8);
         }
         .vphl1-search__cta:active {
           transform: translateY(0);
-          filter: brightness(0.98);
         }
         .vphl1-search__cta svg { width: 16px; height: 16px; }
         .vphl1-search__trust {
           display: flex;
           flex-wrap: wrap;
           gap: 18px;
-          margin-top: 18px;
-          padding-top: 16px;
+          margin-top: 22px;
+          padding-top: 18px;
           border-top: 1px solid rgba(var(--color-navy-rgb), 0.12);
         }
         .vphl1-search__trust span {
@@ -535,9 +599,10 @@ export default function HeroLight1() {
           font-size: 14px;
           font-weight: 700;
           text-decoration: none;
-          transition: gap 0.2s ease, color 0.2s ease, transform 0.2s ease;
+          transition: gap 0.2s ease, transform 0.2s ease;
         }
-        .vphl1-seeall:hover { gap: 13px; color: var(--color-navy); transform: translateX(2px); }
+        /* Lien fléché : il avance, il ne vire pas au navy (retour client R1). */
+        .vphl1-seeall:hover { gap: 13px; transform: translateX(2px); }
         .vphl1-seeall svg { width: 15px; height: 15px; }
 
         /* Carte compacte mobile (avant recherche) */
@@ -631,7 +696,28 @@ export default function HeroLight1() {
       <div className="vphl1-hero__inner">
         {/* GAUCHE, copy + console de recherche */}
         <div>
-          <span className="vphl1-hero__eyebrow vphl1-reveal vphl1-d1">PT &middot; FR &middot; EN</span>
+          <span
+            className="vphl1-hero__eyebrow vphl1-reveal vphl1-d1"
+            role="group"
+            aria-label={t("langAria")}
+          >
+            {heroLocales.map((l) => (
+              <span className="vphl1-lang__group" key={l}>
+                <span
+                  className={`vphl1-lang__dot${l === locale ? " is-active" : ""}`}
+                  aria-hidden="true"
+                />
+                <button
+                  type="button"
+                  className={`vphl1-lang${l === locale ? " is-active" : ""}`}
+                  onClick={() => router.replace(pathname, { locale: l })}
+                  aria-current={l === locale ? "true" : undefined}
+                >
+                  {l.toUpperCase()}
+                </button>
+              </span>
+            ))}
+          </span>
           <h1 className="vphl1-hero__title vphl1-reveal vphl1-d2">
             {t("titleLead")}{" "}
             <span className="vphl1-hero__em">{t("titleEmphasis")}</span>

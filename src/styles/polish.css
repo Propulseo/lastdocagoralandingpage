@@ -45,6 +45,51 @@ a.d-inline-flex:hover .icon-arrow-right {
 }
 
 /* ============================================================
+   1 bis. SURVOL UNIFIÉ DES BOUTONS — langage retenu le 2026-07-28
+   ------------------------------------------------------------
+   Une seule grammaire sur tout le site : au survol le bouton
+   s'éclaircit d'un cran et monte d'1 px, la flèche avance.
+   Les CARTES gardent leur élévation de 4 px : c'est ce qui
+   distingue « un objet qu'on soulève » de « une commande qui
+   répond ».
+
+   Ce bloc traite la famille .btn du template d'origine (À propos,
+   Spécialités, Blog, Contact, pages légales, sous-pages Pro).
+   Les boutons des deux landing pages portent la même règle dans
+   leur propre feuille, au plus près du composant.
+
+   Réversible : supprimer ce bloc restaure le comportement du
+   template (balayage navy, sans élévation).
+   ============================================================ */
+.btn {
+  transition: transform 0.16s cubic-bezier(0.3, 0, 0.2, 1),
+    background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease !important;
+}
+
+/* Le calque du template balayait le bouton en navy de gauche à droite
+   (scaleX 0 → 1). On le garde comme calque, mais en simple voile clair
+   sans balayage : le bouton reste dans sa couleur, il s'éclaircit. */
+.btn:not(.btn__link):not(.btn__outlined)::before {
+  background-color: #ffffff !important;
+  opacity: 0;
+  transform: none !important;
+  transition: opacity 0.16s ease !important;
+}
+.btn:not(.btn__link):not(.btn__outlined):hover::before {
+  opacity: 0.12;
+}
+
+/* L'élévation d'1 px, commune à tous les boutons (y compris les
+   contours, qui gardent par ailleurs leur remplissage au survol). */
+.btn:not(.btn__link):hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:not(.btn__link):hover { transform: none; }
+}
+
+/* ============================================================
    2. Card system — unify hover lift across template cards
    Additive: gentle translateY + premium shadow on hover.
    ============================================================ */
@@ -906,7 +951,14 @@ a.d-inline-flex:hover .icon-arrow-right {
   transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 12px 26px -12px rgba(var(--color-teal-rgb), 0.6);
 }
-.ft2__cta-btn:hover { transform: translateY(-2px); background: var(--color-mint); }
+/* Survol : élévation + ombre. Le fond restait vert mais changeait de nuance
+   (teal → mint), ce qui faisait un 3e comportement de plus (retour client R3). */
+.ft2__cta-btn:hover {
+  color: var(--ft2-btn-ink);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.1),
+    0 18px 34px -14px rgba(var(--color-teal-rgb), 0.75);
+}
 .ft2__arrow { width: 15px; height: 15px; }
 
 /* Grille */
@@ -916,7 +968,8 @@ a.d-inline-flex:hover .icon-arrow-right {
   gap: clamp(24px, 4vw, 48px);
   padding-bottom: clamp(24px, 3vw, 34px);
 }
-.ft2__logo { display: block; max-height: 54px; width: auto; }
+/* Logo texte (cf. Wordmark.tsx) : la taille se pilote au font-size. */
+.ft2__logo { display: block; font-size: 30px; }
 .ft2__rule {
   display: block;
   width: 54px;
@@ -1114,4 +1167,134 @@ a.d-inline-flex:hover .icon-arrow-right {
 }
 .header-layout1 .navbar .nav__item .nav__item-link {
   line-height: 74px;
+}
+
+/* ============================================================
+   .pro-ring — signature DA des pages /pro : anneau dégradé
+   teal→cobalt 1,5px (masque xor) + halo lumineux, technique
+   validée du HeroBoard (pro/_components/elevated/HeroBoard.tsx).
+   Poser sur un élément à border-radius défini (l'anneau en
+   hérite) et NON rogné par un overflow:hidden parent.
+   Tokens --v2-* si présents (contexte .v2p), fallback DA dark.
+   ============================================================ */
+.pro-ring {
+  position: relative;
+}
+.pro-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--v2-accent, #67cbc7) 90%, transparent),
+    color-mix(in srgb, var(--v2-accent-2, #4a7cc7) 65%, transparent) 55%,
+    rgba(255, 255, 255, 0.14)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+/* ============================================================
+   Tokens --v2-* des SOUS-PAGES pro (/pro/about, /pro/pricing,
+   /pro/resources). Ils n'étaient déclarés que sur `.v2p` (la
+   home) : sur les sous-pages, tout `var(--v2-…)` retombait
+   silencieusement sur sa valeur de secours — dont l'anneau
+   signature .pro-ring. On rejoue donc ici le skin dark de la
+   home, à l'identique. GARDER EN PHASE avec ProHome.tsx.
+   (Le remplacement des hex en dur par ces tokens dans les
+   *.styles.ts des trois pages reste à faire — sans effet
+   visuel, purement de la cohérence interne.)
+   ============================================================ */
+.pa2-page,
+.pp1,
+.pr3 {
+  --v2-canvas: #080c14;
+  --v2-bg-2: rgba(255, 255, 255, 0.028);
+  --v2-surface: rgba(255, 255, 255, 0.05);
+  --v2-surface-2: rgba(255, 255, 255, 0.08);
+  --v2-panel-bg: #0e1622;
+  --v2-panel-text: #ffffff;
+  --v2-panel-muted: rgba(255, 255, 255, 0.55);
+  --v2-panel-border: rgba(255, 255, 255, 0.1);
+  --v2-text: #ffffff;
+  --v2-text-body: rgba(255, 255, 255, 0.72);
+  --v2-text-muted: rgba(255, 255, 255, 0.5);
+  --v2-border: rgba(255, 255, 255, 0.1);
+  --v2-accent: #67cbc7;
+  --v2-accent-2: #4a7cc7;
+  --v2-accent-text: #67cbc7;
+  --v2-accent-ink: #0c121e;
+  --v2-eyebrow: #67cbc7;
+  --v2-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.8);
+  --v2-shadow-lg: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
+  color-scheme: dark;
+}
+
+/* Variante « spotlight » : la lumière voyage le long de l'anneau. Réservée à
+   l'élément vedette d'une page (ex. le champ de recherche de /pro/resources) —
+   deux anneaux animés sur le même écran et l'effet se banalise. Pas de
+   @property ni de conic-gradient : un simple balayage de background-position,
+   pris en charge partout, qui dégrade en anneau fixe si l'animation est coupée. */
+.pro-ring--spot::before {
+  background: linear-gradient(
+    120deg,
+    transparent 8%,
+    color-mix(in srgb, var(--v2-accent, #67cbc7) 95%, transparent) 30%,
+    color-mix(in srgb, var(--v2-accent-2, #4a7cc7) 75%, transparent) 50%,
+    transparent 72%
+  );
+  background-size: 260% 260%;
+  animation: pro-ring-spot 7s ease-in-out infinite;
+}
+@keyframes pro-ring-spot {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pro-ring--spot::before {
+    animation: none;
+  }
+}
+
+.pro-ring--halo {
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.85),
+    0 0 70px -14px color-mix(in srgb, var(--v2-accent, #67cbc7) 38%, transparent),
+    0 0 130px -42px color-mix(in srgb, var(--v2-accent-2, #4a7cc7) 50%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   .pat-aurora — nappe aurora fixe des sous-pages patient
+   (/about, /specialties, /blog, /contact). Valeurs identiques à
+   .v2pat (home patient, (patient)/page.tsx) : GARDER EN PHASE si
+   la home change. Posée par chaque page autour du hero ET du
+   corps .med ; medically-overrides.css remplace alors la nappe
+   que medically.css pose sur .med (sinon les teintes fixes se
+   cumuleraient) par un simple fondu de couture.
+   ============================================================ */
+.pat-aurora {
+  background:
+    radial-gradient(46% 38% at 86% 3%, rgba(var(--color-teal-rgb), 0.16), transparent 60%),
+    radial-gradient(42% 46% at 2% 60%, rgba(var(--color-cobalt-rgb), 0.11), transparent 64%),
+    radial-gradient(40% 40% at 70% 100%, rgba(var(--color-mint-rgb, var(--color-teal-rgb)), 0.10), transparent 66%),
+    var(--color-light-1);
+  background-attachment: fixed;
+}
+
+/* Clôture conversion des sous-pages (PatientClosingCta) : la bande finale de la
+   home repose sur un aplat light-3 qui couperait la nappe — on la rend
+   transparente, la carte blanche centrale porte le bloc à elle seule. */
+.pat-aurora .pat-final {
+  background: transparent;
 }
