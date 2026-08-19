@@ -33,7 +33,7 @@ export function MedSpecialtyCards({ title }: { title: string }) {
           colonne : jamais les deux sur le même nœud (socle motion.css). */}
       <RevealCascade className="row">
         {FLAGSHIP.map(({ key, icon, slug }) => (
-          <div className="col-lg-4 col-md-6 col-12" key={key}>
+          <div className="col-lg-4 col-md-6 col-6" key={key}>
             <div className="service_card mo-lift">
               <div className="icon">
                 <i className={icon}></i>

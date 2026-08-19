@@ -190,6 +190,49 @@
   font-size: 24px; /* 33px */
 }
 
+/* ── Page spécialités : 6 cartes → grille compacte 2 colonnes sur mobile ─────
+   Chaque carte (icône flottante 104px, forme décorative, gros titre) est
+   pensée pour une grille large ; empilées plein écran sur téléphone, six
+   cartes identiques se lisaient comme une liste de courses (retour client).
+   Sous 767px elles deviennent de petites vignettes icône + nom, 2 par ligne :
+   description et flèche disparaissent, la carte entière devient le lien (son
+   aria-label porte déjà l'intitulé de la spécialité). */
+@media (max-width: 767px) {
+  .med .service_content .service_card {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 18px 10px 16px;
+    border-radius: 14px;
+  }
+  .med .service_content .service_card::before {
+    display: none;
+  }
+  .med .service_content .service_card .icon {
+    width: 44px;
+    height: 44px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  .med .service_content .service_card .icon i {
+    font-size: 18px;
+    line-height: 44px;
+  }
+  .med .service_content .service_card .content h2 {
+    font-size: 13.5px;
+    line-height: 1.3;
+    margin-top: 0;
+  }
+  .med .service_content .service_card .content p,
+  .med .service_content .service_card .content a i {
+    display: none;
+  }
+  .med .service_content .service_card .content a {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+  }
+}
+
 /* — /blog ------------------------------------------------------------------- */
 /* 70px entre deux articles de la liste : à la nouvelle échelle, la liste se
    lisait comme des blocs isolés plutôt que comme une suite. */
@@ -242,6 +285,59 @@
 }
 .med .wpo-contact-pg-section .office-info .office-info-item .office-info-icon .icon .fi:before {
   font-size: 26px; /* 35px */
+}
+
+/* ── /contact — les 3 encadrés fusionnés en une carte, sur mobile ────────────
+   Trois cartes indépendantes (ombre + icône ronde 85px + padding chacune)
+   empilaient beaucoup de hauteur sur téléphone (retour client). Sous 767px
+   elles deviennent trois lignes compactes (icône à gauche, texte à droite)
+   dans UNE seule carte ; au-delà, la grille à 3 colonnes du template reste
+   inchangée. */
+@media (max-width: 767px) {
+  .med .wpo-contact-pg-section .office-info .row {
+    display: block;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(62, 65, 159, 0.1);
+    overflow: hidden;
+  }
+  .med .wpo-contact-pg-section .office-info .col {
+    display: block;
+    width: 100%;
+  }
+  .med .wpo-contact-pg-section .office-info .office-info-item {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+  .med .wpo-contact-pg-section .office-info .col:not(:first-child) .office-info-item {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .med .wpo-contact-pg-section .office-info .office-info-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .med .wpo-contact-pg-section .office-info .office-info-icon .icon .fi:before {
+    font-size: 17px;
+  }
+  .med .wpo-contact-pg-section .office-info-text {
+    text-align: left;
+  }
+  .med .wpo-contact-pg-section .office-info-text h2 {
+    margin: 0 0 2px;
+    font-size: 15px;
+  }
+  .med .wpo-contact-pg-section .office-info-text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
 }
 
 /* ── Aurora de page (sous-pages patient) ─────────────────────────────────────

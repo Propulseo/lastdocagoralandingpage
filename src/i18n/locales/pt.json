@@ -919,15 +919,15 @@
       "fields": {
         "01": {
           "title": "Influencie o roadmap do produto",
-          "desc": "O seu feedback molda o que construímos a seguir."
+          "desc": "O seu feedback molda o produto."
         },
         "02": {
           "title": "Suporte prioritário",
-          "desc": "Acesso direto à nossa equipa para qualquer questão."
+          "desc": "Acesso direto à nossa equipa."
         },
         "03": {
           "title": "Preços de fundador",
-          "desc": "Garanta as tarifas de early adopter para toda a vida."
+          "desc": "Tarifa de fundador, garantida para sempre."
         }
       }
     },
@@ -1481,7 +1481,6 @@
     "bookingRow1Value": "Disponível",
     "bookingRow2": "Marcação online",
     "bookingRow2Value": "Disponível",
-    "bookingCta": "Iniciar a minha pesquisa",
     "availableTitle": "Sempre disponível",
     "availableDesc": "A plataforma permanece acessível 24h/24, onde quer que esteja em Portugal.",
     "availableRow1": "Plataforma",

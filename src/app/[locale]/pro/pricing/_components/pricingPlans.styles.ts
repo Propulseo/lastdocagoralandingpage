@@ -101,9 +101,22 @@ export const pricingPlansCss = `
     .pp1-plan--star,
     .pp1-plans.mo-in .pp1-plan--star { transform: none; animation: none; }
   }
+  /* Sous 760px, les 3 cartes empilées faisaient défiler une longue liste
+     (retour client : « faire des carrousels »). Piste horizontale native
+     (scroll-snap), sans JS : chaque carte prend l'essentiel de l'écran et
+     le bord de la suivante dépasse pour signaler qu'on peut glisser. */
   @media (max-width: 760px) {
-    .pp1-plans { grid-template-columns: 1fr; }
-    .pp1-cell--star { grid-column: auto; }
+    .pp1-plans {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .pp1-cell {
+      flex: 0 0 82%;
+      grid-column: auto;
+      scroll-snap-align: start;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .pp1-plans.mo-in .pp1-plan--star { animation: none; }

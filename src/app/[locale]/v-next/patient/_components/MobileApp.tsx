@@ -70,6 +70,9 @@ export default function MobileApp() {
         @media (max-width: 880px) {
           .vnma__grid { grid-template-columns: 1fr; gap: 44px; }
           .vnma__phonewrap { order: -1; }
+          /* .vnp-btn--inline reste width:auto + nowrap (styles.css) : sur
+             mobile ce libellé long dépassait l'écran. */
+          .vnma__cta .vnp-btn { width: 100%; white-space: normal; text-align: center; }
         }
         @media (prefers-reduced-motion: reduce) { .vnma__phone { animation: none; } }
       `}</style>

@@ -310,11 +310,10 @@ export default function SectionAvantApres() {
         /* ── Responsive ── */
         @media (max-width: 720px) {
           .v2aa-compare { grid-template-columns: 1fr; gap: var(--spacing-sm, 16px); }
-          .v2aa-compare__vs {
-            position: static;
-            transform: none;
-            margin: var(--spacing-xs, 4px) auto;
-          }
+          /* Empilées, les deux cartes portent déjà leur étiquette AVANT/APRÈS :
+             le badge flottait comme un troisième bloc orphelin entre les deux
+             (retour client). */
+          .v2aa-compare__vs { display: none; }
           .v2aa-col { padding: var(--spacing-md, 24px); }
         }
 

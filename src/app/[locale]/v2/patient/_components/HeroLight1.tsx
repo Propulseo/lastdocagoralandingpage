@@ -631,7 +631,7 @@ export default function HeroLight1() {
             justify-content: flex-start;
             padding: clamp(40px, 7vw, 72px) clamp(20px, 5vw, 64px);
           }
-          .vphl1-hero__inner { grid-template-columns: 1fr; gap: 36px; }
+          .vphl1-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 36px; }
           .vphl1-hero__media { display: none; }
           .vphl1-mobile { display: block; margin-top: 28px; }
           .vphl1-mobile .vphl1-results { max-width: 100%; }
@@ -660,7 +660,10 @@ export default function HeroLight1() {
           .vphl1-chip__check { margin-left: auto; color: ${TEAL_INK}; font-size: 18px; }
         }
         @media (max-width: 600px) {
-          .vphl1-search__row { grid-template-columns: 1fr; }
+          .vphl1-search__row {
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-areas: "lc" "sc" "ll" "sl" "sb";
+          }
           .vphl1-search__cta { width: 100%; }
           .vphl1-seg { width: 100%; justify-content: space-between; }
           .vphl1-seg__btn { flex: 1; }

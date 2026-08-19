@@ -626,6 +626,9 @@ export default function SectionCommentCaMarche() {
           .vphw-week { grid-template-columns: repeat(5, 1fr); gap: 6px; }
           .vphw-card { grid-template-columns: auto 1fr; }
           .vphw-card-cta { grid-column: 2; justify-content: flex-end; }
+          /* Pastille « exemple » retirée : prend de la place inutile sur la
+             barre d'adresse déjà étroite sur mobile. */
+          .vphw-illus { display: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {

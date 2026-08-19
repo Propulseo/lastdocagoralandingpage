@@ -1018,15 +1018,15 @@
       "fields": {
         "01": {
           "title": "Influencez la feuille de route",
-          "desc": "Vos retours façonnent ce que nous construisons ensuite."
+          "desc": "Vos retours façonnent le produit."
         },
         "02": {
           "title": "Support prioritaire",
-          "desc": "Accès direct à notre équipe pour toute question."
+          "desc": "Accès direct à notre équipe."
         },
         "03": {
           "title": "Tarifs fondateurs",
-          "desc": "Bloquez les tarifs early adopter à vie."
+          "desc": "Tarif early adopter garanti à vie."
         }
       }
     },
@@ -1597,7 +1597,6 @@
     "bookingRow1Value": "Disponible",
     "bookingRow2": "Réservation en ligne",
     "bookingRow2Value": "Disponible",
-    "bookingCta": "Lancer ma recherche",
     "availableTitle": "Toujours disponible",
     "availableDesc": "La plateforme reste accessible 24h/24, où que vous soyez au Portugal.",
     "availableRow1": "Plateforme",

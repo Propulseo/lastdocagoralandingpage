@@ -919,15 +919,15 @@
       "fields": {
         "01": {
           "title": "Influence the product roadmap",
-          "desc": "Your feedback shapes what we build next."
+          "desc": "Your feedback shapes the product."
         },
         "02": {
           "title": "Priority support",
-          "desc": "Direct access to our team for any question."
+          "desc": "Direct access to our team."
         },
         "03": {
           "title": "Founder pricing",
-          "desc": "Lock in early adopter rates for life."
+          "desc": "Founder rate, locked in for life."
         }
       }
     },
@@ -1481,7 +1481,6 @@
     "bookingRow1Value": "Available",
     "bookingRow2": "Online booking",
     "bookingRow2Value": "Available",
-    "bookingCta": "Start my search",
     "availableTitle": "Always available",
     "availableDesc": "The platform stays accessible 24/7, wherever you are in Portugal.",
     "availableRow1": "Platform",

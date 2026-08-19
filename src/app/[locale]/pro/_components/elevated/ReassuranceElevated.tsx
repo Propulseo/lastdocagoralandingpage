@@ -132,14 +132,16 @@ export default function ReassuranceElevated() {
           .rea__it { padding: 3px clamp(10px, 1.6vw, 22px); }
         }
 
-        /* Mobile réel : plus assez de largeur pour 4 colonnes → on
-           empile proprement (filets en séparateurs horizontaux) et on
-           réaffiche la micro-précision (la verticale a de la place). */
+        /* Mobile réel : plus assez de largeur pour 4 colonnes → on empile
+           (filets en séparateurs horizontaux). Retour client : 4 lignes
+           pleine largeur avec micro-précision prenaient trop de place —
+           chaque ligne se resserre et perd son détail secondaire, comme
+           déjà le cas en tablette (.rea__sub reste masqué). */
         @media (max-width: 740px) {
           .rea__row { grid-template-columns: 1fr; }
-          .rea__it { padding: 12px 4px; }
+          .rea__it { padding: 9px 4px; gap: 7px; }
           .rea__it + .rea__it { border-left: none; border-top: 1px solid var(--v2-border); }
-          .rea__sub { display: inline; }
+          .rea__label { font-size: 13px; }
         }
 
         @media (prefers-reduced-motion: reduce) {

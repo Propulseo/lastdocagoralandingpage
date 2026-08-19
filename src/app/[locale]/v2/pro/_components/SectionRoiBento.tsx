@@ -372,10 +372,10 @@ export default function SectionRoiBento() {
         @media (max-width: 720px) {
           .v2roi-cell { padding: var(--spacing-sm); }
         }
-        @media (max-width: 460px) {
-          .v2roi-bento { grid-template-columns: 1fr; }
-          .v2roi-cell--wide { grid-column: span 1; }
-        }
+        /* Sous 460px la grille restait à 2 colonnes (héritée de 980px) :
+           les 4 cartes normales se lisent par paires, les 2 cartes phares
+           (« wide ») gardent la ligne pleine largeur — retour client, la
+           colonne unique donnait 6 blocs empilés plutôt que 2 paires. */
 
         /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
