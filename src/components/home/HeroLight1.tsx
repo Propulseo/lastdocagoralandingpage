@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTypewriter } from "@/lib/useTypewriter";
 import { SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
 import VerifiedRecordCard, { type Lang } from "@/components/home/VerifiedRecordCard";
+import Listbox from "@/components/shared/Listbox";
 
 const LANGS: Lang[] = ["PT", "FR", "EN", "ES"];
 
@@ -382,37 +383,20 @@ export default function HeroLight1() {
             "sc sl sb";
           gap: 12px 14px;
           align-items: end;
+          /* Passe au-dessus de la ligne de confiance qui suit : sans ce
+             z-index, elle hérite du même z-index:1 que ce bloc (règle
+             .vphl1-search > *) et, venant après en DOM, se peint PAR-DESSUS
+             le panneau ouvert du sélecteur de ville (retour client — le
+             panneau semblait « pas transparent » alors que du texte de la
+             ligne de confiance s'affichait dessus). */
+          position: relative;
+          z-index: 2;
         }
         .vphl1-ga-lc { grid-area: lc; margin-bottom: 0; }
         .vphl1-ga-ll { grid-area: ll; margin-bottom: 0; }
         .vphl1-ga-sc { grid-area: sc; }
         .vphl1-ga-sl { grid-area: sl; }
         .vphl1-ga-sb { grid-area: sb; }
-        .vphl1-search__select {
-          width: 100%;
-          height: 52px;
-          padding: 0 40px 0 14px;
-          border-radius: 12px;
-          border: 1.5px solid rgba(var(--color-navy-rgb), 0.16);
-          appearance: none;
-          -webkit-appearance: none;
-          background-color: rgba(255, 255, 255, 0.72);
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231E6E68' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 14px center;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -2px 6px -3px rgba(var(--color-navy-rgb), 0.16);
-          color: var(--color-dark-1);
-          font-family: inherit;
-          font-size: 14.5px;
-          cursor: pointer;
-          transition: border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .vphl1-search__select option { color: var(--color-dark-1); }
-        .vphl1-search__select:focus {
-          outline: none;
-          border-color: ${TEAL_INK};
-          box-shadow: 0 0 0 3px rgba(var(--color-teal-rgb), 0.3);
-        }
         .vphl1-seg {
           position: relative;
           display: flex;
@@ -770,23 +754,18 @@ export default function HeroLight1() {
               )}
             </div>
             <div className="vphl1-search__row">
-              <label htmlFor="vphl1-city" className="vphl1-search__field-label vphl1-ga-lc">
+              <label id="vphl1-city-label" htmlFor="vphl1-city" className="vphl1-search__field-label vphl1-ga-lc">
                 {ts("cityLabel")}
               </label>
               <span className="vphl1-search__field-label vphl1-ga-ll">{ts("languageLabel")}</span>
-              <select
+              <Listbox
                 id="vphl1-city"
-                className="vphl1-search__select vphl1-ga-sc no-nice"
+                labelId="vphl1-city-label"
+                className="vphl1-ga-sc"
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
-              >
-                <option value="">{ts("cityAll")}</option>
-                {cities.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
+                onChange={setCity}
+                options={[{ value: "", label: ts("cityAll") }, ...cities.map((c) => ({ value: c, label: c }))]}
+              />
               <div className="vphl1-seg vphl1-ga-sl" role="group" aria-label={ts("languageLabel")}>
                 <span
                   className="vphl1-seg__pill"

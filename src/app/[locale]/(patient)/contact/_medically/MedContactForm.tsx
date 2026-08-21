@@ -12,6 +12,7 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getContactCopy } from "@/app/[locale]/(patient)/contact/_medically/contactCopy";
 import { sendContactMessage } from "@/app/[locale]/(patient)/contact/_medically/sendContactMessage";
+import Listbox from "@/components/shared/Listbox";
 
 interface FormState {
   name: string;
@@ -36,10 +37,9 @@ const EMPTY: FormState = { name: "", email: "", phone: "", subject: "", message:
  * sont reliées à leur champ et annoncées, et le focus se pose sur le premier
  * champ fautif à la soumission.
  *
- * Le <select> porte encore `no-nice`, hérité de l'époque où le plugin jQuery
- * NiceSelect habillait tous les selects. jQuery a été retiré du projet :
- * cette classe est sans effet, conservée le temps de vérifier qu'aucune règle
- * du template ne s'y accroche.
+ * Le champ « Objet » utilise le composant Listbox (tone="plain") plutôt
+ * qu'un <select> natif : la liste ouverte d'un <select> est rendue par l'OS
+ * et ne peut pas être stylée en CSS.
  */
 export default function MedContactForm() {
   /* Composant client : la locale vient du contexte next-intl. Les messages
@@ -59,10 +59,14 @@ export default function MedContactForm() {
   const errorId = (name: keyof FormState) => `${uid}-${name}-error`;
 
   function handleChange(
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = event.target;
     setValues((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleSubjectChange(value: string) {
+    setValues((prev) => ({ ...prev, subject: value }));
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -220,28 +224,24 @@ export default function MedContactForm() {
 
         <div className="col col-lg-6 col-12">
           <div className="form-field">
-            <label className="mcf-label" htmlFor={fieldId("subject")}>
+            <label className="mcf-label" id={`${fieldId("subject")}-label`} htmlFor={fieldId("subject")}>
               {form.labelSubject}
             </label>
-            <select
+            <Listbox
               id={fieldId("subject")}
-              className="no-nice"
-              name="subject"
+              labelId={`${fieldId("subject")}-label`}
+              tone="plain"
               value={values.subject}
-              onChange={handleChange}
+              onChange={handleSubjectChange}
+              options={[
+                { value: "", label: `${form.subjectLabel} *` },
+                ...form.subjects.map((subject) => ({ value: subject, label: subject })),
+              ]}
               required
-              aria-required="true"
-              aria-invalid={errors.subject ? true : undefined}
-              aria-describedby={errors.subject ? errorId("subject") : undefined}
+              invalid={Boolean(errors.subject)}
+              describedBy={errors.subject ? errorId("subject") : undefined}
               disabled={sending}
-            >
-              <option value="">{`${form.subjectLabel} *`}</option>
-              {form.subjects.map((subject) => (
-                <option key={subject} value={subject}>
-                  {subject}
-                </option>
-              ))}
-            </select>
+            />
             {errors.subject ? (
               <span className="error" id={errorId("subject")}>
                 {errors.subject}
