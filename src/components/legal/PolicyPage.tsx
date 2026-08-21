@@ -20,10 +20,18 @@ export default async function PolicyPage({
 
   return (
     <>
-      <section className="page-title page-title-layout1 bg-overlay">
-        <div className="bg-img">
-          <img src="/assets/images/page-titles/1.jpg" alt="" />
-        </div>
+      {/* Le template posait une <img> dans un div `.bg-img`, que jQuery
+          deplacait ensuite en background-image du parent. Le fond est ecrit
+          directement ici : meme rendu, sans manipulation du DOM apres coup
+          — et c'etait le dernier usage de jQuery sur tout le site. */}
+      <section
+        className="page-title page-title-layout1 bg-overlay bg-img"
+        style={{
+          backgroundImage: "url(/assets/images/page-titles/1.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-12">

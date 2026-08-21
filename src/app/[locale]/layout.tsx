@@ -10,10 +10,12 @@ import "@/styles/redesign.css";
 import { getMessages, getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { locales } from "@/i18n/config";
+import { SITE_URL } from "@/lib/site";
 import ScrollToTop from "@/components/layout/ScrollToTop";
-import JQueryLoader from "@/lib/jquery-loader";
 import SiteLoader from "@/components/shared/SiteLoader";
 import { AudienceWashProvider } from "@/components/layout/AudienceWash";
+import { ConsentProvider } from "@/components/analytics/ConsentProvider";
+import CookieConsent from "@/components/analytics/CookieConsent";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -41,9 +43,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata.home" });
+
+  /* Ce layout ne porte QUE ce qui est identique sur tout le site. L'URL
+     canonique, les variantes de langue et l'URL de partage dépendent du
+     chemin : elles sont déclarées page par page via `pageMetadata`, sinon
+     chaque page hériterait de l'adresse de l'accueil.
+
+     Le titre et la description ci-dessous ne servent que de filet pour une
+     page qui n'en déclarerait pas. */
   return {
+    /* Sans metadataBase, une image de partage déclarée en chemin relatif
+       (les articles de blog le font) n'est pas résolue en URL absolue —
+       or WhatsApp, LinkedIn et Facebook exigent une adresse complète. */
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
+    icons: {
+      icon: "/assets/images/favicon/favicon.png",
+      apple: "/assets/images/favicon/favicon.png",
+    },
   };
 }
 
@@ -62,6 +80,12 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${montserrat.variable} ${fraunces.variable}`}>
       <head>
         <link rel="icon" href="/assets/images/favicon/favicon.png" />
+        {/* FontAwesome vient d'un serveur tiers et bloque le rendu tant qu'il
+            n'a pas répondu. Le preconnect ouvre la connexion (DNS + TLS) en
+            avance, pendant que le reste du head est lu. Correctif d'attente :
+            l'objectif reste de rapatrier ces icônes dans le projet. */}
+        <link rel="preconnect" href="https://use.fontawesome.com" />
+        <link rel="preconnect" href="https://use.fontawesome.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
@@ -88,14 +112,18 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <AudienceWashProvider>
-            <div className="wrapper" style={{ overflowX: "clip" }}>
-              <SiteLoader />
-              {children}
-              <ScrollToTop />
-            </div>
-          </AudienceWashProvider>
-          <JQueryLoader />
+          <ConsentProvider>
+            <AudienceWashProvider>
+              <div className="wrapper" style={{ overflowX: "clip" }}>
+                <SiteLoader />
+                {children}
+                <ScrollToTop />
+              </div>
+            </AudienceWashProvider>
+            {/* Rien ne part vers Google tant que le visiteur n'a pas accepte.
+                Sans NEXT_PUBLIC_GA_ID, le bandeau ne s'affiche pas du tout. */}
+            <CookieConsent gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>

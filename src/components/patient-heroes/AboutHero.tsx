@@ -1,4 +1,5 @@
 import VerifiedRecordCard from "@/components/home/VerifiedRecordCard";
+import { Link } from "@/i18n/navigation";
 import type { MedicallyCopy } from "@/app/[locale]/(patient)/about/_prototypes/medically/medicallyCopy";
 import { SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
 
@@ -10,10 +11,8 @@ import { SPECIALTY_ICON, searchLoginUrl } from "@/lib/specialties";
  * (--color-*) chargés globalement via tokens.css.
  */
 export default function AboutHero({
-  locale,
   copy,
 }: {
-  locale: string;
   copy: MedicallyCopy["hero"];
 }) {
   return (
@@ -239,9 +238,13 @@ export default function AboutHero({
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a href={`/${locale}/specialties`} className="pah__btn pah__btn--ghost">
+            {/* Lien interne : `Link` ajoute le prefixe de langue quand il en
+                faut un, et evite le rechargement complet de la page qu'un
+                `<a>` provoquait. Le CTA principal juste au-dessus reste un
+                `<a>` : il sort vers la plateforme. */}
+            <Link href="/specialties" className="pah__btn pah__btn--ghost">
               <span>{copy.ctaGhost}</span>
-            </a>
+            </Link>
           </div>
         </div>
 

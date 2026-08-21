@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reproduction fidele du template :
    next/image casserait les selecteurs `img` propres au theme. */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import MedBlogSidebar from "@/app/[locale]/(patient)/blog/_medically/MedBlogSidebar";
 import AnimatedSection from "@/components/shared/AnimatedSection";
@@ -39,7 +39,7 @@ export default function MedBlogList({
 }) {
   const posts = searchBlogPosts(locale, query ?? "");
   const t = getBlogStrings(locale);
-  const blogHref = `/${locale}/blog`;
+  const blogHref = "/blog";
   const activeQuery = (query ?? "").trim();
   // La une est soit dans le masthead, soit en tête de liste — jamais les deux.
   const [first, ...rest] = posts;

@@ -1,8 +1,8 @@
 import HeroElevated from "./elevated/HeroElevated";
 import FeaturesElevated from "./elevated/FeaturesElevated";
-import SectionAvantApres from "@/app/[locale]/v2/pro/_components/SectionAvantApres";
-import SectionRoiBento from "@/app/[locale]/v2/pro/_components/SectionRoiBento";
-import SectionEarlyAccess from "@/app/[locale]/v2/pro/_components/SectionEarlyAccess";
+import SectionAvantApres from "./SectionAvantApres";
+import SectionRoiBento from "./SectionRoiBento";
+import SectionEarlyAccess from "./SectionEarlyAccess";
 import ReassuranceElevated from "./elevated/ReassuranceElevated";
 
 /**
@@ -175,8 +175,12 @@ export default function ProHome() {
       <div className="v2p__glow" aria-hidden="true" />
       <div className="v2p__herovideo" aria-hidden="true">
         <video autoPlay muted loop playsInline preload="metadata">
-          <source src="/assets/video/hero-bg.mp4" type="video/mp4" />
+          {/* WebM en premier : le navigateur retient la PREMIÈRE source qu'il
+              sait lire, jamais la plus légère. Chrome/Firefox/Edge prennent
+              donc le WebM (1,08 Mo) au lieu du MP4 (2,2 Mo) ; Safari, qui
+              ignore le WebM, tombe sur le MP4 juste après. */}
           <source src="/assets/video/hero-bg.webm" type="video/webm" />
+          <source src="/assets/video/hero-bg.mp4" type="video/mp4" />
           <source src="/assets/video/hero-bg.mov" type="video/quicktime" />
         </video>
       </div>

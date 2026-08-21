@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
+import ConsentedMap from "@/app/[locale]/(patient)/contact/_medically/ConsentedMap";
 
 import "@/styles/medically.css";
 import "@/styles/medically-overrides.css";
@@ -9,7 +11,6 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
 import RevealCascade from "@/components/shared/RevealCascade";
 import MedContactForm from "@/app/[locale]/(patient)/contact/_medically/MedContactForm";
 import {
-  CONTACT_MAP_SRC,
   getContactCopy,
 } from "@/app/[locale]/(patient)/contact/_medically/contactCopy";
 
@@ -19,16 +20,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata.contact" });
-  return {
-    title: t("title"),
-    description: t("description"),
-    openGraph: {
-      title: t("title"),
-      description: t("description"),
-      type: "website",
-    },
-  };
+  return pageMetadata({ locale, path: "/contact", namespace: "metadata.contact" });
 }
 
 /**
@@ -108,12 +100,7 @@ export default async function ContactPage({
             <div className="container">
               <figure className="pat-map">
                 <div className="pat-map__frame">
-                  <iframe
-                    className="pat-map__iframe"
-                    title={copy.map.title}
-                    src={CONTACT_MAP_SRC}
-                    loading="lazy"
-                  ></iframe>
+                  <ConsentedMap title={copy.map.title} />
                   <span className="pat-map__veil" aria-hidden="true"></span>
                   <span className="pat-map__pin" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none">

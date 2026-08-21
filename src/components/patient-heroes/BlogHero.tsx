@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- Même contrainte que le reste du
    portage Medically : next/image enveloppe l'image et injecte des styles inline,
    ce qui casserait le cadrage plein format de la « une ». */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { blogHeroCss } from "@/components/patient-heroes/blogHero.styles";
 import type { BlogPost } from "@/lib/blog";
@@ -45,7 +45,7 @@ export default function BlogHero({
   featuredLabel: string;
   readMore: string;
 }) {
-  const blogHref = `/${locale}/blog`;
+  const blogHref = "/blog";
   const normalized = (activeCategory ?? "").trim().toLowerCase();
   const isAll = normalized === "";
 
@@ -55,7 +55,7 @@ export default function BlogHero({
 
       <div className="pbh__inner">
         <div className="pbh__crumb pbh-reveal pbh-d1">
-          <Link href={`/${locale}`}>{homeLabel}</Link> &nbsp;/&nbsp; {crumb}
+          <Link href="/">{homeLabel}</Link> &nbsp;/&nbsp; {crumb}
         </div>
         <h1 className="pbh__title pbh-reveal pbh-d2">{title}</h1>
         <p className="pbh__subtitle pbh-reveal pbh-d3">{subtitle}</p>

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reproduction fidele du template :
    next/image casserait les selecteurs `img` propres au theme. */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import MedBlogSidebar from "@/app/[locale]/(patient)/blog/_medically/MedBlogSidebar";
 import type { BlogBlock, BlogPost } from "@/lib/blog";
@@ -61,7 +61,7 @@ export default function MedBlogSingle({
   next: BlogPost | null;
   locale: string;
 }) {
-  const blogHref = `/${locale}/blog`;
+  const blogHref = "/blog";
   const t = getBlogStrings(locale);
 
   return (
@@ -95,26 +95,26 @@ export default function MedBlogSingle({
                     {prev && (
                       <div className="previous-post">
                         <Link
-                          href={`/${locale}/blog/${prev.slug}`}
+                          href={`/blog/${prev.slug}`}
                           className="post-control-link"
                         >
                           {t.prevLabel}
                         </Link>
                         <h4 className="post-name">
-                          <Link href={`/${locale}/blog/${prev.slug}`}>{prev.title}</Link>
+                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                         </h4>
                       </div>
                     )}
                     {next && (
                       <div className="next-post">
                         <Link
-                          href={`/${locale}/blog/${next.slug}`}
+                          href={`/blog/${next.slug}`}
                           className="post-control-link"
                         >
                           {t.nextLabel}
                         </Link>
                         <h4 className="post-name">
-                          <Link href={`/${locale}/blog/${next.slug}`}>{next.title}</Link>
+                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                         </h4>
                       </div>
                     )}

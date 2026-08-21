@@ -39,11 +39,11 @@ export const MEDICALLY_COPY_EN: MedicallyCopy = {
     title: "Finding the right practitioner without losing a day to it",
     paragraphs: [
       "DocAgora connects patients — residents, expats and travellers — with verified healthcare professionals across Portugal. Search by specialty, by city or by spoken language, see real availability, and book online.",
-      "No phone call, no waiting for someone to call back. Search and booking are free for patients, and the interface exists in Portuguese, French and English.",
+      "No phone call, no waiting for someone to call back. Search and booking are free for patients. And you filter practitioners by the language they speak in consultation: Portuguese, French, English or Spanish.",
     ],
-    badgeValue: 3,
+    badgeValue: 16,
     badgeSuffix: "",
-    badgeLabel: "Languages available",
+    badgeLabel: "Specialties covered",
     avatars: [
       "/medically/images/doctors/1.jpg",
       "/medically/images/doctors/4.jpg",
@@ -64,25 +64,25 @@ export const MEDICALLY_COPY_EN: MedicallyCopy = {
   process: [
     {
       number: "01",
-      image: "/medically/images/work/1.jpg",
+      image: "/assets/images/client-photos/letzai-b0d6cab1-c167-4986-ae8e-b17ad1da0795.png",
       title: "Search",
       text: "By specialty, by city or by spoken language. Results show who practises near you.",
     },
     {
       number: "02",
-      image: "/medically/images/work/2.jpg",
+      image: "/assets/images/client-photos/letzai-d3733e8a-fe69-4925-8065-75355ad747c2.png",
       title: "Compare",
       text: "Every practitioner is reviewed and approved before going live. You know who you are dealing with.",
     },
     {
       number: "03",
-      image: "/medically/images/work/3.jpg",
+      image: "/assets/images/client-photos/letzai-bb4ae54c-83a1-4f18-be69-787025d6dfbf.png",
       title: "Book",
       text: "You pick a slot that is genuinely free and confirm online, at any hour.",
     },
     {
       number: "04",
-      image: "/medically/images/work/4.jpg",
+      image: "/assets/images/client-photos/letzai-dd3badce-0587-421b-9402-85ab2f9ee8bb.png",
       title: "Come to your appointment",
       text: "An automatic reminder is sent before the time. You have nothing to remember.",
     },
@@ -90,7 +90,7 @@ export const MEDICALLY_COPY_EN: MedicallyCopy = {
 
   facts: [
     { icon: "flaticon-doctor", count: 100, suffix: " %", label: "Verified practitioners" },
-    { icon: "flaticon-businesswoman", count: 3, label: "Languages: PT, FR, EN" },
+    { icon: "flaticon-businesswoman", count: 4, label: "Languages spoken: PT, FR, EN, ES" },
     { icon: "flaticon-award", count: 0, suffix: " €", label: "For patients" },
     { icon: "flaticon-customer-care", text: "24/7", label: "Online booking" },
   ],
@@ -103,19 +103,19 @@ export const MEDICALLY_COPY_EN: MedicallyCopy = {
   audience: [
     {
       id: "residents",
-      image: "/medically/images/team/1.png",
+      image: "/assets/images/client-photos/letzai-124ecce0-307e-4bd4-bf4b-8a24ade74635.png",
       title: "You live in Portugal",
       subtitle: "Residents",
     },
     {
       id: "expatries",
-      image: "/medically/images/team/2.png",
+      image: "/assets/images/client-photos/letzai-f53a8f6e-e6e6-419c-82b1-f541306c5a26.png",
       title: "You have just moved here",
       subtitle: "Expats",
     },
     {
       id: "voyageurs",
-      image: "/medically/images/team/3.png",
+      image: "/assets/images/client-photos/letzai-edfaa96a-4276-488a-b6bc-183e0cf168ff.png",
       title: "You are just passing through",
       subtitle: "Travellers",
     },

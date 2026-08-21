@@ -332,8 +332,10 @@ h1, h2, h3, h4, h5, h6,
   border-top-color: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Contraste : 0.35 sur le fond sombre du footer donnait 3,16:1, sous le seuil
+   lisible de 4,5:1 pour du texte de 12-13px. 0.6 remonte à ~5,5:1. */
 .footer-pro .footer-bottom__left {
-  color: rgba(255, 255, 255, 0.35) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .footer-pro .footer-bottom__credit {
@@ -341,7 +343,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .footer-pro .footer-bottom__right a {
-  color: rgba(255, 255, 255, 0.35) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .footer-pro .footer-bottom__right a:hover {
@@ -350,7 +352,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Badge RGPD déplacé du bas-gauche vers le bas-droite (texte, pas un lien). */
 .footer-pro .footer-bottom__right span {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 12px;
 }
 

@@ -64,8 +64,8 @@ const SOURCES: BlogPostSource[] = [
   {
     id: "1",
     slug: "encontrar-medico-em-portugal",
-    image: "/medically/images/blog/img-1.jpg",
-    thumb: "/medically/images/blog/img-1.jpg",
+    image: "/assets/images/client-photos/letzai-499bd640-87be-49d7-88ef-0b44484d2c29.png",
+    thumb: "/assets/images/client-photos/letzai-499bd640-87be-49d7-88ef-0b44484d2c29.png",
     content: {
       pt: {
         title: "Encontrar médico em Portugal quando se acaba de chegar",
@@ -102,8 +102,8 @@ const SOURCES: BlogPostSource[] = [
   {
     id: "2",
     slug: "consultar-na-sua-lingua",
-    image: "/medically/images/blog/img-2.jpg",
-    thumb: "/medically/images/blog/img-2.jpg",
+    image: "/assets/images/client-photos/letzai-47889e68-bdf4-4e85-8848-837e4bca9a84.png",
+    thumb: "/assets/images/client-photos/letzai-47889e68-bdf4-4e85-8848-837e4bca9a84.png",
     content: {
       pt: {
         title: "Consultar na sua língua: o que muda",
@@ -140,8 +140,8 @@ const SOURCES: BlogPostSource[] = [
   {
     id: "3",
     slug: "preparar-a-primeira-consulta",
-    image: "/medically/images/blog/img-3.jpg",
-    thumb: "/medically/images/blog/img-3.jpg",
+    image: "/assets/images/client-photos/letzai-fb254101-a64a-4dda-90f3-8f72506840fb.png",
+    thumb: "/assets/images/client-photos/letzai-fb254101-a64a-4dda-90f3-8f72506840fb.png",
     content: {
       pt: {
         title: "Preparar a primeira consulta, passo a passo",

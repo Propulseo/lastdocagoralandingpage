@@ -13,8 +13,15 @@ import Wordmark from "@/components/layout/Wordmark";
  * (main.js) : deux secondes d'attente imposées à chaque chargement, que la page
  * soit prête ou non, et un nœud appartenant à React supprimé par jQuery.
  * Ici, l'écran se retire dès que les polices sont prêtes ET que `minDuration`
- * est écoulé — jamais de flash, jamais d'attente artificielle — et React reste
- * seul propriétaire de son DOM.
+ * est écoulé, et React reste seul propriétaire de son DOM.
+ *
+ * `minDuration` valait 900 ms : le voile restait donc au moins neuf dixièmes de
+ * seconde même quand la page était déjà prête, puis mettait encore 860 ms à
+ * s'effacer — près de deux secondes imposées sur la page la plus visitée du
+ * site, et une mesure de vitesse faussée puisque le logo du voile devenait le
+ * premier élément peint. Ramené à 150 ms, juste assez pour éviter un
+ * clignotement d'une image si les polices répondent instantanément, et la
+ * sortie ramenée de 860 à 450 ms.
  *
  * Il ne se rejoue pas dans la même session : on ne fait pas patienter deux fois
  * quelqu'un qui navigue entre les pages.
@@ -26,7 +33,7 @@ import Wordmark from "@/components/layout/Wordmark";
  * étant partagé. Le logo est le `Wordmark` du site — le même qu'en header et en
  * pied de page, comme demandé par la cliente.
  */
-export default function SiteLoader({ minDuration = 900 }: { minDuration?: number }) {
+export default function SiteLoader({ minDuration = 150 }: { minDuration?: number }) {
   const t = useTranslations("loader");
   const pathname = usePathname();
   const isPro = pathname.startsWith("/pro");
@@ -61,10 +68,10 @@ export default function SiteLoader({ minDuration = 900 }: { minDuration?: number
       } catch {
         /* navigation privée : l'écran se rejouera, sans conséquence */
       }
-      // 860 ms = durée de l'iris + marge.
+      // Durée de l'iris (450 ms) + marge.
       setTimeout(() => {
         if (!dead) setState("gone");
-      }, 900);
+      }, 500);
     });
 
     return () => {
@@ -94,7 +101,7 @@ export default function SiteLoader({ minDuration = 900 }: { minDuration?: number
         .sl--pro { background: #080c14; }
 
         /* La sortie : l'écran s'ouvre en iris sur la page. */
-        .sl--out { animation: sl-iris 0.86s cubic-bezier(0.65, 0, 0.35, 1) both; }
+        .sl--out { animation: sl-iris 0.45s cubic-bezier(0.65, 0, 0.35, 1) both; }
         @keyframes sl-iris {
           from { clip-path: circle(150% at 50% 50%); }
           to { clip-path: circle(0% at 50% 50%); }

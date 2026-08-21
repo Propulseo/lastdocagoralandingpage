@@ -8,6 +8,7 @@ import "@/styles/medically-overrides.css";
 import { MedPageTitle } from "@/components/medically/MedPrimitives";
 import MedBlogSingle from "@/app/[locale]/(patient)/blog/_medically/MedBlogSingle";
 import { getAdjacentPosts, getBlogSlugs, getPostBySlug } from "@/lib/blog";
+import { buildMetadata } from "@/lib/page-metadata";
 import { getBlogStrings } from "@/lib/blogStrings";
 
 /** Une page par article. La locale vient du generateStaticParams du layout. */
@@ -23,19 +24,23 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = getPostBySlug(locale, slug);
   if (!post) return {};
-  return {
+
+  /* Le slug est le même dans les trois langues : les variantes linguistiques
+     de l'article se déduisent donc directement du chemin. */
+  const base = buildMetadata({
+    locale,
+    path: `/blog/${slug}`,
     title: post.title,
     description: post.excerpt,
+  });
+
+  return {
+    ...base,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      ...base.openGraph,
       type: "article",
+      /* L'illustration de l'article remplace la carte générique du site. */
       images: [post.image],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
     },
   };
 }
@@ -67,7 +72,6 @@ export default async function BlogSinglePage({
       <MedPageTitle
         title={post.title}
         crumb={t.crumb}
-        locale={locale}
         homeLabel={t.homeLabel}
       />
       <MedBlogSingle post={post} prev={prev} next={next} locale={locale} />

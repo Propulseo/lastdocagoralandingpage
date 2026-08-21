@@ -21,12 +21,15 @@ export function MedAbout({
           <div className="col-lg-6 col-12">
             <div className="about_left">
               <div className="image">
-                <img src="/medically/images/about.jpg" alt="" />
+                <img src="/assets/images/client-photos/letzai-e86aa298-f708-41ab-9a66-e7fc11306a4c.png" alt="" />
                 <span className="round-on"></span>
                 <span className="round-two"></span>
                 <div className="award">
                   <div className="icon">
-                    <i className="flaticon-cup"></i>
+                    {/* Le gabarit posait ici un trophee, qui ne veut rien dire
+                        pour des langues parlees. Icone « langue » de
+                        FontAwesome, deja chargee sur tout le site. */}
+                    <i className="fas fa-language" aria-hidden="true"></i>
                   </div>
                   <div className="text">
                     <h2>

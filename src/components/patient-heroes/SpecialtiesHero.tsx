@@ -8,7 +8,7 @@ import type { Lang } from "@/components/home/VerifiedRecordCard";
 import { SPECIALTIES, searchLoginUrl } from "@/lib/specialties";
 import { useTypewriter } from "@/lib/useTypewriter";
 
-const LANGS: Lang[] = ["PT", "FR", "EN"];
+const LANGS: Lang[] = ["PT", "FR", "EN", "ES"];
 
 /** Les six spécialités mises en avant viennent de la source unique
  *  (lib/specialties, drapeau `flagship`) — jamais une liste locale. */
@@ -111,7 +111,7 @@ export default function SpecialtiesHero() {
               <div className="psh__seg" role="group" aria-label={heroCopy.labelLang}>
                 <span
                   className="psh__seg-pill"
-                  style={{ "--seg-i": LANGS.indexOf(lang) } as CSSProperties}
+                  style={{ "--seg-i": LANGS.indexOf(lang), "--seg-n": LANGS.length } as CSSProperties}
                   aria-hidden="true"
                 />
                 {LANGS.map((code) => (

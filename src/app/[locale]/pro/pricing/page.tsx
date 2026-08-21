@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 import ProBackdrop from "@/app/[locale]/pro/_ui/ProBackdrop";
 import PricingBilling from "./_components/PricingBilling";
 import PricingCompare from "./_components/PricingCompare";
@@ -14,6 +16,17 @@ import { pricingBaseCss } from "./_components/pricingBase.styles";
    DA de la home /pro. Hero + plans orchestrés par PricingBilling
    (toggle de périodicité). Montants NON connus : « — € » partout.
    ============================================================ */
+
+/* Même correctif que /pro/about : la page héritait du titre générique de /pro.
+   Les traductions dédiées (metadata.proPricing) existaient déjà, inutilisées. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata({ locale, path: "/pro/pricing", namespace: "metadata.proPricing" });
+}
 
 export default async function ProPricingPage({
   params,

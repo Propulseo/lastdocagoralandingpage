@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reproduction fidele du template :
    next/image casserait les selecteurs `img` propres au theme. */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import RevealCascade from "@/components/shared/RevealCascade";
 import { getAllTags, getBlogPosts, getCategories, isActiveFilter } from "@/lib/blog";
@@ -24,7 +24,7 @@ export default function MedBlogSidebar({
   locale: string;
   query?: string;
 }) {
-  const blogHref = `/${locale}/blog`;
+  const blogHref = "/blog";
   const posts = getBlogPosts(locale);
   const categories = getCategories(locale);
   const tags = getAllTags(locale);
@@ -90,7 +90,7 @@ export default function MedBlogSidebar({
                 </div>
                 <div className="details">
                   <h4>
-                    <Link href={`/${locale}/blog/${post.slug}`}>{post.title}</Link>
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h4>
                   <span className="date">{post.date}</span>
                 </div>

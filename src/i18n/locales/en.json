@@ -55,11 +55,12 @@
     "proContactLabel": "Direct contact",
     "proCompact": "Portugal early access · GDPR · Portugal hosting",
     "patientVerified": "Verified professionals",
-    "patientLanguages": "PT · FR · EN",
+    "patientLanguages": "PT · FR · EN · ES",
     "langAria": "Choose the site language",
     "patientFree": "Free search",
     "patientPortugal": "Portugal",
-    "patientCompact": "Verified professionals · PT FR EN · Free search"
+    "patientCompact": "Verified professionals · PT FR EN · Free search",
+    "langSwitchTo": "Switch to {lang}"
   },
   "navbar": {
     "home": "Home",
@@ -746,17 +747,11 @@
       "title": "DocAgora app (coming soon)",
       "subtitle": "The DocAgora mobile app is on its way. Find a healthcare professional, book appointments, receive reminders, all from your phone, in your language. Be the first to know when it launches.",
       "starsLabel": "Available soon on iOS and Android",
-      "downloadOn": "Download on the",
-      "appStoreLabel": "App Store",
-      "getItOn": "Get it on",
-      "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "App launching soon. Sign up for early access",
       "cta": "Sign up on the platform to be notified at launch",
       "phoneSearch": "Find a professional...",
       "phoneDoc1Spec": "Cardiologist",
       "phoneDoc2Spec": "Dentist",
-      "phoneDoc3Spec": "Pediatrician",
-      "comingSoon": "Soon"
+      "phoneDoc3Spec": "Pediatrician"
     }
   },
   "chatbot": {
@@ -933,10 +928,21 @@
     },
     "reassurance": {
       "aria": "DocAgora commitments",
-      "earlyAccess": { "label": "Early access", "sub": "limited spots" },
-      "rgpd": { "label": "GDPR-compliant", "sub": "data protected" },
-      "portugal": { "label": "Hosted in Portugal" },
-      "support": { "label": "Priority support", "sub": "direct access" }
+      "earlyAccess": {
+        "label": "Early access",
+        "sub": "limited spots"
+      },
+      "rgpd": {
+        "label": "GDPR-compliant",
+        "sub": "data protected"
+      },
+      "portugal": {
+        "label": "Hosted in Portugal"
+      },
+      "support": {
+        "label": "Priority support",
+        "sub": "direct access"
+      }
     },
     "hero": {
       "title": "The all-in-one suite that reinvents your daily practice.",
@@ -973,9 +979,15 @@
       "badgeLangs": "PT · FR · EN",
       "metricsAria": "Illustrative metrics",
       "metrics": {
-        "noshow": { "label": "fewer missed appointments" },
-        "hours": { "label": "saved per week" },
-        "patients": { "label": "more new patients" }
+        "noshow": {
+          "label": "fewer missed appointments"
+        },
+        "hours": {
+          "label": "saved per week"
+        },
+        "patients": {
+          "label": "more new patients"
+        }
       },
       "board": {
         "title": "Dashboard",
@@ -1377,6 +1389,18 @@
         {
           "title": "Your rights",
           "body": "Under the GDPR, you can access, rectify, delete or request portability of your data at any time. To exercise these rights, contact us."
+        },
+        {
+          "title": "Retention period",
+          "body": "Account data is kept for as long as the account is active, then up to 3 years after it is closed. Search criteria are kept 13 months. Messages sent through the contact form are kept 3 years after a reply."
+        },
+        {
+          "title": "Data protection contact",
+          "body": "For any question about your personal data, or to exercise your rights, write to hello@docagora.com."
+        },
+        {
+          "title": "Right to lodge a complaint",
+          "body": "If you believe your rights have not been respected, you may lodge a complaint with the Comissão Nacional de Proteção de Dados (CNPD), the Portuguese supervisory authority: cnpd.pt."
         }
       ]
     },
@@ -1408,11 +1432,11 @@
       "sections": [
         {
           "title": "Publisher",
-          "body": "The DocAgora platform is published by the DocAgora team. For any request, write to us at hello@docagora.com."
+          "body": "The DocAgora platform is published by OXIGÉNIO BOÉMIO, LDA, a Portuguese private limited company (Sociedade por quotas), registered under number 519319346, with its registered office at Rua do Grilo nº 14, 1º Dtº, 1950-145 Lisbon, Portugal. Legal representative: Samuel Klopp. For any request, write to us at hello@docagora.com."
         },
         {
           "title": "Hosting",
-          "body": "The site and its data are hosted on infrastructure located in Portugal."
+          "body": "The site and its data are hosted by OVH SAS, 2 rue Kellermann, 59100 Roubaix, France, on infrastructure located in Portugal."
         },
         {
           "title": "Intellectual property",
@@ -1440,7 +1464,7 @@
     "resultsHead": "Matching professionals (examples):",
     "seeAll": "See all professionals",
     "trustVerified": "Verified professionals",
-    "trustLanguages": "PT · FR · EN",
+    "trustLanguages": "PT · FR · EN · ES",
     "trustFree": "Free search",
     "finalPlaceholder": "Which professional are you looking for?",
     "emptyHint": "Please enter a specialty or reason.",
@@ -1593,5 +1617,20 @@
       "lede": "This Next route is ready for visual iteration inside the real DocAgora context.",
       "cta": "Request access"
     }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has been moved. Head back home to continue your search.",
+    "cta": "Back to home"
+  },
+  "cookies": {
+    "title": "Cookies and audience measurement",
+    "text": "We use Google Analytics to understand how the site is used. These cookies are only enabled if you accept. Declining changes nothing about your use of the site.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacyLink": "See the privacy policy",
+    "mapTitle": "Map disabled",
+    "mapText": "The map is provided by Google and only loads once cookies are accepted.",
+    "mapOpen": "Open in Google Maps"
   }
 }

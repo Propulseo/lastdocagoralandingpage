@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 
 import "@/styles/medically.css";
 import "@/styles/medically-overrides.css";
@@ -17,22 +18,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata.blog" });
-  return {
-    title: t("title"),
-    description: t("description"),
-    openGraph: {
-      title: t("title"),
-      description: t("description"),
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
-    },
-    keywords: t("keywords"),
-  };
+  return pageMetadata({ locale, path: "/blog", namespace: "metadata.blog" });
 }
 
 /**

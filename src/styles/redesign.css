@@ -395,6 +395,8 @@
 .da-record__langs {
   display: flex;
   align-items: center;
+  /* Sans retour a la ligne, une langue de plus faisait deborder la carte. */
+  flex-wrap: wrap;
   gap: 8px;
   padding-top: 14px;
   border-top: 1px solid var(--border-default);

@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
-export type Lang = "PT" | "FR" | "EN";
-const ALL_LANGS: Lang[] = ["PT", "FR", "EN"];
+export type Lang = "PT" | "FR" | "EN" | "ES";
+/* Aligne sur les langues que les praticiens peuvent declarer dans la
+   plateforme (pt, en, fr, es). Le site vitrine n'en proposait que 3 :
+   un patient hispanophone ne pouvait pas filtrer sur sa langue. */
+const ALL_LANGS: Lang[] = ["PT", "FR", "EN", "ES"];
 
 function VerifiedCheck({ animate }: { animate: boolean }) {
   return (

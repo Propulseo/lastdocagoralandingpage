@@ -43,11 +43,11 @@ export const MEDICALLY_COPY_PT: MedicallyCopy = {
     title: "Encontrar o profissional certo sem perder o dia",
     paragraphs: [
       "A DocAgora liga os utentes — residentes, estrangeiros e visitantes — a profissionais de saúde verificados em todo o Portugal. Pesquise por especialidade, por cidade ou por idioma falado, veja as disponibilidades reais e marque online.",
-      "Sem telefonemas, sem esperar que lhe liguem de volta. A pesquisa e a marcação são gratuitas para os utentes, e a interface existe em português, francês e inglês.",
+      "Sem telefonemas, sem esperar que lhe liguem de volta. A pesquisa e a marcação são gratuitas para os utentes. E pode filtrar os profissionais pelo idioma que falam em consulta: português, francês, inglês ou espanhol.",
     ],
-    badgeValue: 3,
+    badgeValue: 16,
     badgeSuffix: "",
-    badgeLabel: "Idiomas disponíveis",
+    badgeLabel: "Especialidades cobertas",
     avatars: [
       "/medically/images/doctors/1.jpg",
       "/medically/images/doctors/4.jpg",
@@ -68,25 +68,25 @@ export const MEDICALLY_COPY_PT: MedicallyCopy = {
   process: [
     {
       number: "01",
-      image: "/medically/images/work/1.jpg",
+      image: "/assets/images/client-photos/letzai-b0d6cab1-c167-4986-ae8e-b17ad1da0795.png",
       title: "Pesquise",
       text: "Por especialidade, por cidade ou por idioma falado. Os resultados mostram quem exerce perto de si.",
     },
     {
       number: "02",
-      image: "/medically/images/work/2.jpg",
+      image: "/assets/images/client-photos/letzai-d3733e8a-fe69-4925-8065-75355ad747c2.png",
       title: "Compare",
       text: "Cada profissional é analisado e aprovado antes de entrar na plataforma. Sabe a quem se dirige.",
     },
     {
       number: "03",
-      image: "/medically/images/work/3.jpg",
+      image: "/assets/images/client-photos/letzai-bb4ae54c-83a1-4f18-be69-787025d6dfbf.png",
       title: "Marque",
       text: "Escolhe um horário realmente livre e confirma online, a qualquer hora.",
     },
     {
       number: "04",
-      image: "/medically/images/work/4.jpg",
+      image: "/assets/images/client-photos/letzai-dd3badce-0587-421b-9402-85ab2f9ee8bb.png",
       title: "Vá à consulta",
       text: "Recebe um lembrete automático antes da hora. Não tem de se lembrar de nada.",
     },
@@ -94,7 +94,7 @@ export const MEDICALLY_COPY_PT: MedicallyCopy = {
 
   facts: [
     { icon: "flaticon-doctor", count: 100, suffix: " %", label: "Profissionais verificados" },
-    { icon: "flaticon-businesswoman", count: 3, label: "Idiomas: PT, FR, EN" },
+    { icon: "flaticon-businesswoman", count: 4, label: "Idiomas falados: PT, FR, EN, ES" },
     { icon: "flaticon-award", count: 0, suffix: " €", label: "Para os utentes" },
     { icon: "flaticon-customer-care", text: "24/7", label: "Marcação online" },
   ],
@@ -107,19 +107,19 @@ export const MEDICALLY_COPY_PT: MedicallyCopy = {
   audience: [
     {
       id: "residents",
-      image: "/medically/images/team/1.png",
+      image: "/assets/images/client-photos/letzai-124ecce0-307e-4bd4-bf4b-8a24ade74635.png",
       title: "Vive em Portugal",
       subtitle: "Residentes",
     },
     {
       id: "expatries",
-      image: "/medically/images/team/2.png",
+      image: "/assets/images/client-photos/letzai-f53a8f6e-e6e6-419c-82b1-f541306c5a26.png",
       title: "Acabou de se instalar",
       subtitle: "Estrangeiros",
     },
     {
       id: "voyageurs",
-      image: "/medically/images/team/3.png",
+      image: "/assets/images/client-photos/letzai-edfaa96a-4276-488a-b6bc-183e0cf168ff.png",
       title: "Está de passagem",
       subtitle: "Visitantes",
     },

@@ -1,12 +1,15 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import HeroLight1 from "@/app/[locale]/v2/patient/_components/HeroLight1";
-import SectionCommentCaMarche from "@/app/[locale]/v2/patient/_components/SectionCommentCaMarche";
-import SpecialtiesCarousel2 from "@/app/[locale]/v2/patient/_components/SpecialtiesCarousel2";
+import { pageMetadata } from "@/lib/page-metadata";
 
-import AboutPatient from "@/app/[locale]/v-next/patient/_components/AboutPatient";
-import MobileApp from "@/app/[locale]/v-next/patient/_components/MobileApp";
-import FaqSection from "@/app/[locale]/v-next/patient/_components/FaqSection";
+import HeroLight1 from "@/components/home/HeroLight1";
+import SectionCommentCaMarche from "@/components/home/SectionCommentCaMarche";
+import SpecialtiesCarousel from "@/components/home/SpecialtiesCarousel";
+
+import AboutPatient from "@/components/home/AboutPatient";
+import MobileApp from "@/components/home/MobileApp";
+import FaqSection from "@/components/home/FaqSection";
 
 import AccessBlock from "@/components/home/AccessBlock";
 import FinalCtaSearch from "@/components/home/FinalCtaSearch";
@@ -26,6 +29,15 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
  * Le CSS v-next (`vnext-patient.css`, scopé `.vnp`) est importé par le layout
  * patient. Header (HeaderV4) et Footer sont fournis par ((patient)/layout.tsx).
  */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata({ locale, path: "/", namespace: "metadata.home" });
+}
+
 export default async function HomePage({
   params,
 }: {
@@ -97,8 +109,10 @@ export default async function HomePage({
       <div id="vnp-hero" className="v2pat__herozone">
         <div className="v2pat__herovideo" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="metadata">
-            <source src="/assets/video/hero-client-1.mp4" type="video/mp4" />
+            {/* WebM en premier : le navigateur retient la PREMIÈRE source qu'il
+                sait lire, jamais la plus légère (156 Ko contre 384 Ko ici). */}
             <source src="/assets/video/hero-client-1.webm" type="video/webm" />
+            <source src="/assets/video/hero-client-1.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="v2pat__herocontent">
@@ -114,7 +128,7 @@ export default async function HomePage({
         </div>
       </AnimatedSection>
       <AnimatedSection>
-        <SpecialtiesCarousel2 />
+        <SpecialtiesCarousel />
       </AnimatedSection>
 
       <AnimatedSection>

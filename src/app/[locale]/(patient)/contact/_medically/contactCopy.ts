@@ -60,10 +60,26 @@ export interface ContactCopy {
     errorEmailInvalid: string;
     errorSubject: string;
     errorMessage: string;
-    /** Panneau de confirmation — factuel : la maquette n'envoie rien, on le dit
-     *  et on donne l'adresse e-mail comme solution immédiate. */
+    /** Libellés de champs. Les placeholders seuls ne suffisent pas : ils
+     *  disparaissent dès la saisie et ne sont pas lus de façon fiable par les
+     *  lecteurs d'écran. Visuellement masqués, le design ne bouge pas. */
+    labelName: string;
+    labelEmail: string;
+    labelPhone: string;
+    labelSubject: string;
+    labelMessage: string;
+    /** Mention des champs obligatoires, avant le formulaire. */
+    requiredNote: string;
+    /** Panneau de confirmation, affiché après un envoi réellement parti. */
     successTitle: string;
     successText: string;
+    /** Envoi en cours, et échec côté serveur. */
+    sending: string;
+    errorSendTitle: string;
+    errorSendText: string;
+    /** Mention obligatoire sur l'usage des données, sous le formulaire. */
+    privacyNotice: string;
+    privacyLinkLabel: string;
   };
   map: {
     title: string;

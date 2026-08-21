@@ -48,7 +48,7 @@ export default function AboutContent({ locale }: { locale: string }) {
 
   return (
     <div className="pat-aurora">
-      <AboutHero locale={locale} copy={copy.hero} />
+      <AboutHero copy={copy.hero} />
       <div className="med">
         <AnimatedSection>
           <MedAbout hclass="about_section section-padding s4" copy={copy.about} />
@@ -66,7 +66,6 @@ export default function AboutContent({ locale }: { locale: string }) {
         <AnimatedSection>
           <MedAudience
             hclass="team_section_s2 section-padding"
-            locale={locale}
             title={copy.audienceTitle}
             cards={copy.audience}
           />

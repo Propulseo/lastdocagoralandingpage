@@ -185,12 +185,13 @@ export const specialtiesHeroCss = `
     position: absolute;
     top: 4px;
     left: 4px;
-    width: 54px;
+    /* Proportionnelle au nombre de segments, cf. HeroLight1. */
+    width: calc((100% - 8px) / var(--seg-n, 3));
     height: calc(100% - 8px);
     border-radius: 8px;
     background: var(--color-accent-ink);
     box-shadow: 0 6px 16px -4px rgba(var(--color-mint-rgb), 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    transform: translateX(calc(var(--seg-i, 0) * 54px));
+    transform: translateX(calc(var(--seg-i, 0) * 100%));
     transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
     z-index: 0;

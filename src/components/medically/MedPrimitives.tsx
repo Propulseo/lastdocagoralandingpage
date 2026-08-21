@@ -8,18 +8,16 @@
  * Toutes doivent etre rendues a l'interieur d'un conteneur `.med` : la feuille
  * `medically.css` est generee avec chaque selecteur prefixe par cette classe.
  */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 /** Portage de components/pagetitle/PageTitle.jsx */
 export function MedPageTitle({
   title,
   crumb,
-  locale,
   homeLabel = "Accueil",
 }: {
   title: string;
   crumb: string;
-  locale: string;
   homeLabel?: string;
 }) {
   return (
@@ -31,7 +29,7 @@ export function MedPageTitle({
               <h2>{title}</h2>
               <ul>
                 <li>
-                  <Link href={`/${locale}`}>{homeLabel}</Link>
+                  <Link href="/">{homeLabel}</Link>
                 </li>
                 <li>{crumb}</li>
               </ul>

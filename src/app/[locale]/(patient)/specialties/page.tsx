@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 
 import "@/styles/medically.css";
 import "@/styles/medically-overrides.css";
@@ -21,8 +22,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata.specialties" });
-  return { title: t("title"), description: t("description") };
+  return pageMetadata({ locale, path: "/specialties", namespace: "metadata.specialties" });
 }
 
 /**

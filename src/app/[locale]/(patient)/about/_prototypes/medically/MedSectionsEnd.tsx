@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reproduction fidele du template :
    next/image casserait les selecteurs `img` propres au theme. */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { MedSectionTitle } from "@/components/medically/MedPrimitives";
 import RevealCascade from "@/components/shared/RevealCascade";
@@ -40,7 +40,7 @@ export function MedBlog({ tClass, locale }: { tClass: string; locale: string }) 
                     <li>{post.author}</li>
                   </ul>
                   <h3>{post.title}</h3>
-                  <Link href={`/${locale}/blog/${post.slug}`} aria-label={post.title}>
+                  <Link href={`/blog/${post.slug}`} aria-label={post.title}>
                     <i className="flaticon-right-arrow"></i>
                   </Link>
                 </div>

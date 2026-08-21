@@ -55,11 +55,12 @@
     "proContactLabel": "Contacto direto",
     "proCompact": "Early access Portugal · RGPD · Alojamento em Portugal",
     "patientVerified": "Profissionais verificados",
-    "patientLanguages": "PT · FR · EN",
+    "patientLanguages": "PT · FR · EN · ES",
     "langAria": "Escolher o idioma do site",
     "patientFree": "Pesquisa gratuita",
     "patientPortugal": "Portugal",
-    "patientCompact": "Profissionais verificados · PT FR EN · Pesquisa gratuita"
+    "patientCompact": "Profissionais verificados · PT FR EN · Pesquisa gratuita",
+    "langSwitchTo": "Mudar para {lang}"
   },
   "navbar": {
     "home": "Início",
@@ -746,17 +747,11 @@
       "title": "App DocAgora: em breve",
       "subtitle": "A aplicação móvel DocAgora está a chegar. Encontre um profissional de saúde, marque consultas, receba lembretes, tudo a partir do seu telemóvel, na sua língua. Seja o primeiro a saber quando for lançada.",
       "starsLabel": "Em breve disponível no iOS e Android",
-      "downloadOn": "Descarregar na",
-      "appStoreLabel": "App Store",
-      "getItOn": "Obter no",
-      "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "Lançamento da app em breve. Inscreva-se para acesso antecipado",
       "cta": "Inscreva-se na plataforma para ser notificado no lançamento",
       "phoneSearch": "Encontrar um profissional...",
       "phoneDoc1Spec": "Cardiologista",
       "phoneDoc2Spec": "Dentista",
-      "phoneDoc3Spec": "Pediatra",
-      "comingSoon": "Em breve"
+      "phoneDoc3Spec": "Pediatra"
     }
   },
   "chatbot": {
@@ -933,10 +928,21 @@
     },
     "reassurance": {
       "aria": "Compromissos DocAgora",
-      "earlyAccess": { "label": "Acesso antecipado", "sub": "vagas limitadas" },
-      "rgpd": { "label": "Conforme o RGPD", "sub": "dados protegidos" },
-      "portugal": { "label": "Alojado em Portugal" },
-      "support": { "label": "Suporte prioritário", "sub": "acesso direto" }
+      "earlyAccess": {
+        "label": "Acesso antecipado",
+        "sub": "vagas limitadas"
+      },
+      "rgpd": {
+        "label": "Conforme o RGPD",
+        "sub": "dados protegidos"
+      },
+      "portugal": {
+        "label": "Alojado em Portugal"
+      },
+      "support": {
+        "label": "Suporte prioritário",
+        "sub": "acesso direto"
+      }
     },
     "hero": {
       "title": "A solução tudo-em-um que reinventa o seu dia a dia profissional.",
@@ -973,9 +979,15 @@
       "badgeLangs": "PT · FR · EN",
       "metricsAria": "Métricas ilustrativas",
       "metrics": {
-        "noshow": { "label": "de faltas às consultas" },
-        "hours": { "label": "ganhas por semana" },
-        "patients": { "label": "de novos pacientes" }
+        "noshow": {
+          "label": "de faltas às consultas"
+        },
+        "hours": {
+          "label": "ganhas por semana"
+        },
+        "patients": {
+          "label": "de novos pacientes"
+        }
       },
       "board": {
         "title": "Painel",
@@ -1377,6 +1389,18 @@
         {
           "title": "Os seus direitos",
           "body": "Em conformidade com o RGPD, pode a qualquer momento aceder aos seus dados, retificá-los, apagá-los ou solicitar a sua portabilidade. Para exercer estes direitos, contacte-nos."
+        },
+        {
+          "title": "Prazo de conservacao",
+          "body": "Os dados de conta sao conservados enquanto a conta estiver ativa e ate 3 anos apos o seu encerramento. Os criterios de pesquisa sao conservados 13 meses. As mensagens enviadas pelo formulario de contacto sao conservadas 3 anos apos a resposta."
+        },
+        {
+          "title": "Responsavel pela protecao de dados",
+          "body": "Para qualquer questao relativa aos seus dados pessoais ou para exercer os seus direitos, contacte hello@docagora.com."
+        },
+        {
+          "title": "Direito de reclamacao",
+          "body": "Se considerar que os seus direitos nao foram respeitados, pode apresentar uma reclamacao junto da Comissao Nacional de Protecao de Dados (CNPD), a autoridade de controlo portuguesa: cnpd.pt."
         }
       ]
     },
@@ -1408,11 +1432,11 @@
       "sections": [
         {
           "title": "Editor",
-          "body": "A plataforma DocAgora é editada pela equipa DocAgora. Para qualquer pedido, escreva-nos para hello@docagora.com."
+          "body": "A plataforma DocAgora e editada por OXIGÉNIO BOÉMIO, LDA, Sociedade por quotas, com o numero de pessoa coletiva (NIPC) 519319346, com sede em Rua do Grilo nº 14, 1º Dtº, 1950-145 Lisboa, Portugal. Representante legal: Samuel Klopp. Para qualquer pedido, escreva-nos para hello@docagora.com."
         },
         {
           "title": "Alojamento",
-          "body": "O site e os dados são alojados numa infraestrutura localizada em Portugal."
+          "body": "O site e os dados sao alojados por OVH SAS, 2 rue Kellermann, 59100 Roubaix, Franca, numa infraestrutura localizada em Portugal."
         },
         {
           "title": "Propriedade intelectual",
@@ -1440,7 +1464,7 @@
     "resultsHead": "Profissionais correspondentes (exemplos):",
     "seeAll": "Ver todos os profissionais",
     "trustVerified": "Profissionais verificados",
-    "trustLanguages": "PT · FR · EN",
+    "trustLanguages": "PT · FR · EN · ES",
     "trustFree": "Pesquisa gratuita",
     "finalPlaceholder": "Que profissional procura?",
     "emptyHint": "Indique uma especialidade ou motivo.",
@@ -1593,5 +1617,20 @@
       "lede": "Esta rota Next está pronta para iteração visual no contexto real da DocAgora.",
       "cta": "Pedir acesso"
     }
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "text": "A página que procura não existe ou foi movida. Volte ao início para continuar a sua pesquisa.",
+    "cta": "Voltar ao início"
+  },
+  "cookies": {
+    "title": "Cookies e medição de audiência",
+    "text": "Utilizamos o Google Analytics para perceber como o site é utilizado. Estes cookies só são ativados se aceitar. Recusar não altera em nada a sua utilização do site.",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "privacyLink": "Ver a política de privacidade",
+    "mapTitle": "Mapa desativado",
+    "mapText": "O mapa é fornecido pelo Google e só carrega depois de aceitar os cookies.",
+    "mapOpen": "Abrir no Google Maps"
   }
 }

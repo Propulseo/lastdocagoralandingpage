@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import RevealCascade from "@/components/shared/RevealCascade";
 
 /**
@@ -10,11 +8,11 @@ import RevealCascade from "@/components/shared/RevealCascade";
  *   3. Toujours disponible (sombre navy, 3 lignes)
  * Remplace l'ancien duo ReassuranceBand + ContactInfoBoxes.
  */
-export default function AccessBlock() {
-  const t = useTranslations("accessBlock");
+export default async function AccessBlock() {
+  const t = await getTranslations("accessBlock");
 
   return (
-    <section className="acc" aria-label={t("ariaLabel")}>
+    <section className="acc" aria-labelledby="acc-title">
       <style>{`
         .acc, .acc * { box-sizing: border-box; }
         .acc {
@@ -157,7 +155,26 @@ export default function AccessBlock() {
           .acc-card--always .acc-rows li > span:first-child { color: var(--text-muted, #6B7280); }
           .acc-val { color: var(--color-navy); }
         }
+
+        /* Titre réservé aux lecteurs d'écran */
+        .acc__sr-title {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
       `}</style>
+
+      {/* La section passait directement à des h3 : qui navigue de titre en
+          titre au lecteur d'écran voyait trois cartes sans savoir à quelle
+          section elles appartenaient. Titre masqué visuellement, le design
+          ne bouge pas. */}
+      <h2 id="acc-title" className="acc__sr-title">
+        {t("ariaLabel")}
+      </h2>
 
       <RevealCascade className="acc__inner" stepMs={85}>
         {/* Urgence */}

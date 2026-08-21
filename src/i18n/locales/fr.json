@@ -55,11 +55,12 @@
     "proContactLabel": "Contact direct",
     "proCompact": "Early access Portugal · RGPD · Hébergement Portugal",
     "patientVerified": "Professionnels vérifiés",
-    "patientLanguages": "PT · FR · EN",
+    "patientLanguages": "PT · FR · EN · ES",
     "langAria": "Choisir la langue du site",
     "patientFree": "Recherche gratuite",
     "patientPortugal": "Portugal",
-    "patientCompact": "Professionnels vérifiés · PT FR EN · Recherche gratuite"
+    "patientCompact": "Professionnels vérifiés · PT FR EN · Recherche gratuite",
+    "langSwitchTo": "Passer en {lang}"
   },
   "navbar": {
     "home": "Accueil",
@@ -291,64 +292,6 @@
     "pauseLabel": "Mettre en pause le défilement",
     "playLabel": "Reprendre le défilement"
   },
-  "notes": {
-    "text": "Votre parcours de santé commence ici.",
-    "browseSpecialties": "Voir les spécialités",
-    "stats": "16 spécialités médicales · 3 langues · Professionnels vérifiés dans tout le Portugal",
-    "createAccount": "Créer mon compte"
-  },
-  "features": {
-    "title": "Tout ce qu’il vous faut pour trouver le bon médecin, réserver et être rappelé.",
-    "desc": "DocAgora réunit recherche intelligente, professionnels vérifiés et réservation fluide sur une seule plateforme, disponible en portugais, français et anglais. Voici ce qui la rend simple.",
-    "learnMore": "En savoir plus sur DocAgora",
-    "item1": "Recherche intelligente par IA",
-    "item2": "Recherche filtrée",
-    "item3": "Carte interactive",
-    "item4": "Réservation en 3 étapes",
-    "item5": "Véritablement multilingue",
-    "item6": "Professionnels vérifiés",
-    "item7": "Avis multicritères",
-    "item8": "Rappels automatiques",
-    "bottomText": "Trouvez le bon professionnel plus rapidement. Réservez dans votre langue. Soyez rappelé automatiquement.",
-    "bottomCta": "Créer mon compte"
-  },
-  "team": {
-    "title": "Découvrez nos professionnels",
-    "desc": "DocAgora vous met en relation avec des professionnels de santé vérifiés dans tout le Portugal. Parcourez les spécialistes par compétence, langue et localisation.",
-    "readMore": "En savoir plus",
-    "members": {
-      "member1": {
-        "name": "Mike Dooley",
-        "job": "Spécialiste en cardiologie",
-        "desc": "Dooley a obtenu sa licence en ingénierie biomédicale à l’Université de Tulane avant de fréquenter l’École de médecine de l’Université de St George."
-      },
-      "member2": {
-        "name": "Dermatologists",
-        "job": "Spécialiste en cardiologie",
-        "desc": "Brian est spécialiste du traitement de la peau, des cheveux, des ongles et des muqueuses. Il traite également les problèmes esthétiques, aidant à revitaliser l’apparence de la peau."
-      },
-      "member3": {
-        "name": "Maria Andaloro",
-        "job": "Pédiatre",
-        "desc": "Andaloro a obtenu son diplôme de médecine et a effectué 3 ans d’internat en pédiatrie. Elle a réussi les examens rigoureux de l’American Board of Pediatrics."
-      },
-      "member4": {
-        "name": "Dupree Black",
-        "job": "Urologue",
-        "desc": "Black diagnostique et traite les maladies des voies urinaires chez les hommes et les femmes. Il diagnostique et traite également tout ce qui concerne l’appareil reproducteur masculin."
-      },
-      "member5": {
-        "name": "Markus skar",
-        "job": "Laboratoire",
-        "desc": "Skar joue un rôle très important dans vos soins de santé. Les professionnels de laboratoire clinique sont responsables de la réalisation d’analyses qui fournissent des informations cruciales."
-      },
-      "member6": {
-        "name": "Kiano Barker",
-        "job": "Pathologiste",
-        "desc": "Barker contribue chaque jour aux soins des patients en fournissant aux médecins les informations nécessaires pour garantir un traitement approprié."
-      }
-    }
-  },
   "howItWorks": {
     "kicker": "Comment ça marche",
     "title": "De la recherche au bon professionnel, <em>en trois temps</em>.",
@@ -451,26 +394,6 @@
     "ctaDesc": "Trouvez le bon professionnel, réservez dans votre langue et soyez rappelé automatiquement. Le tout gratuitement.",
     "ctaButton": "Créer mon compte"
   },
-  "testimonials": {
-    "title": "Ce que disent nos utilisateurs",
-    "items": {
-      "item1": {
-        "quote": "DocAgora m’a aidée à trouver un pédiatre francophone à Lisbonne en moins de 5 minutes. Un vrai changement.",
-        "name": "Sophie M.",
-        "location": "Lisbonne"
-      },
-      "item2": {
-        "quote": "J’ai pris rendez-vous chez le dentiste en 30 secondes, en anglais, sans un seul appel téléphonique.",
-        "name": "James W.",
-        "location": "Porto"
-      },
-      "item3": {
-        "quote": "En tant qu’expatrié au Portugal, trouver un médecin était un cauchemar. Ce n’est plus le cas.",
-        "name": "Lukas R.",
-        "location": "Cascais"
-      }
-    }
-  },
   "cities": {
     "title": "Disponible dans tout le Portugal",
     "desc": "Trouvez des professionnels de santé dans les principales villes portugaises.",
@@ -484,27 +407,6 @@
     ],
     "eyebrow": "Couverture",
     "cta": "Voir les professionnels"
-  },
-  "contactForm": {
-    "title": "Trouver un professionnel",
-    "desc": "Dites-nous ce que vous recherchez et nous vous aiderons à trouver le bon professionnel de santé.",
-    "name": "Nom",
-    "email": "E-mail",
-    "specialty": "Spécialité",
-    "city": "Ville",
-    "preferredLanguage": "Langue préférée",
-    "languageOptions": {
-      "pt": "Portugais",
-      "fr": "Français",
-      "en": "Anglais"
-    },
-    "submit": "Lancer ma recherche",
-    "whyTitle": "Pourquoi DocAgora ?",
-    "whyDesc": "Trouvez le bon professionnel plus rapidement. Réservez dans votre langue. Soyez rappelé automatiquement. Le tout gratuitement.",
-    "findProfessional": "Trouver un professionnel",
-    "playVideo": "Lire la vidéo",
-    "freeText": "DocAgora est gratuit pour les patients. Recherchez, comparez et réservez des professionnels de santé vérifiés dans tout le Portugal, en portugais, français ou anglais.",
-    "teamSignature": "L’équipe DocAgora"
   },
   "faqHighlights": {
     "subtitle": "Réponses rapides pour bien démarrer",
@@ -845,17 +747,11 @@
       "title": "Application DocAgora : bientôt disponible",
       "subtitle": "L’application mobile DocAgora arrive bientôt. Trouvez un professionnel de santé, prenez rendez-vous, recevez des rappels, tout depuis votre téléphone, dans votre langue. Soyez le premier informé de son lancement.",
       "starsLabel": "Bientôt disponible sur iOS et Android",
-      "downloadOn": "Télécharger sur l'",
-      "appStoreLabel": "App Store",
-      "getItOn": "Disponible sur",
-      "googlePlayLabel": "Google Play",
-      "comingSoonTooltip": "Lancement de l’application bientôt. Inscrivez-vous pour un accès anticipé",
       "cta": "Inscrivez-vous sur la plateforme pour être notifié au lancement",
       "phoneSearch": "Trouver un professionnel...",
       "phoneDoc1Spec": "Cardiologue",
       "phoneDoc2Spec": "Dentiste",
-      "phoneDoc3Spec": "Pédiatre",
-      "comingSoon": "Bientôt"
+      "phoneDoc3Spec": "Pédiatre"
     }
   },
   "chatbot": {
@@ -1032,10 +928,21 @@
     },
     "reassurance": {
       "aria": "Engagements DocAgora",
-      "earlyAccess": { "label": "Accès anticipé", "sub": "places limitées" },
-      "rgpd": { "label": "Conforme RGPD", "sub": "données protégées" },
-      "portugal": { "label": "Hébergé au Portugal" },
-      "support": { "label": "Support prioritaire", "sub": "accès direct" }
+      "earlyAccess": {
+        "label": "Accès anticipé",
+        "sub": "places limitées"
+      },
+      "rgpd": {
+        "label": "Conforme RGPD",
+        "sub": "données protégées"
+      },
+      "portugal": {
+        "label": "Hébergé au Portugal"
+      },
+      "support": {
+        "label": "Support prioritaire",
+        "sub": "accès direct"
+      }
     },
     "hero": {
       "title": "La solution tout-en-un qui réinvente votre quotidien professionnel.",
@@ -1072,9 +979,15 @@
       "badgeLangs": "PT · FR · EN",
       "metricsAria": "Métriques illustratives",
       "metrics": {
-        "noshow": { "label": "de rendez-vous manqués" },
-        "hours": { "label": "gagnées par semaine" },
-        "patients": { "label": "de nouveaux patients" }
+        "noshow": {
+          "label": "de rendez-vous manqués"
+        },
+        "hours": {
+          "label": "gagnées par semaine"
+        },
+        "patients": {
+          "label": "de nouveaux patients"
+        }
       },
       "board": {
         "title": "Tableau de bord",
@@ -1211,12 +1124,6 @@
         }
       },
       "subtitle": "Ils font confiance à DocAgora"
-    },
-    "solutions": {
-      "title": "Découvrez nos solutions pour vous",
-      "tabPractitioners": "Praticiens",
-      "tabFacilities": "Établissements de santé",
-      "facilitiesComingSoon": "Bientôt disponible. Nous travaillons sur des solutions adaptées aux établissements de santé."
     },
     "featuresGrid": {
       "pill": "Plateforme professionnelle",
@@ -1429,17 +1336,6 @@
       "card4Desc": "Nous ne devinons pas ce dont vous avez besoin. Chaque fonctionnalité est façonnée par les retours de vrais professionnels de santé au Portugal.",
       "cta": "Commencer gratuitement"
     },
-    "aboutSection": {
-      "eyebrow": "À propos de DocAgora",
-      "title": "La santé mérite de meilleurs outils, conçus par des gens qui s’impliquent",
-      "desc": "DocAgora a été fondée avec une conviction : les professionnels de santé au Portugal méritent des outils modernes, transparents et multilingues. Nous sommes une petite équipe qui construit avec soin, en étroite collaboration avec les praticiens que nous servons.",
-      "bullet1Title": "Conçu pour le Portugal",
-      "bullet1Desc": "Portugais, français, anglais. Conçu pour le contexte de santé portugais.",
-      "bullet2Title": "Indépendant",
-      "bullet2Desc": "Dirigé par son fondateur, pas par des investisseurs. Nous construisons pour les utilisateurs, pas pour les métriques.",
-      "bullet3Title": "Ouvert aux retours",
-      "bullet3Desc": "Chaque ligne de code reflète les retours de vrais professionnels de santé."
-    },
     "pricingPage": {
       "title": "Tarifs",
       "subtitle": "Nous finalisons notre modèle tarifaire pour qu’il convienne aux professionnels de santé de toutes tailles. Soyez notifié quand il sera disponible.",
@@ -1493,6 +1389,18 @@
         {
           "title": "Vos droits",
           "body": "Conformément au RGPD, vous pouvez à tout moment accéder à vos données, les rectifier, les supprimer ou en demander la portabilité. Pour exercer ces droits, contactez-nous."
+        },
+        {
+          "title": "Durée de conservation",
+          "body": "Les données de compte sont conservées tant que le compte est actif, puis jusqu'à 3 ans après sa fermeture. Les critères de recherche sont conservés 13 mois. Les messages envoyés via le formulaire de contact sont conservés 3 ans après réponse."
+        },
+        {
+          "title": "Responsable de la protection des données",
+          "body": "Pour toute question relative à vos données personnelles ou pour exercer vos droits, écrivez à hello@docagora.com."
+        },
+        {
+          "title": "Droit de réclamation",
+          "body": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la Comissão Nacional de Proteção de Dados (CNPD), l'autorité de contrôle portugaise : cnpd.pt."
         }
       ]
     },
@@ -1524,11 +1432,11 @@
       "sections": [
         {
           "title": "Éditeur",
-          "body": "La plateforme DocAgora est éditée par l’équipe DocAgora. Pour toute demande, écrivez-nous à hello@docagora.com."
+          "body": "La plateforme DocAgora est éditée par OXIGÉNIO BOÉMIO, LDA, Sociedade por quotas, immatriculée sous le numéro 519319346, dont le siège est situé Rua do Grilo nº 14, 1º Dtº, 1950-145 Lisbonne, Portugal. Représentant légal : Samuel Klopp. Pour toute demande, écrivez-nous à hello@docagora.com."
         },
         {
           "title": "Hébergement",
-          "body": "Le site et ses données sont hébergés sur une infrastructure située au Portugal."
+          "body": "Le site et les données sont hébergés par OVH SAS, 2 rue Kellermann, 59100 Roubaix, France, sur une infrastructure située au Portugal."
         },
         {
           "title": "Propriété intellectuelle",
@@ -1556,7 +1464,7 @@
     "resultsHead": "Professionnels correspondants (exemples) :",
     "seeAll": "Voir tous les professionnels",
     "trustVerified": "Professionnels vérifiés",
-    "trustLanguages": "PT · FR · EN",
+    "trustLanguages": "PT · FR · EN · ES",
     "trustFree": "Recherche gratuite",
     "finalPlaceholder": "Quel professionnel cherchez-vous ?",
     "emptyHint": "Indiquez une spécialité ou un motif.",
@@ -1709,5 +1617,20 @@
       "lede": "Cette route Next est prête pour une itération visuelle dans le vrai contexte DocAgora.",
       "cta": "Demander l’accès"
     }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "La page que vous cherchez n'existe pas ou a été déplacée. Revenez à l'accueil pour poursuivre votre recherche.",
+    "cta": "Retour à l'accueil"
+  },
+  "cookies": {
+    "title": "Cookies et mesure d'audience",
+    "text": "Nous utilisons Google Analytics pour comprendre comment le site est utilisé. Ces cookies ne sont activés que si vous acceptez. Refuser ne change rien à votre utilisation du site.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "privacyLink": "Voir la politique de confidentialité",
+    "mapTitle": "Carte désactivée",
+    "mapText": "La carte est fournie par Google et ne se charge qu'après acceptation des cookies.",
+    "mapOpen": "Ouvrir dans Google Maps"
   }
 }

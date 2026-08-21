@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Revue photos client — DocAgora</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f4f5f7; color: #1a2233; margin: 0; padding: 32px 24px 80px;
+  }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #5a6472; font-size: 14px; margin: 0 0 32px; }
+  h2 {
+    font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #5a6472; margin: 40px 0 14px; border-bottom: 1px solid #d8dce2;
+    padding-bottom: 8px;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: #fff; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb;
+  }
+  .card img { display: block; width: 100%; height: 200px; object-fit: cover; }
+  .card-body { padding: 10px 12px 12px; }
+  .hash { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #8a93a0; }
+  .used { font-size: 13px; font-weight: 600; margin: 4px 0 2px; color: #1a2233; }
+  .desc { font-size: 12.5px; color: #5a6472; line-height: 1.4; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.03em; padding: 2px 7px;
+    border-radius: 6px; margin-bottom: 6px;
+  }
+  .badge--patient { background: #dbeafe; color: #1d4ed8; }
+  .badge--blog { background: #dcfce7; color: #15803d; }
+  .badge--reserve { background: #f1f2f4; color: #6b7280; }
+</style>
+</head>
+<body>
+  <h1>Revue des 20 photos client</h1>
+  <p class="sub">Emplacement actuel de chaque photo sur le site. Renvoie-moi les changements par hash (les 8 premiers caractères, ex. <code>b420e7e9</code>).</p>
+
+  <h2>Patient — 9 emplacements appliqués</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-b420e7e9-8142-41b6-ae2f-eb8b65ee7459.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">b420e7e9</div>
+        <div class="used">Accueil — « Trouvez votre médecin »</div>
+        <div class="desc">Généraliste + tension artérielle</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-e86aa298-f708-41ab-9a66-e7fc11306a4c.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">e86aa298</div>
+        <div class="used">/about — hero</div>
+        <div class="desc">Médecin qui rédige une ordonnance</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-b0d6cab1-c167-4986-ae8e-b17ad1da0795.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">b0d6cab1</div>
+        <div class="used">/about — étape « Cherchez »</div>
+        <div class="desc">Homme, laptop, salon</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-d3733e8a-fe69-4925-8065-75355ad747c2.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">d3733e8a</div>
+        <div class="used">/about — étape « Comparez »</div>
+        <div class="desc">Femme, laptop, cuisine</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-bb4ae54c-83a1-4f18-be69-787025d6dfbf.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">bb4ae54c</div>
+        <div class="used">/about — étape « Réservez »</div>
+        <div class="desc">Homme, canapé, laptop</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-dd3badce-0587-421b-9402-85ab2f9ee8bb.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">dd3badce</div>
+        <div class="used">/about — étape « Venez au RDV »</div>
+        <div class="desc">Consultation, patient souriant</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-124ecce0-307e-4bd4-bf4b-8a24ade74635.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">124ecce0</div>
+        <div class="used">/about — persona « Résidents »</div>
+        <div class="desc">Couple senior, jardin/terrasse</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-f53a8f6e-e6e6-419c-82b1-f541306c5a26.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">f53a8f6e</div>
+        <div class="used">/about — persona « Expatriés »</div>
+        <div class="desc">Femme, terrasse café, Lisbonne</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-edfaa96a-4276-488a-b6bc-183e0cf168ff.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--patient">Patient</span>
+        <div class="hash">edfaa96a</div>
+        <div class="used">/about — persona « Voyageurs »</div>
+        <div class="desc">Réceptionniste, accueil, sac à dos</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Blog — 3 emplacements appliqués</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-499bd640-87be-49d7-88ef-0b44484d2c29.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--blog">Blog</span>
+        <div class="hash">499bd640</div>
+        <div class="used">Article « Trouver un médecin quand on vient d'arriver »</div>
+        <div class="desc">Accueil / réception</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-47889e68-bdf4-4e85-8848-837e4bca9a84.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--blog">Blog</span>
+        <div class="hash">47889e68</div>
+        <div class="used">Article « Consulter dans sa langue »</div>
+        <div class="desc">Médecin/patient, échange au bureau</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-fb254101-a64a-4dda-90f3-8f72506840fb.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--blog">Blog</span>
+        <div class="hash">fb254101</div>
+        <div class="used">Article « Préparer sa première consultation »</div>
+        <div class="desc">Échange posé, écoute (salon cosy)</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Réserve — 8 non assignées</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-86357cfc-c8c4-4d23-bd93-0c867f1f9807.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">86357cfc</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Dentiste (femme) montre un moulage dentaire à une patiente</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-b3c3feff-e8c2-4985-a7dc-ff5e996b70af.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">b3c3feff</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Dermatologue examine un grain de beauté (dermatoscope)</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-f959b620-9fe7-41af-928b-f4fbe1c550e6.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">f959b620</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Dentiste (homme) montre un moulage dentaire à une patiente</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-fcff9a32-9366-4bfc-a3c5-dfb574a0120a.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">fcff9a32</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Kinésithérapeute manipule l'épaule d'une patiente</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-00c23449-e68c-48b2-9985-178c3766c98c.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">00c23449</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Gynécologue montre un modèle anatomique à une patiente</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-6a5b49b4-6b1c-4fd1-a3a0-3ad6e1e5c9d2.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">6a5b49b4</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Ostéopathe/kiné manipule le dos d'un patient allongé</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-5676e9a7-69a2-4963-b9ed-add2dbf69d66.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">5676e9a7</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Pédiatre ausculte un enfant, mère à côté</div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/client-photos/letzai-ddbcf127-c8a3-4939-b613-f4545887b30f.png" alt="">
+      <div class="card-body">
+        <span class="badge badge--reserve">Réserve</span>
+        <div class="hash">ddbcf127</div>
+        <div class="used">Non assignée</div>
+        <div class="desc">Couple senior, terrasse méditerranéenne (variante)</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

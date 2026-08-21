@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 import ProBackdrop from "@/app/[locale]/pro/_ui/ProBackdrop";
 import AboutHeroPro from "./_components/AboutHeroPro";
 import AboutSteps from "./_components/AboutSteps";
@@ -16,6 +18,18 @@ import { aboutSharedCss } from "./_components/aboutShared.styles";
    Canvas dark autonome (préfixe pa2-) ; header/footer pro
    fournis par le layout (ProChrome). Textes : aboutCopy.ts (PT/FR/EN).
    ============================================================ */
+
+/* Sans ce bloc, la page héritait du titre générique de /pro : les trois pages
+   pro affichaient le même <title> et la même description, ce que Google lit
+   comme du contenu dupliqué. Les traductions dédiées existaient déjà. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMetadata({ locale, path: "/pro/about", namespace: "metadata.proAbout" });
+}
 
 export default async function ProAboutPage({
   params,

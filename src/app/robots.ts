@@ -1,31 +1,19 @@
 import type { MetadataRoute } from "next";
 
+import { SITE_URL } from "@/lib/site";
+
 /**
- * Les routes de TRAVAIL (maquettes, variantes, previews) sont construites par
- * le build et donc accessibles publiquement. Elles n'ont rien à faire dans un
- * index de recherche : un visiteur qui tomberait dessus verrait une direction
- * abandonnée en croyant voir le produit.
+ * Les anciennes routes de travail (v2, v-next, variants, preview-fills,
+ * about-visual-preview, pro-header-preview) ont été supprimées du projet :
+ * il n'y a plus rien à bloquer, toutes les pages construites sont des pages
+ * de production destinées à être vues.
  *
- * On bloque l'exploration plutôt que de supprimer les routes : elles servent
- * encore de référence interne, et une suppression se déciderait à part.
- *
- * Chaque motif est doublé (`/x` et l'ancre locale) parce que le portugais est
- * servi SANS préfixe (`/variants`) alors que FR et EN en portent un
- * (`/fr/variants`).
+ * Si de nouvelles pages de travail apparaissent un jour, il faudra les
+ * exclure ici à la main — ce n'est pas automatique.
  */
-const WORK_ROUTES = [
-  "variants",
-  "v2",
-  "v-next",
-  "preview-fills",
-  "about-visual-preview",
-  "pro-header-preview",
-];
-
 export default function robots(): MetadataRoute.Robots {
-  const disallow = WORK_ROUTES.flatMap((r) => [`/${r}`, `/*/${r}`]);
-
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow }],
+    rules: [{ userAgent: "*", allow: "/" }],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

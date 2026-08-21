@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reproduction fidele du template :
    next/image casserait les selecteurs `img` propres au theme. */
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import MedCountUp from "@/components/medically/MedCountUp";
 import { MedSectionTitle } from "@/components/medically/MedPrimitives";
@@ -54,12 +54,10 @@ export function MedFunFact({
  */
 export function MedAudience({
   hclass,
-  locale,
   title,
   cards,
 }: {
   hclass: string;
-  locale: string;
   title: MedicallyCopy["audienceTitle"];
   cards: MedicallyCopy["audience"];
 }) {
@@ -87,7 +85,7 @@ export function MedAudience({
                 </div>
                 <div className="content">
                   <h3>
-                    <Link href={`/${locale}/specialties`}>{card.title}</Link>
+                    <Link href={"/specialties"}>{card.title}</Link>
                   </h3>
                   <span>{card.subtitle}</span>
                 </div>

@@ -37,11 +37,11 @@ export const MEDICALLY_COPY_FR: MedicallyCopy = {
     title: "Trouver le bon praticien sans y passer la journée",
     paragraphs: [
       "DocAgora met en relation les patients — résidents, expatriés et voyageurs — avec des professionnels de santé vérifiés partout au Portugal. Vous cherchez par spécialité, par ville ou par langue parlée, vous voyez les disponibilités réelles, et vous réservez en ligne.",
-      "Pas d'appel, pas d'attente d'un rappel. La recherche et la réservation sont gratuites pour les patients, et l'interface existe en portugais, en français et en anglais.",
+      "Pas d'appel, pas d'attente d'un rappel. La recherche et la réservation sont gratuites pour les patients. Et vous filtrez les praticiens sur la langue qu'ils parlent en consultation : portugais, français, anglais ou espagnol.",
     ],
-    badgeValue: 3,
+    badgeValue: 16,
     badgeSuffix: "",
-    badgeLabel: "Langues disponibles",
+    badgeLabel: "Spécialités couvertes",
     avatars: [
       "/medically/images/doctors/1.jpg",
       "/medically/images/doctors/4.jpg",
@@ -62,25 +62,25 @@ export const MEDICALLY_COPY_FR: MedicallyCopy = {
   process: [
     {
       number: "01",
-      image: "/medically/images/work/1.jpg",
+      image: "/assets/images/client-photos/letzai-b0d6cab1-c167-4986-ae8e-b17ad1da0795.png",
       title: "Cherchez",
       text: "Par spécialité, par ville ou par langue parlée. Les résultats montrent qui exerce près de chez vous.",
     },
     {
       number: "02",
-      image: "/medically/images/work/2.jpg",
+      image: "/assets/images/client-photos/letzai-d3733e8a-fe69-4925-8065-75355ad747c2.png",
       title: "Comparez",
       text: "Chaque praticien est examiné et approuvé avant sa mise en ligne. Vous savez à qui vous vous adressez.",
     },
     {
       number: "03",
-      image: "/medically/images/work/3.jpg",
+      image: "/assets/images/client-photos/letzai-bb4ae54c-83a1-4f18-be69-787025d6dfbf.png",
       title: "Réservez",
       text: "Vous choisissez un créneau réellement libre et vous confirmez en ligne, à toute heure.",
     },
     {
       number: "04",
-      image: "/medically/images/work/4.jpg",
+      image: "/assets/images/client-photos/letzai-dd3badce-0587-421b-9402-85ab2f9ee8bb.png",
       title: "Venez au rendez-vous",
       text: "Un rappel automatique vous est envoyé avant l'heure. Vous n'avez rien à retenir.",
     },
@@ -88,7 +88,7 @@ export const MEDICALLY_COPY_FR: MedicallyCopy = {
 
   facts: [
     { icon: "flaticon-doctor", count: 100, suffix: " %", label: "Praticiens vérifiés" },
-    { icon: "flaticon-businesswoman", count: 3, label: "Langues : PT, FR, EN" },
+    { icon: "flaticon-businesswoman", count: 4, label: "Langues parlées : PT, FR, EN, ES" },
     { icon: "flaticon-award", count: 0, suffix: " €", label: "Pour les patients" },
     { icon: "flaticon-customer-care", text: "24/7", label: "Réservation en ligne" },
   ],
@@ -101,19 +101,19 @@ export const MEDICALLY_COPY_FR: MedicallyCopy = {
   audience: [
     {
       id: "residents",
-      image: "/medically/images/team/1.png",
+      image: "/assets/images/client-photos/letzai-124ecce0-307e-4bd4-bf4b-8a24ade74635.png",
       title: "Vous vivez au Portugal",
       subtitle: "Résidents",
     },
     {
       id: "expatries",
-      image: "/medically/images/team/2.png",
+      image: "/assets/images/client-photos/letzai-f53a8f6e-e6e6-419c-82b1-f541306c5a26.png",
       title: "Vous venez de vous installer",
       subtitle: "Expatriés",
     },
     {
       id: "voyageurs",
-      image: "/medically/images/team/3.png",
+      image: "/assets/images/client-photos/letzai-edfaa96a-4276-488a-b6bc-183e0cf168ff.png",
       title: "Vous êtes de passage",
       subtitle: "Voyageurs",
     },

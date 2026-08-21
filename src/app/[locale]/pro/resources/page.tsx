@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/page-metadata";
 import ProBackdrop from "@/app/[locale]/pro/_ui/ProBackdrop";
 import ResourcesExplorer from "./_components/ResourcesExplorer";
 import ResourcesThemes from "./_components/ResourcesThemes";
@@ -21,14 +21,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({
-    locale,
-    namespace: "metadata.proResources",
-  });
-  return {
-    title: t("title"),
-    description: t("description"),
-  };
+  return pageMetadata({ locale, path: "/pro/resources", namespace: "metadata.proResources" });
 }
 
 export default async function ResourcesPage({
