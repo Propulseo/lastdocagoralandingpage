@@ -46,6 +46,17 @@ export default function LanguageSwitcher() {
     setOpen(false);
   }
 
+  /* Le proxy i18n ne passe que sur les chargements complets de page : sans
+     cette synchro, le cookie garde l'ancienne langue après un changement via
+     le menu et un simple F5 ramène le visiteur en arrière (localePrefix
+     "as-needed"). L'effet couvre aussi le montage, si le cookie a dérivé. */
+  useEffect(() => {
+    const match = document.cookie.match(/(?:^|; )NEXT_LOCALE=([^;]*)/);
+    if (match?.[1] !== currentLocale) {
+      document.cookie = `NEXT_LOCALE=${currentLocale}; path=/; max-age=31536000; samesite=lax`;
+    }
+  }, [currentLocale]);
+
   /* Au doigt il n'existe pas d'équivalent du « mouseleave » : sans ça, un
      menu ouvert par un appui ne se refermerait jamais. */
   useEffect(() => {

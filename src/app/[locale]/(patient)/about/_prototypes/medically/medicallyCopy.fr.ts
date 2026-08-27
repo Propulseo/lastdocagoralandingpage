@@ -88,7 +88,7 @@ export const MEDICALLY_COPY_FR: MedicallyCopy = {
 
   facts: [
     { icon: "flaticon-doctor", count: 100, suffix: " %", label: "Praticiens vérifiés" },
-    { icon: "flaticon-businesswoman", count: 4, label: "Langues parlées : PT, FR, EN, ES" },
+    { icon: "flaticon-deadline", count: 4, label: "Étapes jusqu'à votre rendez-vous" },
     { icon: "flaticon-award", count: 0, suffix: " €", label: "Pour les patients" },
     { icon: "flaticon-customer-care", text: "24/7", label: "Réservation en ligne" },
   ],

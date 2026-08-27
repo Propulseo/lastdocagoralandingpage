@@ -12,8 +12,8 @@ import type { MedicallyCopy } from "@/app/[locale]/(patient)/about/_prototypes/m
  *
  * Meme bloc, meme mise en page, mais les quatre chiffres du template
  * (250 medecins, 3020 clients, 25 recompenses) sont remplaces par des faits
- * verifiables : praticiens tous verifies, trois langues, gratuite patient,
- * reservation ouverte en permanence.
+ * verifiables : praticiens tous verifies, quatre etapes de reservation,
+ * gratuite patient, reservation ouverte en permanence.
  */
 export function MedFunFact({
   hclass,

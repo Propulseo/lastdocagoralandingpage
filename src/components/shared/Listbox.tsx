@@ -116,10 +116,21 @@ export default function Listbox({
     <div className={`lbx lbx--${tone}${className ? ` ${className}` : ""}`} ref={wrapRef}>
       <style>{`
         .lbx { position: relative; }
+        /* display:flex plutôt que le défaut inline-block : sinon le bouton
+           s'assied sur la ligne de base et son cadre se décale de ~4px vers
+           le haut par rapport aux contrôles voisins (retour client : cadre
+           « Ville » désaligné du sélecteur de langue). */
         .lbx__btn {
           width: 100%; padding: 0 40px 0 14px;
+          display: flex; align-items: center;
           font-family: inherit; text-align: left; cursor: pointer; position: relative;
           transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+        /* Le libellé reste sur une ligne : sans ça, une valeur longue
+           (« Toutes les villes ») passait à la ligne et débordait hors du
+           cadre à hauteur fixe. */
+        .lbx__label {
+          min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
         }
         .lbx__btn:disabled { cursor: not-allowed; opacity: 0.6; }
         .lbx__btn:focus-visible { outline: 2px solid #1E6E68; outline-offset: 2px; }
@@ -198,7 +209,7 @@ export default function Listbox({
         onClick={() => (open ? setOpen(false) : openAt(selectedIndex))}
         onKeyDown={onButtonKeyDown}
       >
-        {options[selectedIndex]?.label}
+        <span className="lbx__label">{options[selectedIndex]?.label}</span>
         <svg className="lbx__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M6 9l6 6 6-6" />
         </svg>

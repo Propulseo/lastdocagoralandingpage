@@ -387,6 +387,14 @@
     hue-rotate(var(--med-duo-hue)) saturate(var(--med-duo-sat)) contrast(1.04);
 }
 
+/* La photo About est une photo pleine, pas la découpe du template Medically :
+   le mix-blend-mode « screen » du thème faisait transparaître les cercles
+   décoratifs (.round-on / .round-two) à travers ses zones sombres. Rendue
+   opaque, elle reste un rectangle net et les cercles l'encadrent seulement. */
+.med .about_left .image > img {
+  mix-blend-mode: normal;
+}
+
 /* ── /about — parcours vivant (« Comment ça marche ») ────────────────────────
    Le filet se trace quand la section entre dans le viewport, les quatre jalons
    s'allument l'un après l'autre, et chaque carte reçoit au même rythme un bref

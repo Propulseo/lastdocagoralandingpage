@@ -94,7 +94,7 @@ export const MEDICALLY_COPY_PT: MedicallyCopy = {
 
   facts: [
     { icon: "flaticon-doctor", count: 100, suffix: " %", label: "Profissionais verificados" },
-    { icon: "flaticon-businesswoman", count: 4, label: "Idiomas falados: PT, FR, EN, ES" },
+    { icon: "flaticon-deadline", count: 4, label: "Passos até à sua consulta" },
     { icon: "flaticon-award", count: 0, suffix: " €", label: "Para os utentes" },
     { icon: "flaticon-customer-care", text: "24/7", label: "Marcação online" },
   ],

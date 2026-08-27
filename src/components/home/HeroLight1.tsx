@@ -373,14 +373,19 @@ export default function HeroLight1() {
           margin-bottom: 0;
           padding: 0;
         }
-        /* Grille 2 rangées : labels alignés sur la 1re ligne, contrôles sur la
-           2de. L'alignement ne dépend plus de la hauteur de chaque contrôle. */
+        /* Grille : labels sur la 1re rangée, contrôles sur la 2de (l'alignement
+           ne dépend plus de la hauteur de chaque contrôle), bouton sur la 3e.
+           La console ne fait qu'une demi-colonne (~575px max) : ville + 4
+           langues + bouton sur UNE ligne écrasaient la ville à ~140px, d'où
+           le libellé qui débordait de son cadre. Le bouton passe donc en
+           pleine largeur dessous, la ville récupère la place. */
         .vphl1-search__row {
           display: grid;
-          grid-template-columns: minmax(0, 1.2fr) auto auto;
+          grid-template-columns: minmax(0, 1fr) auto;
           grid-template-areas:
-            "lc ll ."
-            "sc sl sb";
+            "lc ll"
+            "sc sl"
+            "sb sb";
           gap: 12px 14px;
           align-items: end;
           /* Passe au-dessus de la ligne de confiance qui suit : sans ce
@@ -396,7 +401,7 @@ export default function HeroLight1() {
         .vphl1-ga-ll { grid-area: ll; margin-bottom: 0; }
         .vphl1-ga-sc { grid-area: sc; }
         .vphl1-ga-sl { grid-area: sl; }
-        .vphl1-ga-sb { grid-area: sb; }
+        .vphl1-ga-sb { grid-area: sb; width: 100%; margin-top: 4px; }
         .vphl1-seg {
           position: relative;
           display: flex;
@@ -430,7 +435,9 @@ export default function HeroLight1() {
         .vphl1-seg__btn {
           position: relative;
           z-index: 1;
-          width: 54px;
+          /* 48px : les codes langue font 2 lettres, et depuis l'ajout de l'ES
+             chaque pixel repris ici va à la colonne « Ville » voisine. */
+          width: 48px;
           padding: 0;
           border: 0;
           border-radius: 8px;
@@ -651,7 +658,6 @@ export default function HeroLight1() {
             grid-template-columns: minmax(0, 1fr);
             grid-template-areas: "lc" "sc" "ll" "sl" "sb";
           }
-          .vphl1-search__cta { width: 100%; }
           .vphl1-seg { width: 100%; justify-content: space-between; }
           .vphl1-seg__btn { flex: 1; }
         }

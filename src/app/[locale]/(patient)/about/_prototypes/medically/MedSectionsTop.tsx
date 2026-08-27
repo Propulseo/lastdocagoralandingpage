@@ -27,9 +27,9 @@ export function MedAbout({
                 <div className="award">
                   <div className="icon">
                     {/* Le gabarit posait ici un trophee, qui ne veut rien dire
-                        pour des langues parlees. Icone « langue » de
-                        FontAwesome, deja chargee sur tout le site. */}
-                    <i className="fas fa-language" aria-hidden="true"></i>
+                        pour des specialites couvertes. Stethoscope (FontAwesome,
+                        deja charge sur tout le site), lisible comme « medical ». */}
+                    <i className="fas fa-stethoscope" aria-hidden="true"></i>
                   </div>
                   <div className="text">
                     <h2>
